@@ -1,0 +1,143 @@
+h1{
+	font-size:200%;
+}
+h2{
+	font-size:150%;
+}
+input{
+	border-radius:4px;
+}
+.roleList{
+	width:100%;
+	border:1px solid #000;
+	min-width:300px;
+}
+.roleList caption{
+	padding:0 5px;
+	border:1px solid #000;
+	margin-bottom:-1px;
+	position:relative;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+}
+.roleList caption input{
+	position:absolute;
+	right:5px;
+	margin:5px;
+	height:30px;
+	width:100px;
+	border:1px solid #43e636;
+	background:#43e636;
+	border-radius:4px;
+	color:#fff;
+	letter-spacing:5px;
+
+}
+.roleList thead th,.roleList tbody td{
+	padding:5px;
+	border:1px solid #000;
+	text-align:center;
+}
+.roleList tbody td input{
+	padding:0 5px 0 9px;
+	border-radius:2px;
+	color:#fff;
+	letter-spacing:4px;
+}
+.roleList  .editButton{
+	border:1px solid #ec7e7e;
+	background:#ec7e7e;
+}
+
+/*admin_alert*/
+
+.admin_alert{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:99;
+	display:none;
+}
+.admin_alert::before{
+	content:'';
+	display:block;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.6;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+}
+.admin_alert_box{
+	width:80%;
+	margin:0 auto;
+	margin-top:5%;
+	background:#fff;
+	border-radius:4px;
+	min-height:500px;
+	padding:5px;
+	position:relative;
+	overflow:hidden;
+}
+.admin_alert_box h2{
+	text-align:center;
+	margin-bottom:10px;
+}
+.admin_alert_box li,.admin_groupName{
+	width:80%;
+	margin:0 auto;
+}
+.admin_alert_box li label{
+	margin-left:5px;
+}
+.admin_alert_box ul{
+	/*margin-left:30px;*/
+}
+.admin_alert_box>li>label{
+	font-size:120%;
+}
+
+
+.admin_close{
+	position:absolute;
+	right:5px;
+	top:5px;
+	display:block;
+	width:20px;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+	font-size:16px;
+	font-weight:bold;
+}
+.alert_submit{
+	position:absolute;
+	bottom:5px;
+	width:98%;
+	left:0;
+	padding:0 10px;
+}
+.alert_submit input{
+	padding: 5px;
+	border-radius: 4px;
+	color:#fff;
+	letter-spacing:5px;
+}
+.alert_submit input[type="submit"]{
+	border: 1px solid #ec7e7e;
+	background:#ec7e7e;
+	float:right;
+}
+
+.admin_groupName{
+	margin-bottom:10px;
+}
+.admin_groupName label{
+	margin-bottom:0;
+	margin-right:10px;
+}

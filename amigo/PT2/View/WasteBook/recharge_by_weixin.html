@@ -1,0 +1,111 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+   .dl_recharge{
+    width:94%;
+   }
+  .dl_recharge .kb_btn{
+    height:44px;
+    line-height: 32px;
+   }
+   .dl_wasteBook{
+    line-height:40px;
+  }
+</style>
+</block>
+<block name="title">
+  钱包
+</block>
+<block name="leftNav">
+  <if condition="$_GET['companyName'] AND $_GET['tem']" >
+    <a href="{{:U('WasteBook/myWallet')}}?companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}" class="icon-back w"></a>
+  <else />
+    <a href="{{:U('WasteBook/myWallet')}}" class="icon-back w"></a>
+  </if>
+</block>
+<block name="rightNav">
+  <a href="{{:U('WasteBook/myWasteBook')}}?companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}" class="kb_btn f15 dl_wasteBook">明细</a>
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc  kb_notFooter tg_myself main_bg">
+      <article class="kb_cell f14">
+        <p class="kb_cell-hd">
+          <label class="kb_label">充值方式</label>
+        </p>
+        <p class="kb_cell-bd tr">
+          <b>微信支付</b>
+        </p>
+        
+      </article>
+      <article class="kb_cell pay f14">
+        <p class="kb_cell-hd">
+          <label class="kb_label">密条</label>
+        </p>
+        <p class="kb_cell-bd">
+          <input type="number" placeholder="输入数量" class="kb_input tr  w" />
+        </p>
+      </article>
+      <p class="dl_recharge bc mt100">
+        <button class="kb_btn kb_btn-main w f18" id="weixin">购买</button>
+      </p>
+  </section>
+
+<script>
+    $('#weixin').on('click',function(){
+      var $this = $(this),
+          remark=new Array();
+          remark.push($('input[name="visitor_remark[]"]').val());
+
+      $.get("{{:U('ajaxControl')}}",{flag:'createAdvance',recharge_total:$('.pay .kb_input').val()},function (result) {
+        console.log(result);
+          if(!result){
+            alert('生成订单失败');
+          }else{
+            showPay(result);
+          }
+      })
+    });
+
+    function onBridgeReady(info){
+      var data = JSON.parse(info);
+      console.log(data);
+      WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',{
+          "appId":data.appId,
+          "timeStamp":data.timeStamp,
+          "nonceStr":data.nonceStr,
+          "package":data.package,
+          "signType":data.signType,
+          "paySign":data.paySign
+        },
+        function(res){     
+            if(res.err_msg == "get_brand_wcpay_request:ok" ) {// 支付成功走这
+              WeixinJSBridge.log(res.err_msg);
+              window.location.href='http://{{$_SERVER["HTTP_HOST"]}}{{:U("WasteBook/myWallet")}}?companyName={{:I("get.companyName")}}&tem={{:I("get.tem")}}';
+            }else{
+              // alert(1);
+              window.location.reload();
+            }
+
+            // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。 
+        }
+       ); 
+    }
+
+    function showPay(pay){
+      if (typeof WeixinJSBridge == "undefined"){
+         if( document.addEventListener ){
+             document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+         }else if (document.attachEvent){
+             document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+             document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+         }
+      }else{
+        // console.log(pay)
+          onBridgeReady(pay);
+      }
+    }
+</script>
+</block>
+<block name="js_files">
+</block>

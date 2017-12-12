@@ -1,0 +1,193 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+	<style>
+		.bsReservationList li{
+			position:relative;
+		}
+	</style>
+
+</block>
+
+<php>
+	//echo('<pre>');
+	//var_dump($list);exit;
+</php>
+<block name="bsTitle">
+	收藏列表
+</block>
+<block name="leftNav">
+<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+</a>
+</block>
+
+<block name="content" >
+	<section id="bsMain" class="noFooter bsMyCollect">
+		<header class="bsClassNav  swiper-container">
+			<nav class="bsClassHref swiper-wrapper">
+				<a class="swiper-slide {{$_GET['show'] == 1?'selected':''}}" href="{{:U('myCollect', ['companyName' => $_GET['companyName'], 'show' => 1])}}">商品</a>
+				<a class="swiper-slide {{$_GET['show'] == 2?'selected':''}}" href="{{:U('myCollect', ['companyName' => $_GET['companyName'], 'show' => 2])}}">设计师</a>
+			</nav>
+		</header>
+		<p class="bsSeparate"></p>
+		<ul class=" noSelect bsReservationList  bc mb10 mt10">
+		<switch name="_GET.show" >
+			<case value="1" >
+				<volist name="list" id="v" empty="你还没收藏商品哦" >
+					<li>
+						<p class="choose chooseGoods roundChoose">
+							<input type="checkbox" value="" />
+							<label class=""></label>
+						</p>
+						<p class="reservationListImg">
+							<a href="{{:U('Goods/goodsDetail', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}"> 
+							<img src="__PUBLIC__{{$v['goods_logo']}}" alt="" />
+							</a>
+						</p>
+						<article class="reservationListInfo">
+							<h3 class="mb10">{{$v.goods_name}}</h3>
+							<p class="mb10 c666">销量：{{$v.salesTotal}}</p>
+							<article>
+								<em class="c999">￥{{$v.price}}</em>
+							
+							</article>
+						</article>
+						<p class="adminAddress" style="width:0;display:none" >
+							<span class="addressCover" ></span>
+							<input class="delAddress shopInfo" data-ID="{{$v['id']}}" type="button" value="删除" />
+						</p>
+					</li>
+				</volist>
+			</case>
+			<case value="2" >
+				<volist name="list" id="v" empty="你还没收藏技师哦" >
+					<li>
+						<p class="choose chooseGoods roundChoose">
+							<input type="checkbox" value="" />
+							<label class=""></label>
+						</p>
+						<p class="reservationListImg">
+							<a href="{{:U('Staff/staffInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+							<img src="__PUBLIC__{{$v['staff_logo']}}" alt="" />
+							</a>
+						</p>
+						<article class="reservationListInfo">
+							<h3 class="mb10">{{$v.store_nickname}}</h3>
+							<p class="mb10 c666">{{$v.professional_title}}</p>
+							<article>
+								<em class="c999">销量：{{$v.service_total}}</em>
+							</article>
+						</article>
+						<p class="adminAddress " style="width:0;display:none" >
+							<span class="addressCover" ></span>
+							<input class="delAddress staffInfo" data-ID="{{$v['id']}}" type="button" value="删除" />
+						</p>
+					</li>
+				</volist>
+			</case>
+		</switch>
+		</ul>
+	</section>
+</block>
+<block name="footer">
+	<footer id="bsFooter" class="defaultFooter bsFooter ">
+		<p>
+			<span class="choose  roundChoose chooseAll">
+				<input type="checkbox" value="" />
+				<label></label>
+			</span>
+				<b>全选</b>
+		</p>
+		<p>
+			
+			
+		</p>
+		<p>
+			<a class="delShop" href="javascript:;">删除</a>
+		</p>
+		
+	</footer>
+
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script>
+		$(function(){
+			/* $('.chooseAll input').on('click',function(){
+				var $this=$(this),
+					status=$this.prop('checked');
+					$('.bsReservationList .chooseGoods input').prop("checked",status);
+			})
+			$('.writerBtn').prev().on('click',function(){
+				var $this=$(this),
+					status=$this.prop("checked"),
+					widthText=(status)? "完成":"编辑";
+					$this.next().text(widthText);
+					if(status){
+						$('.bsMyCollect .bsReservationList').removeClass('noSelect');
+						$('.bsMyCollect').removeClass('noFooter');
+					}else{
+						$('.bsMyCollect .bsReservationList').addClass('noSelect');
+						$('.bsMyCollect').addClass('noFooter');
+					}
+					$('.delShop').on('click',function(){
+						$('.bsReservationList .chooseGoods input:checked').parents('li').remove();
+					})
+
+			}); */
+			(function(){
+				var receiptShopAddr= document.getElementsByClassName('reservationListInfo');
+					// collect=
+				Object.keys(receiptShopAddr).map(function(elem,indexs,arr){
+					receiptShopAddr[elem].addEventListener('touchmove',function(){
+						$(this).siblings('.adminAddress').fadeIn().attr('style','');
+						$(this).siblings('.adminAddress').show();
+						$('.addressCover').on('click',function(event){
+							event.stopPropagation();
+							var $this=$(this);
+							$this.parent().fadeOut().css("width",0);
+						})
+					})
+				})
+				$('.shopInfo').on('click',function(){
+					var $this=$(this),
+						status=2,
+						goods_id=$this.attr('data-ID');
+					$.get('{{:U("Goods/ajaxControl")}}',{
+						flag:'collectGoods',
+						goods_id:goods_id,
+						companyName:"{{$_GET['companyName']}}",
+						status:status
+					},function(res){
+						if(res){
+							sTip('操作成功');
+							$this.parents('li').remove();
+						}else{
+							eTip('操作失败');
+						}
+						console.log(res);
+					})				
+
+				})
+				$('.staffInfo').on('click',function(){
+					var $this=$(this),
+					status=2,
+					staff_id=$this.attr('data-ID');
+					$.get('{{:U("Staff/ajaxControl")}}',{
+						flag:'collectStaff',
+						staff_id:staff_id,
+						companyName:"{{$_GET['companyName']}}",
+						status:status
+					},function(res){
+						if(res){
+							sTip('操作成功');
+							$this.parents('li').remove();
+						}else{
+							eTip('操作失败');
+						}
+						console.log(res);
+					})					
+
+				})
+			})();
+		})
+	</script>
+</block>

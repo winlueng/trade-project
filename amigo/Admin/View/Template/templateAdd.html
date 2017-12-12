@@ -1,0 +1,159 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/coupon/coupon.css">
+	<script>
+		 $(function(){ 
+            $('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+                if ( typeof(FileReader) === 'undefined' ){ 
+                    alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+                    this.setAttribute( 'disabled','disabled' ); 
+                } else { 
+                    readFile(this,this.files[0]);
+                } 
+            })
+        });
+	</script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponAdClass_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div class="kbVipAdmin_tableHead">
+					<p class="authAddBtn">
+						<input class=" adminFont kbVipAdmin_btn w100 h50 addCouponAreaList"  type="button" value="添加模版" />
+					</p>
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>模版名称</th>
+							<th>模版路径</th>
+							<th>模版封面</th>
+							<!-- <th>状态</th> -->
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="templateList" item="v">
+						<tr>
+							<td class="couponAreaListId">{{$v.id}}</td>
+							<td>{{$v.template_name}}</td>
+							<td>{{$v.template_path}}</td>
+							<td><img src="__PUBLIC__{{$v.template_logo}}" width="100"></td>
+							<!-- <td class="microWebMenuAdmin">
+								<input id="microWebEnabled{{$v.id}}"  name="microWebMenuAdmin" type="radio" checked="checked" value="show" />
+								<label for="microWebEnabled{{$v.id}}"><i></i><b>启用</b></label>
+								<input id="microWebDisabled{{$v.id}}"  name="microWebMenuAdmin" type="radio" value="change" />
+								<label for="microWebDisabled{{$v.id}}"><i></i><b>禁用</b></label>
+							</td> -->
+							<td>
+								<input class="adminFont kbVipAdmin_btnMenu couponAreaListWirte mb10" type="button" value="&#xe601;&nbsp;编辑" />
+								<input class="adminFont kbVipAdmin_btnMenu" type="button" onclick="del(this)" value="&#xe606;&nbsp;删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAreaList_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加模版</h2>
+		<form class="couponBusiness_FormParent" action="{{:U('templateAdd')}}" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form address">
+				<p class="microWebMenuAdmin"><span>所属类别</span>
+					<input id="microWebDisabled" style="width: 0%;height: 0%" name="template_type" type="radio" value="1" />
+					<label for="microWebDisabled"><i></i><b>项目板块</b></label>
+					<input id="microWebEnabled" style="width: 0%;height: 0%" name="template_type" type="radio"  value="2" />
+					<label for="microWebEnabled"><i></i><b>商户板块</b></label>
+				</p>
+				<p ><span>模版名称：</span>
+					<input type="text" name="template_name" required="required" />
+				</p>
+				<p ><span>模版路径：</span>
+					<input type="text" name="template_path" required="required" />
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span>图片：</span>
+					<label class="fileImg" for="businessFileImg">点击上传图片</label>
+					<input id="businessFileImg" type="file" name="template_logo" required="required" />
+					
+				</div>
+			
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input style="display:block" class="authAddFormSmt" type='submit' value="添加" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAreaList_alertWriter">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑模版</h2>
+		<form class="couponBusiness_FormParent" action="{{:U('templateAdd')}}" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form address">
+				<p class="microWebMenuAdmin"><span>所属类别</span>
+					<input id="microWebDisabled1" style="width: 0%;height: 0%" name="template_type" type="radio" value="1" />
+					<label for="microWebDisabled1"><i></i><b>项目板块</b></label>
+					<input id="microWebEnabled1" style="width: 0%;height: 0%" name="template_type" type="radio"  value="2" />
+					<label for="microWebEnabled1"><i></i><b>商户板块</b></label>
+				</p>
+				<p ><span>模版名称：</span>
+					<input type="text" name="template_name" required="required" />
+				</p>
+				<p ><span>模版路径：</span>
+					<input type="text" name="template_path" required="required" />
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span>图片：</span>
+					<label class="fileImg" for="businessFileImg1">点击上传图片</label>
+					<input id="businessFileImg1" type="file" name="template_logo" /><br><br>
+					<center><img src="" width="150"></center>
+				</div>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input style="display:block" class="authAddFormSmt" type='submit' value="确认修改" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.addCouponAreaList ').on('click',function(){
+				$('.couponAreaList_alert').fadeIn();
+			})
+			$('.couponAreaListWirte ').on('click',function(){
+				$('.couponAreaList_alertWriter').fadeIn();
+				var $this = $(this);
+				var id = $this.parent().siblings('.couponAreaListId').text();
+				$.get("{{:U('Template/ajaxControl')}}",{flag:'selTemplateInfo',id:id},function (res) {
+					$('.couponAreaList_alertWriter form').attr('action',"{{:U('templateUpdate')}}?id="+id);
+					$('.couponAreaList_alertWriter input[name="template_type"][value="'+ res.template_type +'"]').attr('checked',true);
+					$('.couponAreaList_alertWriter input[name="template_name"]').val(res.template_name);
+					$('.couponAreaList_alertWriter input[name="template_path"]').val(res.template_path);
+					$('.couponAreaList_alertWriter .kbVipAdmin_fileImg img').attr('src','/Public'+res.template_logo);
+				})
+			})
+		});
+
+		function del(obj) {
+			if (confirm('确定删除?')) {
+				id = $(obj).parent().siblings('.couponAreaListId').text();
+				$.get("{{:U('Template/ajaxControl')}}",{flag:'delTemplate',id:id},function (res) {
+						if (res) {
+							alert('删除成功');
+							$(obj).parent().parent().remove();
+						}else{
+							alert('删除失败');
+						}
+						
+					})
+			}
+		}
+		
+	</script>
+</block>

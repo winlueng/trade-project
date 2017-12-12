@@ -1,0 +1,238 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+
+<link rel="stylesheet" href="__PUBLIC__/salon/css/oneselfCore.css?v=1.10" />
+<php>
+//echo '<pre>';
+//var_dump($newsList);exit;
+</php>
+  <style>
+    body{
+      background-color:#f7f7f7;
+    }
+	 .onselfActivity,.onselfActivityAll{
+      position:absolute;
+      display:none;
+      left: 0;
+        right: 0;
+    }
+    .onselfActivity{
+      display:block;
+    }
+    .onselfActivityAll .oneselfList{
+      display:none;
+    }
+    .onselfActivity li a{
+      display:block;
+    }
+  </style>
+</block>
+<!-- <block name="leftNav">
+  <a  href="javascript:;" onclick="javascript :history.back(-1);"><img src="__PUBLIC__/oneselfCore/oneselfCoreImages/09back_icon_link_default.svg" atl="返回" /></a>
+</block> -->
+<block name="secondtitle">
+  <a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">精选动态</a>
+</block>
+<block name="collect">
+
+</block>
+ <block name="content">
+<div id="kbMt_center">
+ 
+  <nav class="oneselfTabClass">
+      <a href="javascript:;"><strong class="selected">精选动态</strong></a>
+      <a href="javascript:;"><strong>全部动态</strong></a>
+  </nav>
+  <!-- 精选动态star -->
+  <ul class="oneselfList onselfActivity">
+     
+
+    <empty name="newsList">
+         <li class="imgW100"> 
+          <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/16hot_img_none_default.png" alt="暂无数据" />
+          <p class="tc">暂无动态</p>
+        </li>
+    <else />
+      <foreach name="newsList" item="v">
+
+        <li>
+          <a href="{{$v.news_link}}">
+          <div class="oneselfBox shopLogo">
+               <img src="__PUBLIC__{{$v.logo_path}}" alt="logo" />
+          </div>
+          <div class="oneselfBox mb10">
+            <h1><strong class="ellipsis">{{$v.company_name}}</strong><!-- <span class="infoMark">正佳广场</span> --></h1>
+            <p class="color666">{{:date('Y-m-d',$v['addtime'])}}</p>
+          </div>
+          </a>
+           <h2 class="lh150 f14 mb10">
+             {{$v.title}}
+          </h2>
+          <a href="{{$v.news_link}}">
+            <img class="w" src="__PUBLIC__{{$v.news_logo}}" alt"介绍图片" /> 
+          </a>
+        </li> 
+      </foreach>
+    </empty>
+  
+  </ul>
+   <!-- 精选动态  end -->
+   <!-- 全部动态start -->
+  <ul id="onselfActivityAll" class="oneselfList onselfActivityAll">
+     
+   <!--  <li>
+      <div class="oneselfBox shopLogo">
+        <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/test.jpg" alt="logo" />
+      </div>
+      <div class="oneselfBox">
+        <h1><strong class="ellipsis">店铺名字店铺名字店铺名字</strong><span class="infoMark">正佳广场</span></h1>
+        <p class="countLook">1998</p>
+      </div>
+      <div class="oneselfBox">
+        <a href="javascript:;"><img src="__PUBLIC__/oneselfCore/oneselfCoreCSS/img/08more_icon_link_default.svg" alt="更多" /></a>
+      </div>
+      <ul class="oneselfList">
+        <a href="javascript:;">
+        <li>
+           <div class="oneselfBox shopLogo">
+              <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/test.jpg" alt="logo" />
+           </div>
+           <div class="oneselfBox">
+              <h2 class="ellipsis ">店铺名字店铺名字店铺名字</h2>
+              <p class="color666">内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介</p>
+           </div>
+          
+        </li>
+        </a>
+         <a href="javascript:;">
+        <li>
+           <div class="oneselfBox shopLogo">
+              <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/test.jpg" alt="logo" />
+           </div>
+           <div class="oneselfBox">
+              <h2 class="ellipsis ">店铺名字店铺名字店铺名字</h2>
+              <p class="color666">内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介</p>
+           </div>
+          
+        </li>
+        </a>
+         <a href="javascript:;">
+        <li>
+           <div class="oneselfBox shopLogo">
+              <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/test.jpg" alt="logo" />
+           </div>
+           <div class="oneselfBox">
+              <h2 class="ellipsis ">店铺名字店铺名字店铺名字</h2>
+              <p class="color666">内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容简介</p>
+           </div>
+          
+        </li>
+        </a>
+      </ul>
+    </li> -->
+
+
+   
+  </ul>
+
+  <!-- 全部动态end -->
+  <script id="onselfActivityAll-data" type="text/x-handlebars-template">
+      {{#if shop}}
+          {{#each shop}}
+           <li>
+            
+             <div class="oneselfBox shopLogo">
+               <img src="__PUBLIC__{{ActList.[0].logo_path}}" alt="logo" />
+             </div>
+             <div class="oneselfBox">
+               <h1><strong class="ellipsis">{{ActList.[0].company_name}}</strong><!-- <span class="infoMark">正佳广场</span> --></h1>
+               <p class="countLook">{{visit_total}}</p>
+             </div>
+             <div class="oneselfBox">
+               <a href="javascript:;"><img src="__PUBLIC__/oneselfCore/oneselfCoreCSS/img/08more_icon_link_default.svg" alt="更多" /></a>
+             </div>
+             
+             <ul class="oneselfList">
+
+                {{#each ActList}}
+                     <a href="{{news_link}}">
+                     <li>
+                        <div class="oneselfBox shopLogo">
+                           <img src="__PUBLIC__{{news_logo}}" alt="动态图" />
+                        </div>
+                        <div class="oneselfBox">
+                           <h2 class="ellipsis ">{{news_name}}</h2>
+                          
+                        </div>
+                       
+                     </li>
+                     </a>
+                {{/each}}
+               </ul>
+                 
+               </li>
+                
+         {{/each}}
+        {{else}}
+           <li class="imgW100"> 
+            <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/16hot_img_none_default.png" alt="暂无数据" />
+            <p class="tc">暂无动态</p>
+          </li>
+        {{/if}}
+  </script>
+</div>
+</block>
+<block name="js_file">
+  <script>
+    $(function(){
+      $('.oneselfTabClass a').on('click',function(){
+        var $this = $(this);
+        var oneselfTabClass =$('.oneselfTabClass a');
+        var indexs = oneselfTabClass.index($this);
+        var oneselfList = $('.oneselfList').not('.oneselfList .oneselfList');
+        $this.children().addClass('selected')
+        $this.siblings().children().removeClass('selected');
+        $(oneselfList[indexs]).fadeIn().addClass('nowShow');
+        $(oneselfList[indexs]).siblings('.oneselfList').fadeOut();
+      })
+     function onselfActivityAllList(){
+            $('#onselfActivityAll>li').on('click',function(){
+               
+               $(this).find('.oneselfList').slideToggle();
+            })
+          }
+         onselfActivityAllList();
+       $('.oneselfTabClass a:nth-child(2)').on('click',function(){
+           $.get("{{:U('VisitorInfo/ajaxControl')}}",{flag:'allNews'},function(res){
+               // console.log(res)
+
+               var data=new Object();
+               data.shop=new Array();
+                $.each(res,function(key,value){
+                      data.shop[key] = new Object();
+                      data.shop[key].ActList=new Array();
+                    $.each(value,function(key2,value2){
+                      // console.log("key:"+key2);
+                      // console.log(value2);
+
+                       if(!(key2=="visit_total")){
+                           // console.log();
+                          
+                           data.shop[key].ActList.push(value[key2]);
+                       }else{
+                          data.shop[key].visit_total=new Object();
+                          data.shop[key].visit_total=value[key2];
+                       }
+
+                    })
+                })
+               console.log(data)
+                var myTemplate=Handlebars.compile($('#onselfActivityAll-data').html());
+                 $('#onselfActivityAll').html(myTemplate(data));
+                 onselfActivityAllList();
+           })
+        })
+    })
+
+  </script>
+</block>

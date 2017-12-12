@@ -1,0 +1,353 @@
+body{background-color:#fff;font-size:12px;}
+.font17{
+	font-size:17px;
+}
+.color3c3ce8{
+	color:#3c3ce8;
+}
+.colora55405{
+	color:#a55405;
+}
+
+.colorff0000{
+	color:#ff0000;
+}
+.color666{
+	color:#666;
+}
+.color796d4e{
+	color:#796d4e;
+}
+.onselfTitle,.userIMG,.user-menublock,.onselfTitle{
+	box-shadow:0 0 1px 0 #c5c0c0;
+}
+.userIMG,.user-menublock{background-color:#fff;}
+.haveTip{
+	position:relative;
+}
+.haveTip::before,.haveTip:before{
+	content:'';
+	display:block;
+	width:7px;
+	height:7px;
+	position:absolute;
+	top: -2px;
+	right: -4px;
+	background-color:#ff0000;
+	border-radius:50%;
+}
+.oneselfMore{
+	background:url('img/08more_icon_link_default.svg') no-repeat 95% center;
+	background-size: 15px;
+}
+.ellipsis{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+/*header*/
+.onselfTitle a{
+	position: absolute;
+	overflow: hidden;
+	width: 16px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.onselfTitle{
+	overflow:hidden;
+	/*background-color:;*/
+}
+.onselfTitle{
+	/*position:fixed;*/
+	width:100%;
+	background:rgba(255,255,255,0.6);
+	top:0;
+	z-index:99;
+}
+.onselfTitle h1{
+	width:100%;
+	height:48px;
+	line-height:45px;
+}
+/*header end*/
+/*commin end*/
+.userIMG{
+position:relative;
+
+}
+.userIMG-box{
+width:90px;
+height:90px;
+border-radius:10px;
+border:1px solid #cfb72e;
+}
+.userIMG-box img{height:100%;width:100%}
+.userLoginTip{width:158px}
+.userSysteamInfo{display:block;position:absolute;top:10px;right:10px;width:20px;height:20px;padding-left:10px;padding-bottom:10px;}
+.user-menublock li{
+	padding: 15px;
+	border-bottom: 1px solid #eee;
+	background: url('img/08more_icon_link_default.svg') no-repeat ;
+	background-position:95% center;
+	background-size:10px;
+
+}
+
+.user-menublock li img{
+	width:15px;
+}
+.user-menublock li p{
+	display:inline-block;
+	height:100%;
+	vertical-align: top;
+		text-indent: 10px;
+		font-weight:bold;
+}
+/*我的资料*/
+.oneselfInfo{
+	width:90%;
+}
+.oneselfInfo li{
+	padding:12px 0;
+	border-bottom:1px solid #999;
+	    position: relative;
+}
+.oneselfInfo li:last-child{
+	border-bottom:none;
+}
+.oneselfInfo li p{
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	width:70px;
+	vertical-align:top;
+	min-height: 30px;
+	line-height:30px;
+	/*text-align:left;*/
+}
+/*列表*/
+.oneselfList{
+	max-width:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.oneselfList .oneselfBox{
+	display:inline-block;
+	/*overflow:hidden;*/
+	vertical-align:top;
+}
+
+.oneselfBox img{
+	width:100%;
+	height:100%;
+}
+.oneselfBox h1{
+	font-size:140%;
+}
+
+
+.shopLogo{
+	width:54px;
+	height:54px;
+
+}
+.goodsIMG{
+	width:100px;
+	height:54px;
+	border-radius: 5px;
+    box-shadow: 0 0 1px 0 #c9c4c4;
+}
+.oneselfCollect{
+
+}
+/*.oneselfCollect .oneselfBox:nth-child(1){
+	width:54px;
+	height:54px;
+}*/
+.oneselfList .oneselfBox:nth-child(2){
+	width:64%;
+	height:54px;
+	margin-left:15px;
+}
+.oneselfList .oneselfBox:nth-child(2) h1{
+	width:100%;
+	|overflow:hidden;
+}
+.oneselfList .oneselfBox:nth-child(2) h1 strong{
+	display:inline-block;
+	width:50%;
+}
+.infoMark{
+	font-size:12px;
+	/*float:right;*/
+	text-indent:15px;
+	background:url(img/21shop_icon_tag_default.svg) no-repeat 2px center;
+	background-size:8px;
+	color:#666;
+	vertical-align:top;
+	display: inline-block;
+	margin-left: 15px;
+}
+.oneselfList li{
+	padding-top:15px;
+	/*border-bottom:1px solid #ddd;*/
+	padding-bottom:15px;
+	background-color:#fff;
+	padding:10px;
+    margin-bottom:10px;
+}
+.countLook{
+	text-indent:25px;
+	background:url(img/12content_icon_attention_default.svg) no-repeat 5px center;
+	background-size:16px;
+}
+/*tab*/
+.oneselfTabClass{
+	width:100%;
+	display:-moz-box;
+    display:-webkit-box;
+    display:box;
+    margin-left:auto;
+    margin-right:auto;
+    height:42px;
+    background-color:#fff;
+    border-bottom: 1px solid #f4f4f4;
+}
+.oneselfTabClass a{
+	display: block;
+	-moz-box-flex:1;
+    -webkit-box-flex:1;
+    box-flex:1;
+    height:100%;
+    line-height:42px;
+    text-align:center;
+    color:#808080;
+
+}
+.oneselfTabClass a:first-child{
+	border-right:1px solid #c4bebe;
+}
+.oneselfTabClass a strong{
+	font-weight:bold;
+	font-size:14px;
+	width:66px;
+	display:inline-block;
+	height:36px;
+}
+.oneselfTabClass .selected{
+	color:#f70f36;
+	border-bottom:2px solid #f70f36;
+}
+/*收藏店铺*/
+
+.oneselfCollect .oneselfBox:nth-child(3){
+	width:15px;
+	float:right;
+	height:54px;
+	position:relative;
+	z-index:9;
+}
+.CollectMenuHref{
+	position:absolute;
+	width:210px;
+	height:32px;
+	left:-214px;
+	z-index:9;
+	background:rgba(0,0,0,.8);
+	top:10px;
+	display:-moz-box;
+    display:-webkit-box;
+    display:box;
+}
+.hidden{
+	/*display:none;*/
+}
+.CollectMenuHref:after,.CollectMenuHref::after{
+	content:'';
+	display:block;
+	width:0;
+	height:0;
+	border-top: 10px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 8px solid rgba(0,0,0,.8);
+	position: absolute;
+	top: 8px;
+}
+.CollectMenuHref a{
+	color:#fff;
+	display: block;
+	-moz-box-flex:1;
+    -webkit-box-flex:1;
+    box-flex:1;
+    text-align: center;
+    height: 100%;
+    line-height: 32px;
+    background-repeat:no-repeat;
+    background-size:16px;
+    background-position:10px center;
+    text-indent: 15px;
+}
+.CollectMenuHref a:nth-child(1){
+	background-image:url('img/18shop_icon_home_default.svg');
+}
+.CollectMenuHref a:nth-child(2){
+	background-image:url('img/19shop_icon_favorable_default.svg');
+}
+.CollectMenuHref a:nth-child(3){
+	background-image:url('img/20shop_icon_attention_default.svg');
+}
+/*活动*/
+.onselfActivity li{
+	
+	/*margin:10px 0;*/
+}
+
+.onselfActivityAll .oneselfBox:nth-child(3){
+	width:15px;
+	float:right;
+	height:54px;
+	position:relative;
+	z-index:9;
+}
+.onselfActivityAll .oneselfList{
+	border-top:1px solid #eee;
+}
+.onselfActivityAll .oneselfList .oneselfBox h2{
+	font-size:15px;
+	margin-bottom:8px;
+}
+.onselfActivityAll .oneselfList .oneselfBox:nth-child(2) p{
+	height: 35px;
+	overflow: hidden;
+}
+
+/*优惠*/
+.PreferentialBox{
+	width:280px;
+	height:106px;
+	margin-left:auto;
+	margin-right:auto;
+	background: url('img/recommend_img_voucher_default.png') no-repeat ;
+	background-size: 100%;
+}
+
+.PreferentialBox>p{
+	width:60%;
+	display:inline-block;
+	height:100%;
+    vertical-align: top;
+    text-align: center;
+    line-height: 116px;
+    color:#60c2c1;
+}
+.PreferentialBox>div{
+	width:38%;
+	display:inline-block;
+	height:100%;
+
+}
+/*.PreferentialBox  .shopLogo{
+
+}*/

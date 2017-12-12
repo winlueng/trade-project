@@ -1,0 +1,206 @@
+<extend name="Web/projectDefault" />
+<block name="content" >
+	<div id="kbVipAdmin_rightCenter" class="couponAdClass_center OrderForm">
+	  <div class="centerTitle">
+	      <h1>区域添加</h1>
+	   </div>
+	   <div class="kbVipAdmin_operating">
+	   	<p class="authAddBtn">
+	   		<input class=" adminFont kbVipAdmin_opt w80 h30 addCouponAreaList"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+	   	</p>
+	   </div>
+		<div class="main-contentBox">
+			<div class="kbVipAdmin_table">
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>区域名称</th>
+							<th>所属区域</th>
+							<th>店铺数量</th>
+							<th>添加时间</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<volist name="list" id="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.region_name}}</td>
+							<td>{{$v.address}}</td>
+							<td>{{$v.cnum}}</td>
+							<td>{{:date('Y年m月d日',$v['addtime'])}}</td>
+							<td class="microWebMenuAdmin">
+								<p class="kbVipAdmin_pushBtn">
+									<input type="checkbox" value="" {{$v['status'] == '0'?'checked':''}} title=" {{$vo['status'] == '0'?'启用':'禁用'}}"/>
+									<label><b></b></label>
+								</p>
+							</td>
+							<td  class="kbVipAdmin_tdAction">
+								<input class="adminFont kbVipAdmin_btnMenu lookList couponAreaListWirte" type="button" value="&#xe601;&nbsp;编辑" />
+
+								<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_btnMenuDel" type="button" value="&#xe606;&nbsp;删除" />
+							</td>
+						</tr>
+					</volist>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbVipAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form>	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAreaList_alert">
+		<div class="kbVipAdmin_alertBox ">
+		<button class="kbVipAdmin_alert-close adminFont" type="button">
+		</button>
+		<h3>添加区域</h3>
+		<form class="couponBusiness_FormParent pt10" action="{{:U('regionAdd')}}" method="post">
+				<p class="couponTrade kbVipAdmin_enter">
+					<b>父级区域：</b>
+					<select name="parent_id">
+						<option value="">--请选择--</option>
+						<option value="0">顶级区域</option>
+						<foreach name="list" item="v">
+							<option value="{{$v.id}}" /><php>echo str_repeat('&nbsp;', $v['count']*2).'|--'.$v['region_name'];</php>
+						</foreach>
+					</select> 
+				</p>
+				<p class="kbVipAdmin_enter">
+					<b>区域名称：</b>
+					<input type="text" name="region_name" />
+				</p>
+			<div class="kbVipAdmin_operating ">
+			    <div class="kbVipAdmin_restsubmit"> 
+			        
+			        <input  class="kbVipAdmin_opt authAddFormSmt w100 h40" type="submit" value="保存" />
+			    </div>
+			</div>
+			
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAreaList_alertWriter">
+		<div class="kbVipAdmin_alertBox ">
+		<button class="kbVipAdmin_alert-close adminFont" type="button"></button>
+		<h3>编辑区域</h3>
+		<form class="couponBusiness_FormParent change pt10" id="changeRegion" action="" method="post">
+			<div class="kbVipAdmin_form kbVipAdmin_enter">
+				<p  class="couponTrade kbVipAdmin_enter"><b>父级区域：</b>
+					<select name="parent_id">
+						<option value="">请选择</option>
+						<option value="0">顶级区域</option>
+						<foreach name="list" item="v">
+							<option value="{{$v.id}}" /><php>echo str_repeat('&nbsp;', $v['count']*2).'|--'.$v['region_name'];</php>
+						</foreach>
+					</select> 
+				</p>
+				
+				<p class="kbVipAdmin_enter"><b>区域名称：</b>
+					<input type="text" name="region_name"/>
+				</p>
+			</div>
+			<div class="kbVipAdmin_operating ">
+			    <div class="kbVipAdmin_restsubmit"> 
+			        
+			        <input  class="kbVipAdmin_opt authAddFormSmt w100 h40" type="submit" value="保存" />
+			    </div>
+			</div>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/kbVipAdmin.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// operatingTip
+			$('.addCouponAreaList ').on('click',function(){
+				$('.couponAreaList_alert').fadeIn();
+			})
+			$('.couponAreaListWirte ').on('click',function(){
+				$('.couponAreaList_alertWriter').fadeIn();
+				var $this = $(this);
+				var ajaxUrl='{{:U("Region/ajaxControl")}}'
+				var action='{{:U("regionUpdate")}}?id='
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Common',
+					params:{
+			         flag:'selRegionInfo',
+			        }
+			    },function(res){
+			    	$('.couponAreaList_alertWriter').find('select').children('option[value='+res.parent_id+']').prop('selected',true);
+			    	$('#changeRegion').attr('action', action+res.id);
+			    	$('.couponAreaList_alertWriter').find('input[name=region_name]').val(res.region_name);
+			    	console.log(res);
+				});
+			})
+			$('.microWebMenuAdmin  input').on('click',function(){
+				var $this = $(this),
+					Status=$this.prop('checked')?0:1;
+					id=$this.parents('tr').children('td').eq(0).text().trim();
+				var ajaxUrl='{{:U("Region/ajaxControl")}}'
+				$.ajax({
+					type:"GET",
+					url:ajaxUrl,
+					data:{
+						flag:'changeRegionStatus',
+				        status:Status,
+				        id:id
+					},
+					dataType:"json",
+					success:function(data){
+						console.log(data);
+						oTip(data);
+					},
+					error:function(error){
+						console.log(error);
+					}
+				})
+				
+				
+			})
+			$('.kbVipAdmin_btnMenuDel').on('click',function(){
+				var $this = $(this);
+				var ajaxUrl='{{:U("Region/ajaxControl")}}',
+				id=$this.parents('tr').children('td').eq(0).text().trim();
+
+				Confirm("你正在进行删除操作,确定要继续吗？",function(res){
+					if(res){
+						$.ajax({
+							type:"GET",
+							url:ajaxUrl,
+							data:{
+								flag:'regionDel',
+						        id:id
+							},
+							dataType:"json",
+							success:function(data){
+								console.log(data);
+								oTip(data);
+								if(data=="删除成功") {
+									$this.parents('tr').remove()
+								};
+							},
+							error:function(error){
+								console.log(error);
+							}
+						})
+					}
+				})
+				
+
+				
+			})
+		})
+	</script>
+</block>

@@ -1,0 +1,1327 @@
+[ 2017-11-10T19:40:34+08:00 ] 119.131.119.153 /Admin/Index/projectIndex/module/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+SQL: SHOW COLUMNS FROM `market_module` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`module_name` FROM `market_module`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_module` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_auth_rule` [ RunTime:0.0005s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('7','74','90','110') ORDER BY control_time desc  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 90 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 90 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 110 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 110 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('21','48','92','113','173','194') ORDER BY control_time desc  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 194 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 194 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 21 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 173 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 173 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 174 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 175 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 176 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 177 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 48 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 48 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 92 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 92 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 93 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 94 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 95 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 113 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 113 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 188 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 190 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('1','4','46','79','103','179') ORDER BY control_time desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 179 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 179 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 46 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 46 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 42 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 79 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 79 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 39 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 1 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 88 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 126 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 127 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('140','141','147','180','182','193','196') ORDER BY control_time desc  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 196 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 196 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 141 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 141 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 182 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 182 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 147 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 147 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 185 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 186 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 180 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 180 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 193 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 193 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('7','74','90','110') ORDER BY control_time desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 90 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 90 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 110 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 110 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 104 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 125 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 125 行.
+NOTIC: [8] Undefined variable: page /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 278 行.
+NOTIC: [8] Undefined variable: list /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 285 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.047089s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047119s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000177s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000193s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000424s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000483s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000550s ]
+
+[ 2017-11-10T19:40:35+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_first_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509638399 AND `create_time` < 1509724799  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0026s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509724799 AND `create_time` < 1509811199  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509811199 AND `create_time` < 1509897599  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509897599 AND `create_time` < 1509983999  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509983999 AND `create_time` < 1510070399  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1510070399 AND `create_time` < 1510156799  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1510156799 AND `create_time` < 1510243199  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1510243199 AND `create_time` < 1510329599  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:35+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_second_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000263s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509638399 AND `addtime` < 1509724799  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509724799 AND `addtime` < 1509811199  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509811199 AND `addtime` < 1509897599  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509897599 AND `addtime` < 1509983999  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509983999 AND `addtime` < 1510070399  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1510070399 AND `addtime` < 1510156799  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1510156799 AND `addtime` < 1510243199  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1510243199 AND `addtime` < 1510329599  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:35+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_fort_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000429s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:35+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_six_table_data
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314035 AND `end_time` < 1512906035 AND `status` = 0  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined variable: res /var/www/html/amigo/amigo/Admin/Model/IndexModel.class.php 第 220 行.
+
+[ 2017-11-10T19:40:36+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_third_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_statistics` [ RunTime:0.0005s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509638400 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509724800 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509811200 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509897600 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509984000 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1510070400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1510156800 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1510243200 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-10T19:40:36+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_fifth_table_data
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314036 AND `end_time` > 1510314036 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314036 AND `end_time` > 1510314036 AND `status` = 0 AND `addtime` > 1507635636 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314036 AND `end_time` < 1512906036 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/projectIndex/module/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000125s ]
+SQL: SHOW COLUMNS FROM `market_module` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`module_name` FROM `market_module`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_module` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_auth_rule` [ RunTime:0.0005s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('7','74','90','110') ORDER BY control_time desc  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 90 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 90 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 110 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 110 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('21','48','92','113','173','194') ORDER BY control_time desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 194 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 194 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 21 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 173 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 173 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 174 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 175 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 176 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 177 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 48 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 48 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 92 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 92 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 93 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 94 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 95 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 113 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 113 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 188 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 190 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('1','4','46','79','103','179') ORDER BY control_time desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 179 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 179 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 46 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 46 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 42 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 79 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 79 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 39 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 1 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 88 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 126 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 127 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('140','141','147','180','182','193','196') ORDER BY control_time desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 196 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 196 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 141 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 141 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 182 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 182 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 147 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 147 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 185 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 186 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 180 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 180 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 193 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 193 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('21','48','92','113','173','194') ORDER BY control_time desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Common/Common/function.php 第 57 行.
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 194 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 194 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 21 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 173 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 173 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 174 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 175 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 176 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 177 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 48 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 48 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] array_intersect(): Argument #1 is not an array /var/www/html/amigo/amigo/Common/Common/function.php 第 82 行.
+NOTIC: [2] Invalid argument supplied for foreach() /var/www/html/amigo/amigo/Common/Common/function.php 第 84 行.
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 92 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 92 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 93 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 94 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 95 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 113 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 113 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 188 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 190 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 104 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 125 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 125 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 125 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Use of undefined constant module - assumed 'module' /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 121 行.
+NOTIC: [8] Undefined variable: page /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 278 行.
+NOTIC: [8] Undefined variable: list /var/www/html/amigo/amigo/Runtime/Cache/Admin/02f64b1587c2e49c01b75b2ea1ec6711.php 第 285 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.052752s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000162s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000200s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000423s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000498s ]
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_fort_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509638400 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509724800 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509811200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509897600 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1509984000 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510070400 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510156800 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `click_total` FROM `market_button_click_statistics` WHERE `company_id` = 0 AND `relevance_id` = 9 AND `date` = 1510243200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_second_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509638399 AND `addtime` < 1509724799  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509724799 AND `addtime` < 1509811199  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509811199 AND `addtime` < 1509897599  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509897599 AND `addtime` < 1509983999  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1509983999 AND `addtime` < 1510070399  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1510070399 AND `addtime` < 1510156799  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1510156799 AND `addtime` < 1510243199  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_visitor` WHERE ( `addtime` > 1510243199 AND `addtime` < 1510329599  ) AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_first_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.021706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.021774s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509638399 AND `create_time` < 1509724799  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509724799 AND `create_time` < 1509811199  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509811199 AND `create_time` < 1509897599  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509897599 AND `create_time` < 1509983999  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1509983999 AND `create_time` < 1510070399  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1510070399 AND `create_time` < 1510156799  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1510156799 AND `create_time` < 1510243199  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE ( `create_time` > 1510243199 AND `create_time` < 1510329599  ) AND `company_id` = 0 AND `relevance_id` = 9 AND `status` IN ('2','4') LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_third_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000301s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_statistics` [ RunTime:0.0005s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509638400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509724800 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509811200 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509897600 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1509984000 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1510070400 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1510156800 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `visit_total` FROM `market_statistics` WHERE `relevance_id` = 9 AND `date` = 1510243200 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_six_table_data
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314037 AND `end_time` < 1512906037 AND `status` = 0  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined variable: res /var/www/html/amigo/amigo/Admin/Model/IndexModel.class.php 第 220 行.
+
+[ 2017-11-10T19:40:37+08:00 ] 119.131.119.153 /Admin/Index/ajaxControl.html?flag=get_project_fifth_table_data
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004173s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0008s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314037 AND `end_time` > 1510314037 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314037 AND `end_time` > 1510314037 AND `status` = 0 AND `addtime` > 1507635637 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_company` WHERE `relevance_id` = 9 AND `start_time` < 1510314037 AND `end_time` < 1512906037 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:39+08:00 ] 119.131.119.153 /Admin/Goods/goodsAddByProject/module/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_order_form` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_order_form` WHERE `status` = 2 AND `is_send_out` = 0 AND `company_id` = 0 AND `relevance_id` = 9 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_subscribe_order_form` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_subscribe_order_form` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_refund` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` <> '0' AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_wechat_refund` WHERE `status` = 0 AND `company_id` = 0 AND `is_control` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8192] Non-static method Admin\Controller\CommonController::getCompanyConfig() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 21 行.
+SQL: SELECT `app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_goods_classify` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_goods_classify` WHERE `status` NOT IN ('-1','1') AND `company_id` = 0 AND `relevance_id` = 9  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_goods_brand` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_goods_brand` WHERE `status` NOT IN ('-1','1') AND `company_id` = 0 AND `relevance_id` = 9  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `market_module` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`module_name` FROM `market_module`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_module` [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_auth_rule` [ RunTime:0.0005s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('7','74','90','110') ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 90 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 90 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 110 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 110 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('21','48','92','113','173','194') ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 194 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 194 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 21 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 173 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 173 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 174 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 175 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 176 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 177 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 48 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 48 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 92 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 92 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 93 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 94 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 95 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 113 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 113 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 188 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 190 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('1','4','46','79','103','179') ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 179 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 179 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 46 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 46 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 42 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 79 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 79 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 39 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 1 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 88 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 126 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 127 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('140','141','147','180','182','193','196') ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 196 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 196 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 141 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 141 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 182 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 182 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 147 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 147 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 185 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 186 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 180 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 180 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 193 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 193 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `parent_rules` FROM `market_module` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `id` IN ('21','48','92','113','173','194') ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT g.rules FROM `market_auth_group_access` AS a INNER JOIN `market_auth_group` AS g ON g.id=a.group_id AND a.uid='27'; [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 194 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 194 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 21 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 173 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 173 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 174 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 175 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 176 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 177 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 48 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0003s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 48 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 92 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 92 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 93 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 94 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 95 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_auth_rule` WHERE `parent_id` = 113 AND `display` = 0 AND `status` = 1 ORDER BY control_time desc  [ RunTime:0.0004s ]
+SQL: SELECT `title`,`alias`,`name` FROM `market_auth_rule` WHERE `id` = 113 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 188 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`name`,`alias`,`title` FROM `market_auth_rule` WHERE `id` = 190 LIMIT 1   [ RunTime:0.0003s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055900s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055946s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000220s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000284s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000575s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000556s ]
+
+[ 2017-11-10T19:40:42+08:00 ] 61.129.8.179 /Admin/Index/projectIndex/0/module/1/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 31 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: UPDATE `market_company` SET `status`='1' WHERE `end_time` < 1510314042 [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:43+08:00 ] 61.129.8.179 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000091s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004035s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004065s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000164s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000339s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 61.151.179.27 /Admin/Index/ajaxControl.html?flag=get_project_third_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 31 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: UPDATE `market_company` SET `status`='1' WHERE `end_time` < 1510314045 [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 61.129.7.254 /Admin/Index/ajaxControl.html?flag=get_project_second_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 31 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: UPDATE `market_company` SET `status`='1' WHERE `end_time` < 1510314045 [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 101.226.33.226 /Admin/Index/ajaxControl.html?flag=get_project_six_table_data
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 31 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: UPDATE `market_company` SET `status`='1' WHERE `end_time` < 1510314045 [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 101.226.66.193 /Admin/Index/ajaxControl.html?flag=get_project_first_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 31 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: UPDATE `market_company` SET `status`='1' WHERE `end_time` < 1510314045 [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 61.151.179.27 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000395s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004291s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004342s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000099s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000174s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000328s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000358s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 61.151.218.118 /Admin/Index/ajaxControl.html?flag=get_project_fort_table_data&start=1509638400000&end=1510243200000
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::checkHTTP() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 23 行.
+NOTIC: [8192] Non-static method Admin\Model\CommonModel::setUserID() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 24 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 27 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 29 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Model/CommonModel.class.php 第 31 行.
+NOTIC: [8] Undefined index: adminInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 53 行.
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 59 行.
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/CommonController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: UPDATE `market_company` SET `status`='1' WHERE `end_time` < 1510314045 [ RunTime:0.0004s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 101.226.66.193 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000048s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000096s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004129s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004162s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000099s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000172s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000341s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 101.226.33.226 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004029s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004057s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000090s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000167s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000298s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000338s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000367s ]
+
+[ 2017-11-10T19:40:45+08:00 ] 61.129.7.254 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000080s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003754s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000086s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000152s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000328s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000360s ]
+
+[ 2017-11-10T19:40:46+08:00 ] 61.151.218.118 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000330s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000087s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003865s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003900s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000106s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000205s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000356s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000302s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000330s ]
+
+[ 2017-11-10T19:50:12+08:00 ] 14.17.3.65 /Admin/Login/companyLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 131 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000125s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004029s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000094s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000178s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000314s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000300s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000342s ]
+
+[ 2017-11-10T21:53:00+08:00 ] 119.147.207.152 /Admin/Login/companyLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+NOTIC: [8] Undefined index: companyInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 131 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000102s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003925s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003976s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000106s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000224s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000354s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000391s ]
+
+[ 2017-11-10T21:53:14+08:00 ] 120.85.77.185 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004701s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004737s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000126s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000229s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000315s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000355s ]
+
+[ 2017-11-10T22:33:22+08:00 ] 120.85.77.185 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000081s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003622s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003649s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000082s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000147s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000273s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000299s ]
+
+[ 2017-11-10T22:33:28+08:00 ] 120.85.77.185 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000458s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000042s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000083s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004922s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004964s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000191s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000356s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000308s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000338s ]
+
+[ 2017-11-10T22:49:42+08:00 ] 113.108.10.5 /Admin/Login/projectLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+NOTIC: [8] Undefined index: marketInfo /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003531s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003561s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000089s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000150s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000324s ]
+

@@ -1,0 +1,183 @@
+<extend name="Web/companyCom" />
+<block name="css_files">	
+<link rel="stylesheet" href="__PUBLIC__/JS/module/datenew/css/jquery-ui-1.9.2.custom.css?v=1" type="text/css">
+<style>
+ .kbtable-statistics{
+ 	display:flex;
+ 	justify-content:center;
+ 	min-height:100px;
+ 	padding-top: 20px;
+ }
+ .kbtable-statistics-slide{
+ 	flex-grow: 1
+ }
+ .filterData{
+ 	display:inline-block;
+ 	width:340px;
+ }
+ .kbShopAdmin_box{
+ 	height:100%;
+ }
+</style>
+	<php>
+		//echo('<pre>');
+		//var_dump($info);exit;
+	</php>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="mb10"><!-- 内容页开始 -->
+		<div class="kbShopAdmin_box">	
+			<div class="centerTitle">
+				<h2>总库存情况</h2>
+			</div>
+			<div class="kbtable-statistics mb10">
+				<article class="kbtable-statistics-slide tc">
+					
+					<p class="f20 mb10">
+						<empty name="info.salesTotal">
+							0
+						<else />
+							{{$info.salesTotal}}
+						</empty>
+					</p>
+					<p>已销售</p>
+				</article>
+				<article class="kbtable-statistics-slide tc">
+					
+					<p class="f20 mb10">{{$info['inventoryTotal']?$info['inventoryTotal']:0}}</p>
+					<p>总库存</p>
+				</article>
+				
+			</div>
+		
+			<div class="centerTitle">
+				<h2>昨日店铺情况</h2>
+			</div>
+			<div class="kbtable-statistics mb10">
+				<article class="kbtable-statistics-slide tc">
+					<p>订单数</p>
+					<p class="f16">
+						<empty name="info.yesterdayData.orderTotal">
+							0
+						<else />
+							{{$info.yesterdayData.orderTotal}}
+						</empty>
+					</p>
+					
+				</article>
+				<article class="kbtable-statistics-slide tc">
+					<p>商品成交量</p>
+					<p class="f16">{{$info.yesterdayData.goodsSales}}</p>
+					
+				</article>
+				<article class="kbtable-statistics-slide tc">
+					<p>成交额</p>
+					<p class="f16">
+						<empty name="info.yesterdayData.priceTotal">
+							0
+						<else />
+							{{$info.yesterdayData.priceTotal}}
+						</empty>
+					</p>
+					
+				</article>
+				<article class="kbtable-statistics-slide tc">
+					<p>商品浏览量</p>
+					<p class="f16">
+						<empty name="info.yesterdayData.goodsStatic">
+							0
+						<else />
+							{{$info.yesterdayData.goodsStatic}}
+						</empty>
+					</p>
+					
+				</article>
+			</div>
+			<div class="kbShopAdmin_operating filter-operating" >
+				<form>
+					<div class="filterData">
+					<input type="text" class="ui-datepicker-time" readonly="readonly"  value="" />
+					<input class="start" type="hidden" name="start" value="" />
+					<input  class="end"  type="hidden" name="end" value="" />
+					<button class="kbShopAdmin_opt w80 h30" type="submit">确定</button>
+					</div>
+				</form>
+
+				<button class="kbShopAdmin_opt  h30 fr" type="button" onclick="javascript:window.location.href='?getExcel=1'">下载Excel</button>
+			</div>
+			<div class="kbShopAdmin_table mb20">
+				
+				<table>
+					<thead>
+						<tr>
+							<th width="100">日期</th>
+							<th>订单数</th>
+							<th>商品成交量</th>
+							<th>成交额</th> 
+							<th>商品浏览量</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+					 <volist name="info.dateData" id="v" > 
+						<tr>
+							<td width="100"><p>{{$key}}</p></td>
+							<td><p>{{$v.orderTotal}}</p></td>
+							<td><p>{{$v['goodsSales']?$v['goodsSales']:0}}</p></td>
+							<td><p>{{$v['priceTotal']?$v['priceTotal']:0}}</p></td>
+							<td><p>{{$v['goodsStatic']?$v['goodsStatic']:0}}</p></td>
+						</tr>
+					</volist>
+					</tbody>
+				</table>
+				<!-- 表格页数开始 -->
+				<div class="kbShopAdmin_page mb10">
+					<div class="pageSize">
+						{{$page}}
+						<script type="text/javascript">
+							$('.pageSize a:first-child').addClass('prevPage');
+							$('.pageSize a:last-child').addClass('nextPage');
+						</script>
+					</div>
+					<div class="pageJump">	
+					<if condition="count($list) eq 10 ">
+					<form >
+						<input class="w60  fl" type="text" name="p" placeholder="{{:I('get.p')}}" />
+						<input type="submit" class="fl" name="" value="跳转">
+					</form>	
+					</if>	
+					</div>
+				</div>
+				<!-- 表格页数结束 -->
+			</div>
+			<!-- 表格结束 -->
+			
+		</div>
+	</div><!-- 内容页结束 -->
+	<div class="ui-datepicker-css">	
+	    <div class="ui-datepicker-quick">
+	        <p>快捷日期<a class="ui-close-date">X</a></p>
+	        <div>
+	            <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+	            <input class="ui-date-quick-button" type="button" value="昨天" alt="-1" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="7天内" alt="-6" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="14天内" alt="-13" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="60天内" alt="-59" name=""/>
+	        </div>
+	    </div>
+	    <div class="ui-datepicker-choose">
+		        <p>自选日期</p>
+		        <div class="ui-datepicker-date">
+		            <input name="startDate" id="startDate" class="startDate" readonly value="2014/12/20" type="text">
+		           -
+		            <input name="endDate" id="endDate" class="endDate" readonly  value="2014/12/20" type="text" disabled onChange="datePickers()">
+		        
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/jquery-ui-1.9.2.custom.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/share.js?v=1.11"></script>
+
+</block>

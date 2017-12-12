@@ -1,0 +1,94 @@
+<extend name="Common/secondCom" />
+
+<block name="css_file">
+  <link rel="stylesheet" href="__PUBLIC__/salon/css/oneselfCore.css?v=1.10" />
+  <php>
+  //echo "<pre>";
+  //var_dump($collectList);exit;
+  </php>
+  <style>
+	 .oneselfCollect li{
+    border-bottom:1px solid #ddd;
+   }
+   .oneselfCollect{
+    width:92%;
+   }
+  </style>
+</block>
+<!-- <block name="leftNav">
+  <a  href="javascript:;" onclick="javascript :history.back(-1);"><img src="__PUBLIC__/oneselfCore/oneselfCoreImages/09back_icon_link_default.svg" atl="返回" /></a>
+</block> -->
+<block name="secondtitle">
+  <a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">收藏店铺</a>
+   
+</block>
+<block name="collect">
+
+</block>
+<block name="content">
+<div id="kbMt_center">
+  <ul class="oneselfList oneselfCollect mt10">
+   <empty name="collectList">
+      <li class="imgW100"> 
+        <center><img src="__PUBLIC__/oneselfCore/oneselfCoreImages/16hot_img_none_default.png" width="300" alt="暂无数据" /></center>
+        <p class="tc">还没有收藏的店铺，快去收藏喜欢的店铺吧</p>
+      </li>
+   <else />
+      <foreach name="collectList" item="vc">
+        <li>
+             <div class="oneselfBox shopLogo">
+               <img src="__PUBLIC__{{$vc[company_pic]}}" alt="logo" />
+             </div>
+             <div class="oneselfBox">
+               <h1><strong class="ellipsis">{{$vc.company_name}}</strong><!-- <span class="infoMark">正佳广场</span> --></h1>
+               <p class="countLook">{{$vc.collect_total}}</p>
+             </div>
+             <div class="oneselfBox">
+               <a class="collectMore" href="javascript:;"><img src="__PUBLIC__/oneselfCore/oneselfCoreImages/13shop_icon_pop_default.svg" alt="更多" /></a>
+               <p class="CollectMenuHref hidden">
+                 <a href="http://{{$vc.company_link}}">官网</a>
+                 <a href="http://{{:C('CARD_EXPRESS_URL')}}/Home/Merchant/merchant/id/{{$vc['uid']}}.html">优惠</a>
+                 <a class="notCollect" href="javascript:;" companyId="{{$vc.uid}}">
+                    取消
+                 </a>
+               </p>
+             </div>
+           </li>
+      </foreach>
+   </empty>
+  </ul>
+  <!-- 收藏end -->
+</div>
+</block>
+<block name="js_file">
+    <script>
+    $(function(){
+        $('.oneselfCollect .oneselfBox .collectMore').on('click',function(){
+           var $this= $(this);
+
+             $this.next('.CollectMenuHref').toggleClass('hidden');
+            $this.parents('li').siblings('li').find('.CollectMenuHref').addClass('hidden');
+           
+        })
+        // 收藏
+        $('.notCollect').on('click',function(){
+          var $this = $(this);
+          var Flag='delCollectCompany';
+          console.log($this.attr('companyId'));
+          $.get("{{:U('VisitorInfo/ajaxControl')}}", {flag:Flag,company_id:$this.attr('companyId')},function(res){
+              if(res){
+                console.log(res);
+                dlalert({Content:'取消成功'});
+               $this.parents('li').remove();
+              }
+              if($this.parents('li').length==0){
+                  var HTML= '<li class="imgW100">'+
+                    '<img src="__PUBLIC__/oneselfCore/oneselfCoreImages/16hot_img_none_default.png" alt="暂无数据" />'+
+                     '<p class="tc">还没有收藏的店铺，快去收藏喜欢的店铺吧</p></li>';
+                $('.oneselfCollect').html(HTML);
+              }
+          });
+        })
+    })
+  </script>
+</block>

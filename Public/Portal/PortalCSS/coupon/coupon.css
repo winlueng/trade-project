@@ -1,0 +1,101 @@
+.couponBusiness_roleList{
+	font-size:12px;
+}
+.couponBusiness_roleList .adminFont{
+	font-size:12px;
+}
+
+.couponBusiness_center .kbVipAdmin_styledSelect ,.couponBusiness_center .kbVipAdmin_inlineBlock{
+	display:inline-block;
+	vertical-align:middle;
+}
+.couponBusiness_center .kbVipAdmin_slt,
+.couponBusiness_center .kbVipAdmin_searchSmit{
+	height:32px;
+}
+.couponBusiness_center .kbVipAdmin_search
+{
+	font-size: 100%;
+   height: 32px;
+   background-size: 8%;
+   text-indent: 30px;
+   width: 300px;
+
+}
+
+.couponBusiness_alert .couponBusiness_FormParent{
+
+}
+.couponBusiness_FormParent .couponAddr select{
+	height:100%;
+}
+#businessFileImg{
+	position:absolute;
+	top:0;
+	z-index:-1;
+}
+<<<<<<< HEAD
+.couponBusiness_alert .authAddFormSmt,
+.couponBusiness_alertWriter .authAddFormSmt,
+.couponBusiness_alert	.authAddFormSmt,
+.couponAdList_alert .authAddFormSmt,
+.couponAdList_alertWriter .authAddFormSmt,
+.couponAdClass_alert .authAddFormSmt,
+.couponAdClass_alertWriter .authAddFormSmt
+{
+	display:block;
+}
+
+/*商户行业*/
+.couponTrade_center {
+
+}
+/*广告列表*/
+.couponAdList_center .kbVipAdmin_styledSelect,
+.couponAdList_center .authAddBtn{
+	display:inline-block;
+}
+.couponAdList_center .authAddBtn{
+	float:right;
+	margin-right:10px;
+}
+
+/*广告分类*/
+.couponAdList_center{
+
+}
+
+
+/*广告添加*/
+.couponAdd_cente{
+
+}
+.couponAdd_center .microWebMenuAdmin label,
+.couponAdList_alertWriter .microWebMenuAdmin label{
+
+	width:100px;
+}
+.couponAdd_center .couponAdd-action,
+.couponAdList_alertWriter .couponAdd-action{
+	position:relative;
+	height:30px;
+}
+.couponAdd_center .couponBusiness_FormParent span,
+.couponAdList_alertWriter .couponBusiness_FormParent span{
+	float:left;
+}
+.couponAdd_center .couponAdd-action .couponAdd-actionList,
+.couponAdd_center .couponAdd-action .couponAdd-actionListWeek,
+.couponAdList_alertWriter .couponAdd-action .couponAdd-actionList,
+.couponAdList_alertWriter .couponAdd-action .couponAdd-actionListWeek
+{
+	position:absolute;
+	top:0;
+    width: 100%;
+    display:none;
+}
+=======
+.kbVipAdmin_fileImg label{
+	width:50%;
+}
+>>>>>>> db3a67ced1248d77b85d81b30cfb98d8cd4933ff

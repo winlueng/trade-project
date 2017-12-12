@@ -1,0 +1,44 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    .kb_list-cells .kb_cell::before{
+      display:none;
+    }
+</style>
+<php>
+ //echo("<pre>");
+  //var_dump($list);exit;
+</php>
+</block>
+<block name="title">
+ 招聘
+</block>
+
+<block name="content">
+ <section id="Main" class="kb_main bc kb_notFooter   ">
+ <empty name="list">
+  <p class="tc pt50">暂无职位招聘</p>
+ <else />
+  <foreach name="list" item="v">
+   <a href="{{:U('Job/jobDetail')}}?id={{$v['id']}}" class="kb_list-cells mb10">     
+    <h1 class="kb_cell f14 ">
+      <b class="kb_cell-bd">{{$v['job_name']}}</b>
+      <b class="kb_cell-ft">{{$v['payment']}}</b>
+    </h1>
+    <p class="kb_cell f14 briefColor">
+      <b class="kb_cell-bd">{{$v['job_title']}}</b>
+      <b class="kb_cell-ft">
+      {{:date('Y-m-d',$v['addtime'])}}
+      </b>
+    </p>
+   </a>
+  </foreach>
+ </empty>
+
+</block>
+
+<block name="js_files">
+<script>
+  
+</script>
+</block>

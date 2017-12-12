@@ -1,0 +1,80 @@
+<extend name="Web/default" />
+<block name="files">
+
+</block>
+<block name="content">
+    <div class="swiper-container carousel">
+        <div class="swiper-wrapper">
+        <foreach name="poster" item="v">
+            <div class="swiper-slide">
+                <a href="{{$v.poster_url}}" onclick="clickStatistics(this)" posterid="{{$v.id}}">
+                    <img src="__PUBLIC__{{$v.poster_pic}}">
+                </a>
+            </div>
+        </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div id="CooperationMerchant">
+        <div class="tradebar">
+            <span>
+                <i>类型选择</i>
+                <div class="select-group">
+                    <button type="button">请选择行业<span class="caret"></span></button>
+                    <ul style="box-shadow: 0 8px 12px #4d4d4d;">
+                        <foreach name="business" item="v" >
+                            <li><a href="javascript:;" businessid="{{$v['id']}}">{{$v['business_name']}}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </span>
+        </div>
+        <div class="card">
+            
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //选择行业
+            $(".tradebar > span > .select-group > button").on("click", function() {
+                var a = $(this).parent().find("> ul");
+                if(a.hasClass("active")) {
+                    a.removeClass("active");
+                } else {
+                    a.addClass("active");
+                }
+            });
+
+            //空 触摸事件
+            $(".tradebar > span > .select-group > ul > li > a").on("touchstart", function() {
+            });
+        });
+
+        $('.select-group ul li a').on('click',function(){
+            var bname = $(this).html();
+            $.get(
+                "__CONTROLLER__/ajaxControl",
+                {flag:1,businessid:$(this).attr('businessid')},
+                function (res){
+                var str = '';
+                var company = res['company'];
+                console.log(company);
+                for(var k in company)
+                {
+                    str += "<a href='__MODULE__/Merchant/merchant/id/"+company[k].uid+"'><img src='__PUBLIC__"+company[k].company_pic+"'></a>";
+                }
+                $('.card').html(str);
+                $(".select-group > ul").removeClass("active");
+                $(".select-group > button").html(bname + "<span class='caret'></span>");
+
+                var poster = res['poster'];
+                var str = '';
+                for(var i in poster)
+                {
+                    str += "<div class='swiper-slide'><a href="+ poster[i].poster_url +"><img src='__PUBLIC__"+ poster[i].poster_pic +"' posterid='"+ poster[i].id +"' onclick='clickStatistics(this)'></a></div>";
+                }
+                $('.swiper-wrapper').html(str);
+            })
+        })
+    </script>
+</block>

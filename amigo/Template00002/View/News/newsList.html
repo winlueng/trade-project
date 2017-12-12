@@ -1,0 +1,94 @@
+<extend name="Common/websiteCom" />
+<block name="css_file">
+	<style>
+		.bsClassHref{
+			/*overflow-x:scroll;*/
+		}
+		
+	</style>
+</block>
+<block name="header" >
+	<header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-customerFFF" href="javascript:;">
+			</a>
+		</nav>
+		<h1>动态</h1>
+		<nav>
+			<if condition="$newsCount">
+		        <a class="icon-newsLeft hasTip" href="{{:U('SystemNews/newsList',['companyName' => $_GET['companyName']])}}"></a>
+		    <else/>
+		        <a class="icon-newsLeft" href="{{:U('SystemNews/newsList',['companyName' => $_GET['companyName']])}}"></a>
+		    </if>
+		</nav>
+	</header>
+</block>
+<block name="content" >
+	<section id="bsMain" class="bsNews">
+		<header class="bsClassNav mb10 swiper-container">
+			<nav class="bsClassHref swiper-wrapper">
+				<volist name="classifyList" id="v">
+					<a style="width:107px" class="swiper-slide" href="{{:U('newsList', ['news_classify_id' => $v['id'], 'companyName' => $_GET['companyName']])}}" data-urlID="{{$v['id']}}">{{$v.news_type_name}}</a>
+				</volist>
+			</nav>
+			
+		</header>
+		<volist name="newsList" id="v" empty="这分类还没发布动态哦">
+			
+			<article class="bc mb10 bsGoodsBrief">
+			<a href="{{:U('newsDetail', ['id' => $v['id'], 'companyName' => $_GET['companyName']])}}" onclick="newsStatistics(this)" newsid="{{$v.id}}" >
+				<img src="__PUBLIC__{{$v['news_logo']}}" alt="大图" />
+				<div class="goodsBrief-info">
+					<h3>{{$v.news_name}}</h3>
+					<p>阅读量：{{$v['visit_total']?$v['visit_total']:0}}</p>
+				</div>
+			</a>
+		</article>
+		</volist>
+		
+	</section>
+</block>
+<block name="js_file">
+	<script>
+		$(function(){
+
+			var url=document.URL,
+				news_classify_id="news_classify_id"
+				indexs=url.indexOf('news_classify_id'),
+				newURL=url.substring(indexs+news_classify_id.length+1,url.length),
+				urlID=newURL.substring(0,newURL.indexOf('/')),
+				wWidth=window.innerWidth,
+				evenWidth=wWidth/3.5,
+				bsClassHref=$('.bsClassHref a');
+				console.debug(evenWidth);
+
+				// bsClassHref.parent().parent().css("width",evenWidth*bsClassHref.length);
+				bsClassHref.each(function(indexs,elem){
+					// $(elem).css("width",evenWidth+"px");
+					var dataUrlID=$(elem).attr('data-urlID').trim();
+						if(dataUrlID==urlID){
+							$(elem).addClass('selected');
+							// $(elem).prev().addClass('swiper-slide-prev');
+							// $(elem).next().addClass('swiper-slide-next');
+							// $(elem).siblings().removeClass('swiper-slide-active');
+							$(elem).parent().css({
+								'transition-duration': '0ms', 
+								 'transform': 'translate3d(-'+$(elem).width()*(indexs-1)+'px, 0px, 0px)'
+							})
+						}
+				});
+				if(indexs=="-1"){
+					$('.bsClassHref a').eq(0).addClass('selected');
+				}
+			
+			(function(){
+			    var mySwiper = new Swiper('.bsClassNav', {
+			       slidesPerView: 3.5,
+			       paginationClickable: true,
+			       freeMode: true
+			    });		
+			})()
+		})
+		  	
+	</script>
+</block>

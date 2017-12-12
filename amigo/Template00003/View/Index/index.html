@@ -1,0 +1,562 @@
+<extend name="Common/tradeChild" />
+<block name="css_files">
+<style>
+.dl_title-index{
+  border-left:4px solid #000;
+  margin-left:10px;
+  margin-bottom:15px;
+  text-indent: 10px;
+  font-size:20px;
+}
+.dl_nowRecommend-content{
+  width:100%;
+  min-height:200px;
+  padding-left:5px;
+  padding-right:5px;
+}
+.dl_nowRecommend-content-img{
+  width:100%;
+  max-height: 150px;
+  overflow:hidden;
+}
+.dl_nowRecommend-content-title{
+  font-size:15px;
+  /*font-weight:bold;*/
+}
+.dl_nowRecommend-content-brief{
+  color:#a9a9a9;
+  /*height: 3em;*/
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+.mb10{
+  margin-bottom:10px;
+}
+.mt15{
+  margin-top:15px;
+}
+.dl_seconBanner,.dl_fifthBanner{
+  max-height:100px;
+  height:100px;
+}
+.firstBanner{
+  /*height:290px;*/
+}
+.dl_saleGoods .kb_list-cells{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  border:1px solid rgba(187,188,191,.3);
+  margin-bottom: 10px;
+}
+.dl_fifthBanner,.dl_seconBanner{
+  width:95%;
+}
+.firstBanner .dl_title-index{
+  position:relative;
+}
+.firstBanner .dl_title-index .swiper-pagination{
+    right:0;
+    font-size: 12px;
+    width: 50px;
+    left: inherit;
+    font-weight:normal;
+    color:#a2a3a6;
+    bottom:3px;
+}
+.firstBanner .dl_title-index .swiper-pagination-current{
+  /*font-weight:bold;*/
+  font-size:18px;
+  color:#000;
+}
+.swiper-pagination-bullet{
+  background-color:#fff;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background:url('__PUBLIC__/trading/style/img/pagination-bullet.png') no-repeat center;
+    background-size: 15px;
+}
+
+
+.dl_newGoods  img{
+  height:127px;
+}
+.dl_newGoods h3{
+  min-height:34px;
+  overflow:hidden;
+}
+.dl_hotGoods  img,#fourthBanner img{
+  height:120px;
+}
+.dl_hotGoods h3{
+  /*height:34px;*/
+  overflow:hidden;
+}
+.dl_saleGoods .kb_list  img{
+  width:110px;
+  height:82.5px;
+}
+.dl_saleGoods h3{
+  height:34px;
+  overflow:hidden;
+}
+.dl_saleGoods .kb_list{
+  position: relative;
+}
+.dl_saleGoods .kb_list::after{
+  content:'';
+  display: block;
+  width:90%;
+  margin-right: auto;
+  margin-left:auto;
+  height: 1px;
+  background:#e1e2e6; 
+  position:absolute;
+  bottom:0;
+      left: 0;
+    right: 0;
+}
+.dl_seconBanner img{
+  height: 100px
+}
+.dl_attention{
+  background:#000;
+  height:80px;
+}
+.dl_attention .kb_cell-hd{
+  width:70px;
+  height:70px;
+  overflow: hidden;
+  border-radius: 50px
+}
+.kb_cell .kb_choose{
+  position:relative;
+}
+.dl_moreShara{
+  position: fixed;
+  z-index: 15;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.dl_moreShara .kb_grid-cell{
+  width: calc(100% / 4);
+  height: 78px;
+  border: none;
+  padding:0;
+}
+.dl_moreShara-title{
+  position:relative;
+  z-index: 3
+}
+.dl_moreShara-title::before{
+  content:'';
+  display: block;
+  width:80%;
+  height:2px;
+  background-color:#000;
+  margin:auto;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:-1
+}
+.dl_moreShara-title-info{
+  background-color:#fff;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.dl_morehShara-footer{
+  border-top:2px solid #000;
+  width:100%;
+  padding:5px 10px;
+}
+.dl_moreShara-box{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.dl_moreShara  .Cover{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top:0;
+  left:0;
+  background:#000;
+  opacity: .5
+}
+</style>
+<php>
+//echo '<pre>';
+//var_dump($collect_total);exit;
+</php>
+</block>
+<block name="content" >
+<div id="Main" class="kb_main tg_home">
+  <header class="kb_cell dl_attention">
+      <p class="kb_cell-hd mr20 imgW imgH">
+        <img src="__PUBLIC__{{$companyInfo.company_logo}}" alt="" />
+      </p>
+      <aside class="kb_cell-bd tg_ft-fff">
+        <h1 class="kb_cell-titlle mb10">
+            {{$companyInfo.company_name}}
+        </h1>
+        <p >
+        关注人数：<em class="mark-collectTotal">{{$collect_total}}</em>
+        </p>
+      </aside>
+      <p class="kb_cell-ft">
+        <label class="kb_choose">
+          <input type="checkbox" value="" {{$is_save==1? "checked='true'":''}}  class="mark-attention"/>
+          <span class="kb_btn kb_btn-main"> 
+              {{$is_save==1?'已关注':'+关注'}}
+          </span>
+        </label>
+        <!-- <button type="button"  class="kb_btn kb_btn-main"></button> -->
+      </p>
+    </header>
+<notempty name="topNews">
+
+  <article id="firstBanner" class="firstBanner dl_nowRecommend  main_bg mb10 swiper-container pt20">
+    <h1 class="dl_title-index">今日主推 <div class="swiper-pagination">
+    </div></h1>
+    <ul class="swiper-wrapper ml10">
+    <foreach name="topNews" item="v">
+    	<li class="swiper-slide">
+    		<a href="{{:U('News/newsDetail')}}?companyName={{:I('companyName')}}&id={{$v['id']}}" class="dl_nowRecommend-content fl">
+    			<p class="dl_nowRecommend-content-img imgW imgH mb10">
+    				<img  src="__PUBLIC__/{{$v['news_logo'][0]}}" alt="" />
+    			</p>
+    			<p class="dl_nowRecommend-content-title mb10 mt15">
+    				{{$v['news_name']}}
+    			</p>
+    			<p class="dl_nowRecommend-content-brief">
+	    			{{$v['title']}}
+    			</p>
+    		</a>
+    	</li>
+    </foreach>
+    </ul>
+  
+  </article>
+  </notempty>
+  <notempty name="topBanner">
+  <div class="main_bg w">
+  <article id="secondBanner" class="swiper-container main_bg dl_seconBanner mb10 pb10 pt10">
+  	 <ul class="swiper-wrapper ">
+  	  <foreach name="topBanner" item="v">
+    	<li class="swiper-slide">
+    		<a href="{{$v['banner_url']}}" class="banner_click" banner-id="{{$v['id']}}">
+    		<p class=" h imgW imgH  ">
+
+				<img  src="__PUBLIC__{{$v['banner_pic']}}" alt="" />
+    		</p>
+    		</a>
+    	</li>
+      </foreach>
+    </ul>
+    <div class="swiper-pagination">
+    </div>
+  </article>
+  </div>
+  </notempty>
+  <notempty name="hotGoods">
+  <article id="thirdrBanner" class="dl_hotGoods  main_bg mb10 thirdrBanner pb10 pt10">
+    <h1 class="dl_title-index">热销商品</h1>
+    <ul class="swiper-wrapper ml10 ">
+     <foreach name="hotGoods" item="v">
+    	<li class="swiper-slide ">
+    	  <a href="{{$v['link']}}">
+    	  <p class="imgW w">
+            <img src="__PUBLIC__{{$v[goods_logo]}}" alt="" />
+          </p>
+          </a>
+          <h3 class="mb10">{{$v[goods_name]}}</h3>
+          <p class="flexLayout-center dl_between ">
+          	<if condition="$v.is_promotion==1">
+            <em class="tg_ft-price">￥{{$v[promotion_price]}}</em>
+            <else />
+            <em class="tg_ft-price">￥{{$v[price]}}</em>
+            </if>
+            <em class="tg_ft-default">销量:
+            <empty name="v.salesTotal">
+            	0
+            <else />
+            	{{$v[salesTotal]}}
+            </empty>
+            </em>
+          </p>
+    	</li>
+    </foreach>
+    </ul>
+  </article>
+  </notempty>
+  <notempty name="discount_goods">
+  <article class="dl_saleGoods  main_bg mb10 pt10">
+    <h1 class="dl_title-index">折扣商品</h1>
+    <ul class="kb_list pb20">
+    <foreach name="discount_goods" item="v">
+      <li class="kb_list-cells">
+         <a href="{{$v['link']}}" class="kb_list-cell">  
+            <div class="kb_list-cell-hd">
+                <img src="__PUBLIC__{{$v['goods_logo']}}" alt="" />
+            </div>
+            <aside class="kb_list-cell-bd">
+                <h2 class="kb_list-cell-title mb10">{{$v[goods_name]}}</h2>
+                <div class="kb_list-cell-brief">
+                   <if condition="($v['is_promotion'] eq 1) AND ((int)$v['sales_start_time'] lt time()) AND ((int)$v['sales_end_time'] gt time())">
+                        <p class="tg_ft-price mb10">
+                          距结束：{{:turnDistanceTime($v['sales_end_time'])}}
+                        </p>
+                        <p class="tg_ft-price mb10">
+                            <b class="f16 mr10">￥{{$v['promotion_price']}}</b><em class="tg_through">￥{{$v['price']}}</em>
+                        </p>
+                    <else />
+                        <p class="tg_ft-price mb10">
+                            <b class="f16 mr10">￥{{$v['price']}}</b>
+                        </p>
+                    </if>
+                    <p class="dl_bugShoping">
+                       <em>销量{{$v['salesTotal']?$v['salesTotal']:0}}</em>
+                       <!-- <button type="button" class="kb_btn icon-bugShoping mark-bugShoping w30 h30"></button> -->
+                    </p>
+                </div>
+            </aside>
+         </a>
+      </li>
+      </foreach>
+    </ul>
+
+    <notempty name="footBanner">
+    <div class="main_bg w">
+      <article id="fifthBanner" class="swiper-container main_bg dl_fifthBanner mb10 pb10 pt10">
+         <ul class="swiper-wrapper ">
+          <foreach name="footBanner" item="v">
+          <li class="swiper-slide">
+            <a href="{{$v[banner_url]}}" class="banner_click" banner-id="{{$v['id']}}">
+            <p class=" h imgW imgH  ">
+
+            <img  src="__PUBLIC__{{$v[banner_pic]}}" alt="" />
+            </p>
+            </a>
+          </li>
+          </foreach>
+        </ul>
+        <div class="swiper-pagination">
+        </div>
+      </article>
+    </div>
+    </notempty>
+  </article>
+  </notempty>
+  <notempty name="newGoods">
+  <article id="fourthBanner" class="dl_newGoods  main_bg mb10 fourthBanner pb10 pt10">
+    <h1 class="dl_title-index">新品区</h1>
+    <ul class="swiper-wrapper ml10 ">
+    <foreach name="newGoods" item="v">
+    	<li class="swiper-slide ">
+    	  <a href="{{$v[link]}}">
+    	  <p class="imgW w">
+            <img src="__PUBLIC__{{$v[goods_logo]}}" alt="" />
+          </p>
+          </a>
+          <h3 class="mb10">{{$v[goods_name]}}</h3>
+          <p class="flexLayout-center dl_between ">
+            <em class="tg_ft-price">￥{{$v['is_promotion']==1? $vp['promotion_price']:$v['price']}}</em>
+            <em class="tg_ft-default">销量:{{$v['salesTotal'] ? $v['salesTotal']: 0}}</em>
+          </p>
+    	</li>
+    </foreach>
+    </ul>
+  </article>
+  </notempty>
+  <notempty name="selYouLike">
+  <article class="dl_newGoods  main_bg mb10 pt10">
+    <h1 class="dl_title-index">猜你喜欢</h1>
+    <ul class="tg_list-cell tg_list-cell_two p10">
+    <foreach name="selYouLike" item="v">
+      <li class="tg_list-bd mb20">
+      	  <a href="{{$v['link']}}">
+          <p class="imgW w">
+            <img src="__PUBLIC__{{$v['goods_logo']}}" alt="" />
+          </p>
+          </a>
+          <h3 class="mb15 mt20">{{$v['goods_name']}}</h3>
+          <p class="flexLayout-center dl_between ">
+            <em class="tg_ft-price f14">￥{{$v['is_promotion']==1?$v['promotion_price']:$v['price']}}</em>
+            <em class="tg_ft-default f12  ">销量:{{$v['sales']?$v['sales']:0}}</em>
+          </p>
+      </li>
+     </foreach>
+    </ul>
+  </article>
+  </notempty>
+</div><!--center end-->
+</block>
+<block name="js_files">
+<div class="dl_moreShara">
+  <div class="Cover"></div>
+  <div class="dl_moreShara-box main_bg ">
+    <p class="tc f14 p10 dl_moreShara-title">
+      <span class="dl_moreShara-title-info">分享到</span>
+    </p>
+    <article class="kb_grid pb10"> 
+      <a href="javascript:;" class="kb_grid-cell">
+        <p class="kb_grid-cell-icon">
+          <img src="__PUBLIC__/tradchild/images/share/tr-wechat-friends.svg" alt="">
+        </p>
+        <p class="kb_grid-cell-info">
+          微信好友
+        </p>
+      </a>
+      <a href="javascript:;" class="kb_grid-cell">
+        <p class="kb_grid-cell-icon">
+          <img src="__PUBLIC__/tradchild/images/share/tr-moments.svg" alt="">
+        </p>
+        <p class="kb_grid-cell-info">
+          朋友圈
+        </p>
+      </a>
+      <a href="javascript:;" class="kb_grid-cell">
+        <p class="kb_grid-cell-icon">
+          <img src="__PUBLIC__/tradchild/images/share/tr-weibo.svg" alt="">
+        </p>
+        <p class="kb_grid-cell-info">
+            新浪微博
+        </p>
+      </a>
+      <a href="javascript:;" class="kb_grid-cell">
+        <p class="kb_grid-cell-icon">
+          <img src="__PUBLIC__/tradchild/images/share/tr-qq.svg" alt="">
+        </p>
+        <p class="kb_grid-cell-info">
+            QQ好友
+        </p>
+
+      </a>
+       <a href="javascript:;" class="kb_grid-cell">
+        <p class="kb_grid-cell-icon">
+          <img src="__PUBLIC__/tradchild/images/share/tr-Qzone.svg" alt="">
+        </p>
+        <p class="kb_grid-cell-info">
+            QQ空间
+        </p>
+        
+      </a>
+      <a href="javascript:;" class="kb_grid-cell">
+        <p class="kb_grid-cell-icon">
+          <img src="__PUBLIC__/tradchild/images/share/tr-copy-link.svg" alt="">
+        </p>
+        <p class="kb_grid-cell-info">
+            复制链接
+        </p>
+        
+      </a>
+    </article>
+    <footer class="dl_morehShara-footer">
+      <input type="button" value="取消" class="kb_btn w bcv mark-sharecancel" />
+    </footer>
+  </div>
+</div>
+<nav class="dl_goShopCar">
+    <a class="icon-shoppCat {{$cartTotal?'dl_myself-order-point':''}}" href="{{:U('ShoppingCart/myCart')}}?companyName={{:I('get.companyName')}}&c_com=i"></a>
+</nav>
+<script>
+$(function(){
+	
+		(function(){
+			var swiper = new Swiper('#firstBanner', {
+		        autoplay:5000,//可选选项，自动滑动
+		        pagination: '.swiper-pagination',
+  		    	slidesPerView: 1.08,
+            spaceBetween :10,
+            pagination : '.swiper-pagination',
+            paginationType : 'fraction',
+		    });
+			
+			
+		})();
+
+		(function(){
+			 var swiper = new Swiper('#secondBanner', {
+	            autoplay:5000,//可选选项，自动滑动
+	            pagination: '.swiper-pagination',
+	        
+	        });
+
+		})();
+		(function(){
+			var swiper = new Swiper('#thirdrBanner', {
+			        slidesPerView: 2.2,
+			        spaceBetween: 20,
+	
+			    });
+		})();
+		(function(){
+			 var swiper = new Swiper('#fourthBanner', {
+	            slidesPerView: 2.2,
+	            spaceBetween: 20,
+	        
+	        });
+		})();
+    // fifthBanner
+    (function(){
+       var swiper = new Swiper('#fifthBanner', {
+              autoplay:5000,//可选选项，自动滑动
+              pagination: '.swiper-pagination',
+          
+          });
+
+    })();
+    $(function(){
+    	$('.kbMt_classHref a:first-child').addClass('selected');
+    })
+
+    $('.banner_click').on('click',function(){
+        $.get("{{:U('Index/ajaxControl')}}",{flag: 'bannerStatistics', id:$(this).attr('banner-id')});
+    });
+    $('.mark-attention').on('click',function(){
+      var $this,isCheck,getData,tipTxt,collect_total;
+      collect_total=$('.mark-collectTotal');
+      $this=$(this);
+      console.log($this.prop('checked'));
+      // console.log(!$this.prop('checked'));
+      isCheck= $this.prop('checked')?1:2;
+      console.log(isCheck);
+      getData={
+        flag:"collectCompany",
+        status:isCheck,
+        company_id:{{$companyInfo.id}}
+      }
+      $.ajax({
+        type:"GET",
+        url:"{{:U('/PT2/VisitorCollect/ajaxControl')}}",
+        data:getData,
+        dataType:"json",
+        success:function(data){
+          if(data==1){
+            tipTxt=isCheck==1?"收藏成功":"已取消收藏";
+            $this.attr('checked',isCheck==1?'1':'0');
+            $this.next('.kb_btn').text(isCheck==1?"已关注":"+关注")
+            collect_total.text(isCheck==1?parseInt(collect_total.text(),10)+1:parseInt(collect_total.text(),10)-1)
+            oTip(tipTxt);
+          }else{
+            oTip('操作失败');
+          }
+        },
+        error:function(error){
+          console.log(error);
+        }
+      })
+    })
+      
+})
+	
+	
+</script>
+</block>

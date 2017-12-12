@@ -1,0 +1,245 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css"></link>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<php>
+		//echo "<pre>";
+		//var_dump($list);exit;
+	</php>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_rightCenter" class="spAnDynamic OrderForm">
+		<div class="centerTitle">
+			<h1>招聘列表</h1>
+		</div>
+		<div class="kbVipAdmin_operating spAnDynamic-operating" >
+			<input class="kbVipAdmin_opt w80 h30 kbVipAdmin_add " type="button" value="添加" />
+		</div>
+		<div class="main-contentBox kbVipAdmin_mt24" >
+			<div class="kbVipAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>职位名称</th>
+							<th>职位标题</th>
+							<th>添加时间</th>
+							<th>浏览量</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="v" >
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.job_name}}</td>
+							<td>{{$v.job_title}}</td>
+							<td>{{:date('Y-m-d H:i:s', $v['addtime'])}}</td>
+							<td>{{$v['visitTotal']?$v['visitTotal']:0}}</td>
+							<td>
+								<p class="kbVipAdmin_pushBtn">
+									<input type="checkbox" value="" {{$v['status'] == '0'?'checked':''}} title=" {{$v['status'] == '0'?'启用':'禁用'}}"/>
+									<label><b></b></label>
+								</p>
+								
+							</td>
+							<td class="kbVipAdmin_tdAction">
+								<input class="font_57c8f2 kbVipAdminEdit" type="button" value="" title="编辑" />
+								<input class="font_ff6c60 kbVipAdminDel" type="button" value="" title="删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页位置 -->
+			<div class="kbVipAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">			
+					<input class="w60  fl" type="text" value="" />
+					<a class="fl" href="javascript:;">跳转</a>
+				</div>
+			</div>
+		</div>
+		<div id="kbVipAdmin-edit" class="spAnDynamic-edit mt10" >
+			<div class="centerTitle">
+				<h1>添加招聘</h1>
+			</div>
+			<form class="" action="{{:U('jobAdd')}}" method="post" enctype="multipart/form-data">
+				<p class="kbVipAdmin_enter"><b><i>*</i>职位名称：</b><input type="text" maxlength="20" name="job_name" value="" placeholder="请输入职位名称" required="required" data-datatype="input" />
+					<strong class="kbVipAdmin_tip">必填项。职位名称不能超过20个字数。</strong>
+				</p>
+				
+				<p class="kbVipAdmin_enter"><b><i>*</i>职位简述：</b><input type="text" maxlength="54" name="job_title" value="" placeholder="请输入职位描述" required="required" data-datatype="input" />
+					<strong class="kbVipAdmin_tip">必填项。职位简述不能超过54个字数。两行文字显示，如不能则省略号代替</strong>
+				</p>
+				<p class="kbVipAdmin_enter"><b><i>*</i>职位薪酬：</b><input type="text" maxlength="54" name="payment" value="" placeholder="请输入职位薪酬" required="required" data-datatype="input" />
+					<!-- <strong class="kbVipAdmin_tip">必填项。职位简述不能超过54个字数。两行文字显示，如不能则省略号代替</strong> -->
+				</p>
+				<div class="kbVipAdmin_enter">
+					<b>详细内容:</b>
+					<div id="myEditor" class="myEditor">
+						<script id="container" name="job_info" type="text/plain">
+						在这里你可以布置好你的职位详情
+					    </script>
+					    <!-- 配置文件 -->
+					    <script type="text/javascript" src="ueditor.config.js"></script>
+					    <!-- 编辑器源码文件 -->
+					    <script type="text/javascript" src="ueditor.all.js"></script>
+					    <!-- 实例化编辑器 -->
+					    <script type="text/javascript">
+					        var ue = UE.getEditor('container',{
+				        		// 'initialFrameWidth':700,
+				        		'initialFrameHeight':500,
+				        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+					        });
+					    </script>
+					</div>
+				</div>
+				<div class="kbVipAdmin_operating">
+					<div class="kbVipAdmin_restsubmit"> 
+						<input  class="kbVipAdmin_button_eee w200 h40 tc" type="reset" value="取消" />
+						<input  class="kbVipAdmin_opt w200 h40" type="submit" value="保存" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert spAnDynamic_alert">
+		<div class="kbVipAdmin_alertBox">
+			<button class="kbVipAdmin_alert-close "></button>
+			<h3 class="mb10">招聘修改</h3>
+			<form class="" action="" method="post" enctype="multipart/form-data">
+				<div class="spAnDynamic_alert_from">
+				<p class="kbVipAdmin_enter"><b><i>*</i>职位名称：</b><input type="text" maxlength="20" name="job_name" value="" placeholder="请输入职位名称" required="required" data-datatype="input" />
+					<strong class="kbVipAdmin_tip">必填项。职位名称不能超过20个字数。</strong>
+				</p>
+				<p class="kbVipAdmin_enter"><b><i>*</i>职位简述：</b><input type="text" maxlength="54" name="job_title" value="" placeholder="请输入职位描述" required="required" data-datatype="input" />
+					<strong class="kbVipAdmin_tip">必填项。职位简述不能超过54个字数。两行文字显示，如不能则省略号代替</strong>
+				</p>
+				<p class="kbVipAdmin_enter"><b><i>*</i>职位薪酬：</b><input type="text" maxlength="54" name="payment" value="" placeholder="请输入职位薪酬" required="required" data-datatype="input" />
+				<div class="kbVipAdmin_enter">
+					<b>详细内容:</b>
+					<div id="myEditor1" name="job_info" class="myEditor">
+					    <!-- 配置文件 -->
+					</div>
+					<script type="text/javascript"  src="ueditor.config.js"></script>
+				    <!-- 编辑器源码文件 -->
+				    <script type="text/javascript" src="ueditor.all.js"></script>
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        var ue = UE.getEditor('myEditor1',{
+			        		//'initialFrameWidth':700,
+			        		'initialFrameHeight':500,
+			        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+				        });
+				    </script>
+				</div>
+				</div>
+				<div class="kbVipAdmin_operating ">
+				<div class="kbVipAdmin_restsubmit"> 
+					<input  class="kbVipAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+					<input  class="kbVipAdmin_opt w100 h40" type="submit" value="保存" />
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+     $(function(){
+   		$('.spAnDynamic-operating .kbVipAdmin_add').on('click',function(){
+   			$("#kbVipAdmin-edit").siblings().fadeOut();
+   			$("#kbVipAdmin-edit").fadeIn();
+   			var checkData=new CheckData('#kbVipAdmin-edit');
+   			vueMethods.maxLength();
+   			$('#kbVipAdmin-edit .kbVipAdmin_restsubmit .kbVipAdmin_opt').on('click',function(){
+   				return checkData.verify();
+   			})
+
+   		})
+   		$('.spAnDynamic-edit .kbVipAdmin_operating input[type="reset"]').on('click',function(){
+   			$("#kbVipAdmin-edit").siblings().fadeIn();
+   			$("#kbVipAdmin-edit").fadeOut();
+   		})
+   		$('.spAnDynamic .kbVipAdmin_tdAction .kbVipAdminEdit').on('click',function(){
+   			$(".spAnDynamic_alert").fadeIn();
+   			vueMethods.maxLength();
+   		})
+   		$('.spAnDynamic_alert .kbVipAdmin_operating input[type="reset"]').on('click',function(){
+   			$(".spAnDynamic_alert").fadeOut();
+   		})
+   		$('.kbVipAdmin_checkbox input').on('click',function(){
+   			var $this = $(this);
+   			var checkStatus = $(this).val();
+   			var ID=$this.parent().parent().siblings().eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+   			$.get('{{:U("Job/ajaxControl")}}',{'flag':'changeNewsStatus',id:ID,status:checkStatus},function(res){
+   				Alert((res=="1")? "修改成功":"修改失败");
+   			})
+   		})
+   		$('.kbVipAdminEdit').on('click',function(){
+   			var $this=$(this);
+   			var ID=$this.parent().siblings().eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+
+   			$.get('{{:U("Job/ajaxControl")}}',{'flag':'selJobInfo',id:ID,},function(res){
+
+	   				for(r in res){
+	   					switch(r){
+	   						case "job_info":
+	   							UE.getEditor('myEditor1').setContent(res.job_info);
+	   						break;
+	   						default:
+	   							$(".spAnDynamic_alert .kbVipAdmin_enter").find('input[name="'+r+'"]').val(res[r]);
+	   					}
+	   				}
+
+   			})
+   			$(".spAnDynamic_alert form").prop('action',"{{:U('jobUpdate')}}?id="+ID)
+   		})
+   		 $('.kbVipAdmin_tdAction .kbVipAdminDel').on('click',function(){
+   		 	var $this=$(this);
+   		 	var ID=$this.parent().siblings().eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+   		 	Confirm("你确定删除该招聘岗位吗？",function(ren){
+   		 	 		if(ren){
+ 			   		 	$.get('{{:U("Job/ajaxControl")}}',{flag:'jobDel',id:ID},function(res){
+ 			   		 		if(res){
+ 			   		 			$this.parent().parent().remove();
+ 			   		 			sTip('操作成功');
+ 			   		 		}else{
+ 			   		 			eTip('操作失败');
+ 			   		 		}
+ 				   		})
+   		 	 		}else{
+   		 	 		}
+   		 	 		console.log(ren);
+   		 	});
+   		 	
+   		 })
+   		  $('.kbVipAdmin_pushBtn input').on('click',function(){
+   		 	 var $this=$(this);
+   		 	 var ajaxUrl='{{:U("ajaxControl")}}';
+   		 	 var Status=$this.is(':checked')?0:1;
+   		 	 var ID = $this.parents('tr').children().eq(0).text().trim();
+   		 	 // console.log(Status);
+   		 	 $.get(ajaxUrl,{
+   		 	 	flag:'changeJobStatus',
+	   		 	status:Status,
+	   		 	id:ID
+   		 	 },function(res){
+   		 	 	if(res!="1"){
+   		 	 		$this.attr('checked',false)
+   		 	 		eTip("操作失败")
+   		 	 	}else{
+   		 	 		sTip("操作成功")
+   		 	 	}
+   		 	 	console.log(res);
+   		 	 })
+   		 
+   		 })
+     })
+	</script>
+</block>

@@ -1,0 +1,40 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+	<style>
+		
+	</style>
+</block>
+<block name="bsTitle">
+	预约信息填写
+</block>
+<block name="content">
+	<section id="bsMain" class="bsOrder noFooter bsEditOrderSelf">
+	<form action="{{:U('orderInsert',['companyName' => $_GET['companyName'], 'staffID' => $_GET['staffID']])}}" method="post">
+		<ul class="bsForm">
+			<li class="bsFormTxt">
+				<label>姓名:</label>
+				<input type="text" name="people" value="" placeholder="请输入预约人姓名"/>
+			</li>
+			<li class="bsFormTxt">
+				<label>性别:</label>
+				<p class="checkSex choose ml10 mr10">
+					<input type="radio" name="sex" value="1" checked="checked" >
+	        		<label><b></b>男</label>
+				</p>
+				<p class="checkSex choose">
+					<input type="radio" name="sex" value="2" checked="" >
+	        		<label><b></b>女</label>
+				</p>
+			</li>
+			<li class="bsFormTxt">
+				<label>手机号码:</label>
+				<input type="tel" value="" name="phone" placeholder="请输入手机号" "/>
+			</li>
+			
+		</ul>
+		<p class="bsFormSumit tc">
+			<input class="defineBtn btnColor00bec5 f14"  type="submit" value="保存" />
+		</p>
+	</form>
+	</section>
+</block>

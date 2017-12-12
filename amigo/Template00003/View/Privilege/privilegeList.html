@@ -1,0 +1,108 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+
+</block>
+
+<block name="bsTitle">
+  优惠
+</block>
+<block name="content">
+  <section id="bsMain" class="noFooter bsNews">
+        <ul class="preferential-veryNew bc mb10">
+        <volist name="list" id="v" >
+          <li>
+            <div class="preferential-veryNew-box" cardID="{{$v.id}}">
+             
+                <switch name="v.card_type">
+                  <case value="GROUPON">
+                   <p class="preferential-veryNew-image">
+                    <img src="__PUBLIC__/images/groupBuyCard.png" alt="团购券" />
+                    </p>
+                  </case>
+                  <case value="DISCOUNT">
+                   <p class="preferential-veryNew-image">
+                    <img src="__PUBLIC__/images/rebateCard.png" alt="折扣券" />
+                  </p>
+                  </case>
+                  <case value="GIFT">
+                   <p class="preferential-veryNew-image">
+                    <img src="__PUBLIC__/images/exchangeCard.png" alt="礼品券" />
+                  </p>
+                  </case>
+                  <case value="CASH">
+                   <p class="preferential-veryNew-image">
+                    <img src="__PUBLIC__/images/likeMoneyCard.png" alt="代金券" />
+                  </p>
+                  </case>
+                  <case value="GENERAL_COUPON">
+                   <p class="preferential-veryNew-image">
+                    <img src="__PUBLIC__/images/preferentialCard.png" alt="优惠券" />
+                  </p>
+                  </case>
+                  <default />  <p class="preferential-veryNew-image">未知错误</p>
+                </switch>
+                
+              
+              <div class="preferential-veryNew-info">
+                <!-- <p class="kbMt_fontCr-000 fb kbMt_font14">
+                  <switch name="v.card_type">
+                    <case value="GROUPON">团购券</case>
+                    <case value="DISCOUNT">折扣券</case>
+                    <case value="GIFT">礼品券</case>
+                    <case value="CASH">代金券</case>
+                    <case value="GENERAL_COUPON">优惠券</case>
+                  </switch>
+                </p> -->
+                <p class="kbMt_fontCr-000 fb kbMt_font14">{{$v.title}}</p>
+                <!-- <p class="kbMt_fontCr-000 fb kbMt_font14">{{$v.notice}}</p> -->
+                <p class="preferential-veryNew-brief kbMt_fontCr-9f4f00">
+                  <switch name="v.date_info.type">
+                    <case value="DATE_TYPE_FIX_TIME_RANGE">
+                      使用时间: {{:date('Y年m月d日', $v['date_info']['begin_timestamp'])}}- {{:date('Y年m月d日', $v['date_info']['end_timestamp'])}}
+                    </case>
+                    <case value="DATE_TYPE_FIX_TERM">
+                      <if condition="$v['date_info']['fixed_begin_term']">
+                        使用时间: 自领取后{{$v['date_info']['fixed_begin_term']}}天开始生效, 生效后有效期{{$v['date_info']['fixed_term']}}天
+                      <else/>
+                        <if condition="$v['date_info']['fixed_term']">
+                        使用时间: 自领取后{{$v['date_info']['fixed_term']}}天内有效
+                        <else/>
+                        使用时间: 自领取后当天内有效
+                        </if>
+                      </if>
+                    </case>
+                  </switch>
+                </p>
+                <p class="preferential-veryNew-brief kbMt_fontCr-9f4f00">剩余{{$v['sku']['quantity']}}张, 已有{{$v['sku']['total_quantity'] - $v['sku']['quantity']}}人领取</p>
+              </div>
+            </div>
+          </li>
+        </volist>
+      </ul>
+  </section>
+  </block>
+<block name="footer" >
+  <!-- <script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script> -->
+  <script>
+    $(function(){
+      $('.addShopCarBtn').on('click',function(){
+        $('.Popout').slideDown();
+      })
+
+      $('.preferential-veryNew-box').on('click',function(){
+        var cardID = $(this).attr('cardID');
+        $.get('{{:U("ajaxControl")}}', {flag:'addCard', cardID:cardID, companyName:"{{$_GET['companyName']}}"},function(res){
+          wx.addCard({
+              cardList:[{
+                  cardId: cardID,
+                  cardExt:res
+              }],
+              success: function (res) {
+                      alert("领取成功");
+              },
+          });
+        })
+      })
+    })
+  </script>
+</block>

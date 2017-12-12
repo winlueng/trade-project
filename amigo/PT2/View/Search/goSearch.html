@@ -1,0 +1,109 @@
+<extend name="Common/firstCom" />
+<block name="css_files">
+	<style>
+		.goodsName em{
+			color:#00bec5;
+		}
+		.bsSearchCare {
+			width:92%;
+			margin-left:auto;
+			margin-right:auto;
+			display:flex;
+			display:-webkit-flex;
+			-webkit-flex-wrap:wrap;
+		}
+		.bsSearchCare h2{
+			text-align: left;
+			-webkit-flex-basis:100%;
+		}
+		.bsSearchCare li{
+			/*width:15%;*/
+			margin-right:5%;
+			padding:5px 10px;
+			background-color:#eaeaea;
+		    margin-bottom: 10px;
+		    height: 2em;
+		    line-height: 2em;
+		}
+		.bsSearchCare li>a{
+			display:block;
+			color:#999;
+		}
+		.kb_search{
+			width: calc(100% - 35px);
+		}
+		.dl_goods-list img{
+			height:85px;
+		}
+		.kb_list-cell-bd{
+			width:0;
+		}
+	</style>
+</block>
+<block name="header">
+	<header id="Header" class="kb_header  ">
+		<form action="{{:U('goSearch',['companyName' => $_GET['companyName']])}}" >
+
+			<article class="kb_header flexLayout-center">
+			<nav class="kb_cell-hd w40 h">
+				<!-- href="{{:U('Index/index',['companyName' => $_GET['companyName']])}}" -->
+				<a class="icon-back w h"  href="javascript:javascript:history.back(-1)">
+				</a>
+			</nav>
+			<h1 class="kb_header-title kb_cell-bd">
+				<input class="kb_search icon-search bc" name="words" value="{{$_GET['words']}}"  placeholder="" />
+			</h1>
+			<nav class="kb_cell-ft w40 h">
+				<p class="kb_choose w">
+					<input  type="submit" value="搜索">
+					<label class="kb_btn">搜索</label>
+				</p>
+			</nav>
+			</article>
+		</form>
+	</header>
+</block>
+<block name="content" >
+<section id="Main" class=" kb_main kb_Search kb_notFooter">
+	<article class=" ">
+			
+			<aside class="searchContent">
+
+			 <ul class=" bsReservationList bc mb10 dl_goods-list">
+		       	<volist name="list" id="v" empty="$empty">
+		       	<?php if(in_array($sales[$v->id]['status'], ['1','3','4'])):?>
+		       	<li class="kb_list-cells" data-goodsId="{{$vo['id']}}">
+				<?php if($sales[$v->id]['web_postfix']):?>
+		       	   <a  href="<?=U($sales[$v->id]['template'].'/Goods/goodsDetail', ['companyName' => $_GET['companyName'], 'id' => $v->id, 'companyName' => $sales[$v->id]['web_postfix']])?>" class="kb_list-cell">  
+		       	<?php else:?>
+		       	   <a  href="{{:U('Goods/goodsDetail', ['companyName' => $_GET['companyName'], 'id' => $v->id])}}" class="kb_list-cell">  
+
+		       	<?php endif;?>
+		       	      <p  class="kb_list-cell-hd">
+		       	          <img src="__PUBLIC__{{$sales[$v->id]['goods_logo']}}" alt="" />
+		       	      </p>
+		       	      <aside class="kb_list-cell-bd">
+		       	          <h2 class="dl_goods-title mb10">{{$searchObj->highlight($v->goods_name)}}</h2>
+		       	          <div class="kb_list-cell-brief">
+		       	              <!-- <p class="tg_ft-price mb10">
+		       	                  距结束：6天12时30分
+		       	              </p> -->
+		       	                <p class="tg_ft-price mb10">
+		       	                    <b class="f16 mr10">￥{{$v->price}}</b>
+		       	                </p>
+		       	              
+		       	              <p class="dl_bugShoping">
+		       	                 <em>销量:{{$sales[$v->id]['sales']?$sales[$v->id]['sales']:0}}</em>
+		       	                 <!-- <button type="button" class="kb_btn icon-bugShoping mark-bugShoping w30 h30"></button>
+ -->		       	              </p>
+		       	          </div>
+		       	      </aside>
+		       	   </a>
+		       	</li>
+		     	<?php endif;?>
+		    	</volist>
+		     </ul>
+			</aside>
+		</article>
+</section>
+</block>

@@ -1,0 +1,915 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<link href="__PUBLIC__/trading/style/temporarily.css" rel="stylesheet"></link>
+<link href="__PUBLIC__/JS/module/ladingPasswordConfirm/passwordkeyboard.css" rel="stylesheet" type="text/css"></link>
+  <style>
+     .kb_list img{
+        height:80px;
+     }
+     #facusWap a{
+      width:calc(100% / 5);
+     }
+  </style>
+  <php>
+     // echo('<pre>');
+     // var_dump($list);exit;
+  </php>
+</block>
+
+<block name="title">
+我的订单
+</block>
+<block name="leftNav">
+  <if condition="$_GET['companyName'] AND $_GET['tem']" >
+    <a href="http://{{$_SERVER['HTTP_HOST']}}/{{:I('get.tem')}}/VisitorInfo/myCenter?companyName={{:I('get.companyName')}}" class="icon-back w"></a>
+  <else />
+    <a href="{{:U('VisitorInfo/myCenter')}}" class="icon-back w"></a>
+  </if>
+</block>
+
+<block name="content">
+  <section id="Main" class="kb_main bc kb_notFooter  tg_orderlist">
+   <header id="facusWap" class="swiper-container main_bg ">
+    <nav class="kb_tabNav   swiper-wrapper f16">
+      <a class="swiper-slide {{$_GET['show']?'':'selected'}} " href="{{:U('OrderForm/orderList')}}?show=0&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}">全部</a>
+      <a class="swiper-slide {{$_GET['show']=='1'?'selected':''}}" href="{{:U('OrderForm/orderList')}}?show=1&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}">待付款</a>
+      <a class="swiper-slide {{$_GET['show']=='2'?'selected':''}}" href="{{:U('OrderForm/orderList')}}?show=2&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}">待发货</a>
+      <a class="swiper-slide {{$_GET['show']=='3'?'selected':''}}" href="{{:U('OrderForm/orderList')}}?show=3&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}">待收货</a>
+      <a class="swiper-slide {{$_GET['show']=='4'?'selected':''}}" href="{{:U('OrderForm/orderList')}}?show=4&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}">待评价</a>
+    </nav>
+   </header>
+   <volist name="list" id="v">
+   <ul class="kb_list mt10">
+          <if condition="$v['company_id']" > 
+            <a class="kb_list-title kb_list-cell kb_list-cell_small kb_cell-href" href="{{$v.company_link}}">
+          <else />
+            <a class="kb_list-title kb_list-cell kb_list-cell_small kb_cell-href" href="http://{{$_SERVER['HTTP_HOST']}}">
+          </if>
+        <div class="kb_list-cell-hd ">
+          <!-- 自营的图片路径 __PUBLIC__/trading/images/tr-Self-employed.png -->
+          <if condition="$v['company_id']" > 
+            <img src="__PUBLIC__/trading/images/tr-shop.png" alt="" />
+          <else />
+            <img src="__PUBLIC__/trading/images/tr-Self-employed.png" alt="" />
+          </if>
+        </div>
+          <aside class="kb_list-cell-bd">
+          <if condition="$v['company_id']" > 
+            <h2 class="kb_list-cell-title">{{$v.company_name}}</h2>
+          <else />
+            <h2 class="kb_list-cell-title">{{$pInfo['market_name']}}</h2>
+          </if>
+        </aside>
+        <p class="kb_cell-ft">
+            
+        </p>
+      </a>
+      <li class="kb_list-cells">
+      <volist name="v.goods_data" id="vo" >
+        <a href="{{:U('OrderForm/orderDetail')}}?id={{$v.id}}&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}" class="kb_list-cell">  
+            <div class="kb_list-cell-hd">
+                <img src="__PUBLIC__{{$vo.attrInfo.attr_pic}}" alt="" />
+            </div>
+            <aside class="kb_list-cell-bd">
+                <h2 class="kb_list-cell-title mb10">{{$vo.goods_name}} 
+                <time class="kb_list-cell-title-time">
+                <switch name="v.status" >
+                  <case value="0">  
+                    <if condition="($v['pay_status'] eq 0)" >
+                      <if condition="((($v['create_time']+172800)-time()) gt 0)">
+                        待付款
+                        <else />
+                        已关闭
+                      </if>
+                    </if>
+                  </case>
+                  <case value="1">  已取消</case>
+                  <case value="2">
+                    <switch name="v.is_send_out" >
+                      <case value="0">  待发货</case>
+                      <case value="1">  待收货</case>
+                      <case value="2">  已收货</case>
+                    </switch>
+                  </case>
+                  <case value="3">  关闭交易</case>
+                  <case value="4">  已完成</case>
+                  </case>
+                </switch>
+                </time></h2>
+                <div class="kb_list-cell-brief">
+                    <p class=" mb10">
+                        产品规格: {{$vo.attrInfo.attr_val}}
+                    </p>
+                    <p class=" dl_bugShoping">
+                       <em class="tg_ft-price">￥{{$vo.price}}元</em>
+                       <em>x{{$vo.total}}</em>
+                    </p>
+                </div>
+            </aside>
+         </a>
+      </volist>
+         <p class="tr p10 fb">共{{$v.piece}}件&nbsp;&nbsp;实付金额：<em class="tg_ft-price mark-totalPrice">{{$v['total'] + $v['express_price']}}</em></p>
+         <div class="dl_orderOptraing tg_cell pb10">
+
+          <switch name="v.status" >
+              <case value="0">  
+                <if condition="($v['pay_status'] eq 0)" >
+                  <if condition="((($v['create_time']+172800)-time()) gt 0)">
+                    <p class="dl_orderOptraing-bd">
+                      <input type="button" value="取消订单" data-orderID="{{$v.id}}" class="kb_btn  tg_btn-default w" @click="cancelOrder" />
+                    </p>
+                    <p class="dl_orderOptraing-bd">
+                      <input type="button" value="支付" orderID="{{$v.id}}" v-on:click="sltPay" class="kb_btn kb_btn-main w" />
+                    </p>
+                  </if>
+                </if>
+              </case>
+              <case value="2">
+                <switch name="v.is_send_out" >
+                  <case value="0">  
+                      <p class="dl_orderOptraing-bd">
+                        <input type="button" value="申请退款" orderID="{{$v.id}}" v-on:click="returnMoney" class="kb_btn  tg_btn-default w" />
+                      </p>
+                      <!-- <p class="dl_orderOptraing-bd">
+                        <input type="button" value="提醒发货" class="kb_btn kb_btn-main w" />
+                      </p> -->
+                  </case>
+                  <case value="1">  
+                  
+                    <!-- <a class="defineBtn  mr10  btnColorFFF" href="{{:U('Express/showExpressInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}" >&nbsp;&nbsp;查看物流</a> -->
+                      <p class="dl_orderOptraing-bd">
+                        <input type="button" data-orderID="{{$v.id}}" v-on:click="extendTimeGoods({{$v['id']}})" type="button" value="延长收货" class="kb_btn kb_btn-main w" />
+                      </p>
+                      <p class="dl_orderOptraing-bd ">
+                        <a type="button" value="查看物流" href="{{:U('Express/showExpressInfo')}}?id={{$v['id']}}" class="kb_btn  tg_btn-default w " >查看物流</a>
+                      </p>
+                      <p class="dl_orderOptraing-bd">
+                        <input type="button" data-orderID="{{$v.id}}" v-on:click="affirmGoods" type="button" value="确认收货" class="kb_btn kb_btn-main w" />
+                      </p>
+                  
+                  </case>
+                  <case value="2">  
+                    <p class="dl_orderOptraing-bd">
+                      <a type="button" href="{{:U('GoodsComment/commentIns')}}?id={{$v['id']}}" class="kb_btn  tg_btn-default w" >去评价</a>
+                    </p>
+                  </case>
+                </switch>
+              </case>
+              <case value="4">
+                <if condition="($v['goods_score'] eq 0) AND ($v['express_score'] eq 0)">
+                  <p class="dl_orderOptraing-bd">
+                  <!--   <a type="button" href="{{:U('GoodsComment/commentIns')}}?id={{$v['id']}}" class="kb_btn  tg_btn-default w" >去评价</a> -->
+                  </p>
+                </if>
+              </case>
+            </switch>
+         </div>
+      </li>
+    </ul>
+    </volist>
+    <if condition="($list) AND (count($list) gt 5)">
+      <li is="myTemlate"  v-bind:Phrase="indexs" v-for="indexs in info" >
+        </li>
+      <p id="lookMore" class="lookMore tc pt10 pb10 f14"><a href="javascript:;">查看更多</a></p>
+    </if>
+    <div class="sltPayClass">
+      <div class="dl_cover" @click="closeCover" ></div>
+      <div class="kb_list-cell kb_list-cell_small kb_cell-href">
+        <aside class="kb_list-cell-bd">
+            <h2 class="">选择付款方式</h2>
+        </aside>
+        <p class="kb_cell-ft">
+        </p>
+      </div>
+      <article class="kb_cell kb_cell-check">
+        <p class="kb_cell-hd mr10">
+          <img src="__PUBLIC__/trading/images/tr-WeChat-payment.png" alt="" class="w30 h30" />
+        </p>
+        <p class="kb_cell-bd">
+          <h2 class="kb_list-cell-title tl w">微信支付 
+      </h2>
+        </p>
+        <p class="kb_cell-ft kb_choose">
+          <input type="radio" name="rd1" id="weixin" value="" v-bind:data-orderid="orderinfo.orderid" v-on:click="pay"  />
+          <span class=" kb_choose-check">
+            <b class="kb_choose-check-default kb_choose-check_default"></b>
+          </span>
+        </p>
+      </article>
+      <article class="kb_cell kb_cell-check">
+        <p class="kb_cell-hd mr10">
+          <img src="__PUBLIC__/trading/images/tr-Wallet-to-pay.png" alt="" class="w30 h30" />
+        </p>
+        <div class="kb_cell-bd">
+          <h2 class="kb_list-cell-title">钱包
+          </h2>
+          <p class="kb_list-cell-brief">{{$userInfo['wallet']}}密条</p>
+        </div>
+        <p class="kb_cell-ft kb_choose">
+          <input type="radio" name="rd1"
+
+           value="" data-isPassword="{{$userInfo['pay_pass_word'] ?'1':'0'}}"
+          v-bind:data-orderid="orderinfo.orderid"
+          v-bind:data-orderprice="orderinfo.orderprice"
+          @click="walletPay"
+          class="mark-selfwallet"
+           />
+          <span class=" kb_choose-check">
+            <b class="kb_choose-check-default kb_choose-check_default"></b>
+          </span>
+        </p>
+      </article>
+    </div>
+  </section>
+</block>
+<block name="js_files">
+  <div class="bsAlert cancelOrderAlert">
+    <div class="alertCover CoverBc999"></div>
+    <div class="AlertBox" style="height:220px">
+      <h2>取消订单</h2>
+      <button type="button" class="alertClose" v-on:click="alertClose"></button>
+      <div class="alertContent">
+        <ul class="optionCard">
+          <li>
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" value="拍错/多拍/不想要"  name="a" />
+                <label class=""></label>
+              </span>
+            </p>
+            <p>拍错/多拍/不想要</p>
+          </li>
+          <li>
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" value="线下交易了"  name="a" />
+                <label class=""></label>
+              </span>
+            </p>
+            <p>线下交易了</p>
+          </li>
+          <li class="other">
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" value=""  name="a" />
+                <label class=""></label>
+              </span>
+            </p>
+            <p>其他</p>
+            <p class="otherArea">
+              <textarea placholder="请认真填写..."></textarea>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <div class="alertFooter">
+        <p><input class="cancel" type="button" value="取消" /></p>
+        <p><input class="determine" type="button" value="确认" /></p>
+      </div>
+    </div>
+  </div>
+  <div class="bsAlert returnMoneyAlert">
+    <div class="alertCover CoverBc999"></div>
+    <form action="" method="post">
+    <div class="AlertBox" style="height:280px">
+      <h2>退款原因</h2>
+      <button type="button" class="alertClose"  v-on:click="alertClose"></button>
+      <div class="alertContent">
+        <ul class="optionCard">
+          <li>
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" name="drawback_remark" value="协商一致退款" />
+                <label class=""></label>
+              </span>
+            </p>
+
+            <p>协商一致退款</p>
+          </li>
+          <li>
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" name="drawback_remark" value="拍错/多拍/不想要" />
+                <label class=""></label>
+              </span>
+            </p>
+            <p>拍错/多拍/不想要</p>
+          </li>
+          <li>
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" name="drawback_remark" value="货物损坏了" />
+                <label class=""></label>
+              </span>
+            </p>
+            <p>货物损坏了</p>
+          </li>
+          <li class="other">
+            <p>
+              <span class="choose chooseGoods roundChoose">
+                <input type="radio" name="drawback_remark" value="" />
+                <label class=""></label>
+              </span>
+            </p>
+            <p>其他</p>
+            <p class="otherArea">
+              <textarea placholder="请认真填写..."></textarea>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="alertFooter">
+        <p><input class="cancel" type="button" value="取消" /></p>
+        <p><input class="determine" type="button" value="确认" /></p>
+      </div>
+    </div>
+  </form>
+  </div>
+   <!-- 自定义支付 -->
+   <div class="ftc_wzsf">
+   <div class="srzfmm_box">
+     <div class="qsrzfmm_bt clear_wl"> <img src="__PUBLIC__/images/xx_03.jpg" class="tx close fr" > <p class="fl">请输入支付密码</p> </div>
+     <div class="zfmmxx_shop">
+       <div class="wxzf_price">￥{{$list['express_price'] + $list['order_total']}}元</div>
+     </div>
+      <p class="tc ml5">余额支付</p> 
+     <div style="padding-top: 20px;text-align: center;">
+         <form id="password" >
+             <input readonly class="pass" type="password"maxlength="1"value="">
+             <input readonly class="pass" type="password"maxlength="1"value="">
+             <input readonly class="pass" type="password"maxlength="1"value="">
+             <input readonly class="pass" type="password"maxlength="1"value="">
+             <input readonly class="pass" type="password"maxlength="1"value="">
+             <input readonly class="pass pass_right" type="password"maxlength="1" value="">
+
+         </form>
+         <input type="hidden" id="projectOrder" data-orderinfo='' />
+     </div>
+   </div>
+   <div id="keyboardDIV"></div>
+   </div>
+  <script src="__PUBLIC__/JS/module/ladingPasswordConfirm/ladingPasswordConfirm.js"></script>
+
+  <script id="orderListTem" type="text/x-handlebars-template">
+    <ul class="kb_list mt10">
+      <a v-bind:href="Phrase.company_id>0?Phrase.company_link:'http://{{$_SERVER['HTTP_HOST']}}'" class="kb_list-title kb_list-cell kb_list-cell_small kb_cell-href">
+        <div class="kb_list-cell-hd ">
+          <img v-bind:src="Phrase.company_id>0?'__PUBLIC__/trading/images/tr-shop.png':'__PUBLIC__/trading/images/tr-Self-employed.png'" alt="" />
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class="kb_list-cell-title">
+              {{Phrase.company_id>0? Phrase.company_name:'{{$pInfo['market_name']}}'}}
+            </h2>
+        </aside>
+        <p class="kb_cell-ft">
+        </p>
+      </a>
+      <li class="kb_list-cells">
+      <template v-for="goodsIndex in Phrase.goods_data">
+        <a v-bind:href="goodsIndex.link" class="kb_list-cell">  
+          <div class="kb_list-cell-hd">
+              <img v-bind:src="'__PUBLIC__'+goodsIndex.attrInfo.attr_pic" alt="" />
+          </div>
+          <aside class="kb_list-cell-bd">
+              <h2 class="kb_list-cell-title mb10">{{goodsIndex.goods_name}} 
+                <time class="kb_list-cell-title-time" v-if="Phrase.status==0">
+                  <template v-if="Phrase.pay_status==0">
+                    <template v-if="Phrase.pay_status">
+                      待付款
+                    </template>
+                    <template v-else> 
+                      已关闭
+                    </template>
+                  </template>
+                </time>
+                <time class="kb_list-cell-title-time" v-if="Phrase.status==1">
+                  已取消
+                </time>
+                <time class="kb_list-cell-title-time" v-if="Phrase.status==2">
+                  <template v-if="Phrase.is_send_out==0">
+                    待发货
+                  </template>
+                  <template v-else-if="Phrase.is_send_out==1"> 
+                      待收货
+                  </template>
+                  <template v-else-if="Phrase.is_send_out==2"> 
+                      已收货
+                  </template>
+                </time>
+                <time class="kb_list-cell-title-time" v-if="Phrase.status==3">
+                  关闭交易
+                </time>
+                <time class="kb_list-cell-title-time" v-if="Phrase.status==4">
+                  已完成
+                </time>
+              </h2>
+              <div class="kb_list-cell-brief">
+                  <p class=" mb10">
+                      {{goodsIndex.attrInfo.attr_val}}
+                  </p>
+                  <p class=" dl_bugShoping">
+                     <em class="tg_ft-price">￥{{goodsIndex.price}}元</em>
+                     <em>x{{goodsIndex.total}}</em>
+                  </p>
+              </div>
+          </aside>
+        </a>
+      </template>
+         <p class="tr p10 fb">共{{Phrase.piece}}件&nbsp;&nbsp;实付金额：<em class="tg_ft-price mark-totalPrice">{{(parseInt(Phrase.total) + parseInt(Phrase.express_price)).toFixed(2)}}</em></p>
+         <div
+             v-if="Phrase.status==0"
+            class="dl_orderOptraing tg_cell pb10" 
+          >
+            <template v-if="Phrase.pay_status==0">
+              <template v-if="eqTime(Phrase.create_time)" >
+                <p class="dl_orderOptraing-bd">
+                  <input type="button" value="取消订单" class="kb_btn  tg_btn-default w"
+                  v-bind:data-orderID="Phrase.id"
+                  />
+                </p>
+                <p class="dl_orderOptraing-bd">
+                  <input  class="kb_btn  kb_btn-main w pay"  type="button" value="支付"
+                  v-on:click="sltPay" v-bind:orderID="Phrase.id"
+                  />
+                </p>
+              </template>
+              <template v-else>
+                <p class="dl_orderOptraing-bd">
+                  <input type="button" value="订单关闭" class="kb_btn  tg_btn-default w"
+                  />
+                </p>
+              </template>
+          </template>
+        </div>
+        <div v-else-if="Phrase.status==1" 
+          class="dl_orderOptraing tg_cell pb10" >
+          <p class="dl_orderOptraing-bd">
+             <input type="button" value="已取消" class="kb_btn  tg_btn-default w"
+                  />
+          </p>
+        </div>
+        <div v-else-if="Phrase.status==2"
+          class="dl_orderOptraing tg_cell pb10"
+        >
+          <template v-if="Phrase.is_send_out==0">
+          <p class="dl_orderOptraing-bd">
+            <input  type="button" value="申请退款"  class="kb_btn tg_btn-default returnMoney " 
+            v-on:click="returnMoney" v-bind:orderID="Phrase.id"  v-bind:data-orderID="Phrase.id" 
+            />
+          </p>
+          <!-- <p class="dl_orderOptraing-bd">
+            <input class="kb_btn  tg_btn-default w" type="button" value="待发货" />
+          </p>
+ -->
+          </template>
+          <template v-else-if="Phrase.is_send_out==1">
+          <p class="dl_orderOptraing-bd">
+            <input  type="button" value="延长收货" class="kb_btn kb_btn-main w" 
+            v-bind:data-orderID="Phrase.id" v-on:click="extendTimeGoods(Phrase.id)"
+             />
+          </p>
+          <p class="dl_orderOptraing-bd">
+            <a
+            v-bind:href="jumpUrl('expressInfo',Phrase.id)"
+            class="kb_btn  tg_btn-default w " >查看物流</a>
+          </p>
+          <p class="dl_orderOptraing-bd">
+            <input
+             v-bind:data-orderID="Phrase.id" v-on:click="affirmGoods" type="button" value="确认收货" class="kb_btn kb_btn-main w" />
+          </p>
+           <p class="dl_orderOptraing-bd">
+            <input
+             v-bind:data-orderID="Phrase.id"
+             v-on:click="returnMoney" v-bind:orderID="Phrase.id"
+             type="button" value="申请退款"
+              class="kb_btn kb_btn-default w" />
+          </p>
+          </template>
+          <template v-else-if="Phrase.is_send_out==2">
+          <p class="dl_orderOptraing-bd">
+            <a
+            v-bind:href="jumpUrl('evaluate',Phrase.id)"
+            class="kb_btn  tg_btn-default w " >去评价</a>
+          </p>
+          </template>
+        </div>
+
+        <div v-else-if="Phrase.status==3" v-bind:data-true="eqTime(Phrase.create_time)">
+          <p class="dl_orderOptraing-bd">
+            <input class="kb_btn  tg_btn-default w "  type="button" value="已关闭" />
+          </p>
+        </div>
+       <div v-else-if="Phrase.status==4">
+            <template v-if="Phrase.goods_score=0">
+             <p class="dl_orderOptraing-bd">
+              <a class="kb_btn  tg_btn-default w" v-bind:href="jumpUrl('evaluate',Phrase.id)" >去评价</a>
+             </p>
+            </template>
+
+            <template v-else>
+            <p class="dl_orderOptraing-bd">
+              <input class="kb_btn  tg_btn-default w" type="button" value="已完成" />
+            </p>
+            </template>
+          </div>
+      </li>
+    </ul>
+  </script>
+  <script>
+      window.onload=function(){
+          // (function(){
+          //     var swiper = new Swiper('#facusWap',{
+          //     });
+          //     console.log(swiper);
+          // })();
+      }
+      // function walletPay(orderId,totalPrice){
+      // }
+      function onBridgeReady(info,id){
+
+      var data = JSON.parse(info);
+      // console.log(data);
+      // console.log(id);
+        WeixinJSBridge.invoke(
+           'getBrandWCPayRequest', {
+              "appId":data.appId,
+              "timeStamp":data.timeStamp,
+              "nonceStr":data.nonceStr,
+              "package":data.package,
+              "signType":data.signType,
+              "paySign":data.paySign
+            },
+            function(res){     
+                if(res.err_msg == "get_brand_wcpay_request:ok" ) {// 支付成功走这
+                  WeixinJSBridge.log(res.err_msg);
+                  $.get("{{:U('ajaxControl')}}",{flag:'selOrderStatus',id:id},function (result) {
+                        if(result){
+                          window.location.href='http://{{$_SERVER["HTTP_HOST"]}}{{:U("OrderForm/payed")}}?order_id='+id+"&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}";
+                        }else{
+                          alert('订单支付失败!');
+                        }
+                    });
+                }else{
+                  // alert(1);
+                  window.location.href='http://{{$_SERVER["HTTP_HOST"]}}{{:U("OrderForm/orderList")}}?show=1&companyName={{:I("get.companyName")}}&tem={{:I("get.tem")}}';
+                } 
+            }
+       ); 
+    }
+
+    function showPay(pay,id) {
+      if (typeof WeixinJSBridge == "undefined"){
+         if( document.addEventListener ){
+             document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+         }else if (document.attachEvent){
+             document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+             document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+         }
+      }else{
+        // console.log(pay)
+          onBridgeReady(pay,id);
+      }
+    }
+
+    $(function(){
+      (function(){
+        var Child={
+          template:'#orderListTem',
+          props: ['Phrase'],
+          methods:{
+            jumpUrl:function(uType,ID){
+              switch(uType){
+                case 'evaluate':
+                  return "{{:U('GoodsComment/commentIns', ['companyName' => $_GET['companyName']])}}?id="+ID;
+                break;
+                case 'orderDetail':
+                  return "{{:U('orderDetail', ['companyName' => $_GET['companyName']])}}?id="+ID;
+                break;
+                case 'expressInfo':
+                  return "{{:U('Express/showExpressInfo', ['companyName' => $_GET['companyName']])}}?id="+ID;
+                break;
+              }
+            },
+            eqTime:function(time){
+              var now=new Date(),
+                nowTimestamp=Date.parse(now)/1000;
+                console.log(nowTimestamp)
+                console.log(time)
+                console.log(nowTimestamp-time>24*60*60*2)
+              return nowTimestamp-time<24*60*60*2;
+            },
+            affirmGoods:function(event){
+              app.$emit('affirmGoods',event);
+            },
+            returnMoney:function(event){
+              app.$emit('returnMoney',event)
+            },
+            pay:function(event){
+              app.$emit('pay',event);
+            },
+            cancelOrder:function(event){
+              app.$emit('cancelOrder',event)
+            },
+            sltPay:function(event){
+              console.log(event);
+               app.$emit('sltPay',event);
+            }
+          }
+        }
+        var app=new Vue({
+          el:"#Main",
+          components:{
+            'myTemlate':Child
+          },
+          data:{
+            info:[],
+            clickTotal:2,
+            orderinfo:{
+              id:'',
+              orderprice:'',
+              success: '',
+              url: "{{:U('OrderForm/ajaxControl')}}",
+              paypaw: "{{:U('WasteBook/setPayPassWord')}}",
+              flag: 'balance_to_buy'
+            }
+          },
+          computed:{
+          },
+          methods:{
+            affirmGoods:function(event){
+              console.log(event)
+              var $this=(event.target)? $(event.target):$(event.srcElement),
+                orderID=$this.attr('data-orderID').trim();
+                console.log(orderID);
+                Confirm("你正在进行收货操作，你确定已经收到货物了吗？",function(res){
+                    if(res){
+                        $.ajax({
+                          type:"GET",
+                          url:'{{:U("OrderForm/ajaxControl")}}',
+                          data:{
+                            flag:'receiving',
+                            id:orderID,
+                            companyName:"{{$_GET['companyName']}}"
+                          },
+                          dataType:"json",
+                          success:function(data){
+                            if(res){
+                              oTip('操作成功')
+                              window.location.reload();
+                            }else{
+                              oTip('操作失败')
+                              window.location.reload();
+                            }
+                          },
+                          error:function(error){
+                            oTip('操作失败!')
+                          }
+                        });
+                    }
+                })
+            },
+            returnMoney:function(event){
+              console.log(event);
+              var url = "{{:U('orderForm/orderApplicationForDrawback', ['companyName' => $_GET['companyName']])}}?id="+$(this).attr('orderID');
+              $('.returnMoneyAlert form').attr('action', url);
+              $('.returnMoneyAlert').show();
+              var _this=(event.target)? $(event.target):$(event.srcElement),
+                orderID=_this.attr('orderid').trim();
+              // console.log(_this);
+              $('.returnMoneyAlert .optionCard li  .roundChoose input').on('click',function(){
+                var $this=$(this);
+                  checkedStatus=$this.is(":checked");
+                  hasOther=$this.parents('li').hasClass('other'),
+                  otherArea= $this.parents('p').siblings('.otherArea').children('textarea'),
+                  drawback_remark='';
+                  if(hasOther){
+                    otherArea.show();
+
+                  }else{
+                    otherArea.hide();
+                  }
+                  $('.returnMoneyAlert .determine').on('click',function(){
+                    if(hasOther){
+                      drawback_remark=otherArea.val();
+
+                    }else{
+                      drawback_remark=$this.val();
+                    }
+                    if(drawback_remark.length==0){Alert('请选择或者填写退款理由'); return false; }
+                    console.log(drawback_remark);
+                      $.ajax({
+                        type:"GET",
+                        url:'{{:U("OrderForm/ajaxControl")}}',
+                        data:{
+                            flag:'orderApplicationForDrawback',
+                            id:orderID,
+                            drawback_remark:drawback_remark,
+                            companyName:"{{$_GET['companyName']}}"
+                          },
+                        dataType:"json",
+                        success:function(data){
+                          if(data){
+                            oTip('操作成功')
+                             window.location.reload();
+                          }else{
+                            oTip('操作失败')
+                            window.location.reload();
+                          }
+                        },
+                        error:function(error){
+                          oTip('操作失败!')
+                        }
+                      });
+                    $('.returnMoneyAlert').hide();
+                  })
+              })
+            },
+            sltPay:function(event){
+              var $this = (event.target)? $(event.target):$(event.srcElement),
+                  orderid=$this.attr('orderID').trim(),
+                  totalPrice=$this.parents('.kb_list-cells').find('.mark-totalPrice').text().trim();
+                  console.log($this.parents('.kb_list-cells'));
+                  $('.sltPayClass').show();
+                  this.$data.orderinfo.orderprice=totalPrice;
+                  this.$data.orderinfo.id=orderid;
+
+            },
+            walletPay:function(event){
+                var password,orderId,_this,totalPrice,$this;
+                $this = (event.target)? $(event.target):$(event.srcElement);
+                $('.dl_passwordAlert').show();
+                $('.sltPayClass').hide();
+                totalPrice=$this.attr('data-orderprice').trim();
+                totalPrice="￥"+totalPrice+"元";
+                // orderId=$this.attr('data-orderid').trim();
+                $('.srzfmm_box .wxzf_price').text(totalPrice);
+                this.orderinfo.success = 'http://{{$_SERVER["HTTP_HOST"]}}{{:U("OrderForm/payed")}}?order_id='+orderId+'&companyName={{:I("get.companyName")}}&tem={{:I("get.tem")}}'
+                $('#projectOrder').data('orderinfo',JSON.stringify(this.orderinfo));
+                $('.ftc_wzsf').show();
+                 // $('.mubu').show();
+                // $('.passwordAlert').hide();
+                $('#key').show();
+                $('.sltPayClass').hide();
+            },
+            pay:function(event){
+              var $this = (event.target)? $(event.target):$(event.srcElement);
+              $.get("{{:U('ajaxControl')}}",{flag:'createAdvance',id:$this.attr('data-orderid')},function (result) {
+                if(!result){
+                  alert('因库存不足或订单关闭原因, 交易已关闭');
+                }else if(result == 2){
+                  alert('请设置好收货地址');
+                }else{
+                  showPay(result, $this.attr('orderID'));
+                }
+              })
+            },
+            cancelOrder:function(event){
+                $('.cancelOrderAlert').show();
+                var _this=(event.target)? $(event.target):$(event.srcElement),
+                  orderID=_this.attr('data-orderID').trim();
+                $('.cancelOrderAlert .optionCard li  .roundChoose input').on('click',function(){
+                  var $this=$(this);
+                    checkedStatus=$this.is(":checked");
+                    hasOther=$this.parents('li').hasClass('other'),
+                    otherArea= $('.cancelOrderAlert .otherArea').children('textarea'),
+                    cancel_remark='';
+
+                    if(hasOther){
+                      otherArea.show();
+                    }else{
+                      otherArea.hide();
+                    }
+                    $('.cancelOrderAlert .determine').on('click',function(){
+                      if(hasOther){
+                        cancel_remark=otherArea.val();
+                      }else{
+                        cancel_remark=$this.val();
+                      }
+                      if(cancel_remark.length==0){Alert('请选择或者填写取消订单理由'); return false; }
+                      $.ajax({
+                        type:"GET",
+                        url:'{{:U("OrderForm/ajaxControl")}}',
+                        data:{
+                          flag:'orderCancel',
+                          id:orderID,
+                          cancel_remark:cancel_remark,
+                          companyName:"{{$_GET['companyName']}}"
+                          },
+                        dataType:'json',
+                        success:function(data){
+                          if(data){
+                            oTip('操作成功')
+                            window.location.reload();
+                          }else{
+                            oTip('操作失败')
+                            window.location.reload();
+                          }
+                          window.location.reload();
+                        },
+                        error:function(error){
+                          console.log(error);
+                           oTip('操作失败!')
+                        }
+                      })
+                      $('.cancelOrderAlert').hide();
+                    })
+                  
+                })
+              
+            },
+            extendTimeGoods:function(id){
+            Confirm("最长可延迟收货时间7天，你确定要延长吗？",function(res){
+              if(res){
+                $.ajax({
+                  type:"GET",
+                  url:"{{:U('OrderForm/ajaxControl')}}",
+                  data:{
+                    flag:"extend_the_receiving",
+                    id:id
+                  },
+                  dataType:"json",
+                  success:function(data){
+                    if(data.status){
+                      Alert('延长收货成功！');
+                    }else{
+                      if(data.err_code==2){
+                        Alert('物流未送达，不需要延迟收货');
+                      }
+                    }
+                  },
+                  error:function(error){
+                    console.log(error);
+                    oTip("操作失败");
+                  }
+                });  
+              }
+            })
+              
+            },
+            alertClose:function(){
+              console.log("sad");
+              $('.bsAlert').hide();
+            },
+            closeCover:function(){
+              $('.sltPayClass').hide();
+            }
+          }
+         
+        });
+        app.$on('affirmGoods',function(event){
+          app.$methods.affirmGoods(event);
+        })
+        app.$on('cancelOrder',function(event){
+          app.$methods.cancelOrder(event);
+        })
+        app.$on('pay',function(event){
+          app.$methods.pay(event);
+        })
+        app.$on('returnMoney',function(event){
+          app.$methods.returnMoney(event);
+        })
+         app.$on('sltPay',function(event){
+          console.log(event);
+          console.log(app.$methods);
+          app.sltPay(event);
+        })
+
+        $("#lookMore").on('click',function(){
+          var $this=$(this);
+          $.ajax({
+            type:"GET",
+            url:"{{:U('OrderForm/ajaxControl')}}",
+            data:{
+              show:"{{$_GET['show']}}",
+              companyName:"{{$_GET['companyName']}}",
+              p:app.clickTotal,
+              flag:'orderList'
+            },
+            dataType:"json",
+            success:function(data){
+              if(data){
+                app.info=app.info.concat(data);
+                app.clickTotal+=1;
+                console.log(app.info);
+              }else{
+                $this.hide();
+                oTip("没有更多了")
+              }
+            },
+            error:function(error){
+
+            }
+          })
+
+        })
+        // $('.cancel').on('click',function(){
+        //   $('.bsAlert ').hide();
+        // })
+      })();
+      $('.alertClose,.cancel').on('click',function(){
+        $('.bsAlert').hide();
+      })
+    })
+  </script>
+</block>

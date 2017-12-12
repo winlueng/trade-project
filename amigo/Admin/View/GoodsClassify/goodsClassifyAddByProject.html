@@ -1,0 +1,314 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<style>
+
+</style>
+<php>
+	//echo('<pre>');
+	//var_dump($list);exit;
+</php>
+</block>
+<block name="content">
+	<div id="kbVipAdmin_rightCenter" class="spAnProductClass OrderForm">
+		<div class="centerTitle">
+			<h1>产品分类</h1>
+		</div>
+		<div class="kbVipAdmin_operating spAnProductClass-operating" >
+			<input class="kbVipAdmin_opt kbVipAdmin_add w80 h30" type="button" value="添加" />
+		</div>
+		<div class="main-contentBox  kbVipAdmin_mt24" >
+			<div class="kbVipAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>分类名称</th>
+							<th>简述</th>
+							<th>所属商品数量</th>
+							<th>分类状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="vo">
+						<tr>
+							<td>{{$vo.id}}</td>
+							<td>{{$vo.classify_name}}</td>
+							<td><!-- <img src="__PUBLIC__{{$vo.classify_logo}}" width="100" style="margin-top: 3px"> --></td>
+							<td>{{$vo.gnum}}</td>
+							<td>
+								<p class="kbVipAdmin_pushBtn">
+									<input type="checkbox" value="" {{$vo['status'] == '0'?'checked':''}} title=" {{$vo['status'] == '0'?'启用':'禁用'}}"/>
+									<label><b></b></label>
+								</p>
+								
+							</td>
+							<td class="kbVipAdmin_tdAction">
+								<input class="font_57c8f2 kbVipAdminEdit" type="button" value="" title="编辑" v-on:click="classfiyUpdate" />
+                <input class="font_ff6c60 kbVipAdminDel" type="button" value="" title="删除"/>
+                <input class="mark-upper icon-upper" type="button" data-classifyid="{{$vo.id}}" value="" title="上移"/>
+								<input class="mark-under icon-under" type="button" data-classifyid="{{$vo.id}}" value="" title="下移"/>
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页位置 -->
+			<div class="kbVipAdmin_page">
+        <div class="pageSize">
+          {{$page}}
+        </div>
+        <div class="pageJump">
+        <form>  
+          <input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+          <input type="submit" class="fl" value="跳转">
+        </form>
+        </div>
+      </div>
+		</div>
+	</div>
+    <div class="kbVipAdmin_alert spAnProductClass_alert">
+    	<div class="kbVipAdmin_alertBox">
+    		<button type="button" class="kbVipAdmin_alert-close "></button>
+    		<form action="" method="post" enctype="multipart/form-data">
+    			 <h3 class="mb10">添加产品分类</h3>
+    			<p class="kbVipAdmin_enter">
+            <b><i>*</i>分类名称</b>
+    			  <input type="text" maxlength="6" name="classify_name"
+              value=""  required="required" placeholder="请输入子分类名字"
+              data-datatype="input" 
+            />
+    				
+    			</p>
+    			<div class="kbVipAdmin_enter kbVipAdmin_fileImg"><b><i>*</i>分类封面:</b>
+    					
+    				<input id="shopImg"  type="file" value="" name="classify_logo"  />
+    				<label class="" for="shopImg" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为分类封面</span></label>
+    			</div>
+    			<p class="kbVipAdmin_enter"><b>描述</b>
+    			<textarea placeholder="请输入产品描述" name="title" maxlength="10" data-datatype="input" ></textarea>
+    			</p>
+    			<div class="kbVipAdmin_operating ">
+    				<div class="kbVipAdmin_restsubmit"> 
+    					<input  class="kbVipAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+    					<input  class="kbVipAdmin_opt w100 h40 mark-submit" type="button" value="保存" />
+    				</div>
+    			</div>
+    		</form>
+    	</div>
+    </div>
+    <div id="myTemplate">
+      <div class="kbVipAdmin_alert spAnProductClass_alertEdit">
+        <div class="kbVipAdmin_alertBox">
+            <button type="button" class="kbVipAdmin_alert-close " v-on:click="closeAlert" ><img src=" " alert="X" /></button>
+            <form action="" method="post" enctype="multipart/form-data">
+                <h3 class="mb10">编辑产品分类</h3>
+                <p class="kbVipAdmin_enter"><b><i>*</i>分类名称:</b>
+                <input type="text" maxlength="6" name="classify_name"  v-bind:value="classfiyData.classify_name" placeholder="请输入子分类名字" required="required" />
+                </p>
+                <div class="kbVipAdmin_enter kbVipAdmin_fileImg"><b><i>*</i>分类封面:</b>
+                    <div class="shopImg businessFileImgList" v-if="classfiyData.classify_logo">
+                        <span class="cleraIMG" onclick="clearImg(this)"></span>
+                          <img v-bind:src="'__PUBLIC__'+classfiyData.classify_logo" alt="" />
+                    </div>  
+                    <input id="shopImg1"  type="file" value="" name="classify_logo"  />
+                    <label class="" for="shopImg1" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为分类封面</span></label>
+                </div>
+                <p class="kbVipAdmin_enter"><b>描述:</b>
+                <textarea placeholder="请输入产品描述" name="title"  maxlength="10"  v-bind:value="classfiyData.title"></textarea>
+                </p>
+                <div class="kbVipAdmin_operating ">
+                    <div class="kbVipAdmin_restsubmit"> 
+                        <input  class="kbVipAdmin_button_eee w100 h40 tc" type="button" value="取消" @click="closeAlert" />
+                        <input  class="kbVipAdmin_opt w100 h40" type="submit" value="保存" />
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+   
+</block>
+<block name="js_files">
+<script type="text/javascript">
+ $(function(){
+        var bus ,app,myapp,Child,Template,myTemplate;
+         //totalController
+         bus=new Vue();
+         //kbVipAdmin_rightCenter
+         app=Vue.extend({
+            mounted:function(){
+                $(".spAnProductClass .spAnProductClass-operating  .kbVipAdmin_add").on('click',function(){
+                    $(".spAnProductClass_alert").fadeToggle();
+                    var checkData,status,formData;
+                    vueMethods.maxLength();
+                    checkData=new CheckData('.spAnProductClass_alert');
+                    status=false;
+                    $(".spAnProductClass_alert .mark-submit").on('click',function(){
+                       status=checkData.verify();
+                       console.log(status);
+                      if (!status) return false;
+                      formData=new FormData($(".spAnProductClass_alert").find('form')[0]);
+                     dlLoading('数据上传中...',function(){
+                        $.ajax({
+                          type:"POST",
+                          url:"",
+                          data:formData,
+                          dataType:"json",
+                          enctype: 'multipart/form-data',
+                          async: false,  
+                          cache: false,  
+                          contentType: false,  
+                          processData: false,
+                          success:function(data){
+                            loadsuccess();
+                            if(data.status==1){
+                               sTip('操作成功');
+                               setTimeout(function(){
+                                 window.location.reload();
+                               },2000)
+                            }else{
+                               oTip(data.info);
+                            }
+
+                          },
+                          error:function(error){
+                            console.error(error);
+                          }
+                        });  
+                     });
+                    })
+                });
+                $('.kbVipAdmin_tdAction .kbVipAdminDel').on('click',function(){
+                    var $this = $(this);
+                    var ID =$this.parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+                    
+                    Confirm("你确定删除该分类吗？",function(ren){
+
+                        if(ren){
+                            $.get('{{:U("ajaxControl")}}',{flag:'goodsClassifyDel',id:ID},function(res){
+                                if(res.status == true){
+                                    sTip("操作成功");
+                                    $this.parent().parent().remove();
+                                }else{
+                                    oTip(res.err_msg)
+                                }
+                            });
+                        };
+                    });
+                    
+                 });
+                 $('.kbVipAdmin_pushBtn input').on('click',function(){
+                     var $this=$(this);
+                     var ajaxUrl='{{:U("ajaxControl")}}';
+                     var Status=$this.is(':checked')?0:1;
+                     var ID = $this.parents('tr').children().eq(0).text().trim();
+                     // console.log(Status);
+                     $.get(ajaxUrl,{
+                        flag:'changeGoodsClassifyStatus',
+                        status:Status,
+                        id:ID
+                     },function(res){
+
+                        if(!res.status){
+                            $this.attr('checked',false)
+                            oTip(res.err_msg)
+                        }else{
+                            sTip("操作成功");
+                        }
+                        console.log(res);
+                     })
+                });  
+                vueMethods.myTitile();    
+            },
+            data:function(){
+                return  {
+                    classUpdata:{
+
+                    }
+                }
+            },
+            methods:{
+                classfiyUpdate:function(event){
+                    var $this=$(event.srcElement)?$(event.srcElement):$(event.target);
+                    var ID =$this.parent().siblings('td').eq(0).text().trim();
+                    bus.$emit('classfiyUpdate', ID)
+                }
+            },
+        });
+
+        myapp=new app().$mount('#kbVipAdmin_rightCenter');
+        
+
+      //#myTemplate
+       Template=Vue.extend({
+            data:function(){
+                return {
+                    classfiyData:{
+
+                    }
+                };
+            },
+            methods:{
+                classfiyUpdate:function(id){
+                    var ID=id;
+                    $(".spAnProductClass_alertEdit").fadeToggle();
+                    vueMethods.maxLength();
+                    $.get('{{:U("ajaxControl")}}',{flag:'selClassifyInfo',id:ID},function(res){
+                        myTemplate.classfiyData=res;
+                    });
+                    $('.spAnProductClass_alertEdit form').prop('action',"{{:U('goodsClassifyUpdate')}}?id="+ID);
+                },
+                closeAlert:function(){
+                    $(".kbVipAdmin_alert").fadeOut();
+                }
+            },
+            watch:{
+                classfiyData:function () {
+                  // `this` points to the vm instance
+                  return myTemplate.classfiyData;
+                }
+            }
+
+        })
+        myTemplate=new Template().$mount('#myTemplate');
+        bus.$on('classfiyUpdate', function (id) {
+           myTemplate.classfiyUpdate(id);
+        })
+
+        $('.mark-upper,.mark-under').on('click',function(){
+            var $this,classid,status,Url,params=new Object();
+           Url="{{:U('GoodsClassify/ajaxControl')}}";
+           $this= $(this);
+           classid=$this.attr('data-classifyid');
+           status=$this.hasClass('mark-upper')?'up':'down';
+           params={
+             flag:"goodsClassifySort",
+             id:classid,
+             control:status
+           }
+           $.ajax({
+              type:"GET",
+              url:Url,
+              data:params,
+              dataType:'json',
+              success:function(data){
+                console.log(data);
+                if(data.status){
+                    sTip('操作成功');
+                    window.location.reload();
+                }
+              },
+              error:function(error){
+                console.log(error);
+              }
+           })
+
+        })  
+        $('.kbVipAdmin_alert .kbVipAdmin_alert-close,.kbVipAdmin_alert .kbVipAdmin_restsubmit input[type=reset]').on('click',function(){
+            $('.kbVipAdmin_alert').fadeOut();
+        })
+})
+</script>
+</block>

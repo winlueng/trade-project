@@ -1,0 +1,406 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<style>
+	.orderList li{
+		width: calc(100% - 8%);
+		padding: 10px 4%;
+		margin-bottom: 20px;
+	}
+	.resrveAll{
+	    background-color: #f7f7f7;
+	}
+	.reservationListInfo  a{
+		display:block;
+	}
+	#lookMore{
+			transition:height 100ms;
+			background-color: #fff;
+			height: 25px;
+			line-height: 25px;
+			font-weight:bold;
+	}
+</style>
+</block>
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+	</a>
+
+</block>
+<block name="bsTitle">
+	我的预约
+</block>
+
+<block name="content" >
+	<section id="bsMain" class="noFooter bsMyself resrveAll">
+		<header class="bsClassNav mb10 swiper-container">
+			<nav class="bsClassHref swiper-wrapper">
+				<a class="swiper-slide {{$_GET['show']?'':'selected'}} " href="{{:U('SubscribeOrderForm/orderList', ['companyName' => $_GET['companyName'],'show' => 0])}}">全部</a>
+				<a class="swiper-slide {{$_GET['show']=='1'?'selected':''}}" href="{{:U('SubscribeOrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>1])}}">待确认</a>
+				<a class="swiper-slide {{$_GET['show']=='2'?'selected':''}}" href="{{:U('SubscribeOrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>2])}}">待服务</a>
+				<a class="swiper-slide {{$_GET['show']=='3'?'selected':''}}" href="{{:U('SubscribeOrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>3])}}">待评价</a>
+				<a class="swiper-slide {{$_GET['show']=='4'?'selected':''}}" href="{{:U('SubscribeOrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>4])}}">已完成</a>
+			</nav>
+			
+		</header>
+		<ul class="orderList bsReservationList bc ">
+		<volist name="list" id="v" empty="$empty" >
+			<li>
+				<p class="reservationListImg">
+					<a href="{{:U('Staff/staffInfo', ['id' => $v['staff_id'], 'companyName' => $_GET['companyName']])}}"> 
+					<img src="__PUBLIC__{{$v.staffInfo.staff_logo}}" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo ">
+					<a href="{{:U('SubscribeOrderForm/SubscribeOrderInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+						<h3 class="mb10">{{$v.staffInfo.store_nickname}}<em class="c999 f12 fr">
+						<switch name="v.status" >
+							<case value="0" >待确认</case>
+							<case value="1" >待服务</case>
+							<case value="2" >待付款</case>
+							<case value="3" >待评价</case>
+							<case value="4" >已完成</case>
+							<case value="5" >已取消</case>
+							<case value="6" >未预约成功</case>
+						</switch>
+						</em></h3>
+						<p class="mb10 c666">{{$v.staffInfo.professional_title}}</p>
+						<p>
+							<b>已服务 {{$v.service_total}} 单</b>
+							<a class=" fr " href="javascript:;"> X1</a>
+						</p>
+					</a>
+				</article>
+				<footer>
+					<p>
+						<em class="c666">{{:date('Y-m-d', $v['create_time'])}}</em>
+					</p>
+					<p>
+					<switch name="v.status" >
+						<case value="0" >
+							<input class="defineBtn mr10 btnColorFFF refund" orderID="{{$v.id}}" type="button" value="取消订单" />
+							等待订单确认
+						</case>
+						<case value="1" >
+							<span>距离预约时间：<b>{{$v.distance_time}}</b></span>
+							<br />
+							<input class="defineBtn mr10 btnColorFFF refund" orderID="{{$v.id}}" type="button" value="取消订单" />
+						</case>
+						<case value="2" >
+							<input class="defineBtn btnColor00bec5 pay" orderID="{{$v.id}}" type="button" v-on:click="pay" value="确认支付" />
+						</case>
+						<case value="3" >
+							<a class="defineBtn  mr10  btnColorFFF" href="{{:U('StaffComment/commentIns', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">&nbsp;&nbsp;&nbsp;&nbsp;去评价</a>
+						</case>
+						<case value="4" >
+							已完成
+						</case>
+						<case value="5" >
+							已取消
+						</case>
+						<case value="6" >
+							订单被拒绝
+						</case>
+					</switch>
+						<!-- <input class="defineBtn mr10 btnColorFFF" type="button" value="去评价" />
+						<input class="defineBtn btnColor00bec5" type="button" value="再来一次" /> -->
+					</p>
+				</footer>
+			</li>
+			
+		</volist>
+		<if condition="($list) AND (count($list) gt 5)">
+			<li is="myTemlate"  v-bind:Phrase="indexs" v-for="indexs in info" >
+		    </li>
+			<p id="lookMore" class="lookMore tc pt10 pb10 f14"><a href="javascript:;">查看更多</a></p>
+		</if>
+		</ul>
+	</section>
+</block>
+<block name="footer">
+	<div class="Popout ShopCarPopout">
+		<p class="popoutMask"></p>
+		<section class="addShopCar popitMain">
+			<button class="icon-close" type="button"></button>
+			<form action="{{:U('SubscribeOrderForm/orderCancel', ['companyName' => $_GET['companyName'], 'id' => $info['id']])}}" method="post">
+				<header> 
+					<article>
+						<div><h3 class="mb10 c666">取消订单</h3></div>
+					</article>
+				</header>
+				<article class="mb10">
+				<textarea class="w" cols="54" rows="5" name="drawback_remark" placeholder="请输入取消理由"></textarea>
+				</article>
+				<footer>
+					<input class="defineBtn btnColor00bec5 f16" type="submit" value="确定" />
+				</footer>
+			</form>
+		</section>
+		<script>
+			$(function(){
+				$('.Popout .icon-close,.Popout .popoutMask').on('click',function(){
+					
+					$('.Popout').slideUp();
+				})
+				$('.changeNumber .min').on('click',function(){
+					var $this=$(this),
+						goodsNum=$this.siblings('.goodsNum'),
+						num=parseInt(goodsNum.val());
+						if(goodsNum.val()!=1){
+							goodsNum.val(num-=1)
+						}
+				})
+				$('.changeNumber .add').on('click',function(){
+					var $this=$(this),
+						goodsNum=$this.siblings('.goodsNum'),	
+						num=parseInt(goodsNum.val());
+						goodsNum.val(num+=1)
+						
+				})
+				$('.changeNumber .goodsNum').on('input propertychange',function(){
+					var $this=$(this);
+					console.log($this.val());
+					
+					if($this.val()<1){
+						$this.val(1);
+					}else if($this.val()>999){
+						$this.val(999);
+					}
+				})
+			})
+		</script>
+	</div>
+	<script id="orderListTem" type="text/x-handlebars-template">
+		
+			<li>
+				<p class="reservationListImg">
+					<!-- {{:U('Staff/staffInfo', ['id' => $v['staff_id'], 'companyName' => $_GET['companyName']])}} -->
+					<a v-bind:href="jumpUrl('subscribeDetail',Phrase.staff_id)"> 
+					<img v-bind:src="'__PUBLIC__'+Phrase.staffInfo.staff_logo" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo ">
+					<!-- {{:U('SubscribeOrderForm/SubscribeOrderInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}} -->
+					<a v-bind:href="jumpUrl('orderDetail',Phrase.id)">
+						<h3 class="mb10">
+							{{Phrase.staffInfo.store_nickname}}
+						<em class="c999 f12 fr">
+							<template v-if="Phrase.status==0" >
+								待确认
+							</template>
+							<template v-else-if="Phrase.status==1" >
+								待服务
+							</template>
+							<template v-else-if="Phrase.status==2" >
+								待付款
+							</template>
+							<template v-else-if="Phrase.status==3" >
+								待评价
+							</template>
+							<template v-else-if="Phrase.status==4" >
+								已完成
+							</template>
+							<template v-else-if="Phrase.status==5" >
+								已取消
+							</template>
+							<template v-else-if="Phrase.status==6" >
+								未预约成功
+							</template>
+								
+						</em>
+						</h3>
+						<p class="mb10 c666">{{Phrase.staffInfo.professional_title}}</p>
+						<p>
+							<b>已服务 {{Phrase.service_total}} 单</b>
+							<a class=" fr " href="javascript:;"> X1</a>
+						</p>
+					</a>
+				</article>
+				<footer>
+					<p>
+						<em class="c666">{{transformTime(Phrase.create_time)}}</em>
+					</p>
+					<p>
+					
+						<template v-if="Phrase.status==0" >
+							<input class="defineBtn mr10 btnColorFFF refund" v-bind:orderID="Phrase.id" type="button" value="取消订单" />
+							等待订单确认
+						</template>
+						<template v-else-if="Phrase.status==1" >
+							<span>距离预约时间：<b>{{Phrase.distance_time}}</b></span>
+							<br />
+							<input class="defineBtn mr10 btnColorFFF refund" v-bind:orderID="Phrase.id" type="button" value="取消订单" />
+						</template>
+						<template v-else-if="Phrase.status==2" >
+							<input class="defineBtn btnColor00bec5 pay" v-bind:orderID="Phrase.id" v-on:click="pay" type="button" value="确认支付" />
+						</template>
+						<template v-else-if="Phrase.status==3" >
+							<a class="defineBtn  mr10  btnColorFFF" v-bind:href="jumpUrl('comment',Phrase.id)">&nbsp;&nbsp;&nbsp;&nbsp;去评价</a>
+						</template>
+						<template v-else-if="Phrase.status==4" >
+							已完成
+						</template>
+						<template v-else-if="Phrase.status==5" >
+							已取消
+						</template>
+						<template v-else-if="Phrase.status==6" >
+							订单被拒绝
+						</template>
+					
+						<!-- <input class="defineBtn mr10 btnColorFFF" type="button" value="去评价" />
+						<input class="defineBtn btnColor00bec5" type="button" value="再来一次" /> -->
+					</p>
+				</footer>
+			</li>
+		
+		
+	</script>
+	
+	<script>
+		$(function(){
+
+			(function(){
+				var Child={
+					template:'#orderListTem',
+					props: ['Phrase'],
+					methods:{
+						jumpUrl:function(uType,ID){
+							switch(uType){
+								case 'subscribeDetail':
+
+									return "{{:U('Staff/staffInfo', ['companyName' => $_GET['companyName']])}}?id="+ID;
+								break;
+								case 'orderDetail':
+									return "{{:U('SubscribeOrderForm/SubscribeOrderInfo',['companyName' => $_GET['companyName']])}}?id="+ID;
+									 
+								break;
+								case 'comment':
+									return "{{:U('StaffComment/commentIns', ['companyName' => $_GET['companyName']])}}?id="+ID;
+								break;
+							}
+						},
+						eqTime:function(time){
+							var now=new Date(),
+								nowTimestamp=Date.parse(now)/1000;
+							return nowTimestamp-time>24*60*60*2;
+						},
+						transformTime:function(time){
+							var date=new Date(time*1000),
+								thisDate=date.getFullYear()+'-'+(date.getMonth()+1)+"-"+date.getDay();
+							return thisDate;
+						},
+						pay:function(event){
+							var $this = (event.target)? $(event.target):$(event.srcElement);
+							$.get("{{:U('ajaxControl')}}",{flag:'createAdvance',id:$this.attr('orderID'),companyName:'{{$_GET["companyName"]}}'},function (result) {
+									if(!result){
+										Alert('生成订单失败');
+									}else{
+										showPay(result);
+									}
+							})
+
+						},
+						refund:function(event){
+							var $this=(event.target)? $(event.target):$(event.srcElement);
+							$('.Popout form').attr('action', "{{:U('SubscribeOrderForm/orderCancel', ['companyName' => $_GET['companyName']])}}?id="+ $this.attr('orderID'));
+							$('.Popout').slideDown();
+						}
+					}
+					
+				}
+				var app=new Vue({
+					el:"#bsMain",
+					components:{
+						'myTemlate':Child
+					},
+					data:{
+						info:[],
+						clickTotal:2
+					},
+					computed:{
+						
+					},
+					methods:{
+						pay:function(event){
+							var $this = (event.target)? $(event.target):$(event.srcElement);
+							$.get("{{:U('ajaxControl')}}",{flag:'createAdvance',id:$this.attr('orderID'),companyName:'{{$_GET["companyName"]}}'},function (result) {
+									if(!result){
+										Alert('生成订单失败');
+									}else{
+										showPay(result);
+									}
+							})
+
+						},
+						refund:function(event){
+							var $this=(event.target)? $(event.target):$(event.srcElement);
+							$('.Popout form').attr('action', "{{:U('SubscribeOrderForm/orderCancel', ['companyName' => $_GET['companyName']])}}?id="+ $this.attr('orderID'));
+							$('.Popout').slideDown();
+						}
+					}
+
+				});
+				$("#lookMore").on('click',function(){
+					var $this=$(this);
+					$.get("{{:U('SubscribeOrderForm/ajaxControl')}}",{
+						show:"{{$_GET['show']}}",
+						companyName:"{{$_GET['companyName']}}",
+						p:app.clickTotal,
+						flag:'orderList'
+					},function(res){
+						console.log(res);
+						if(res){
+							app.info=app.info.concat(res);
+							app.clickTotal+=1;
+							console.log(app.info);
+						}else{
+							$this.fadeOut();
+							eTip("没有更多了")
+						}
+					})
+				})
+			})();
+		})
+
+		function onBridgeReady(info){
+
+			var data = JSON.parse(info);
+
+		   	WeixinJSBridge.invoke(
+		       'getBrandWCPayRequest', {
+		       		"appId":data.appId,
+		       		"timeStamp":data.timeStamp,
+		       		"nonceStr":data.nonceStr,
+		       		"package":data.package,
+		       		"signType":data.signType,
+		       		"paySign":data.paySign
+		       	},
+		       	function(res){     
+		            if(res.err_msg == "get_brand_wcpay_request:ok" ) {// 支付成功走这
+                    	WeixinJSBridge.log(res.err_msg);
+                    	$.get("{{:U('ajaxControl')}}",{flag:'selOrderStatus',id:'{{:I("get.id")}}',companyName:'{{$_GET["companyName"]}}'},function (result) {
+								if(result){
+                    				location.reload();
+								}else{
+									alert('订单支付失败!');
+								}
+						})
+                    }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+		       	}
+		   ); 
+		}
+
+		function showPay(pay){
+			if (typeof WeixinJSBridge == "undefined"){
+			   if( document.addEventListener ){
+			       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			   }else if (document.attachEvent){
+			       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+			       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			   }
+			}else{
+				// console.log(pay)
+			  	onBridgeReady(pay);
+			}
+		}
+	</script>
+</block>

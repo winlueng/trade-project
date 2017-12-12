@@ -1,0 +1,131 @@
+<extend name="Common/projectCom" />
+<block name="topname" >
+	<a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">盟店</a>
+</block>
+<block name="css_js" >
+	<style>
+	.kbMt_center{
+		padding-top:80px;
+
+	}
+	.kbMt_center::after{
+		content:'';
+		display:block;
+		height:100px;
+	}
+	</style>
+</block>
+<block name="center" >
+	<div id="kbMt_center" class="kbMt_center">
+		<p class="kbmt_area mb15" >
+			<span id="regionList">
+				<select class="kbmt_slt mr50" onchange="selectRegion(this)">
+				<option value="">请选择区域</option>
+					<foreach name="region" item="v">
+						<option value="{{$v.id}}">{{$v.region_name}}</option>
+					</foreach>
+				</select>
+			</span>
+			<select class="kbmt_slt" name="business_id">
+				<option value="">请选择行业</option>
+			</select>
+		</p>
+		<div id="companyList">
+			<foreach name="companyList" item="v">
+				<div class="bc mb10 kbmt_stores">
+					<a href="http://{{$_SERVER['HTTP_HOST']}}/{{$v.web_postfix}}"><p class="kbmt_storesImg"><img src="__PUBLIC__{{$v.bgpic}}" alt="大图" /></p></a>
+
+					<div class="kbmt_stores-box pt10 pb10">
+						<p class="kbmt_stores-logo">
+							<img src="__PUBLIC__{{$v.company_logo}}" alt="logo" />
+						</p>
+						<div class="kbmt_stores-info">
+							<h1 class="kbMt_font19">{{$v.company_name}}</h1>
+							<p>店铺地址：{{$v.address_info}}</p>
+						</div>
+					</div>
+					
+				</div>
+			</foreach>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function selectRegion(obj)
+		{
+			$.get('{{:U("AllianceShops/ajaxControl")}}',{flag:'selNextRegionInfo', region_id:$(obj).val()},function(res){
+				console.log(res);
+				if (res.region) 
+				{
+					var str = '<select class="kbmt_slt mr50" onchange="selectRegion(this)"><option value="">请选择</option>';
+					for(var k in res.region)
+					{
+						str += '<option value="'+ res.region[k].id +'">'+ res.region[k].region_name +'</option>';
+					}
+					str += '</select>';
+					$(obj).next('select').remove();
+					$(str).appendTo('#regionList');
+				}
+
+				if (res.business) 
+				{
+					var str1 = '<option value="">请选择</option>';
+					for(var k in res.business)
+					{
+						str1 += '<option value="'+ res.business[k].id +'">'+ res.business[k].business_name +'</option>';
+					}
+					$('select[name="business_id"]').html(str1);
+				}
+
+				if (res.companyList) 
+				{
+					var str2 = '';
+					for(var k in res.companyList)
+					{
+						str2 +='<div class="bc mb10 kbmt_stores">';
+						str2 +='<a href="http://{{$_SERVER["HTTP_HOST"]}}/'+ res.companyList[k].web_postfix +'">';
+						str2 +='<p class="kbmt_storesImg">';
+						str2 +='<img src="__PUBLIC__'+ res.companyList[k].bgpic +'" alt="大图" />';
+						str2 +='</p></a>';
+						str2 +='<div class="kbmt_stores-box pt10 pb10"><p class="kbmt_stores-logo">';
+						str2 +='<img src="__PUBLIC__'+res.companyList[k].company_logo+'" alt="logo" />';
+						str2 +='</p><div class="kbmt_stores-info">';
+						str2 +='<h1 class="kbMt_font19">'+ res.companyList[k].company_name +'</h1>';
+						str2 +='<p>店铺地址：'+ res.companyList[k].address_info +'</p>';
+						str2 +='</div></div></div>';
+						
+					}
+					$('#companyList').html(str2);
+				}
+			})
+		}
+
+	$(function(){
+		$('select[name="business_id"]').on('change', function(){
+			if ($(this).val() != '') 
+			{
+				$.get('{{:U("AllianceShops/ajaxControl")}}',{flag:'selNextRegionInfo', business_id:$(this).val()},function(res){
+					if (res.companyList) 
+					{
+						var str2 = '';
+						for(var k in res.companyList)
+						{
+							str2 +='<div class="bc mb10 kbmt_stores">';
+							str2 +='<a href="http://{{$_SERVER["HTTP_HOST"]}}/'+ res.companyList[k].web_postfix +'">';
+							str2 +='<p class="kbmt_storesImg">';
+							str2 +='<img src="__PUBLIC__'+ res.companyList[k].bgpic +'" alt="大图" />';
+							str2 +='</p></a>';
+							str2 +='<div class="kbmt_stores-box pt10 pb10"><p class="kbmt_stores-logo">';
+							str2 +='<img src="__PUBLIC__'+res.companyList[k].company_logo+'" alt="logo" />';
+							str2 +='</p><div class="kbmt_stores-info">';
+							str2 +='<h1 class="kbMt_font19">'+ res.companyList[k].company_name +'</h1>';
+							str2 +='<p>店铺地址：'+ res.companyList[k].address_info +'</p>';
+							str2 +='</div></div></div>';
+						}
+						$('#companyList').html(str2);
+					}
+				})
+			}
+		})
+	})
+	</script>
+</block>

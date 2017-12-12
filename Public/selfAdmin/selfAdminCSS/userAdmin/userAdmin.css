@@ -1,0 +1,207 @@
+/*角色列表弹窗*/
+.userAdmin_center .kbVipAdmin_btn{
+	font-size:14px;
+}
+.userAdmin_center .kbVipAdmin_MenuAdminBtn{
+	/*width:48%;*/
+}
+.userAdmin_alert{
+	/*display:block !important;*/
+}
+.userAdmin_FormParent{
+	height: 95%;
+	width: 76%;
+	min-width:600px;
+	margin:auto;
+}
+.userAdmin_Form{
+	height: 66%;
+	
+	overflow-x:hidden;
+}
+.userAdmin_Form:after{
+	content:'';
+	height:100px;
+	margin-bottom:100px;
+    display: block;
+}
+.userAdmin_FormParent-addRoleName{
+	width:100%;
+	margin:10px auto;
+}
+.userAdmin_FormParent-addRoleName input[type="text"]{
+	width:50%;
+	height:30px;
+	border-radius:4px;
+	border:1px solid #ccc;
+	    padding-left: 5px;
+}
+.kbVipAdmin_alert .userAdmin_Form li{
+	width:100%;
+	margin-bottom: 10px;
+}
+.kbVipAdmin_alert .userAdmin_Form>li>label{
+	font-size:120%;
+	font-weight:bold;
+}
+.kbVipAdmin_alert .userAdmin_Form li ul{
+	margin-left: 26px;
+    margin-top: 8px;
+}
+.kbVipAdmin_alert .userAdmin_Form li ul li,.userAdmin_Form-first{
+	width: 150px;
+    display: inline-block;
+    margin-right: 10px;
+}
+ .userAdmin_Form-first{
+	font-weight:bold;
+    font-size: 105%;
+}
+.kbVipAdmin_MenuAdminBtn .authAddFormSmt{
+	display:block;
+}
+.userAdmin_alert .kbVipAdmin_alert_box{
+	height:80%;
+}
+.kbVipAdmin_center_nav .selected a{
+	color:#505050 ;
+	
+}
+.userAdmin_center .kbVipAdmin_center_nav ul li{
+	display:block;
+}
+.userAdmin_center .kbVipAdmin_center_nav ul li a{
+	margin:0;
+	margin-left: 32%;
+}
+.userAdmin_alert .userAdmin_alert-box{
+	width:80%;
+}
+
+
+/*增加用户*/
+.userAdmin_center .authAddBtn{
+	font-size:130%;
+	font-weight:bold;
+}
+.userAdmin_center-addUser{
+	position:relative;
+    min-height: 640px;
+}
+.userAdmin_center-addUser .microWebMenuAdmin>span{
+	float:left;
+}
+.userAdmin_center-addUser .microWebMenuAdmin label{
+	width:120px;
+}
+.userAdmin_center-addUser  .kbVipAdmin_MenuAdminBtn input[type="submit"]{
+	display:block;
+}
+
+
+.userAdmin-addUser-operateAdmin,.userAdmin-addUser-roleAllot{
+	display:none;
+	position:absolute;
+	top:0;
+	width:100%;
+}
+.userAdmin-addUser-operateAdmin .microWebMenuAdmin{
+	text-indent: 0%;
+}
+.userAdmin-addUser h3{
+	font-size:110%;
+	font-weight:bold;
+}
+.userAdmin-addUser-operateAdmin .microWebMenuAdmin label{
+	width:164px;
+}
+.userAdmin-addUser{
+	position:relative;
+	min-height: 400px;
+}
+.userAdmin-addUser p{
+	width:100%;
+}
+.userAdmin-addUser span{
+	 width: 18%;;
+}
+.userAdmin-addUser-operateAdmin .userAdmin-serverDate input{
+	width:22.8%;
+}
+.microWebUrl{
+	display:none;
+}
+/*增加管理权限*/
+.userAdminAddRight_alert .kbVipAdmin_MenuAdminBtn input{
+	display:block;
+}
+/*商户管理*/
+.userAdminTrader_alert .kbVipAdmin_alert_box {
+	height:82%;
+}
+.userAdminTrader_alert .kbVipAdmin_alert_box h2{
+	text-align:center;
+}
+.userAdminTrader_alert .kbVipAdmin_alert_box .userAdminTrader_alert-TraderList ol li{
+	list-style-type:decimal;
+}
+.userAdminTrader_alert .userAdminTrader_alert-TraderList>li{
+	margin-bottom:10px;
+}
+.userAdminTrader_alert .userAdminTrader_alert-TraderList{
+
+}
+/*商户地区选择*/
+.userAdmin-addUser-operateAdmin .couponAddr select{
+	width:120px;
+    height: 30px;
+    border-radius:5px;
+}
+.userAdmin-addUser-operateAdmin .couponTrade select{
+	width:50%;
+	height:100%;
+}
+
+
+/*用户审核*/
+.userAdmin-search{
+	width:690px;
+	height:50px;
+}
+.userAdminAnnal .kbVipAdmin_inlineBlock{
+	margin-bottom:10px;
+}
+.groupRulesName>p{
+	/*height:40px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;*/
+}
+/*弹窗*/
+.userAdmin-editUser-roleAllot{
+	
+}
+.userAdmin-editUser-roleAllot>div{
+    width: 70%;
+    margin: auto;
+}
+.serAdmin-editUser-roleSelect{
+	display:inline-block;
+	width:200px;
+}
+
+.serAdmin-editUser-roleSelect label{
+	width:100%;
+}
+
+.userAdmin_center .kbVipAdmin_form span{
+	width:24%;
+	vertical-align: top;
+}
+.selectCouponAddr{
+	display:inline-block;
+	width:74%;
+}
+.selectCouponAddr select{
+	margin-top:5px;
+}

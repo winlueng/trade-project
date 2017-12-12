@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<title>阿密购商城<block name="title"></block></title>
+	<include file="Common/head" />
+	<block name="css_file" >
+		
+	</block>
+</head>
+<body class="kbMt_bc-fdf7ee">
+	<block name="header">
+		<header id="bsHeader" class="bsHeader">
+			<nav>
+				<block name="leftNav">
+					<a class="icon-back" href="javascript:;" onclick="javascript:history.back(-1)">
+					</a>
+				</block>
+			</nav>	
+			<h1>
+				<block name="bsTitle">
+					
+				</block>
+			</h1>
+			<nav>
+				<block name="rightNav">
+					<a class="icon-MoreMenu" href="javascript:;" >
+					</a>
+					<div class="moreMenu">
+						<div class="Cover"></div>
+						<div class="moreMenu-box">
+							<p>
+								<a href="{{:U('Index/index', ['companyName' => $_GET['companyName']])}}">
+									<span class="icon-MoreIndex"></span>
+									<b>首页</b>
+								</a>
+							</p>
+							<p>
+								<a href="{{:U('SystemNews/newsList',['companyName' => $_GET['companyName']])}}">
+									<span class="icon-MoreMessage"></span>
+									<b>消息</b>
+								</a>
+							</p>
+						
+							<!-- <p>
+								<a href="javascript:;">
+									<span class="icon-MoreShare"></span>
+									<b>分享</b>
+								</a>
+							</p> -->
+
+						</div>
+					</div>
+				</block>
+			</nav>
+		</header>
+	</block>
+	<block name="content" >
+
+	</block>
+	<block name="footer">
+	<!-- <footer id="bsFooter" class="bsMainNav bsFooter">
+		<p>
+			<a href="{{:U('Index/index', ['companyName' => $_GET['companyName']])}}" buttontype="1"></a>
+			<b>首页</b>
+		</p>
+		<p>
+			<a href="{{:U('News/newsList', ['companyName' => $_GET['companyName']])}}" buttontype="2"></a>
+			<b>动态</b>
+		</p>
+		<p>
+			<a href="{{:U('Goods/goodsList', ['companyName' => $_GET['companyName']])}}" buttontype="3"></a>
+			<b>商品</b>
+		</p>
+		<p>
+			<a href="{{:U('Staff/staffList', ['companyName' => $_GET['companyName']])}}" buttontype="4"></a>
+			<b>预约</b>
+		</p>
+		<p>
+			<a href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" buttontype="5"></a>
+			<b>我的</b>
+		</p>
+	</footer> -->
+	</block>
+	<block name="otherblock">
+
+	</block>
+	<include file="Common/footer" />
+	<script>
+		$(function(){
+			$('.icon-MoreMenu,.Cover').on('click',function(){
+				$('.moreMenu').fadeToggle();
+			})
+		})
+	</script>
+	<block name="js_file">
+
+	</block>
+</body>
+</html>

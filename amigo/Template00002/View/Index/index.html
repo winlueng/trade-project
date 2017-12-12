@@ -1,0 +1,132 @@
+<extend name="Common/websiteCom" />
+<block name="content" >
+<php>
+//echo '<pre>';
+//var_dump($hotGoods);exit;
+</php>
+	
+
+	<section id="bsMain" class="bsIndex">
+		<div id="firstBanner" class="swiper-container focusWap firstBanner bc mb50">   
+			<ul class="swiper-wrapper bc">
+				<foreach name="posterTop" item="v">
+				<li class="swiper-slide bc mb10 bsBanner">
+			      	<a href="http://{{$v['poster_url']?$v['poster_url']:$_SERVER['HTTP_HOST']}}" onclick="posterStatistics(this)" posterid="{{$v['id']}}" >
+			      		<img src="__PUBLIC__{{$v['poster_pic']}}" alt="大图" />
+			      	</a>
+		    	</li>
+	           </foreach>
+		    </ul>
+		    <div class="swiper-pagination banner-pagination mb10"></div>
+		    <script>
+		    $(function(){
+		    	var swiper = new Swiper('#firstBanner',{
+		    		autoplay:3000,//可选选项，自动滑动
+		            pagination:'.swiper-pagination',
+		            slidesPerView :1.5,
+		            // spaceBetween : 0,
+		            loopedSlides :3,
+		            loop : true,
+		            // observer:true,
+		    	})
+		    })
+		    </script>
+		</div>
+		<h1 class="bsTitle mb10">
+			<p><span>好物精选</span></p>
+		</h1>
+		<div id="bsRecommendGoodsFirst" class=" mb10 swiper-container">
+			<ul class="swiper-wrapper bsList  bc">
+				<foreach name="hotGoods1" item="v">
+					<li class="bsRecommendGoods swiper-slide">
+						<a href="{{:U('Goods/goodsDetail', ['id' => $v['id'], 'companyName' => $_GET['companyName']])}}" onclick="goodsStatistics(this)" goodsid="{{$v['id']}}">
+							<p>
+								<img src="__PUBLIC__{{$v.goods_logo}}" alt="" />
+							</p>
+							<h3 class="Ellipsis">{{$v.goods_name}}</h3>
+							<if condition="($v['is_promotion'] eq '1') AND ($v['sales_start_time'] lt time()) AND ($v['sales_end_time'] gt time())">
+		     					<span class="mb10 cRed">
+									距结束：{{:turnDistanceTime($v['sales_end_time'])}}
+								</span>
+								<br />
+								<b class=" mr10">￥{{$v['promotion_price']}}</b>
+								<em class="lineThrough c999">￥{{$v['price']}}</em>
+							<else />
+								<b class=" mr10">￥{{$v['price']}}</b>
+							</if>
+						</a>
+					</li>
+				</foreach>
+			</ul>
+			<script>
+				$(function(){
+					var swiper = new Swiper('#bsRecommendGoodsFirst', {
+					    slidesPerView: 'auto',
+					    paginationClickable: true,
+					    spaceBetween: 20,
+					    freeMode: true,
+					    slidesPerView :2.4,
+					});
+					
+				})
+			</script>
+		</div>
+		<div id="bsRecommendGoodsSecond" class=" mb10 swiper-container">
+			<ul class="swiper-wrapper bsList  bc">
+				<foreach name="hotGoods2" item="v">
+					<li class="bsRecommendGoods swiper-slide">
+						<a href="{{:U('Goods/goodsDetail', ['id' => $v['id'], 'companyName' => $_GET['companyName']])}}" onclick="goodsStatistics(this)" goodsid="{{$v['id']}}">
+							<p>
+								<img src="__PUBLIC__{{$v.goods_logo}}" alt="" />
+							</p>
+							<h3 class="Ellipsis">{{$v.goods_name}}</h3>
+							<if condition="($v['is_promotion'] eq '1') AND ($v['sales_start_time'] lt time()) AND ($v['sales_end_time'] gt time())">
+		     					<span class="mb10 cRed">
+									距结束：{{:turnDistanceTime($v['sales_end_time'])}}
+								</span>
+								<br />
+								<b class=" mr10">￥{{$v['promotion_price']}}</b>
+								<em class="lineThrough c999">￥{{$v['price']}}</em>
+							<else />
+								<b class=" mr10">￥{{$v['price']}}</b>
+							</if>
+						</a>
+					</li>
+				</foreach>
+			</ul>
+			<script>
+				$(function(){
+					var swiper = new Swiper('#bsRecommendGoodsSecond', {
+					    slidesPerView: 'auto',
+					    paginationClickable: true,
+					    spaceBetween: 20,
+					    freeMode: true,
+					    slidesPerView :2.4,
+					});
+					
+				})
+			</script>
+		</div>
+		<p class="bsSeparate"></p>
+		<h1 class="bsTitle mb10">
+			<p><span>精选动态</span></p>
+		</h1>
+	   <foreach name="topNews" item="v" >
+		<article class="bc mb10 bsGoodsBrief">
+			<a href="{{:U('News/newsDetail', ['id' => $v['id'], 'companyName' => $_GET['companyName']])}}" onclick="posterStatistics(this)" posterid="{{$v['id']}}">
+				<img src="__PUBLIC__{{$v['news_logo']}}" alt="大图" />
+				<div class="goodsBrief-info">
+					<h3 class="Ellipsis">{{$v['title']}}</h3>
+					<p>阅读量：{{$v['visit_total']?$v['visit_total']:0}}</p>
+				</div>
+			</a>
+		</article>
+		</foreach>
+		<p class="bsSeparate"></p>
+	</section>
+</block>
+<block name="js_file">
+	<nav class="goShopCar">
+		<a class="icon-shoppCat {{$cartTotal?'hasTip':''}}" href="{{:U('ShoppingCart/myCart',['companyName' => $_GET['companyName']])}}"></a>
+	</nav>
+</block>

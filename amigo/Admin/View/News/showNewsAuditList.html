@@ -1,0 +1,212 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/common.css">
+	<style>
+	#dlAlert{
+		z-index:99;
+	}
+	 .businessFileImgList{
+	 	/*height:;*/
+	 }
+	</style>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead  ">
+					<div class="kbVipAdmin_styledSelect">
+					<form class="kbVipAdmin_inlineBlock" action="" >
+						<select name="stick" class="kbVipAdmin_slt pl20">
+							<option value="2" {{$_GET['stick'] == '2'?'selected':''}}>待审核</option>
+							<option value="4" {{$_GET['stick'] == '4'?'selected':''}}>已审核</option>
+							<option value="3" {{$_GET['stick'] == '3'?'selected':''}}>所有</option>
+						</select>
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+					</div>
+				</div>
+				<div class="roleBox">
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>动态标题</th>
+							<th>店铺名称</th>
+							<th>动态封面</th>
+							<th>添加时间</th>
+							<th>操作内容</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td>
+					<else />
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.news_name}}</td>
+							<td>{{$v.company_name}}</td>
+							<td><img src="__PUBLIC__{{$v.news_logo}}" width="200"></td>
+							<td>{{:date('Y-m-d', $v['addtime'])}}</td>
+							<td>申请置顶...<a  class="ftcolorA MircoDetails" href="javascript:;" target="_Blank">详细内容</a></td>
+							<td><b class="ftcolorRed">
+								<switch name="v.stick" >
+								<case value="1" ><b class="ftcolorGreen">已通过</case>
+								<case value="2" ><b class="ftcolorRed">待审</case>
+								<case value="3" ><b class="ftcolorRed">以拒绝</case>
+								</switch>
+							</b></td>
+							<td>
+							<if condition="($v['stick'] eq 2)">
+								<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" />
+								<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" />
+							<else />
+								无任何操作
+							</if>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+					
+				</table>
+				</div>
+				<div class="kbAdmin_page">
+				{{$page}}		
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- alert -->
+	<div class="kbVipAdmin_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>首页精选</h2>
+			<div class="kbVipAdmin_form">
+				<p class="kbShopAdmin_enter"><span> 标题：</span>
+					<input type="text" value="" name="news_name" placeholder="请输入文章标题" maxlength="20"   />
+				</p>
+				<p >
+					<span> 文章作者：</span>
+					<input type="text" value="" name="news_author" placeholder="请输入文章作者" maxlength="10" />
+				</p>
+				<p >
+					<span> 跳转路径：</span>
+					<input type="text" value="" name="news_link" placeholder="请输入原文网址"  />
+					
+				</p>
+				<p class="kbShopAdmin_enter"><span> 简述：</span>
+					<textarea type="text" value="" maxlength="100" name="title" placeholder="请输入文章简述"  disabled="disabled"></textarea>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg news_logo"><span> 动态封面:</span>
+					<div class="shopImg businessFileImgList">
+					</div>	
+					<!-- <input id="shopImg2"  type="file" value="" name="news_logo"  />
+					<label class="kbShopAdmin_button_ff6c60" for="shopImg2">上传图片</label> -->
+				</div>
+			</div>
+			<eq name="GET['stick']" value="2">
+				<p class="kbVipAdmin_MenuAdminBtn microWebAnnal">
+					<a class="adminFont kbVipAdmin_btnMenu">&#xe714;&nbsp;预览<a/>
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" />
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" />
+				</p>
+			</eq>
+		</div>
+		
+	</div>
+		
+	<script type="text/javascript">
+	
+	$(function(){
+		$('.MircoDetails').on('click',function(){
+			$('.kbVipAdmin_alert').fadeIn();
+			$('.kbVipAdmin_alert').find('input').not('[type=button]').prop('disabled',true)
+			$('.kbVipAdmin_alert').find('input').not('[type=button]').css('border','none')
+			var $this = $(this);
+			var ajaxUrl='{{:U("News/ajaxControl")}}';
+			jsAjaxControl($this,{
+			   ajaxURL:ajaxUrl,
+			   params:{
+			       flag:'selNewsInfo',
+			   	}
+			   },function(res){
+			   	console.log(res);
+			   		for(r in res){
+			   			switch(r){
+			   				case 'news_logo':
+			   					$('.news_logo').find('.businessFileImgList').html('<img src="__PUBLIC__'+res[r]+'" alt="动态封面图" />');
+			   				break;
+			   				default:
+			   				if($('.kbVipAdmin_alert').find('[name='+r+']').length){
+			   					$('.kbVipAdmin_alert').find('[name='+r+']').val(res[r]);
+			   				}
+			   				break;
+			   			}
+			   		}
+			});
+		})
+
+		$('.microWebAnnalYes').on('click',function(){
+			var $this=$(this);
+			var ID=$this.parents('tr').children('td').eq(0).text().trim();
+			var actionURL="{{:U('News/ajaxControl')}}";
+			var htmlText='<form id="microWebAnnalYes" action="'+actionURL+'" method="get" enctype="multipart/form-data">'
+				htmlText+='<p><span>结束时间</span><input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="set_end_time" placeholder="结束时间" readonly="" required="required" onclick="jeDateTime(this,\'end\');"/></p>'
+				htmlText+=''
+			animationAlert({
+	            alertContent:htmlText,
+	            alertHide:'alertShow',
+	        },function(ren){
+	        	var $set_end_time;
+	        	console.log(typeof $('.dlAlert [name=set_end_time]').val())
+	        	console.log($('.dlAlert [name=set_end_time]').val().length)
+	        	if(ren){
+	        		if($('.dlAlert [name=set_end_time]').val().length){
+		        		var data={
+		        			flag:"passOrRefuse",
+		        			id:ID,
+		        			set_end_time:$('.dlAlert [name=set_end_time]').val(),
+		        			stick:1
+		        		}
+		        		$.get(actionURL,data,function(res){
+		        			operatingTip(res);
+		        			if(res=="操作成功");
+						 });
+		        	}else{
+		        		animationAlert({
+		        			alertContent:"你没有选择推荐动态的结束时间，请重新操作",
+		        		});
+		        	}
+	        		
+	        	}
+	        })
+		})
+		$('.microWebAnnalNo').on('click',function(){
+			var $this =$(this);
+			var ajaxUrl="{{:U('News/ajaxControl')}}";
+			jsAjaxControl($this,{
+				ajaxURL:ajaxUrl,
+				ajaxBranch:'Confirm',
+				params:{//这是ajax需要提交的集合
+					flag:'passOrRefuse',
+					stick:3
+				}
+			},function(res){
+				console.log(res)
+				operatingTip(res);
+				if(res=="操作成功"){
+					$this.parents('tr').remove();
+				}
+			})
+		})
+		$('.kbVipAdmin_alert .kbVipAdmin_MenuAdminBtn').on('click',function(){
+			$('.kbVipAdmin_alert').fadeOut();
+		})
+	})
+		
+	</script>
+</block>

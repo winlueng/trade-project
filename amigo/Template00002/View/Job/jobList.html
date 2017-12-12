@@ -1,0 +1,39 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<style>
+	#bsMain .receiptShopAddr{
+		background:none;
+	}
+</style>
+</block>
+<block name="bsTitle">
+	招聘
+</block>
+<block name="content" >
+	<section id="bsMain" class="bsGoods receiptAddrList">
+	<empty name="jobList">
+			<p class="tc kbMt_font16"><br /><br />>_<|||  <br /><br />暂无招聘内容，请看看其他的吧！</p>
+		<else />
+	<volist name="jobList" id="v" >
+		<article class="receiptShopAddr">
+			<a href="{{:U('jobDetail',['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+			<p>
+				<b>{{$v.job_name}}</b>
+			</p>
+			<p>{{$v.job_title}}</p>
+			</a>
+		</article>
+		<p class="bsSeparate"></p>
+	</volist>
+	</empty>
+	</section>
+</block>
+<block name="footer">
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+		})
+	</script>
+</block>

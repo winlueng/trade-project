@@ -1,0 +1,516 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<link rel="stylesheet" href="__PUBLIC__/css/oneselfCore.css?v=1.10" /> 
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/JS/module/headerFile/css/mui.min.css?t=1">
+  <script src="__PUBLIC__/JS/module/mobiscroll/mobiscroll.2.13.2.js"></script>
+  <link href="__PUBLIC__/JS/module/mobiscroll/mobiscroll.2.13.2.css?t=1" rel="stylesheet" />
+  <link href="__PUBLIC__/JS/module/LArea/LArea.css?t=1.2" rel="stylesheet" />
+
+  <!-- headerFile -->
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/JS/module/headerFile/css/cropper.min.css">
+
+<!--  	<script type="text/javascript" src="__PUBLIC__/JS/module/headerFile/js/jquery-1.11.1.min.js"></script>-->
+	 <script type="text/javascript" src="__PUBLIC__/JS/module/headerFile/js/lrz.mobile.min.js"></script> 
+	<script type="text/javascript" src="__PUBLIC__/JS/module/headerFile/dist/lrz.all.bundle.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/headerFile/js/cropper.min.js"></script>
+
+  <style>
+ 	input[type=file]{
+ 		position: absolute;
+	    /* z-index: -1; */
+	    height: 100%;
+	    opacity: 0;
+ 	}
+ 	input[type="text"],input[type="tel"],textarea{
+ 		border: none;
+	    background: transparent;
+	    height:30px;
+	    min-width: 72%;
+ 	}
+ 	textarea{
+ 		max-width:50%;
+ 		min-height:60px;
+ 		resize:none;
+ 	}
+ 	label[for="userImg"]{
+	    display: inline-block;
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 10px;
+	    overflow:hidden;
+
+ 	}
+ 	label[for="userImg"] img{
+ 		width:100%;
+ 		height:100%;
+ 	}
+ 	.checkSex{
+ 		position:relative;
+ 	}
+ 	.checkSex input{
+ 		display:block;
+ 		position:absolute;
+	    width: 100%;
+	    height: 100%;
+	    opacity:0;
+	    z-index: 2;
+ 	}
+ 	.checkSex label{
+ 		display:block;
+ 	}
+ 	.checkSex label b{
+ 		display:inline-block;
+ 		width:20px;
+ 		height:20px;
+ 		border-radius:50%;
+ 		border: 1px solid #ddd;
+ 		position:relative;
+ 		margin-right:5px;
+ 		vertical-align: middle;
+ 	}
+ 	.checkSex input:checked + label b::before{
+ 		content: '';
+ 		display: block;
+ 		width: 10px;
+ 		height: 10px;
+ 		background:#26d460;
+ 		border-radius: 50%;
+ 		margin: auto;
+ 		top: 0;
+ 		bottom: 0;
+ 		left: 0;
+ 		right: 0;
+ 		position: absolute;
+ 	}
+ 	input[type="submit"]{
+ 		width:300px;
+ 		background-color:#0864b7;
+ 		border-radius:5px;
+ 		color:#fff;
+ 		height:35px;
+ 		line-height:35px;
+ 		display:block;
+ 		border:1px solid #0864b7;
+ 		box-shadow:0 0 4px 0 #000000;
+ 		font-size:15px;
+ 	}
+ 	#showResult{
+ 		position:relative;
+ 	}
+ 	.verifyTel{
+ 		background-color:#0864b7;
+ 		border-radius:5px;
+ 		color:#fff;
+ 		height: 26px;
+ 		line-height: 25px;
+ 		display: block;
+ 		border: 1px solid #0864b7;
+ 		box-shadow: 0 0 4px 0 #000000;
+ 		font-size: 12px;
+ 		width: 50px;
+ 		position: absolute;
+ 		right: 10px;
+ 		top: 13px;
+ 	}
+ 	#updateInfo{
+ 		height:80%;
+ 		overflow-x:hidden;
+ 	}
+  </style>
+  <!-- header file -->
+   <script type="text/javascript">
+    $(function() {
+        function toFixed2(num) {
+            return parseFloat(+num.toFixed(2));
+        }
+		
+        $('#cancleBtn').on('click', function() {
+            $("#showEdit").fadeOut();
+            $('#showResult').fadeIn();
+        });
+
+        $('#confirmBtn').on('click', function() {
+            $("#showEdit").fadeOut();
+
+            var $image = $('#report > img');
+            var dataURL = $image.cropper("getCroppedCanvas");
+            var imgurl = dataURL.toDataURL("image/jpeg", 0.5);
+            $("#userImg + label > img").attr("src", imgurl);
+            $("#basetxt").val(imgurl);
+            $('#showResult').fadeIn();
+
+        });
+
+        function cutImg() {
+            $('#showResult').fadeOut();
+            $("#showEdit").fadeIn();
+            var $image = $('#report > img');
+            $image.cropper({
+                aspectRatio: 1 / 1,
+                autoCropArea: 0.7,
+                strict: true,
+                guides: false,
+                center: true,
+                highlight: false,
+                dragCrop: false,
+                cropBoxMovable: false,
+                cropBoxResizable: false,
+                zoom: -0.2,
+                checkImageOrigin: true,
+                background: false,
+                minContainerHeight: 400,
+                minContainerWidth: 300
+            });
+        }
+
+        function doFinish(startTimestamp, sSize, rst) {
+            var finishTimestamp = (new Date()).valueOf();
+            var elapsedTime = (finishTimestamp - startTimestamp);
+            //$('#elapsedTime').text('压缩耗时： ' + elapsedTime + 'ms');
+
+            var sourceSize = toFixed2(sSize / 1024),
+                resultSize = toFixed2(rst.base64Len / 1024),
+                scale = parseInt(100 - (resultSize / sourceSize * 100));
+            $("#report").html('<img src="' + rst.base64 + '" style="width: 100%;height:100%">');
+            cutImg();
+        }
+
+        $('#userImg').on('change', function() {
+            var startTimestamp = (new Date()).valueOf();
+            var that = this;
+            lrz(this.files[0], {
+                    width: 800,
+                    height: 800,
+                    quality: 0.7
+                })
+                .then(function(rst) {
+                    //console.log(rst);
+                    doFinish(startTimestamp, that.files[0].size, rst);
+                    return rst;
+                })
+                .then(function(rst) {
+                    // 这里该上传给后端啦
+                    // 伪代码：ajax(rst.base64)..
+
+                    return rst;
+                })
+                .then(function(rst) {
+                    // 如果您需要，一直then下去都行
+                    // 因为是Promise对象，可以很方便组织代码 \(^o^)/~
+                })
+                .catch(function(err) {
+                    // 万一出错了，这里可以捕捉到错误信息
+                    // 而且以上的then都不会执行
+
+                    alert(err);
+                })
+                .always(function() {
+                    // 不管是成功失败，这里都会执行
+                });
+        });
+
+    });
+    </script>
+</block>
+<block name="leftNav">
+  <a  href="{{:U('VisitorInfo/myCenter')}}" onclick=""><img src="__PUBLIC__/oneselfCore/oneselfCoreImages/09back_icon_link_default.svg" atl="返回" /></a>
+</block>
+<block name="collect">
+</block>
+<block name="secondtitle">
+	 
+	 <a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">我的资料</a>
+
+</block>
+<block name="content">
+<div id="kbMt_center">
+	<form  id="updateInfo" action="{{:U('myCenterInfoUpdate')}}?{{$visitorInfo['phone']? 'flag=toSetPassWord':''}} " method="post" enctype="multipart/form-data">
+
+	  <ul class="oneselfInfo bc">
+	    <li class="oneselfMore" id="showResult">
+	        <p>头像</p>
+	        <input id="userImg" type="file" name="head_portrait" />
+	        <label for="userImg">
+	        	<empty name="_SESSION.visitorInfo.head_portrait">
+		    		<img src="__PUBLIC__/oneselfCore/oneselfCoreImages/01login_img_user_default.png" alt="头像" />
+		    	<else />
+		       		 <img src="{{$_SESSION['visitorInfo']['head_portrait']}}" alt="头像" />
+		    	</empty>
+	        </label>
+	        <input type="hidden" value="" id="basetxt" />
+	    </li>
+	    <li>
+	        <p>昵称<i class="colorff0000">*</i></p>
+	        <input type="text" value="{{$visitorInfo.nick_name}}" name="nick_name" placeholder="请输入你的呢称" required="required"/>
+	    </li>
+	    <li>
+	        <p>姓名</p>
+	        <input type="text" value="{{$visitorInfo.real_name}}" name="real_name" placeholder="请输入你的大名" />
+	    </li>
+	    <li >
+	        <p>性别<i class="colorff0000">*</i></p>
+	        <p class="checkSex mr10">
+	        	<input type="radio" name="sex" value="1" {{$visitorInfo['sex'] == '1'?'checked':''}} required="required"/>
+	        	<label><b></b>男</label>
+	        </p>
+	        <p class="checkSex ">
+	        	<input type="radio" name="sex" value="2" {{$visitorInfo['sex'] == '2'?'checked':''}} required="required"/>
+	        	<label><b></b>女</label>
+	        </p>
+	    </li>
+	    <li class="oneselfMore">
+	        <p>生日<i class="colorff0000">*</i></p>
+	        <input id="yearmd" type="text" value="{{:date('Y-m-d', $visitorInfo['visitor_birthday'])}}" name="visitor_birthday" placeholder="请选择你的出生年月日" readonly required="required"/>
+	       
+	    </li>
+	    <li class="oneselfMore">
+	        <p>星座</p>
+	        <!-- <input for="constellation" type="text" value="" placeholder="请选择你的星座" /> -->
+	    </li>
+	    <li class="oneselfMore">
+	        <p>现居<i class="colorff0000">*</i></p>
+	        <input id="nowCity" type="text" value="{{$visitorInfo.address}}" placeholder="请输入你现居的城市" readonly required="required" />
+	        <input id="nowCityhide" type="hidden" value="{{$visitorInfo.city}}" name="city" placeholder="" />
+	        
+	    </li>
+	    <li>
+	        <p>手机号</p>
+	        <input type="tel" value="{{$visitorInfo.phone}}" class="oneSelfTel {{$visitorInfo[phone]?'hasPhone':''}} " placeholder="请输入你的手机号码" />
+	        <button type="button" class="verifyTel Verification" onclick="verifyTel(this)">{{$visitorInfo[phone]?'修改':'验证'}}</button>
+	        <div class="tip colorff0000 tc"></div>
+	    </li>
+	    <li>
+	        <p>标签</p>
+	        <textarea  placeholder="请填写你的个人标签，如小清新、文艺、重口味等"></textarea>
+	    </li>
+	  </ul>
+	  <p><input class="bc mt30 mb30" type="submit" value="保存"></p>
+	</form>
+	<!-- headerFile -->
+	 <div id="showEdit" style="display: none;width:100%;height: 100%;position: absolute;top: 43px;left: 0;z-index: 9;">
+        <div style="width:100%;position: absolute;top:10px;left:0px;">
+            <button class="mui-btn" data-mui-style="fab" id='cancleBtn' style="margin-left: 10px;">取消</button>
+            <button class="mui-btn" data-mui-style="fab" data-mui-color="primary" id='confirmBtn' style="float:right;margin-right: 10px;">确定</button>
+        </div>
+        <div id="report">
+          <img src="image/mei.jpg" style="width: 300px;height:300px"> 
+      </div>
+    </div>
+</div>
+</block>
+ <block name="js_file">
+ 	 <script src="__PUBLIC__/JS/module/LArea/LArea.js"></script>
+ 	 <script type="text/javascript">
+ 	        $(function () {
+ 	        	$('input,textarea').focus(function(){
+ 	        		$('#kbMt_foot').hide();
+ 	        	});
+ 	        	$('input,textarea').blur(function(){
+ 	        		$('#kbMt_foot').show();
+ 	        	});
+ 	            var curr = new Date().getFullYear();
+ 	            var opt = {  
+ 					'default': {
+ 						theme: 'default',
+ 						mode: 'scroller',
+ 						display: 'modal',
+ 						animate: 'fade'
+ 	                },
+ 					'dateYMD': {
+ 	                  preset: 'date',
+ 						dateFormat: 'yyyy-mm-dd',
+ 						defaultValue: new Date(new Date()),
+ 						maxDate: new Date(),
+ 						// invalid: { daysOfWeek: [0, 6], daysOfMonth: ['5/1', '12/24', '12/25'] }
+ 	                },
+ 	                'select': {
+ 	                    preset: 'select'
+ 	                },
+ 	                'select-opt': {
+ 	                    preset: 'select',
+ 	                    group: true,
+ 	                    width: 50
+ 	                }
+ 	            }
+ 				$('#yearmd').scroller($.extend(opt['dateYMD'],opt['default']));
+ 	          $('.constellation').scroller($.extend(opt['select'],opt['default']));			
+ 	       
+ 	        (function(){
+ 	        	var area1 = new LArea();
+ 	      		// var Address=new Array();
+ 	      		 	$.get("{{:U('VisitorInfo/ajaxControl')}}",{flag:'getAddress'}, function(data) {
+	 	      		 	var Address = JSON.parse(data)
+	 	      		 	area1.init({
+			 	           'trigger': '#nowCity', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+			 	           'valueTo': '#nowCityhide', //选择完毕后id属性输出到该位置
+			 	           'keys': {
+			 	               id: 'district_id',
+			 	               name: 'name'
+			 	           }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+			 	           'type': 1, //数据源类型
+			 	           'data': Address //数据源
+			 	          
+			 	       });
+			 	       // console.log(LAreaData);
+			 	       area1.value=[1,13,3];//控制初始位置，注意：该方法并不会影响到input的value
+ 	      		 	});
+	            		//console.log(Address);
+			 	      
+			 	        /* var lAreaData = [{
+					         "id": "2",
+					         "name": "一级",
+					         "child": [{
+					              "id": "21",
+					              "name": "二级1",
+					              "child": [{
+					                  "id": "211",
+					                  "name": "三级1"
+					             }, {
+					                 "id": "212",
+					                 "name": "三级2"
+					             }, {
+					                 "id": "213",
+					                 "name": "三级3"
+					             }]
+					         }, {
+					             "id": "22",
+					             "name": "二级2"
+					         }, {
+					             "id": "23",
+					             "name": "二级3"
+					         }]
+					     	}];
+					     */
+	 	       
+ 	        }())
+ 	       
+ 	       // 提交数据
+ 	      /*  $('#updateInfo input[type="submit"]').on('click',function(){
+ 	       		var $this=$(this);
+ 	       		var formP=$this.parents('form')
+ 	       		if(formP.find('.hasPhone').length) formP.attr('action',"");
+ 	       		// if()
+ 	       }) */
+ 	     });
+ 	    function verifyTel(_this){
+          var $this=$('.oneSelfTel');
+          var _this=$(_this);
+          var tel=$this.val().trim();
+          if(tel.length){
+	           $.get('{{:U("Login/ajaxControl")}}',{flag:'smsToVisitorVerify',phone:tel,bindingPhone:1}, function(data) {
+	              switch(data){
+	                case 1:
+	                  $('.tip').text("已经发送验证码到该手机，请注意查收");
+	                  inputVerify();
+	                  console.log(_this.prop('disabled'))
+	                  if(!_this.prop('disabled')){
+				         _this.prop('disabled',true);
+				         document.cookie="dis1=dis";
+				         document.cookie="time1=60";
+				         inter1=setInterval(function(){countDown('.Verification')},1000)
+				       }
+	                break;
+	                case 3:
+	                  $('.tip').text("该手机已绑定账号，请确认号码是否正确");
+	                break;
+	                case 4:
+	                  $('.tip').text("验证码已经发送，请耐心等待");
+	                  inputVerify();
+	                  console.log(_this.prop('disabled'))
+                     if(!_this.prop('disabled')){
+	  			         _this.prop('disabled',true);
+	  			         document.cookie="dis1=dis";
+	  			         document.cookie="time1=60";
+	  			         inter1=setInterval(function(){countDown('.Verification')},1000)
+  			         }
+	                break;
+	                case 5:
+	                  $('.tip').text("该手机号码已经注册！");
+	                break;
+	                default:
+	                  $('.tip').text(data);
+	                break;
+	              }
+	          });
+         }else{
+         	dlalert({Content:'请输入正确的手机号码'});
+       	 }
+
+      }
+      /* 验证码倒计时star */
+	       function Cookie(cval){
+	        var cval=cval;
+	        var CookieArr=document.cookie.split(';');
+	        for(var i=0;i<CookieArr.length;i++){
+	          var arr=CookieArr[i].split("=");
+	          if(cval==arr[0].trim()){ 
+	            cval=arr[1]; 
+	            break; 
+	          } 
+	          if(i==CookieArr.length-1){
+	           
+	            cval=false;
+	          }
+	        }
+	        return cval;
+	     }
+
+	     function countDown($obj){
+	      var time;
+	      var $obj=$($obj);
+	      var timeVal=(Cookie('time1')==false)? 60:Cookie('time1');
+	       time=--timeVal;
+	       document.cookie="time1="+time;
+	       if(time<=0){
+	        time1=60;
+	        $obj.disabled=!$obj.disabled
+	        clearInterval(inter1) 
+	        $obj.text("重发")
+	        document.cookie="dis1="
+	        return
+	       }
+	      $obj.text(time+"秒")
+	     }
+	     
+	     $(function(){
+	       var a1=Cookie('dis1');
+	      if(a1=='dis'){
+	       $(".Verification").prop('disabled',true)
+	       inter1=setInterval(function(){countDown(".Verification")},1000)
+	       inputVerify();
+	      }
+
+	      $(".Verification ").bind("click",function(){
+	       $this=$(this);
+	       if($this.siblings('input').val().trim().length){
+	       	   //没有被禁用时禁用并执行倒计时
+		       
+	       }
+	      
+	      })
+	      
+	    })
+	  /* 验证码倒计时star */
+      function inputVerify(){
+      	  var $this=$('.oneSelfTel');
+          var tel=$this.val().trim();
+          var HTML='<p style="margin-top:10px">验证码已发送到该手机号码：<b class="color:#ff0000">'+tel+'</b>，请注意查收</p>\
+          		<div style="position:relative;height: 50px;margin-top: 10px;">\
+          		<input style="width: 100px !important;min-width: 100px;border: 1px solid #ff0000;border-radius: 5px;height: 26px;padding-left:5px;" type="text" value="" id="VerifyCode" placeholder="输入验证码"/>\
+          		<button style="position: static;display: inline-block;margin-left: 10px;" type="button" class="verifyTel Verification" onclick="verifyTel(this)">重发</button></div>'
+          		// <div style="margin-top: 20px;"><button style="position: static;display: inline-block;margin-left: -4px;width: 160px;background: #ff0000;border: none;" type="button" class="verifyTel" onclick="postTelCode($('#VerifyCode').val())">确定</button></div>'
+         	 dlalert({Content:HTML,boxBtn:true},function(date){
+          		if(date){
+          			var VerifyCode=$('#VerifyCode').val();
+          			$.get('{{:U("Login/ajaxControl")}}',{flag:'bindingPhone',phone:tel,code:VerifyCode,},function(res){
+          				if(res){
+          				(res)?$('.tip').text('验证成功'):$('.tip').text('验证失败');
+          				}
+          			})
+          		}
+          });
+      }
+      
+
+    </script>
+ </block>

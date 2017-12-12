@@ -1,0 +1,1496 @@
+body,html{
+	/*width:100%;*/
+	height:100%;
+	font:12px "Microsoft YaHei";
+	background-color:#fafafa;
+	color:#222;
+	overflow:hidden;
+	min-width:1000px;
+}
+body{
+	background-color:#fafafa;
+	position: relative;
+}
+h2{font-size:160%;font-weight:bold;}
+h3{font-size:133.33%;font-weight:bold;}
+[class*="font_"]{
+	text-align: left;
+}
+/*new add*/
+.bg_main{
+	background-color:#00afb5;
+}
+.bg_main-vice{
+	background-color:#c2a3ca;
+}
+
+/*第一组字体颜色*/
+/*主体*/
+.color_first,.color_first a{
+	color:#222;
+}
+
+/*次要*/
+/*.color_firstMinor{
+	color:#;
+}*/
+
+/*辅助*/
+.color_firstAid,.color_firstAid a,.color_first a:hover{
+	color:#919191;
+}
+/*第一组字体颜色 end*/
+
+/*第二组字体颜色*/
+/*主体*/
+.color_last,.color_last a{
+	color:#fff;
+}
+
+/*次要*/
+/*.color_lastMinor{
+	color:#;
+}*/
+
+/*辅助*/
+.color_lastAid ,.color_lastAid a,.color_last a:hover{
+	color:#ccb0d5;
+}
+/*第二组字体颜色end*/
+/*已经选中*/
+.kbshop_selected{
+	background-color:#7facff;
+}
+/*正在选中*/
+.kbshop_selecting,.kbshop_selected:hover{
+	background-color:#005aff;
+}
+
+/*警告*/
+.kbshop_warn{
+	background-color:#e12727;
+}
+.kbshop_warn:hover,.kbshop_warning{
+	background-color:#ff7f82;
+}
+
+/*new add end*/
+.kbShopAdmin_countBg{
+	background-image: url("cmmImg/countBg.png") ;
+	background-repeat:no-repeat;
+}
+
+.kbShopAdmin_mt24{
+	margin-bottom:24px;
+}
+.borderRadius{
+	border-radius:5px;
+}
+.redInfoCount{
+	position:absolute;
+	top: -5px;
+	right: -5px;
+	min-width:15px;
+	height:15px;
+	font-size:12px;
+	background-color:red;
+	border-radius:50px;
+	color:#fff;
+	display:block;
+	line-height: 15px;
+    padding: 2px;
+    text-align: center;
+}
+/*header*/
+#kbShopAdmin_header{
+	width:100%;
+	padding: 10px 0;
+}
+
+#kbShopAdmin_header h2,#kbShopAdmin_header>div{
+	display:inline-block;
+	height:100%;
+	line-height:60px;
+}
+#kbShopAdmin_header h2{
+	text-indent:70px;
+}
+#kbShopAdmin_header>div{
+	font-size:125%;
+}
+#kbShopAdmin_header>div a{
+	/*color:#0d0d0d;*/
+	display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    position: relative;
+}
+.kbShopAdmin_logo{
+	display: inline-block;
+	height: 50px;
+	overflow: hidden;
+	vertical-align: top;
+}
+.header_Fun dl{
+	position: absolute;
+	width:127px;
+	border: 1px solid #919191;
+	z-index: 9;
+    color: #2161a1;
+    background-color: #fafafa;
+    display: none;
+}
+.header_Fun dl::before{
+	content:'';
+	display:block;
+	width:10px;
+	height:10px;
+	/*border-left:10px solid transparent;
+	border-right:10px solid transparent;
+	border-bottom:10px solid #793f7a;*/
+	border: 1px solid #919191;
+    position: absolute;
+    top: -6px;
+    background-color: #793f7a;
+    transform: rotate(45deg);
+    /*left: 16px;*/
+    z-index: -1;
+}
+.header_Fun dl dt{
+	height:30px;
+	line-height:30px;
+	color: #fff;
+    padding: 0 10px;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: #793f7a;
+    text-align: center;
+}
+.kbShop_systemInfo,.kbShop_shopInfo{
+  position:relative;
+  display:inline-block;
+  /*vertical-align:top;*/
+  height: 36px;
+  
+}
+.kbShop_systemInfo{
+	width:36px;
+}
+.kbShop_systemInfo dl{
+	right:0;
+}
+.kbShop_systemInfo dl::before{
+	right:11px;
+}
+.kbShop_systemInfo dl dd{
+	height:42px;
+	overflow:hidden;
+	padding: 0 3px;
+	margin: 5px 0;
+	position:relative;
+}
+.kbShop_systemInfo dl dd::before{
+	content:'';
+	display:block;
+	width:8px;
+	height:8px;
+	border-radius:50px;
+	position:absolute;
+	top: 6px;
+    left: 5px;
+	background-color:#e12727;
+}
+#kbShopAdmin_header .kbShop_systemInfo dl dd a{
+	color: #2161a1;
+	vertical-align: top;
+    display: block;
+    font-size: 12px;
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    line-height: 20px;
+    text-indent: 8px;
+}
+
+.kbShop_shopInfo a img{
+	width:36px;
+}
+.kbShop_shopInfo a span{
+	display:inline-block;
+	height:36px;
+	vertical-align:top;
+	margin-left:5px;
+}
+
+.kbShop_shopInfo dl{
+	padding-bottom: 10px;
+}
+.kbShop_shopInfo dd{
+	height:36px;
+	line-height:36px;
+	margin-bottom: 10px;
+}
+.kbShop_shopInfo dl::before{
+	left:12px;
+}
+.kbShop_shopInfo a{
+	line-height:36px;
+	text-align: center;
+}
+.kbShop_shopInfo dl dd:nth-child(2) a{
+	color:#005aff;
+	background:url('cmmImg/person_icon_information_default.svg')no-repeat 22px center ;
+	background-size:10px;
+}
+.kbShop_shopInfo dl dd:nth-child(3) a{
+	color:#c52e2e;
+	background:url('cmmImg/person_icon_exit_default.svg')no-repeat 22px center;
+	background-size:10px;
+}
+.kbShop_shopInfo dl dd a{
+	text-indent:10px;
+}
+/*kbShopAdmin_leftNav*/
+
+#kbShopAdmin_rightCenter,
+#kbShopAdmin_leftNav{
+	display:inline-block;
+	vertical-align:top;
+	height:100%;
+}
+#kbShopAdmin_leftNav{
+	/*background-color:#2a3542;*/
+	width:180px;
+	/*padding:10px;*/
+	overflow:hidden;
+	 float: left;
+	 position:absolute;
+}
+#kbShopAdmin_leftNav>ul{
+	padding-bottom: 100px;
+	overflow-x: hidden;
+    height: 86%;
+}
+#kbShopAdmin_leftNav a{
+	font-size:116.666%;
+	height:46px;
+	display:block;
+	width:100%;
+	line-height:46px;
+	/*text-align:center;*/
+	text-indent:40px;
+	position:relative;
+}
+#kbShopAdmin_leftNav a .redInfoCount{
+	text-indent:0;
+	right: 18px;
+    top: 8px;
+}
+}
+#kbShopAdmin_leftNav a.kbshop_selected{
+	color:#ccb0d5;
+}
+#kbShopAdmin_leftNav  .selectedPar a.kbshop_selected{
+	color:#fff;
+}
+#kbShopAdmin_leftNav ul li{
+	margin-bottom:5px;
+}
+#kbShopAdmin_leftNav ul li>ul>li{
+	/*display:none;*/
+}
+#kbShopAdmin_leftNav ul li>ul>li a{
+	font-size:100%;
+	text-indent:60px;
+}
+#kbShopAdmin_leftNav ul li>ul>li>ul>li a{
+	text-indent:80px;
+}
+#kbShopAdmin_leftNav a.special{
+	background:url("cmmImg/show.png") no-repeat 90% center;
+	background-size: 20px;
+}
+
+#kbShopAdmin_leftNav a.special:hover{
+	/*background-color:#35404d;*/
+}
+/*#kbShopAdmin_leftNav .selected a.special,*/#kbShopAdmin_leftNav  a.meanu1.special{
+	background: url("cmmImg/hide.png")  no-repeat 90% center;
+	    background-size: 20px;
+}
+#kbShopAdmin_leftNav ul li>ul.selectedPar>li {
+    display: block;
+}
+#kbShopAdmin_leftNav ul li.selected>ul>li{
+	display:block;
+	
+}
+/**/
+#kbShopAdmin_leftNav>ul>li{
+	background-repeat:no-repeat;
+	background-position: 12px 13px;
+    background-size: 20px;
+    border-bottom: 1px solid #fff;
+}
+#kbShopAdmin_leftNav>ul>li:first-child{
+	border-top:1px solid #fff;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(1){
+	background-image:url('cmmImg/nav_icon/nav_icon_stat_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(2){
+	background-image:url('cmmImg/nav_icon/nav_icon_business center_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(3){
+	background-image:url('cmmImg/nav_icon/nav_icon_commendity_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(4){
+	background-image:url('cmmImg/nav_icon/nav_icon_ad_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(5){
+	background-image:url('cmmImg/nav_icon/nav_icon_dynamic_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(6){
+	background-image:url('cmmImg/nav_icon/nav_icon_recruit_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(7){
+	background-image:url('cmmImg/nav_icon/nav_icon_news_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(8){
+	background-image:url('cmmImg/nav_icon/nav_icon_people_default.png') ;
+}
+#kbShopAdmin_leftNav>ul>li:nth-child(9){
+	background-image:url('cmmImg/nav_icon/nav_icon_order_default.png') ;
+}
+/**/
+
+/*kbShopAdmin_rightCenter*/
+#kbShopAdmin_rightCenter{
+	width: calc(100% - 212px);
+    position: relative;
+    overflow: hidden;
+    min-height: 84%;
+    height: calc(100% - 186px);
+    margin-top: 10px;
+    margin-left: 190px;
+    background-color: #fff;
+    box-shadow: 0 0 1px 3px #eee;
+    padding: 10px;
+}
+.kbShopAdmin_box{
+	    overflow-x: hidden;
+}
+/*table*/
+/*table*/
+.kbShopAdmin_table{
+	width:100%;
+	/*overflow:hidden;*/
+	border-radius:5px;
+	
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:10px;
+    float: left;
+    height: calc(100% - 45px);
+    overflow-x: hidden;
+}
+.kbShopAdmin_table table{
+	width:100%;
+	
+}
+.kbShopAdmin_table table thead tr{
+	height:40px;
+	background-color:#808080;
+}
+.kbShopAdmin_table table thead tr th{
+	color:#fff;
+	font-size:133.3333%;
+	text-align:center;
+}
+.kbShopAdmin_table table tbody tr{
+	min-height:60px
+}
+.kbShopAdmin_table table tbody tr:nth-child(odd){
+	background-color:#fff;
+}
+.kbShopAdmin_table table tbody tr:nth-child(even){
+	background-color:#f8f8f8;
+}
+
+.kbShopAdmin_table table tbody tr td{
+	color:#1a1a1a;
+	font-size:14px;
+	text-align:center;
+    padding: 5px;
+	/*border-left:1px solid #bec4cc;
+	border-bottom:1px solid #bec4cc;*/
+	
+}
+.kbShopAdmin_tdImg > div {
+    width: 90%;
+    height: 50px;
+    overflow: hidden;
+    margin: auto;
+}
+.kbShopAdmin_tdImg > div img{
+	height:100%;
+	width:100%;
+}
+.kbShopAdmin_table table td.pageT p{
+	width:100px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	margin:auto;
+	padding:0 10px;
+}
+.kbShopAdmin_page{
+	width: 300px;
+    overflow: hidden;
+    height: 30px;
+    margin-left: auto;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+.kbShopAdmin_page>div{
+	display:inline-block;
+}
+/*.kbShopAdmin_page .inputButton{
+	display:inline-block;
+	height:28px;
+	border-radius:5px;
+	border:1px solid #919191
+	color:#1a1a1a;
+	font-size:14px;
+	width:68px;
+	background:transparent;
+}
+.kbShopAdmin_page .inputButton{
+	text-align:center;
+	line-height:28px;
+}
+
+.kbShopAdmin_page a,.kbShopAdmin_page span{
+	display:inline-block;
+	border-radius:4px;
+	border:none;
+	width:30px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	color:#505050;
+	font-size:14px;
+	margin:0 5px;
+}
+.kbShopAdmin_page  span.current,.kbShopAdmin_page div a:hover{
+	color:#fff;
+	background:#ff6c60;
+}*/
+.kbShopAdmin_page a,.kbShopAdmin_page span{
+	display:inline-block;
+	border-radius:4px;
+	border:none;
+	/*width:30px;*/
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	color:#505050;
+	font-size:14px;
+	margin:0 5px;
+	vertical-align:middle;
+}
+.kbShopAdmin_page a.prevPage:hover{
+	border-right: 15px solid #005aff;
+}
+.kbShopAdmin_page a.nextPage:hover{
+	border-left: 15px solid #005aff;
+}
+ .kbShopAdmin_page>div{
+	display:inline-block;
+    vertical-align: top;
+    width:48%;
+}
+.kbShopAdmin_page .pageSize{
+
+}
+.pageSize a{
+	width:0;
+	height:0;
+	border-color:transparent;
+}
+.pageSize p{
+	display:inline-block;
+	vertical-align: middle;
+}
+.pageSize .prevPage{
+	border-bottom: 10px solid transparent;
+	border-top: 10px solid transparent;
+	border-right: 15px solid #919191;
+	border-left:0;
+}
+.pageSize .nextPage{
+	border-bottom: 10px solid transparent;
+	border-top: 10px solid transparent;
+	border-left: 15px solid #00afb5;
+	border-right:0;
+	margin-left: 20px;
+   
+}
+
+
+.pageJump a{
+	background-color:#919191;
+	border-radius:0;
+	margin:0;
+	height:30px;
+	line-height: 30px;
+	padding:0 5px;
+	color:#fff;
+}
+.pageJump a:hover{
+	background-color:#005aff;
+}
+.pageJump input{
+	border:1px solid #919191;
+	height:28px;
+	padding-left:5px;
+
+}
+.pageJump [type="submit"]{
+	background-color:#00afb5;
+	color:#fff;
+	height:30px;
+}
+/*重新规划*/
+#tooltip{
+	z-index: 99;
+    position: absolute;
+    background-color: #4b4b4b;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    display: inline;
+    padding: 10px;
+}
+#tooltip::before{
+	content:'';
+	display:block;
+	position:absolute;
+	width:0;
+	height:0;
+	border-left:10px solid transparent;
+	border-right:10px solid transparent;
+	border-bottom:10px solid #4b4b4b;
+	top: -8px;
+    left: 14px;
+}
+
+
+
+/*input button*/
+
+.kbShopAdmin_button_ff6c60{
+	color:#fff;
+	background-color:#ff6c60;
+	border:1px solid #ff6c60;
+}
+
+.kbShopAdmin_button_6ccac9{
+	color:#fff;
+	background-color:#6ccac9;
+	border:1px solid #6ccac9;
+}
+.kbShopAdmin_button_eee{
+	border:1px solid #005aff;
+	color:#222;
+	border:1px solid #005aff;
+}
+.kbShopAdmin_button_eee{
+	border:1px solid #005aff;
+	color:#222;
+	border:1px solid #005aff;
+}
+.kbShopAdmin_button_eee{
+	color:#666;
+	border:1px solid #666;
+}
+*[class*="kbShopAdmin_button_"]{
+	padding:5px;
+}
+.kbShopAdmin_table  *[class*="kbShopAdmin_button_"]{
+	    min-width: 62px;
+    display: inline-block;
+}
+.kbShopAdmin_opt{
+	color:#fff;
+	background-color:#5f95f8;
+	border:1px solid #5f95f8;
+	padding:5px;
+}
+
+.kbShopAdmin_button_6ccac9:hover,
+.kbShopAdmin_button_ff6c60:hover,
+.kbShopAdmin_opt_7facff,
+.kbShopAdmin_button_eee:hover,
+.kbShopAdmin_opt:hover,
+*[class*="kbShopAdmin_opt"]:hover{
+	color:#fff;
+	background-color:#005aff;
+}
+
+.kbShopAdmin_opt_7facff{
+	border:1px solid #005aff;
+}
+
+.kbShopAdmin_buttonMr{
+	margin-right:5px;
+}
+
+/*
+.kbShopAdmin_operating [type="button"],
+.kbShopAdmin_operating [type="submit"]*/
+#kbShopAdmin_rightCenter input{
+  font-weight:bold;
+  /*text-align:center;*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  /*border: 1px solid #acacac;*/
+}
+/*选择框*/
+.kbShopAdmin_slt{
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: solid 1px #eee;
+  /*border-radius:5px;*/
+  /*很关键：将默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background:  url("cmmImg/selectDow.png") no-repeat scroll 96% center ;
+
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-left: 14px;
+  /*width: 115px;*/
+  font-size:16px;
+  font-weight:bold;
+  color:#222;
+  font-family:'Microsoft YaHei';
+}
+
+/*.kbShopAdmin_enter .kbShopAdmin_sltblack,.kbShopAdmin_sltblack{
+	background:url("cmmImg/downTriangles.png") no-repeat scroll 96% center ;
+}
+*/
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+
+.kbShopAdmin_slt option{
+	padding-left:14px;
+}
+
+/*icon*/
+.kbShopAdmin_writer{
+	text-indent:30px;
+	background-image: url("cmmImg/edit.png");
+	background-repeat:no-repeat;
+	background-position:15px center;
+}
+.kbShopAdmin_add{
+	text-indent:30px;
+	background-image: url("cmmImg/add.png");
+	background-repeat:no-repeat;
+	background-position:15px center;
+}
+ .kbShopAdminEdit{
+	background: url("cmmImg/tdEdit.png") no-repeat left center;
+}
+ .kbShopAdmineDel{
+	background: url("cmmImg/tdDelete.png") no-repeat left  center;
+}
+.kbShopAdminLook{
+	background: url("cmmImg/look.png") no-repeat left center;
+	background-size:24px;
+}
+
+/*报名用户*/
+.kbShopAdminMerchant{
+	background: url("cmmImg/community/table_icon_apply-merchant_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*取消活动*/
+.kbShopAdminCancel{
+	background: url("cmmImg/community/table_icon_cancel_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*再发活动*/
+.kbShopAdminRecurrence{
+	background: url("cmmImg/community/table_icon_recurrence_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*置顶*/
+.kbShopAdminTOP{
+	background: url("cmmImg/community/table_icon_top_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+.kbShopAdminIsTOP{
+	background: url("cmmImg/community/content_icon_top_click.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*举报*/
+.kbShopAdminRepor{
+	background: url("cmmImg/community/table_icon_report_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*增加*/
+.kbShopAdminAdd{
+	background: url("cmmImg/community/table_icon_attention_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*屏蔽*/
+.kbShopAdminRefuse{
+	background: url("cmmImg/community/table_icon_refuse_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*评论*/
+.kbShopAdminComment{
+	background: url("cmmImg/community/table_icon_comment_click.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*del*/
+.kbShopAdminDel{
+	background: url("cmmImg/community/table_icon_delete_default.svg") no-repeat 5px center;
+	background-size:17px;
+}
+/*look*/
+.kbShopAdminSea{
+	background: url("cmmImg/community/table_icon_look_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*开启*/
+.kbShopAdminBegin{
+	background: url("cmmImg/community/table_icon_begin_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*历史形象*/
+.kbShopAdminHistorty{
+	background: url("cmmImg/Shape-1.png") no-repeat 5px center;
+	background-size:12px;
+}
+/*员工*/
+.kbShopAdminStaff{
+	background: url("cmmImg/Forma-1.png") no-repeat 5px center;
+	background-size:15px;
+}
+/*分组*/
+.kbShopAdminStaffClass{
+	background: url("cmmImg/staffClass.png") no-repeat 5px center;
+	background-size:15px;
+}
+/*完善资料*/
+.kbShopAdminStaffupdate{
+	background: url("cmmImg/staffupdate.png") no-repeat 5px center;
+	background-size:15px;
+}
+/*关闭*/
+.kbShopAdminClose{
+	background: url("cmmImg/community/table_icon_close_default.svg") no-repeat 5px center;
+	background-size:20px;
+}
+/*各状态checkbox*/
+.kbShopAdmin_checkbox,.kbShopAdmin_radio,.kbShopAdmin_pushBtn{
+	position:relative;
+	display:inline-block;
+	/*width:60px;*/
+	height:25px;
+	overflow:hidden;
+}
+.kbShopAdmin_checkbox input,.kbShopAdmin_radio input,.kbShopAdmin_pushBtn input{
+	width:100%;
+	height:100%;
+	position:absolute;
+	opacity:0;
+	z-index:2;
+	left:0;
+	top:0;
+}
+
+.kbShopAdmin_checkbox label,.kbShopAdmin_radio label{
+	width:100%;
+	height:100%;
+	display:block;
+	line-height:22px;
+}
+
+.kbShopAdmin_checkbox label b{
+	display:inline-block;
+	width:20px;
+	height:20px;
+	border-radius:5px;
+	border:1px solid #787880;
+    vertical-align: middle;
+}
+.kbShopAdmin_checkbox input:checked + label b{
+	background:#ff6c60 url("cmmImg/checkBox.png") no-repeat center ;
+	border:1px solid #919191
+}
+.kbShopAdmin_radio input.ischecked + label b{
+	border:1px solid #919191;
+	opacity:1;
+}
+
+.kbShopAdmin_checkboxChosen{
+	width:90%;
+	display:block;
+}
+
+/*.kbShopAdmin_checkboxChosen{display:none;}*/
+.kbShopAdmin_checkboxChosen input:checked + label{
+	color:#ff6c60;
+}
+
+.kbShopAdmin_checkboxChosenNot input + label span,
+.kbShopAdmin_checkboxChosenNot input:checked + label span,
+.kbShopAdmin_checkboxChosen input:checked + label span{
+	display:none;
+}
+.kbShopAdmin_checkboxChosenNot{/*被拒绝后的css*/
+
+}
+.kbShopAdmin_checkboxChosenNot input + label,
+.kbShopAdmin_checkboxChosenNot input:checked + label{
+	color:#4a4847;
+}
+.kbShopAdmin_checkboxChosenNot input + label b,
+.kbShopAdmin_checkboxChosenNot input:checked + label b,
+.kbShopAdmin_checkbox input:disabled + label b
+{
+	background:#4a4847;
+	border:1px solid #4a4847;
+}
+.kbShopAdmin_tdAction{
+	padding:5px;
+}
+.kbShopAdmin_tdAction input{
+	display:inline-block;
+	min-width:30px;
+	border:1px solid transparent;
+	/*background-color:transparent;*/
+	/*text-indent:20px;*/
+	cursor:pointer;
+	background-position: center;
+
+}
+
+
+/*input radio*/
+.kbShopAdmin_radio label{
+	border-radius:50px;
+	border:1px solid #787880;
+	width:22px;
+	height:22px;
+}
+.kbShopAdmin_radio label b{
+	display:inline-block;
+	width:12px;
+	height:12px;
+	border-radius:50px;
+	border:1px solid #787880;
+    vertical-align: top;
+    background-color:#005aff;
+    margin:4px;
+    opacity:0;
+}
+.kbShopAdmin_radio input:checked + label b{
+	border:1px solid #919191;
+	opacity:1;
+}
+.kbShopAdmin_radio input:hover + label b{
+	opacity:0.5;
+}
+/*开光*/
+/*{
+	display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+}*/
+.kbShopAdmin_pushBtn label{
+	display:inline-block;
+	width:44px;
+	height:22px;
+	border-radius:50px;
+	border:1px solid #acacac;
+	background-color: #acacac;
+}
+.kbShopAdmin_pushBtn label b{
+	display:block;
+	background:#eee;
+	width:50%;
+	height:100%;
+	border-radius:50px;
+	position:absolute;
+	top:0;
+	left:1%;
+	transition:all 500ms;
+	-moz-transition:all 500ms;
+	-webkit-transition:all 500ms;
+	-o-transition:all 500ms;
+}
+.kbShopAdmin_pushBtn input:checked + label{
+	background-color:#005aff;
+}
+.kbShopAdmin_pushBtn input:checked + label b{
+	left:48%;
+}
+
+/*表单*/
+.kbShopAdmin_enter{
+	width:100%;
+	margin-bottom:20px;
+	position:relative;
+}
+.kbShopAdmin_enter  b,
+.kbShopAdmin_enter  input{
+	height:30px;
+	display:inline-block;
+	line-height:30px;
+}
+.kbShopAdmin_enter  b{
+	width:35%;
+	margin-right:5px;
+	text-align:right;
+	font-size:133.333%;
+    vertical-align: top;
+}
+.kbShopAdmin_enter input:not([type="radio"]),
+/*.kbShopAdmin_enter  input[type="tel"],
+.kbShopAdmin_enter  input[type="number"],
+.kbShopAdmin_enter  input[type="password"],
+.kbShopAdmin_enter  input[type="password"],*/
+.kbShopAdmin_enter select,
+.kbShopAdmin_enter textarea,
+.kbShopAdmin_enter .infoBlock{
+
+	width:40%;
+	padding-left:5px;
+	border:1px solid #919191;
+	border-radius:5px;
+	max-width: 500px;
+}
+.kbShopAdmin_enter .infoBlock{
+	display:inline-block;
+	border:none;
+	height:30px;
+    line-height: 30px;
+}
+.kbShopAdmin_enter .radioText{
+	    display: inline-block;
+	    height: 30px;
+	    line-height: 24px;
+	    vertical-align: top;
+	    margin: 0 10px;
+	
+}
+.kbShopAdmin_enter  input:focus,
+.kbShopAdmin_enter textarea:focus{
+	border: 1px solid #005aff;
+}
+.kbShopAdmin_enter textarea{
+	width:39%;
+	padding: 5px;
+	height:120px;
+	vertical-align:top;
+}
+.kbShopAdmin_enter select{
+	height:30px;
+	background-color:#fff;
+    color: #1a1a1a;
+}
+.kbShopAdmin_enter .myEditor{
+	width:50%;
+	display:inline-block;
+	vertical-align:top;
+}
+.kbShopAdmin_enter b i{
+	color:red;
+	margin:0 5px;
+	vertical-align: middle;
+}
+.kbShopAdmin_tip{
+	width:60%;
+	margin-left:27%;
+	display:block;
+	color:#8d8d8d;
+	margin-top:5px;
+}
+.kbShopAdmin_tip-error{
+	color:red;
+}
+/*myEditor*/
+#kbShopAdmin-edit{
+	display:none;
+	position:absolute;
+	top:15px;
+	left:0;
+	right:0;
+	margin:auto;
+	width:90%;
+	margin-bottom: 100px;
+    height: 95%;
+    overflow-x: hidden;
+
+}
+.myEditor{
+	width:90%;
+	/*height:500px;*/
+}
+.kb_table-filter{
+	height:30px;
+}
+.filter-searchDate{
+	width:338px;
+	height:30px;
+	border:1px solid #c1c1c1;
+	display: inline-block;
+	position:relative;
+}
+.filter-searchDate form{
+	height:100%	;
+}
+.filter-searchDate input[type="search"]{
+	width:258px;
+	border:none;
+	height:100%;
+	padding-left:35px;
+	background:url('cmmImg/searchDate.png') no-repeat 10px center;
+}
+.filter-blacklist{
+	display:inline-block;
+	vertical-align: middle;
+    height: 100%;
+}
+.filter-blacklist b{
+	display:inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+/*alert*/
+
+.kbShopAdmin_alert{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:9;
+	display:none;
+}
+.kbShopAdmin_alert::before{
+	content:"";
+	display:block;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:.3;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1
+}
+.kbShopAdmin_alertBox{
+	width:700px;
+	height:calc(80% - 130px);
+	margin:auto;
+	background:#fff;
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	border-radius:5px;
+    min-height: 650px;
+    overflow: hidden;
+}
+.kbShopAdmin_alertBox .kbShopAdmin_alert-close{
+	display:block;
+	width:35px;
+	height:35px;
+	position:absolute;
+	top: 7px;
+    right: 7px;
+	border:none;
+	/*background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABwElEQVRYhcXWvWsUQRjH8U9hYSEYxOLAIAhphBT+AVfEJmjlS5XSQizSRLtEfDmxsjFliggKlgonBEkhYqGdhYWNIGIhksIixAMtDjmLvTXjZm5vb9c4PxjYnXmeeb7MPM/MwAYGCZtXqQFepwZIvgUPUgPcreH0BJeC9q7EthvYdWIASzUAPmDerubxMWL3EieHNsfwNAawUHPpNnAigLhWGP+Ki8H4vVFbMFsTYIA1f6sbjC0H/edL5gCfG0AsBIGO4gteBH0z6I0DWG0A0BsGyTWH1vD7oPIE/QNwrgHAAM9w3F7dr+ALDuBbQ4jVQvAZ9KsCwHqD4H20IyvQmQTgNLZqBO9hMRIcjuBxVQCyspoU4EZhjmVMBf8tWWVUAmjh5wTB1wv+eTVtFvrbRufDHt2pGPyR3XKDW4Xx24V5r1cFmDI+F97jUOBzNWLTx5nC3N2IXVSnlJ9ea7IM7yjPm+3AriN+4I3UFeyMWYl/0Up1MzUA4+t43wEOy15NP1IB5FrEp5QAcAFvUgKQHT4PVbvp9gUg11lZgv5KBZBrDm9TAuRqYwXP8T0FQKhpXJblyqbsXTjqSv7vmh428BsTSsfZcK3qVQAAAABJRU5ErkJggg==") no-repeat right top;*/
+	background: url('cmmImg/bounced_icon_close_default.svg') no-repeat right top;
+}
+.kbShopAdmin_alertBox h3{
+	text-align: left;
+    /* margin: 30px 0; */
+    background-color: #eee;
+    height: 60px;
+    line-height: 60px;
+    text-indent: 105px;
+}
+.kbShopAdmin_alertBox form{
+	height:100%;
+}
+.kbShopAdmin_alertBox form div.formDate{
+	height: 75%;
+     overflow-x: hidden;
+    padding-top:20px;
+}
+.kbShopAdmin_enter input{
+	border: 1px solid #acacac;
+}
+.kbShopAdmin_enter input[type=file]{
+	visibility:hidden;
+	z-index: -1;
+	position:absolute;
+}
+.kbShopAdmin_enter input[type=file]+label{
+	display: inline-block;
+    width: 210px;
+    height: 115px;
+    text-align: center;
+    border-radius: 5px;
+    vertical-align: top;
+    border: 1px dashed #919191;
+    padding-top: 42px;
+}
+.kbShopAdmin_enter input[type=file]:disabled+label{
+	visibility:hidden;
+}
+.kbShopAdmin_alertBox .kbShopAdmin_operating{
+	    position: absolute;
+	    bottom: 0;
+	    margin: auto;
+	    background-color:#eee;
+	        width: 100%;
+}
+.kbShopAdmin_operating{
+	width:calc(97% - 20px);
+	position:relative;
+	overflow:hidden;
+	margin-bottom:15px;
+	padding-bottom: 5px;
+	/*padding-left: 20px;*/
+}
+.kbShopAdmin_operating .kbShopAdmin_dashed {
+	background-color: #ccc;
+    color: #989393;
+}
+/*表单end*/
+/*模块标题*/
+.kbSpAn_moduleTitle{
+	width:100%;
+	border-bottom:1px solid #eee;
+	text-indent: 45px;
+}
+
+
+.fileShopImg b{
+	
+}
+ .shopImg{
+	width:200px;
+	height: 159px;
+	overflow:hidden;
+	border-radius: 5px;
+	display: inline-block;
+    vertical-align: top;
+    position:relative;
+    border:1px solid #eee;
+}
+.shopImg img{
+	width:100%;
+	height: 100%
+}
+.kbShopAdmin_restsubmit {
+	text-align: center;
+    margin: 10px auto;
+}
+
+.businessFileImgList .cleraIMG{
+	position:absolute;
+	top:10px;
+	right:10px;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcpJREFUeNq8l4GRgjAQRUPGAqzg5krACjw60A6gAmuxgtCBdIBWoCXcXAV0oJubz51gkt1AcGcyGYaQ/7LJLpuVEtr9Q+XU7ahtqX15hp2pXag12Y+6SebNBMIldQdquYozC3AkkHoSAAl/UmcCq5Wa9UpFIN+ul9ojbl19TSCuMMcVc/IAcPmJ2lqlMzvXCXP7AUBp1HJmxp7Qjj1f2gy0XjxgErs9tB1mAIC94Q5cjdCShF/NHcz+PPQeOHDiFEYV9QUDYd8VGMtB/GpqZLhcIK6o7wIQvXiHsRxEbrU10qtiBv6dDQ/EQBzbuhZkz51Gbg8CUGsDED7xVgCwzWjwPSK3u4TURHF/Ko7xxBzxWAAnxBzxKQDJLRbg5Rww0ZEUwHkIBSHKApxnREDLhChbrGjUcFPFc0GeCNnFAjQcgCDUfBAcQKNRvYYGljSxEYTaAALflMzCbis8HJlixEKoJ5dzeeLGiPea/1UxfdQmKkJFlTKtvhiHof19dm8Q76A1zAOo26s3AAzuCHqUzZqFISpo+DMhrlL7xNth59q7rmnOVAzKjTBLSq5mm/HK2X+B3Sec1Cr2B/OUQe2qC9+9UHQ7Xvp6/hBgAPtU0Zj32JNRAAAAAElFTkSuQmCC");
+	width:32px;
+	height:32px;
+	background-position:center;
+}
+.fileImgMore{
+    display: inline-block;
+    max-width: 430px;;
+}
+.fileImgMore .shopImg{
+	margin-right:10px;	
+	margin-bottom:10px;
+    min-width: 150px;
+}
+/*图片上传*/
+.btn.kbShopAdmin_button_ff6c60{
+	display: inline-block;
+	width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 2;
+    float: right;
+    cursor: pointer;
+}
+.ccropHeaderWrapper{
+	width:200px;
+	display: inline-block;
+}
+.ccropHeaderWrapper,.btn.kbShopAdmin_button_ff6c60{
+	vertical-align: top
+}
+.croppic>img{
+	width: 100%;
+	height: 100%
+}
+/*@media all and (max-width: 1700px) {
+	#kbShopAdmin_rightCenter{
+		width:85%;
+		min-width:750px;
+	}
+	.kbShopAdmin_table table td.pageT p{
+
+	}
+}
+@media all and (max-width: 1500px) {
+	#kbShopAdmin_rightCenter{
+		width:82%;
+	}
+	.kbShopAdmin_table table td.pageT p{
+
+	}
+}
+@media all and (max-width: 1300px) {
+	#kbShopAdmin_rightCenter{
+		width:79%;
+	}
+	.kbShopAdmin_table table td.pageT p{
+
+	}
+}
+@media all and (max-width: 1100px) {
+	#kbShopAdmin_rightCenter{
+		width:79%;
+	}
+	.kbShopAdmin_table table td.pageT p{
+
+	}
+}
+@media all and (max-width: 950px) {
+	
+	.kbShopAdmin_table table td.pageT p{
+		width:70px;
+	}
+	.kbShopAdmin_checkbox{
+		padding:5px;
+	}
+}*/
+.bc_cententBlock{
+	width:87%;
+	margin-left:auto;
+	margin-right:auto;
+	min-height:30%;
+	background-color: #fafafa;
+	padding-top:40px;
+}
+.bc_cententBlock>div,.bc_cententBlock>h1{
+	width:95%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.bc_cententBlock>h1{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.bc-userHeaderImg{
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	display:inline-block;
+}
+
+.bc-userHeaderImg img{
+	width:100%;
+	height:100%;
+}
+
+.bc-userHeaderImg,.bc_userHeaderInfo{
+	display:inline-block;
+	vertical-align:middle;
+}
+.bc_userTopic-centent p{
+	overflow:hidden;
+	width:153px;
+	height:115px;
+	display:inline-block;
+	margin-right:10px;
+}
+.bc_userTopic-centent p img{
+	width:100%;
+	height:100%;
+}
+.bc_cententBlock-operating{
+	width:100%;
+	height:64px;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+	line-height:64px;
+	text-indent: 40px;
+}
+.bc_cententBlock-operating a{
+	display:inline-block;
+	height:100%;
+	text-indent: 0;
+	margin-right:20px;
+}
+.bc_cententBlock-operating span{
+	display:inline-block;
+	height:100%;
+	width:24px;
+	vertical-align:middle;
+	margin-right:10px;
+}
+.onLike span{
+	background: url('cmmImg/community/onLike.png') no-repeat center 19px;
+}
+.onDiscuss span{
+	background: url('cmmImg/community/onDiscuss.png') no-repeat center 19px;
+}
+.onTop span{
+	background: url('cmmImg/community/content_icon_top_default.svg') no-repeat center 19px;
+	background-size:18px;
+}
+.isTop span{
+	background: url('cmmImg/community/content_icon_top_click.svg') no-repeat center 19px;
+	background-size:18px;
+}
+.bc_userHeader>div{
+	display:inline-block;
+	vertical-align: top;
+}
+.bc_userHeader-DiscussInfo{
+	width:92%;
+}
+.color005aff{
+	color:#005aff;
+}
+.bc_userHeaderDate{
+	position:relative;
+
+}
+.bc_userHeaderDate strong{
+	color:#919191;
+}
+.bc_userHeaderDate a{
+	display:inline-block;
+	width:78px;
+	height:16px;
+	line-height:16px;
+	text-align:center;
+	text-indent:10px;
+	background:url('cmmImg/community/content_icon_reply_default.svg') no-repeat 0 center;
+	background-size:24px;
+}
+.bc_userHeaderDate a:hover{
+	background:url('cmmImg/community/content_icon_reply_click.svg') no-repeat 0 center;
+	color:#005aff;
+}
+
+.bc_DiscussInfo-reply{
+	margin-left:60px;
+	border:1px solid #eee;
+	padding:20px;
+	width:90%;
+}
+.bc_DiscussInfo-reply li{
+	border-bottom:1px solid #eee;
+	margin-bottom:10px;
+}
+
+/*reply edit*/
+.replyEdit,.replyEdit textarea{
+	
+	min-height:80px;
+}
+.replyEdit{
+	width:98%;
+	padding:10px;
+	box-shadow: 0 0 2px 2px #eee;
+	overflow: hidden;
+}
+.replyEdit textarea{
+	padding:5px;
+	width:99%;
+}
+
+.kbShopAdmin_footer{
+	margin-left: 190px;
+	position: relative;
+}
+
+
+.centerTitle{
+	margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    overflow:hidden;
+}
+.centerTitle h1{
+    font-size: 180%;
+    font-weight:bold;
+}
+
+.kbShopAdmin_tabNav{
+
+}
+.kbShopAdmin_tabNav a{
+	display:inline-block;
+	color:#222;
+	width:80px;
+	text-align:center;
+	font-size:16px;
+	padding-bottom:10px;
+	margin-bottom:-6px;
+	/*font-weight:500;*/
+	margin-right:10px	;
+}
+.kbShopAdmin_tabNav a.selecting{
+	color:#005aff;
+	border-bottom:4px solid #005aff;
+}
+.kbShopAdmin_tabBox{
+	position:relative;
+}
+
+/*置顶DOM*/
+
+.isTopMark{
+	display:inline-block;
+	width:44px;
+	height:20px;
+	background-color:red;
+	color:#fff;
+	text-align:center;
+	font-size:14px;
+	margin-left:10px;
+}
+.formData{
+	margin-bottom: 120px;
+}
+.centerTitle .goback{
+	position: relative;
+	top: 8px;
+}
+

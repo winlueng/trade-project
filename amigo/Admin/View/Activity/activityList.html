@@ -1,0 +1,362 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.min.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<style>
+	.couponAdList_center .authAddBtn{
+		float:none;
+	}
+	.couponAdList_center .authAddBtn{
+		display:block;
+	}
+	</style>
+	 <script type="text/javascript">
+       $(function(){ 
+            $('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+                if ( typeof(FileReader) === 'undefined' ){ 
+                    alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+                    this.setAttribute( 'disabled','disabled' ); 
+                } else { 
+                    readFile(this,this.files[0]);
+                } 
+            })
+        });
+    
+    </script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponAdList_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables ">
+					
+						<div class="kbVipAdmin_tableHead authAddBtn">
+						<form class="kbVipAdmin_inlineBlock" action="" method="get" >
+							<div class="kbVipAdmin_styledSelect">
+								<select class="kbVipAdmin_slt pl20" name="activity_type">
+									<option value="">全部活动</option>
+									<option value="1">普通活动</option>
+									<option value="2">精选活动</option>
+								</select>
+							</div>
+							<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+						</form>
+						
+							<input class=" adminFont kbVipAdmin_btn w100 h50 addCouponAdList fr"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+						
+					</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>活动类型</th>
+							<th>活动标题</th>
+							<th>活动状态</th>
+							<th>截止时间</th>
+							<th>点击量</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					<empty name="list" >
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td></tr>
+					<else />
+					<foreach name="list" item="v" >
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>
+							
+							<switch name="v.activity_type">    
+								<case value="1">普通活动</case>    
+								<case value="2">精选活动</case>
+								<case value="3">历史活动</case>
+							</switch>
+							</td>
+							<td>{{$v.activity_name}}</td>
+							<td class="microWebMenuAdmin">
+								<p class="MenuAdminBox mb10 bc">
+									<input class='operatActivity' name="microWebMenuAdmin1" type="checkbox" {{$v['activity_type'] == '2'?'checked':''}}/>
+									<label ><i></i><b>精选活动</b></label>
+								</p>
+							
+							</td>
+							<td>{{:date('Y年m月d日', $v['end_time'])}}</td>
+							<td>{{$v.statistics}}</td>
+							<td class="microWebMenuAdmin activityStatus">
+								<p class="MenuAdminBox mb10 bc">
+									<input  name="microWebMenuAdmin1{{$v.id}}" type="radio" {{$v['status'] == '0'?'checked':''}} value="0" />
+									
+									<label ><i></i><b>启用</b></label>
+								</p>
+								<p class="MenuAdminBox bc">
+									<input   name="microWebMenuAdmin1{{$v.id}}" type="radio" {{$v['status'] == '1'?'checked':''}} value="1"/>
+									
+									<label ><i></i><b>禁用</b></label>
+								</p>
+							</td>
+							<td>
+								<div class="kbVipAdmin_btnMenuBox bc">
+									<!-- <input class="adminFont kbVipAdmin_btnMenu operatTop" type="button" value="置顶" /> -->
+									
+									
+									<input class="adminFont kbVipAdmin_btnMenu  activityListWirte" type="button" value="&#xe601;&nbsp;编辑" />
+									<a class="adminFont kbVipAdmin_btnMenu lookWeb"  herf="javascript:;" target="_Blank" >&#xe714;&nbsp;预览 </a>
+									<input class="adminFont kbVipAdmin_btnMenu operatDel" type="button" value="&#xe606;&nbsp;删除" />
+								</div>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+					
+				</table>
+			</div>
+			<div class="kbAdmin_page">
+				{{$page}}		
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAdList_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button type="button" class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加活动</h2>
+		<form class="couponAdList_FormParent" action="" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p class="couponTrade"><span><i>*</i>活动标题：</span>
+					<input type="text" maxlength="20" name="activity_name" required="required" />
+					<strong class="kbAdmin_tip">必填项。输入的字符不可以超过20个</strong>
+				</p>
+				<p>
+					<span><i>*</i>跳转路径：</span>
+					<input type="text" name="activity_link" required="required" />
+					<strong class="kbAdmin_tip">必填项。请输入的该活动跳转的详情链接</strong>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span><i>*</i>图片：</span>
+					<label class="fileImg" for="businessFileImg">点击上传图片</label>
+					<input id="businessFileImg" name="activity_cover" type="file" required="required" />
+					<strong class="kbAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过200k，仅可上传一张图片</strong>
+				</div>
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期" readonly="" required="required" onclick="jeDateTime(this,'start');" />
+					 <strong class="kbAdmin_tip">必填项。请双击选择优惠券的开始时间(注意！优惠券只会在当前时间大于开始时间24小时才会出现)</strong>
+				 </p>
+				<p><span><i>*</i>结束时间：</span>
+					<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="end_time" placeholder="开始日期" readonly="" required="required" onclick="jeDateTime(this,'start');" />
+					<strong class="kbAdmin_tip">必填项。请双击选择优惠券的结束时间(注意！优惠券只会在当前时间大于结束时间才会失效)</strong>
+				</p>
+				<div><span><i>*</i>动态描述</span>
+					<div id="myEditor"  class="myEditor">
+					<script id="container" name="activity_details" type="text/plain">
+					
+				    </script>
+				    <!-- 配置文件 -->
+				   <!--  <script type="text/javascript" src="ueditor.config.js"></script> -->
+				    <!-- 编辑器源码文件 -->
+				    <!-- <script type="text/javascript" src="ueditor.all.js"></script> -->
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        var ue = UE.getEditor('container',{
+				        		// 'initialFrameWidth':100%,
+				        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+				        });
+				    </script>
+				</div>
+				
+				</div>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+						<input class="authAddFormSmt" type='submit' value="添加" />
+				</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert activityListWirte_alertWriter">
+		<div class="kbVipAdmin_alert_box ">
+		<button type="button" class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑活动</h2>
+		<form class="couponAdList_FormParent" action="" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				
+				<p class="couponTrade"><span><i>*</i>活动标题：</span>
+					<input type="text" maxlength="20" name="activity_name" required="required" />
+					<strong class="kbAdmin_tip">必填项。输入的字符不可以超过20个</strong>
+				</p>
+				<p>
+					<span><i>*</i>跳转路径：</span>
+					<input type="text" name="activity_link" required="required" />
+					<strong class="kbAdmin_tip">必填项。请输入的该活动跳转的详情链接</strong>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span><i>*</i>图片：</span>
+					<label class="fileImg" for="businessFileImg1">点击上传图片</label>
+					<input id="businessFileImg1" type="file" name="activity_cover"  />
+					<div class="businessFileImgList"><span class="cleraIMG" onclick="clearImg(this)"></span>
+						<img src="" alt="活动封面图" />
+					</div>
+					<strong class="kbAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过200k，仅可上传一张图片</strong>
+				</div>
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期" readonly="" required="required" onclick="jeDateTime(this,'start');" />
+					 <strong class="kbAdmin_tip">必填项。请双击选择优惠券的开始时间(注意！优惠券只会在当前时间大于开始时间24小时才会出现)</strong>
+				 </p>
+				<p><span><i>*</i>结束时间：</span>
+					<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="end_time" placeholder="开始日期" readonly="" required="required" onclick="jeDateTime(this,'start');" />
+					<strong class="kbAdmin_tip">必填项。请双击选择优惠券的结束时间(注意！优惠券只会在当前时间大于结束时间才会失效)</strong>
+				</p>
+				<div><span><i>*</i>动态描述</span>
+					<div id="myEditor"  class="myEditor">
+					<script id="container1" name="activity_details" type="text/plain">
+					
+				    </script>
+				    <!-- 配置文件 -->
+				   <!--  <script type="text/javascript" src="ueditor.config.js"></script> -->
+				    <!-- 编辑器源码文件 -->
+				    <!-- <script type="text/javascript" src="ueditor.all.js"></script> -->
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        var ue = UE.getEditor('container1',{
+				        		// 'initialFrameWidth':100%,
+				        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+				        });
+				    </script>
+				</div>
+				
+				</div>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="保存" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+
+			$('.addCouponAdList ').on('click',function(){
+				$('.couponAdList_alert').fadeIn();
+			})
+			$('.couponSpecialWirte ').on('click',function(){
+				
+			})
+
+			// ajax
+			// change status
+			$('.roleList .activityStatus .MenuAdminBox input').on('click',function(){
+				var $this = $(this);
+				var ID = $this.parent().parent().siblings().eq(0).text().trim();
+				var Status = $this.val().trim();
+				if (Status == 1) 
+				{
+					$('.operatActivity').removeAttr('checked');
+				}
+				var ajaxUrl="{{:U('Activity/ajaxControl')}}"
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Common',
+					params:{
+						flag:'changeActivityStatus',
+						status:Status
+					}
+					},function(res){
+              			operatingTip(res);
+				})
+			})
+			//Wirte
+			$('.activityListWirte').on('click',function(){
+				$('.activityListWirte_alertWriter').fadeIn();
+				var ayWirte = $('.activityListWirte_alertWriter');
+				var $this = $(this);
+				var ajaxUrl="{{:U('Activity/ajaxControl')}}"
+				var ID=$this.parents('tr').children().eq(0).text().trim();
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Common',
+					params:{
+						flag:'selActivityInfo',
+					}
+					},function(res){
+						for(r in res){
+							switch(r){
+								case 'activity_cover' :
+									ayWirte.find('.businessFileImgList').children('img').prop('src','__PUBLIC__'+res.activity_cover);
+								break;
+								case 'activity_details':
+									UE.getEditor('container1').setContent(res.activity_details)
+								break;
+								case 'start_time' :
+									ayWirte.find('input[name="start_time"]').val(date('Y-m-d H:i:s',res.start_time));
+								break;
+								case 'end_time' :
+									ayWirte.find('input[name="end_time"]').val(date('Y-m-d H:i:s',res.end_time));
+								break;
+								default:
+									ayWirte.find('input[name="'+r+'"]').val(res[r]);
+								break;
+							}
+
+						}
+					$('.activityListWirte_alertWriter').find('form').prop('action',"{{:U('activityUpdate')}}?id="+ID);
+				})
+				
+			})
+			//operatActivity
+			$('.operatActivity').on('click',function(){
+				var $this = $(this);
+				var activity_type = ($this.is(':checked')==true)? 2:1;
+			    var ajaxUrl="{{:U('Activity/ajaxControl')}}"
+			   
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Common',
+					params:{
+						flag:'changeActivityType',
+						activity_type:activity_type
+					}
+					},function(res){
+						/* console.log(typeof res);
+						console.log(res); */
+              			operatingTip(res);
+				})
+			})
+			
+			//operat Top
+		/* 	$('.operatTop').on('click',function(){
+				var $this = $(this);
+				var ID = $this.parent().parent().siblings().eq(0).text().trim();
+				var Status = $this.val().trim();
+				jsAjaxControl('changeStatus',{
+					"flag":"changeActivityStatus",
+			        "id":ID,
+			        "status":Status,
+			        "ajaxUrl":"{{:U('Activity/ajaxControl')}}",
+					},function(res){
+              			operatingTip(res);
+				})
+			}) */
+			//operat Del
+			$('.operatDel').on('click',function(){
+				var $this = $(this);
+				
+			    var ajaxUrl="{{:U('Activity/ajaxControl')}}"
+				jsAjaxControl($this,{
+					 ajaxURL:ajaxUrl,
+					 ajaxBranch:'Confirm',
+					 params:{
+						flag:'activityDel',
+					}
+					},function(res){
+              			operatingTip(res);
+				})
+			})
+			
+		})
+			
+
+	</script>
+</block>

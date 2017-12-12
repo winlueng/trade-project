@@ -1,0 +1,105 @@
+<extend name="Common/tseconCom" />
+<block name="css_files">
+<style>
+  .dl_sysInfo-href{
+    display:block;
+    padding-bottom:10px;
+
+  }        
+  .dl_sysInfo-info{
+    padding-left: 60px;
+    color:#8c8989;
+  }
+  .dl_sysInfo-href .kb_list-cell::after{
+      display: none
+  }
+</style>
+<php>
+//echo('<pre>');
+//var_dump($list);exit;
+</php>
+</block>
+<block name="title" >
+	消息
+</block>
+<block name="content" >
+  <section id="Main" class="kb_main bc  kb_notFooter tg_myself">
+    <!-- <header id="facusWap" class="swiper-container main_bg">
+       <nav class="kb_tabNav   swiper-wrapper">
+        <a href="javascript:;" class="selected swiper-slide">个人消息</a>
+        <a href="javascript:;" class="swiper-slide">系统消息</a>
+       </nav>
+      </header> -->
+      <foreach name="list" item="v" key="k">
+        <h1 class="kb_list-title">
+         {{:date('Y-m-d',$k)}}
+        </h1>
+        <foreach name="v" item="vo" >
+          <a href="{{$vo['url']}}" class="main_bg dl_sysInfo-href mb10 {{$vo['is_read']?'kb_btn-disabled':''}}" onclick="readed(this)" news-id="{{$vo['id']}}">
+            <article class="kb_list-cell kb_list-cell_small kb_cell-href ">
+              <p class="kb_list-cell-hd ">
+                <img src="__PUBLIC__/trading/images/tr-Evaluation-reply.png" />
+              </p>
+              <p class="kb_list-cell-bd">
+                <span class="kb_list-cell-title">
+                {{$vo.title}}
+                </span>
+              </p>
+              <p class="kb_cell-ft">
+              </p>
+            </article>
+              <p class="dl_sysInfo-info">
+                {{$vo['content']}}
+              </p>
+            <p class="tr briefColor pr10">
+            {{:date('Y-m-d',$vo['create_time'])}}
+            </p>
+          </a>
+        </foreach>
+      </foreach>
+     <!-- <a href="javascript:;" class="main_bg dl_sysInfo-href mb10">
+      <article class="kb_list-cell kb_list-cell_small kb_cell-href ">
+        <p class="kb_list-cell-hd ">
+          <img src="images/tr-Shipping-notice.png" />
+        </p>
+        <p class="kb_list-cell-bd">
+          <span class="kb_list-cell-title">订单发货</span>
+        </p>
+        <p class="kb_cell-ft">
+        </p>
+      </article>
+        <p class="dl_sysInfo-info">
+          描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息
+        </p>
+         <p class="tr briefColor pr10">
+        2015.6.23
+        </p>
+      </a>
+     <a href="javascript:;" class="main_bg dl_sysInfo-href mb10">
+      <article class="kb_list-cell kb_list-cell_small kb_cell-href ">
+        <p class="kb_list-cell-hd ">
+          <img src="images/tr-Refund-notice.png" />
+        </p>
+        <p class="kb_list-cell-bd">
+          <span class="kb_list-cell-title">订单退款</span>
+        </p>
+        <p class="kb_cell-ft">
+        </p>
+      </article>
+        <p class="dl_sysInfo-info">
+          描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息
+        </p>
+         <p class="tr briefColor pr10">
+        2015.6.23
+        </p>
+      </a> -->
+  </section>
+
+</block>
+<block name="js_files">
+<script type="text/javascript">
+    function readed(obj){
+      $.get('{{:U("ajaxControl")}}',{flag:'isRead',id:$(obj).attr('news-id'),companyName:"{{$_GET['companyName']}}"});
+    }
+</script>
+</block>

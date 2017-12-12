@@ -1,0 +1,364 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+ <link rel="stylesheet" href="__PUBLIC__/JS/module/datenew/css/jquery-ui-1.9.2.custom.css?v=1" type="text/css">
+<style>
+
+.dl_cell{
+    display:flex;
+    display:-webkit-flex;
+   
+    align-items:center;
+    -webkit-align-items:center;
+}
+.dl_cell-bd{
+    flex-grow:1;
+    -webkit-flex-grow:1;
+}
+.dl_cell-hd{
+    min-width:100px;
+}
+.dl_input{
+    border:1px solid #ddd;
+    text-indent:10px;
+    min-height:26px;
+    
+}
+
+.dl_label{
+    min-width:60px;
+    display:inline-block;
+}
+.dl_ft-defalute{
+    color:#a7a7a7;
+}
+.dl_cellWrap{
+    flex-wrap:wrap;
+    -webkit-flex-wrap:wrap;
+}
+.dl_oneRow .dl_input:not(.ui-datepicker-time){
+    width:100px;
+}
+.filterData{
+    width: 240px;
+}
+.dl_btn{
+    border:1px solid transparent;
+    color:#3c74de;
+    background-color:transparent;
+    outline:0;
+}
+.dl_btn:active{
+    opacity:.5;
+}
+.dl_input[readonly]:not(.ui-datepicker-time),.ui-datepicker-time:disabled{
+    border-color:transparent;
+    /*background-color:;*/
+}
+.reginReward .dl_cell-bd{
+   max-width: 200px;
+}
+
+.filterData .ui-datepicker-time:disabled{
+  background-image:none;
+}
+.filterData{
+  position:relative;
+}
+</style>
+<php>
+//echo('<pre>');
+//var_dump($first_recharge);exit;
+</php>
+</block>
+<block name="content">
+  <div id="kbVipAdmin_rightCenter" class="spAnIndex ">
+    <div class="centerTitle">
+      <h2>充值设置</h2>
+    </div>
+
+    <div class="dl_rechargeMain ">
+      <!-- <article class="dl_cell reginReward">
+        <p class="dl_cell-hd">
+          <label class="dl_label">注册福利：</label>
+        </p>
+        <p class="dl_cell-bd">
+            <input type="number" value="" class="dl_input" />
+            <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <p class="dl_cell-ft">
+            <button type="button" class="dl_btn">保存</button>
+            
+        </p>
+        
+      </article> -->
+      <h1 class="f14 mb10 mt10 fb">优惠首充</h1>
+    
+      <article class="dl_cell dl_oneRow mb10">
+        <input type="hidden" name="is_first_recharge" value="1" />
+        <p class="dl_cell-bd">
+          <label class="dl_label">充值：</label>
+          <input type="number" value="" name="recharge_price" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <p class="dl_cell-bd">
+          <label>赠送：</label>
+          <input type="number" value="" name="present_price" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <div class="dl_cell-bd">
+          <label class="">日期：</label>
+          <div class="filterData">
+            
+            <input type="text" class="ui-datepicker-time" readonly="readonly"  value="" />
+            <input class="start" type="hidden" name="start_time" value="" />
+            <input  class="end"  type="hidden" name="end_time" value="" />
+          </div>
+          <button type="button" class="dl_btn mark-oneRowAdd">增加</button>
+          <button type="reset" class="dl_btn">取消</button>
+        </div>
+      </article>
+      <foreach  name="first_recharge" item="v">
+      <article class="dl_cell dl_oneRow mb10 isAdd  ">
+        <input type="hidden" name="is_first_recharge" value="1" />
+        <p class="dl_cell-bd">
+          <label class="dl_label">充值金额：</label>
+          <input type="number" value="{{$v['recharge_price']}}" name="recharge_price" readonly="readonly" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <p class="dl_cell-bd">
+          <label>赠送金额：</label>
+          <input type="number" value="{{$v['present_price']}}" name="present_price" readonly="readonly" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <div class="dl_cell-bd">
+          <label class="">日期：</label>
+          <div class="filterData">
+             <input type="text" value="{{:date('Y-m-d H:i:s', $v['start_time'])}} - {{:date('Y-m-d H:i:s', $v['end_time'])}}" disabled="disabled"
+            class="kb_input w"
+             />
+            <input type="text" class="ui-datepicker-time dl_input hide" readonly="readonly"  value="" />
+            <input class="start" type="hidden" name="start_time" value=" {{$v['start_time']}}" />
+            <input  class="end"  type="hidden" name="end_time" value="{{$v['end_time']}}" />
+          </div>
+          <button type="button" class="dl_btn mark-rachargeUpdate" data-id="{{$v['id']}}">编辑</button>
+          <button type="button" class="dl_btn mark-delrecharge"  data-id="{{$v['id']}}">删除</button>
+        </div>
+
+      </article>
+      </foreach>
+      <h1 class="f14 mb10 mt10 fb">普通优惠</h1>
+      <article class="dl_cell dl_oneRow mb10">
+        <p class="dl_cell-bd">
+          <label class="dl_label">充值：</label>
+          <input type="number" value="" name="recharge_price" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <p class="dl_cell-bd">
+          <label>赠送：</label>
+          <input type="number" value="present_price" name="present_price" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <div class="dl_cell-bd">
+          <label class="">日期：</label>
+          <div class="filterData">
+            <input type="text" class="ui-datepicker-time" readonly="readonly"  value="" />
+            <input class="start" type="hidden" name="start_time" value="" />
+            <input  class="end"  type="hidden" name="end_time" value="" />
+          </div>
+          <button type="button" class="dl_btn mark-defaultRechange">增加</button>
+          <button type="button" class="dl_btn">取消</button>
+        </div>
+      </article>
+      <foreach  name="other_recharge" item="v">
+      <article class="dl_cell dl_oneRow mb10 isAdd  ">
+        <p class="dl_cell-bd">
+          <label class="dl_label">充值：</label>
+          <input type="number" value="{{$v['recharge_price']}}" name="recharge_price" readonly="readonly" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <p class="dl_cell-bd">
+          <label>赠送：</label>
+          <input type="number" value="{{$v['present_price']}}" name="present_price" readonly="readonly" class="dl_input" />
+          <em class="ml10 dl_ft-defalute">元</em>
+        </p>
+        <div class="dl_cell-bd">
+          <label class="">日期：</label>
+          <div class="filterData">
+            <input type="text" value="{{:date('Y-m-d H:i:s', $v['start_time'])}} - {{:date('Y-m-d H:i:s', $v['end_time'])}}" disabled="disabled"
+            class="kb_input w"
+             />
+
+            <input type="text" class="ui-datepicker-time dl_input hide" readonly="readonly"  value="" />
+            <input class="start" type="hidden" name="start_time" value="{{$v['start_time']}}" />
+            <input  class="end"  type="hidden" name="end_time" value="{{$v['end_time']}}" />
+          </div>
+          <button type="button" class="dl_btn mark-rachargeUpdate" data-id="{{$v['id']}}">编辑</button>
+          <button type="button" class="dl_btn mark-delrecharge" data-id="{{$v['id']}}">删除</button>
+        </div>
+      </article>
+      </foreach>
+    </div>
+   <div class="kbVipAdmin_operating tc mt50">
+        <input  class="w200 h40 f16 kbVipAdmin_opt bc" type="button" value="返回" onclick="window.history.go(-1)" />
+    </div>
+  </div>
+
+
+</block>
+<block name="js_files">
+<div class="ui-datepicker-css">  
+   <div class="ui-datepicker-quick">
+       <p>快捷日期<a class="ui-close-date">X</a></p>
+       <div>
+           <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+           <input class="ui-date-quick-button" type="button" value="昨天" alt="1" name=""/>
+           <input class="ui-date-quick-button" type="button" value="7天内" alt="6" name=""/>
+           <input class="ui-date-quick-button" type="button" value="14天内" alt="13" name=""/>
+           <input class="ui-date-quick-button" type="button" value="30天内" alt="29" name=""/>
+           <input class="ui-date-quick-button" type="button" value="60天内" alt="59" name=""/>
+       </div>
+   </div>
+   <div class="ui-datepicker-choose">
+         <p>自选日期</p>
+         <div class="ui-datepicker-date">
+             <input name="start" id="startDate" class="startDate" readonly value="2014/12/20" type="text">
+            -
+             <input name="start" id="endDate" class="endDate" readonly  value="2014/12/20" type="text" disabled onChange="datePickers()">
+         
+         </div>
+     </div>
+
+ </div>
+ <script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/jquery-ui-1.9.2.custom.js"></script>
+ <script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/shareing.js?v=1.11"></script>
+
+ <script>
+  $(function(){
+    $('.mark-oneRowAdd,.mark-defaultRechange').on('click',function(){
+       var $this,formData,parents,i;
+       formData=new FormData();
+       $this=$(this);
+       parents=$this.parents('.dl_oneRow').find("[name]");
+      for(i in parents){
+          if(parents.eq(i).length==0) continue;
+          if(parents.eq(i).val().trim().length>0){
+            formData.append(parents.eq(i).attr('name'),parents.eq(i).val());
+          }else{
+            if(parents.eq(i).attr('type')=="hidden"){
+              Alert("请选择开始时间和结束时间");
+            }else{
+              Alert('充值金额或赠送金额未输入');
+            }
+            return false;
+          }
+      }
+      
+       $.ajax({
+           type:'POST',
+           url:"{{:U('RechargeSetting/ajaxControl')}}?flag=settingIns",
+           data:formData,
+           dataType:'json',
+           enctype: 'multipart/form-data',
+           async: false,  
+           cache: false,  
+           contentType: false,  
+           processData: false,
+           success:function(res){
+              if(res.status){
+                sTip("操作成功")
+              }else{
+                Alert(res.err_msg);
+              }
+
+           },
+           error:function(xhr, errorType, error){
+               console.log("xhr"+xhr);
+               console.log("errorType"+errorType);
+               console.log("error"+error);
+           }
+       })
+    })
+    $('.mark-rachargeUpdate').on('click',function(){
+       var $this,formData,parents,id,status,inputname;
+       formData=new FormData();
+       $this=$(this);
+       parents=$this.parents('.dl_oneRow');
+       id=$this.attr('data-id').trim();
+       status=$this.text()=="编辑"?true:false;
+       console.log(status)
+       if(status){
+
+         parents.find(".dl_input").removeAttr('disabled');
+         parents.find(".dl_input").not('.ui-datepicker-time').removeAttr('readonly');
+         parents.find('.ui-datepicker-time').removeClass('hide').prev().hide();
+         $this.text("完成");
+       }else{
+          inputname=parents.find("[name]");
+          inputname.each(function(indexs,elem){
+            if($(elem).val().trim().length>0){
+              formData.append($(elem).attr('name'),$(elem).val());
+            }else{
+              if($(elem).attr('type')=="hidden"){
+                Alert("请选择开始时间和结束时间");
+              }else{
+                Alert('充值金额或赠送金额未输入');
+              }
+              return false;
+            }
+
+          })
+          $.ajax({
+              type:'POST',
+              url:"{{:U('RechargeSetting/ajaxControl')}}?flag=settingUpdate&id="+id,
+              data:formData,
+              dataType:'json',
+              enctype: 'multipart/form-data',
+              async: false,  
+              cache: false,  
+              contentType: false,  
+              processData: false,
+              success:function(res){
+                
+                if(res.status){
+                  sTip("操作成功")
+                  $this.text("编辑");
+
+                }else{
+                  Alert(res.err_msg);
+                }
+
+              },
+              error:function(xhr, errorType, error){
+                  console.log("xhr"+xhr);
+                  console.log("errorType"+errorType);
+                  console.log("error"+error);
+              }
+          })
+       }
+    });
+    $('.mark-delrecharge').on('click',function(){
+      var $this,id;
+      $this=$(this);
+      id=$this.attr('data-id');
+      $.ajax({
+        type:"GET",
+        url:"{{:U('RechargeSetting/ajaxControl')}}",
+        data:{id:id,flag:'settingDel'},
+        dataType:'json',
+        succcess:function(data){
+          console.log(data);
+          if (data.status == 'true') {
+            sTip("操作成功");
+            window.location.reload();
+            
+          }
+        },
+        error:function(error){
+          console.log(error)
+        }
+      })
+    })
+  })
+   
+ </script>
+</block>

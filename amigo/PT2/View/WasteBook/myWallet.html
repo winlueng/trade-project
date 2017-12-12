@@ -1,0 +1,95 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+  .dl_waller-tip{
+    height:20px;
+    line-height:22px;
+    text-indent:15px;
+  }
+  .dl_waller-tip img{
+    position:relative;
+    top:3px;
+  }
+  .dl_waller-oparting{
+    width:90%;
+  }
+  .forgetPaw{
+    position:relative;
+    padding-right:10px;
+  }
+  .forgetPaw::before{
+    content:'';
+    display:block;
+    width:5px;
+    height:5px;
+    border-top:1px solid #000;
+    border-right:1px solid #000;
+    transform:rotate(45deg);
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+  }
+  .kb_btn{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .dl_wasteBook{
+    line-height:40px;
+  }
+  .dl_waller-oparting .kb_btn{
+    height:32px;
+    line-height:32px;
+  }
+  .f15{
+    font-size: 15px;
+  }
+  .f25{
+    font-size: 25px;
+  }
+</style>
+<php>
+//echo('<pre>');
+//var_dump($wallet);exit;
+</php>
+</block>
+<block name="leftNav">
+  <if condition="$_GET['companyName'] AND $_GET['tem']" >
+    <a href="http://{{$_SERVER['HTTP_HOST']}}/{{:I('get.tem')}}/VisitorInfo/myCenter?companyName={{:I('get.companyName')}}" class="icon-back w"></a>
+  <else />
+    <a href="{{:U('VisitorInfo/myCenter')}}" class="icon-back w"></a>
+  </if>
+</block>
+<block name="title">
+  钱包
+</block>
+<block name="rightNav">
+  <a href="{{:U('WasteBook/myWasteBook')}}?companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}" class="dl_wasteBook w tc f15">明细</a>
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc  kb_notFooter tg_myself">
+    <!-- <p class="imgH dl_waller-tip mb10">
+      <img src="__PUBLIC__/trading/images/gold-drill.png" alt="" class="mr5 mt5 " style="height:15px" />
+      <b>福利来了，首充即送福利</b>
+    </p> -->
+    <p class="tc mb10 mt30">
+      <img src="__PUBLIC__/trading/images/tr-wallet.png" alt="" class="w70 h70" />
+    </p>
+    <p class="tc fb mb10 ">我的密条</p>
+    <p class="tc fb f25">{{$wallet?$wallet:0}}<em class="f15 ml10 fb">密条</em></p>
+    <p class="dl_waller-oparting bc">
+      <a href="{{:U('WasteBook/recharge_by_weixin')}}?companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}" class="kb_btn  kb_btn-main w mb10 mt50 f18 ">立即购买</a>
+    </p>
+    <p class="dl_waller-oparting bc">
+      <a href="{{:U('WasteBook/recharge_by_card')}}?companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}" class="kb_btn kb_btnPlain-main w mb10  f18">充值密条</a>
+    </p>
+    <p class="tr dl_waller-oparting mb10">
+      <a class="forgetPaw" href="{{:U('reset_password')}}?companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}">重置密码</a>
+    </p>
+  </section>
+</block>
+<block name="js_files">
+
+
+</block>

@@ -1,0 +1,388 @@
+<extend name="Web/projectDefault" />
+<block name="content">
+
+	<div id="kbVipAdmin_rightCenter" class="spAnProductList OrderForm">
+	<php>
+	//echo '<pre>';
+	//var_dump($stick_classify);exit;
+	</php>
+		<div class="centerTitle">
+			<h1>商品列表</h1>
+		</div>
+		<div class="kbVipAdmin_operating filter-operating" >
+			<form class="mr10" action="{{:U('goodsListByProject',['module' => $_GET['module']])}}" method="get">
+				<select class="kbVipAdmin_slt w200 h30" name="classify_id" title="可选择分类查找相关商品" >
+					<option value="">所有分类</option>
+					<foreach name="classify" item="v">
+						<option value="{{$v.id}}" {{$v['id']==$_GET['classify_id']?'selected':''}} >
+							{{$v['classify_name']}}
+						</option>
+					</foreach>
+				</select>
+				<button class="kbVipAdmin_opt w80 h30" >确定</button>
+			</form>
+			<form>
+				<div class="filter-searchDate mr10">
+						<input type="search" name="order_number" value="" placeholder="请输入想要查找的内容">
+						<input class="kbVipAdmin_opt w80 h30 fr" type="submit" value="确定">
+				</div>
+				
+			</form>
+		</div>
+		<div class="main-contentBox kbVipAdmin_mt24" >
+			<div class="kbVipAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th width="50">序号</th>
+							<th>产品名称</th>
+							<th width="100">价格</th>
+							<th width="200">图片</th>
+							<th>分类</th>
+							<th>浏览量</th>
+							<th>添加时间</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list" item="v">
+					<tr ><td colspan="8"><span style="color:#F209CA;font-size:20px">暂无产品数据</span></td></tr>
+					<else />
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.goods_name}}</td>
+							<td>￥{{$v.price}}</td>
+							<td class="kbVipAdmin_tdImg" width="200">
+								<div>
+								<img src="__PUBLIC__/{{$v['goods_logo']}}" height="200" alt="商品图片" />
+								</div>
+							</td>
+							<td>{{$v.classify_name}}</td>
+							<td>{{$v['click_total']?$v['click_total']:0}}</td>
+							<td>{{:date('Y年m月d日', $v['addtime'])}}</td>
+							<td>
+								<div>
+									<p class="kbVipAdmin_checkbox kbVipAdmin_checkboxTop">
+									<if condition="$v['stick_classify']" >
+										<input  type="checkbox" name="status{{$v.id}}" checked data-goodsid="{{$v.id}}" />
+										<label class="font_6ccac9">
+											<b class="kbVipAdmin_buttonMr"></b>
+											<switch name="v.stick_classify" >
+												<case value="1">折扣区</case>
+												<case value="2">热销区</case>
+												<case value="3">新品区</case>
+											</switch>
+										</label>
+									<else />
+										<input  type="checkbox" name="status{{$v.id}}" data-goodsid="{{$v.id}}" />
+										<label class="font_6ccac9">
+											<b class="kbVipAdmin_buttonMr"></b>
+											置顶
+										</label>
+									</if>
+									</p>
+									<p class="kbVipAdmin_checkbox kbVipAdmin_checkboxdisabled">
+										<input type="checkbox"  name="status{{$v.id}}" {{$v['status'] == '3'?'checked':''}} />
+										<label class="font_ff6c60">
+											<b class="kbVipAdmin_buttonMr">
+											</b>
+											下架
+										</label>
+									</p>
+									<!-- <p class="kbVipAdmin_checkbox kbVipAdmin_checkboxNew">
+										<input type="checkbox"  name="status{{$v.id}}"  />
+										<label class="font_ff6c60">
+											<b class="kbVipAdmin_buttonMr">
+											</b>
+											新品
+										</label>
+									</p> -->
+								</div>
+							</td>
+							<td class="kbVipAdmin_tdAction">
+								
+								<a href="{{:U('preview', ['id' => $v['id']])}}" class="kbVipAdminSea w30 h20 copyButton-default" target="view_window" title="预览"></a>
+								<a href="{{:U('goodsUpdateByProject', ['id' => $v['id'], 'module' => 2])}}" class="font_57c8f2   kbVipAdminEdit choose w30 h20" title="编辑"></a>
+
+								<input class="font_ff6c60 kbVipAdminDel" type="button" value="" title="删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</empty>
+				</table>
+			</div>
+			<div class="kbVipAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form>	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="kbVipAdmin_alert recommend_alert">
+		<div class="kbVipAdmin_alertBox">
+			<button type="button" class="kbVipAdmin_alert-close "></button>
+			<form id="recommendForm" action="" method="post" enctype="multipart/form-data">
+				 <h3 class="mb10">置顶商品</h3>
+				<p class="kbVipAdmin_enter"><b><i>*</i>显示位置</b>
+					<select name="stick_classify" class="kbVipAdmin_slt kbVipAdmin_sltblack" required="required">
+						<option value="-1">请选择推荐位置</option>
+						<option value="1"> 折扣区</option>
+						<option value="2"> 热销区</option>
+						<option value="3">新品区</option>
+					</select>
+				</p>
+				<p class="kbVipAdmin_enter"><b><i>*</i>开始时间:</b>
+                <!-- <input type="date" name="start_time" value="" required="required" /> -->
+                <input  class="datainp wicon" id="kbVipAdmin_inpstart" type="text" name="start_time" placeholder="开始日期"   readonly required="required" />
+                </p>
+                <p class="kbVipAdmin_enter"><b><i>*</i>结束时间:</b>
+                <!-- <input type="date" name="end_time" value="" required="required" /> -->
+                <input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required" />
+                </p>
+				<div class="kbVipAdmin_operating ">
+					<div class="kbVipAdmin_restsubmit"> 
+						<input  class="kbVipAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+						<input  class="kbVipAdmin_opt w100 h40" type="button" value="保存" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</block>
+<block name="js_files">
+	<script type="text/javascript">
+	    $(function() {
+	         $("[title]").each(function(b) {//这里是控制标签
+	             if (this.title) {
+	                 var c = this.title; //把title的赋给自定义属性 myTilte ，屏蔽自带提示
+	                 var a = -16; //设置提示框相对于偏移位置，防止遮挡鼠标
+	                 var e = 30; //设置提示框相对于偏移位置，防止遮挡鼠标
+	                 $(this).mouseover(function(d) { //鼠标移上事件
+	                     this.title = "";
+	                     $("body").append('<div id="tooltip">' + c + "</div>"); //创建提示框,添加到页面中
+	                     $("#tooltip").css({
+	                         left: (d.pageX) + "px",
+	                         top: (d.pageY+e) + "px",
+	                         opacity: "0.8"
+	                     }).show(250) //设置提示框的坐标，并显示
+	                     console.log(d.pageY+e);
+	                 }).mouseout(function() { //鼠标移出事件
+	                     this.title = c; //重新设置title
+	                     $("#tooltip").remove() //移除弹出框
+	                 }).mousemove(function(d) { //跟随鼠标移动事件
+	                     $("#tooltip").css({
+	                         left: (d.pageX + a) + "px",
+	                         top: (d.pageY+e) + "px"
+	                     })
+	                 })
+	             }
+	         })
+	     });
+	 </script>
+	<script type="text/javascript">
+	$(function(){
+	   var now=new Date(),
+	   	   nowTime=now.getFullYear()+'-'+(now.getMonth()+1)+"-"+now.getDate()+" 00:00:00";
+	   	   console.log(nowTime);
+	   var start = {
+	       format: 'YYYY-MM-DD hh:mm:ss',
+	       minDate: $.nowDate(-1), //设定最小日期为当前日期
+	       festival:true,
+	       //isinitVal:true,
+	      // maxDate: $.nowDate(0), //最大日期
+	       choosefun: function(elem,datas){
+	           end.minDate = datas; //开始日选好后，重置结束日的最小日期
+	           checkData(elem);
+	       },
+	       // okfun:function(elem, val) {
+	       //     checkData(elem);
+	       // }
+	   };
+		 var end = {
+		     format: 'YYYY-MM-DD hh:mm:ss',
+		     minDate: $.nowDate(0), //设定最小日期为当前日期
+		     festival:true,
+		     //isinitVal:true,
+		     //maxDate: '2099-06-16 23:59:59', //最大日期
+		     choosefun: function(elem,datas){
+		         start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+		          checkData(elem);
+		     },
+		     //  okfun:function(elem, val) {
+		     //     checkData(elem);
+		     // }
+		 };
+		 $('.kbVipAdmin_enter input[name="start_time"]').jeDate(start);
+		 $('.kbVipAdmin_enter input[name="end_time"]').jeDate(end);
+	})
+	
+		$('.tip-result').on('click',function(){
+			var $this=$(this);
+			$this.toggleClass('is_active');
+		})
+
+		    $(function(){
+		   		
+
+		   		
+
+		   		$('.spAnProductList .kbVipAdmin_table .kbVipAdmin_slt').on('change',function(){
+		   			var ID = $(this).parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+		   			var seleStatus = $(this).val().replace(/(^\s+)|(\s+$)/g, "");
+		   			
+		   			$.get('{{:U("ajaxControl")}}',{flag:'changeGoodsStatus',id:ID,status:seleStatus},function(res){
+			   		 		if(res){
+			   		 			oTip(res);
+			   		 	}
+			   		})
+		   		 })
+		   		
+		   		
+		   		 $('.kbVipAdmin_tdAction .kbVipAdminDel').on('click',function(){
+		   		 	var $this = $(this);
+		   		 	var ID =$this.parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+		   		 	Confirm("你确定删除该商品？",function(ren){
+		   		 		if(ren){
+		   		 			 $.get('{{:U("Goods/ajaxControl")}}',{flag:'goodsDel',id:ID},function(res){
+			   		 			if(res){
+			   		 			 	$this.parent().parent().remove();
+				   		 			 oTip(res);
+			   		 			}
+			   				})
+		   		 		}else{
+		   		 			console.log("不删除");
+		   		 		}
+		   		 	});
+		   		
+		   		 });
+
+		   		});
+
+		     	function delPic(obj) 
+		     	{	
+		     		var res = confirm('确定删除图片吗?');
+		     		if (res) 
+		     		{
+		     			$.get("{{:U('Goods/ajaxControl')}}", {flag:'delGoodsPicture',id:$(obj).attr('picid')},function (res){
+		     				if (res) 
+		     				{
+		     					alert('删除成功');
+		     					clearImg($(obj));
+		     				}else{
+		     					alert('删除失败');
+		     				}
+		     			});
+		     		}
+		     	}
+
+		    $(function(){
+		   		
+		   		$(".spAnProductList_alert  .kbVipAdmin_operating input[type=reset]").on('click',function(){
+		   			console.log("aaa");
+		   			$(".spAnProductList_alert").fadeOut();
+
+		   		})
+		   		/* // 灰掉置顶和精选按钮
+		   		function checkChosen(){
+		   			var icheckChosen= $(".kbVipAdmin_checkboxChosen input");
+		   			for(var r=0;r<icheckChosen.length;r++){
+		   				if($(icheckChosen[r]).is(":checked")){
+		   					if(!$(icheckChosen[r]).hasClass('audioDisable')){
+		   						$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox').addClass('kbVipAdmin_checkboxChosenNot');
+					   			$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox').children('input').prop('disabled','disabled')
+		   					}
+				   			
+				   		}else{
+				   			$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox').removeClass('kbVipAdmin_checkboxChosenNot');
+				   			$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox input').prop('disabled',false)
+				   		}
+		   			}
+		   		}
+		   		checkChosen(); */
+		   		/* 商户后台置顶*/
+		   		$('.kbVipAdmin_checkboxTop input').on('change',function(){
+		   			var $this=$(this),
+		   				ajaxUrl='{{:U("GoodsStick/ajaxControl")}}?flag=stickByProject',
+		   				goodsId=$this.attr('data-goodsid');
+		   				;
+		   			$('.recommend_alert').fadeIn();
+		   			$('.recommend_alert .kbVipAdmin_restsubmit .kbVipAdmin_opt').on('click',function(){
+		   				if($('.recommend_alert .kbVipAdmin_slt option:selected').val()==-1){
+		   					eTip('还没选择推荐位置');
+		   					return false;
+		   				}
+		   				var i,
+		   					datainp=$('.datainp');
+		   				for(i in datainp){
+		   					console.log($('.datainp').eq(i));
+		   					if($('.datainp').eq(i).length){
+		   						if(!$('.datainp').eq(i).val().length>0){
+		   							eTip('请设置开始时间或结束时间');
+		   							return false;
+		   						}
+		   					}
+		   				}
+		   				var formData=new FormData($('#recommendForm')[0]);
+		   					formData.append('goods_id',goodsId);
+		   				$.ajax({
+		   					type:"POST",
+		   					url:ajaxUrl,
+		   					data:formData,
+		   					dataType:'json',
+		   					async:false,
+		   					cache:false,
+		   					contentType:false,
+		   					processData:false,
+		   					success:function(data){
+		   						console.log(data);
+		   						if(data.status){
+		   							sTip('推荐成功');
+		   							$('.recommend_alert').fadeOut();
+		   							// window.location.reload();
+		   						}else{
+		   							eTip('推荐失败');
+		   							$this.prop('checked',false);
+		   							console.log(data);
+		   						}
+
+		   					},
+		   					eroor:function(error){
+		   						console.log(error);
+		   					}
+
+		   				})
+		   			})
+		   			
+		   		})
+		   		$('.kbVipAdmin_checkboxdisabled input').on('change',function(){
+		   			var $this=$(this);
+		   			var  Status=($this.is(":checked")===true)? 3:1;
+		   			var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+		   			if(!$this.prop('disabled')){
+		   			jsAjaxControl($this,{
+							ajaxURL:ajaxUrl,
+					        ajaxBranch:'Common',
+					        params:{//这是ajax需要提交的集合
+					        	flag:"changeGoodsStatus",
+					        	status:Status,
+					        }
+						},function(res){
+							oTip(res);
+							$this.parent().siblings('.kbVipAdmin_checkboxTop').children('input').prop('checked',false)
+					})
+					}
+		   		})
+		 
+		     })
+	</script>
+</block>

@@ -1,0 +1,67 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    .mark-writer{
+      line-height:40px;
+    }
+   
+    .tg_colllected + .kb_footer,
+    .tg_colllected .kb_list-cell .kb_choose{
+      display:none;
+    }
+    .dl_status-writer .kb_list-cell .kb_choose,
+    .dl_status-writer + .kb_footer{
+      display:block;
+    }
+      .dl_goods-list img{
+    height:75px;
+  }
+</style>
+<php>
+// echo("<pre>");
+//  var_dump($list);exit;
+</php>
+</block>
+<block name="leftNav">
+  <if condition="$_GET['companyName'] AND $_GET['tem']" >
+    <a href="http://{{$_SERVER['HTTP_HOST']}}/{{:I('get.tem')}}/VisitorInfo/myCenter?companyName={{:I('get.companyName')}}" class="icon-back w"></a>
+  <else />
+    <a href="{{:U('VisitorInfo/myCenter')}}" class="icon-back w"></a>
+  </if>
+</block>
+<block name="title">
+ 猜你喜欢
+</block>
+
+<block name="content">
+ <section id="Main" class="kb_main bc kb_notFooter  tg_colllected ">
+ <foreach name="list" item="v">
+  <a href="{{$v['link']}}" class="kb_list-cell dl_goods-list mb10">  
+    <div class="kb_list-cell-ft flexLayout-center mr10">
+    </div>
+    <div class="kb_list-cell-hd">
+        <img src="__PUBLIC__{{$v['goods_logo']}}" alt="" />
+    </div>
+    <aside class="kb_list-cell-bd">
+        <h2 class="kb_list-cell-title mb10">{{$v['goods_name']}}  </h2>
+        <div class="kb_list-cell-brief">
+            <p class=" dl_bugShoping mb10">
+               <em class="tg_ft-price">￥{{$v['price']}}元</em>
+            </p>
+            <p class=" mb10">
+                销量：{{$v['sales']}}
+            </p>
+        </div>
+    </aside>
+  </a>
+ </foreach>        
+
+    
+  </section>
+</block>
+
+<block name="js_files">
+<script>
+ 
+</script>
+</block>

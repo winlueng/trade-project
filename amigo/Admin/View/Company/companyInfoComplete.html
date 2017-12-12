@@ -1,0 +1,412 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+
+	<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?version=1.13"></link>
+
+	<script>
+		$('.kbShopAdmin_fileImg input[type="file"]').on('change',function(){
+				if ( typeof(FileReader) === 'undefined' ){ 
+					alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+					this.setAttribute( 'disabled','disabled' ); 
+				} else { 
+					readFile(this,this.files);
+				} 
+		});
+	</script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.min.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+	  <!-- gaoCode -->
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=a2414330232c1ba563ad05237561e9d9&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <style>
+    .couponAddr select {
+    	    width: 120px;
+    	    height: 30px;
+    	    border-radius: 5px;
+    	    margin-right: 5px;
+    	}
+    </style>
+    <php>
+    	//echo('<pre>');
+    	//var_dump($info);exit;
+    </php>
+</block>
+<block name="content" >
+
+	<div id="kbShopAdmin_rightCenter" class="spAnUserCore kbShopAdmin_box" style="    overflow-y: scroll;">
+		<div class="kbShopAdmin_operating spAnUserCore-operating">
+			<!-- <input class="kbShopAdmin_button_ff6c60 kbShopAdmin_add fr mt15 mr10" type="button" value="添加分店" /> -->
+
+		</div>
+		<div class="centerTitle">
+			<input class="kbShopAdmin_writer spAnUserCoreDefault-editBtn kbShopAdmin_opt fr w80 h30" type="button" value="编辑" />
+			<h1>店铺资料</h1>
+		</div>
+		<div class="spAnUserCoreDefault ">
+			
+			<ul class="spAnUserCoreDefault-info">
+				<li><b>商户编号:</b><p>{{$info['user_ip']?$info['user_ip']:'暂无商户编号'}}</p></li>
+				<li><b>本店名称:</b><p>{{$info['company_name']}}</p></li>
+				<li><b>微官网网址:</b><p>{{$info['company_link']}}<font size="3" color="#FF2020">(如需改动请向项目管理员申请)</font></p></li>
+				<!-- <li><b>商户地址:</b><p>{{$info['company_address']}}-{{$info['address_info']}}</p></li> -->
+				<li><b>商户地址:</b><p>{{$info['company_address']}}-{{$info['address_info']}}</p></li>
+				<li><b>商户行业:</b><p>{{$info['business_name']}}</p></li>
+				<li><b>联系人:  </b><p>{{$info['principal']}}</p></li>
+				<li><b>联系电话:</b><p>{{$info['phone']}}</p></li>
+				<li><b>联系邮箱:</b><p>{{$info['email']}}</p></li>
+				<!-- <li><b>公众号AppID:</b><p>{{$info['app_id']?$info['app_id']:'请填写完毕APPID与密匙'}}</p></li>
+				<li><b>微信商户密钥:</b><p>{{$info['api_key']?$info['api_key']:'填写可开通微信支付功能'}}</p></li>
+				<li><b>微信商户号:</b><p>{{$info['mch_id']?$info['mch_id']:'填写可开通微信支付功能'}}</p></li>
+				<li><b>系统登录ip地址白名单:</b>
+					<p>{{$info['ip_address']?$info['ip_address']:'现在设置是哪里都可以登录,为保障你的系统安全性,请设置好ip白名单'}}</p>
+				</li> -->
+				<!-- <li><b>营业执照:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info['pictureInfo']['business_license']}}"  alt="shopImg"/>
+					</p>
+				</li>
+				<li><b>身份证正面:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info['pictureInfo']['person_code_front']}}"  alt="shopImg"/>
+					</p>
+				</li>
+				<li><b>身份证反面:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info['pictureInfo']['person_code_rear']}}"  alt="shopImg"/>
+					</p>
+				</li> -->
+				<li><b>本店LOGO:</b>
+					<empty name="info.pictureInfo.company_logo">
+					<p><font size="4" color="#FF2020">请完善上传本店LOGO</font></p>
+					<else />
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info['pictureInfo']['company_logo']}}"  alt="shopImg"/>
+					</p>
+					</empty>
+				</li>
+				<li><b>本店二维码:</b>
+					<empty name="info.pictureInfo.company_code">
+					<p><font size="4" color="#FF2020">请完善上传本店公众号二维码</font></p>
+					<else />
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info['pictureInfo']['company_code']}}"  alt="shopImg"/>
+					</p>
+					</empty>
+				</li>
+				<li><b>商盟官网背景:</b>
+					<empty name="info.pictureInfo.company_bgpic">
+					<p><font size="4" color="#FF2020">请完善上传本店商盟官网背景</font></p>
+					<else />
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info['pictureInfo']['company_bgpic']}}"  alt="shopImg"/>
+					</p>
+					</empty>
+				</li>
+				<!--  -->
+			</ul>
+			<!-- <div class="kbShopAdmin_operating ">
+				<input class="spAnUserCoreDefault-editBtn kbShopAdmin_opt fr w80 h30" type="button" value="编辑" />
+			</div> -->
+
+			<form class="spAnUserCoreDefault-formEdit" action="{{:U('Company/companyInfoComplete')}}" method="post" enctype="multipart/form-data">
+				<!-- <h3 class="mt20 mt10 tc">修改店铺资料</h3> -->
+				<div class="formData">
+					<ul>
+						<li class="kbShopAdmin_enter"><b>联系电话:</b><input  type="text" name="phone" value="{{$info['phone']}}" /></li>
+						<li class="kbShopAdmin_enter"><b>联系人:</b><input  type="text" name="principal" value="{{$info['principal']}}" /></li>
+						<li class="kbShopAdmin_enter"><b>联系邮箱:</b><input  type="text" name="email" value="{{$info['email']}}" /></li>
+						
+						<!-- <li class="kbShopAdmin_enter"><b>公众号AppID:</b><input  type="text" name="app_id" value="{{$info['app_id']}}" placeholder="公众号AppID" /></li>
+						<li class="kbShopAdmin_enter"><b>公众号AppSecret:</b><input  type="password" name="app_secret" value="{{$info['app_secret']}}" placeholder="公众号AppSecret" /></li>
+						<li class="kbShopAdmin_enter"><b>微信商户号:</b><input  type="password" name="mch_id" value="{{$info['mch_id']}}" placeholder="微信商户平台商户号,获取微信支付功能" /></li>
+						<li class="kbShopAdmin_enter"><b>微信商户密钥:</b><input  type="password" name="api_key" value="{{$info['api_key']}}" placeholder="微信商户平台商户密钥,获取微信支付功能" /></li>
+						<li class="kbShopAdmin_enter"><b>系统允许登录的ip地址:</b>
+						<textarea name="ip_address" cols="30" placeholder="如有多个请使用分号';'分割(想了解当前IP地址可访问http://ip.qq.com)"  rows="10">{{$info['ip_address']}}</textarea>
+						</li> -->
+						<li class="kbShopAdmin_enter kbShopAdmin_fileImg">
+							<b>本店LOGO:</b>
+							<div class="shopImg businessFileImgList">
+								<span class="cleraIMG" onclick="clearImg(this)"></span>
+								<img src="__PUBLIC__{{$info['pictureInfo']['company_logo']}}" alt="本店LOGO"/>
+							</div>
+							<input id="shopImg" name="company_logo" type="file" value=""  />
+							<label class="" for="shopImg" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为本店LOGO</span></label>
+							
+						</li>
+						<li class="kbShopAdmin_enter kbShopAdmin_fileImg">
+							<b>本店二维码:</b>
+							<!-- <div class="fileImgMore"> -->
+							<div class="shopImg businessFileImgList">
+								<span class="cleraIMG" onclick="clearImg(this)"></span>
+								<img src="__PUBLIC__{{$info['pictureInfo']['company_code']}}" alt="本店二维码"/>
+							</div>
+							<!-- </div> -->
+							<input id="shopImg2" name="company_code" type="file" value=""  />
+							<label class="" for="shopImg2" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为本店二维码</span></label>
+							
+							
+						</li>
+						<li class="kbShopAdmin_enter kbShopAdmin_fileImg">
+							<b>商盟官网背景:</b>
+							
+							<div class="shopImg businessFileImgList">
+								<span class="cleraIMG" onclick="clearImg(this)"></span>
+								<img src="__PUBLIC__{{$info['pictureInfo']['company_bgpic']}}" alt="商盟官网背景"/>
+							</div>
+							<input id="shopImg3" name="company_bgpic" type="file" value="" />
+							<label class="" for="shopImg3" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为商盟官网背景</span></label>
+							
+						</li>
+
+						
+						<!-- <li class="kbShopAdmin_enter kbShopAdmin_fileImg">
+							<b>微信支付CERT证书:<br><font color="red">{{$info['pem_addr']?'已上传证书':'请上传证书,两个证书必需同时上传'}}</font></b>
+							<input id="shopImg4" name="apiclient_cert" type="file" value="" />
+							<label class="" for="shopImg4" ><span style="font-size:27px">+</span><br /><span>微信支付双向证书<br>(apiclient_cert.pem文件)</span></label>
+						</li>
+						<li class="kbShopAdmin_enter kbShopAdmin_fileImg">
+							<b>微信支付KEY证书:<br><font color="red">{{$info['pem_addr']?'已上传证书':'请上传证书,两个证书必需同时上传'}}</font></b>
+							<input id="shopImg5" name="apiclient_key" type="file" value="" />
+							<label class="" for="shopImg5" ><span style="font-size:27px">+</span><br /><span>微信支付双向证书<br>(apiclient_key.pem文件)</span></label>
+						</li> -->
+
+						<li class="kbShopAdmin_enter couponAddr">
+							<b><i>*</i>地址:</b>
+							<select required="required" name="province">
+		                        <option value="" >请选择省级</option>
+		                            <foreach name="address" item="v">
+		                                <option value="{{$v['district_id']}}">
+		                                	{{$v.name}}
+		                                </option>
+		                            </foreach>
+		                    </select>
+		                    <select required="required" name="city">
+		                        <option value="">请选择市级</option>
+		                    </select>
+		                    <select name="district" required="required">
+		                        <option value="">请选择区级</option>
+		                    </select>
+						</li>
+						<li  class="kbShopAdmin_enter spAnUserAddr">
+							<b>商户地址:</b><input id="tipinput" type="text" value="{{$info['address_info']}}" name="address_info" />
+							 </br> </br>
+							 <b>地图地址:</b><input id="result" type="text" value="" / disabled>
+							 <!--  <input id="lnglat" type="hidden" name="coordinate" value="{{$info['x_coordinate']}},{{$info['y_coordinate']}}" /> -->
+
+							 <!-- 地图坐标 -->
+								<empty name="info.x_coordinate">
+									 <input id="lnglat" type="hidden" name="coordinate" value="" />
+								<else /> 
+									<input id="lnglat" type="hidden" name="coordinate" value="{{$info['x_coordinate']}},{{$info['y_coordinate']}}" />
+								</empty> 
+							 <!-- 地图加载容纳的元素 -->
+								<div id="geoCoder">
+
+								</div>
+						</li>
+					</ul>
+					<div class="kbShopAdmin_operating ">
+						<div class="kbShopAdmin_restsubmit">
+							<input class="spAnUserCoreDefault-submit kbShopAdmin_opt_7facff fr mr20 w80 h30" type="submit" value="确认修改" />
+							<input class="spAnUserCoreDefault-submit kbShopAdmin_button_6ccac9 fr mr20 w80 h30" type="button" value="取消" />
+						</div>
+					</div>
+				</div>
+			</form>
+			
+		</div>
+		<div class="centerTitle">
+			<input class="kbShopAdmin_writer spAnCompanyInfo-writer  kbShopAdmin_opt fr w80 h30" type="button" value="编辑" />
+			<h1>公司简介</h1>
+		</div>
+		<div class="spAnCompanyInfo">
+			<!-- 	<div class="kbShopAdmin_operating spAnCompanyInfo-operating">
+					<input class="kbShopAdmin_button_ff6c60 kbShopAdmin_writer fr" type="button" value="编辑" />
+				</div> -->
+				<div class="spAnCompanyInfo-introduction">
+					<h3 class="mb10">公司简介:</h3>
+					<p>
+						{{$newsInfo}}
+					</p>
+				</div>
+				<div id="spAnCompanyInfo-edit" >
+					<h3 class="mb10">公司简介:</h3>
+					<form id="spAnCompanyInfoForm" action="{{:U('companyInfo')}}" method="post">
+						<div id="myEditor"  class="myEditor">
+						<script id="container2" name="news" type="text/plain">
+						{{$newsInfo}}
+					    </script>
+					    <!-- 配置文件 -->
+					    <script type="text/javascript" src="ueditor.config.js"></script>
+					    <!-- 编辑器源码文件 -->
+					    <script type="text/javascript" src="ueditor.all.js"></script>
+					    <!-- 实例化编辑器 -->
+					    <script type="text/javascript">
+					        var ue = UE.getEditor('container2',{
+					        		'initialFrameWidth':950,
+					        		'initialFrameHeight':360,
+					        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+					        });
+					    </script>
+						</div>
+						<div class="kbShopAdmin_operating ">
+							<div class="kbShopAdmin_restsubmit">
+								
+							<input for="spAnCompanyInfoForm" class="kbShopAdmin_opt_7facff  w80 h30" type="submit" value="保存" />
+							</div>
+						</div>
+					
+					</form>
+				</div>
+			</div>
+	</div>	
+
+	<script type="text/javascript">
+    var marker = new AMap.Marker() ; map = new AMap.Map("geoCoder", {
+        resizeEnable: true,
+        zoom: 13
+    });
+    //map.setZoom(13);
+    //为地图注册click事件获取鼠标点击出的经纬度坐标
+    //var clickEventListener =
+     map.on('click', function(e) {
+       var getLnglat  = document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat();
+         marker.setMap(null);
+         marker = new AMap.Marker({
+             icon:"__PUBLIC__/images/addr.png",
+             map: map,
+             position: [e.lnglat.getLng(), e.lnglat.getLat()],
+             offset: new AMap.Pixel(-8, -40)
+         });
+         console.log(e.lnglat);
+        regeocoder(e.lnglat);
+    });
+
+    function regeocoder(lnglatXY,callback) {  //逆地理编码
+         
+
+           var geocoder = new AMap.Geocoder({
+               radius: 1000,
+               extensions: "all"
+           });        
+
+           geocoder.getAddress(lnglatXY, function(status, result) {
+               if (status === 'complete' && result.info === 'OK') {
+                   geocoder_CallBack(result);
+                   callback(true);
+               }
+           });  
+           
+          //var getLnglat=lnglatXY.getLng() + ',' + lnglatXY.getLat()
+
+       }
+   function geocoder_CallBack(data) {
+       var address = data.regeocode.formattedAddress; //返回地址描述
+        // id result 地址解析显现的地方
+       document.getElementById("result").value = address;
+   }
+
+    //输入关键字下拉提示搜索
+    var auto = new AMap.Autocomplete({
+        input: "tipinput"
+    });
+    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+    function select(e) {
+        if (e.poi && e.poi.location) {
+            map.setZoom(18);
+            map.setCenter(e.poi.location);
+
+        }
+    }
+
+    AMap.service(["AMap.PlaceSearch"], function() {
+        var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
+            pageSize: 1,
+            pageIndex: 1,
+            map: map,
+            // panel: "panel"
+        });
+    $('#tipinput').blur(function(){
+        var tipSearch=$("#tipinput").val();
+        //console.log(tipSearch.length);
+        if(tipSearch.length>0){
+        	  //关键字查询
+      		  placeSearch.search(tipSearch,function(status, result){
+            
+             map.setZoom(17);
+            if (result.poiList.pois.length>0) {
+            var lng=result.poiList.pois[0].location.lng;
+            var lat=result.poiList.pois[0].location.lat;
+            var address = result.poiList.pois[0].cityname+result.poiList.pois[0].adname+result.poiList.pois[0].address;
+             $('#lnglat').val(lng+","+lat);
+            $('#result').val(address);
+             }else{
+             	$('#result').val("");
+             	 $('#lnglat').val("");
+                alert("抱歉！你输入的地名暂时找不到，换另一个试试呗");  
+        	}
+           
+        });
+      		  }	
+
+    });   
+    
+   })
+</script>
+	<script type="text/javascript">
+		$(function(){
+			$('.spAnUserCoreDefault-editBtn').on('click',function(){
+				$('.spAnUserCoreDefault-formEdit').fadeIn();
+				$('.spAnUserCoreDefault-formEdit').siblings().fadeOut();
+				$(this).fadeOut()
+			})
+			$('.spAnUserCoreDefault-submit').on('click',function(){
+				$('.spAnUserCoreDefault-formEdit').fadeOut();
+				$('.spAnUserCoreDefault-formEdit').siblings().fadeIn();
+				$('.spAnUserCoreDefault-editBtn').fadeIn();
+			})
+
+			$(" .spAnCompanyInfo-writer").on('click',function(){
+				$('#spAnCompanyInfo-edit').fadeIn();
+				$('#spAnCompanyInfo-edit').siblings().fadeOut();
+			});
+			$("#spAnCompanyInfo-edit  [type='submit']").on('click',function(){
+				$('#spAnCompanyInfo-edit').fadeOut();
+				$('#spAnCompanyInfo-edit').siblings().fadeIn();
+			});
+			$('.couponAddr select').on('change',function (){
+	            var fa = $(this).next();
+	            var flag = 'address';
+	            var name = fa.find('option:eq(0)').text();
+	            $.get('{{:U("Card/ajaxControl")}}',{'flag':flag,'pid':$(this).val()},function (res){
+	                var str = '<option value="">'+name+'</option>';
+	                for(var k in res)
+	                {
+	                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+	                }
+	                fa.html(str);
+	            });
+	        });
+		})
+		window.onload=function(){
+			var mapPosition= $('#lnglat').val().trim();
+			console.log(mapPosition.length)
+			
+			if(mapPosition.length){
+				var mapPositionArry= mapPosition.split(",");
+				regeocoder(mapPositionArry,function(res){
+					if(res) $('#tipinput').val($('#result').val())
+				});
+				var marker = new AMap.Marker({  //加点
+				         map: map,
+				         position:mapPositionArry
+				 });
+				 map.setFitView();
+				 map.setZoom(18);
+			}
+
+		}
+	</script>
+</block>

@@ -1,0 +1,309 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?t=1.0"></link>
+	<style>
+	.kbShopAdmin_alertBox form {
+		    /*overflow-y: scroll;*/
+		    height:90%;
+		}
+	</style>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnAdList OrderForm">
+		<div class="centerTitle">
+			<h1>广告列表</h1>
+		</div>
+		<div class="kbShopAdmin_operating" >
+			<!-- <form action="" method="get" style="display:inline-block">
+					<select class="kbShopAdmin_slt w200 h30" name="correlation_id" title="可选择分类查找相关广告">
+						<option value="">广告类别</option>
+						
+					</select>
+				<input type="submit" class="kbShopAdmin_opt  w80 h30" value="确认">
+			</form> -->
+			
+			<input class="kbShopAdmin_opt kbShopAdmin_add  w80 h30 ml20 " type="button" value="添加" />
+		</div>
+		<div class="main-contentBox kbShopAdmin_mt24" >
+			<div class="kbShopAdmin_table">
+				<table
+				>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th width="150">广告图片</th>
+							<th>标题</th>
+							<th width="150">跳转路径</th>
+							<!-- <th>类别</th> -->
+							<th>点击量</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="v">
+					<tr>
+						<td>{{$v.id}}</td>
+						<td class="kbShopAdmin_tdImg">
+							<div>
+							<img src="__PUBLIC__{{$v['banner_pic']}}" alt="广告图片" />
+							</div>
+						</td>
+						<td class="pageT"><p>{{$v.banner_title}}</p></td>
+						<td class="pageT"><p>{{$v.banner_url}}</p></td>
+						<!-- <td>
+							<switch name="v.correlation_id">    
+							<case value="1">首页位置头部</case>    
+							<case value="2">首页位置尾部</case>    
+							<default />优惠信息顶部</switch>
+						</td> -->
+						<td>{{$v['click_total']?$v['click_total']:'0'}}</td>
+						<td>{{:date('Y年m月d日', $v['start_time'])}}</td>
+						<td>{{:date('Y年m月d日', $v['end_time'])}}</td>
+						<td>
+							<if condition="($v['end_time'] lt time())"> 
+								<font color="#FC0070">广告已过期</font>
+							<else/>
+							<p class="kbShopAdmin_pushBtn">
+								<input type="checkbox" value="" {{$v['status'] == '0'?'checked':''}} title=" {{$vo['status'] == '0'?'启用':'禁用'}}"/>
+								<label><b></b></label>
+							</p>
+							
+							</if>
+						</td>
+						<td class="kbShopAdmin_tdAction">
+							<input class="font_57c8f2 kbShopAdminEdit mb10" type="button" value="" title="编辑" />
+							<input class="font_ff6c60 kbShopAdminDel" type="button" value="" title="删除" />
+						</td>
+					</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbShopAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form>	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="kbShopAdmin_alert spAnAdList_alert">
+			<div class="kbShopAdmin_alertBox">
+				<button type="button" class="kbShopAdmin_alert-close "></button>
+				<form action="" method="post" enctype="multipart/form-data">
+					<h3 class="mb10">添加广告</h3>
+					<!-- <p class="kbShopAdmin_enter"><b><i>*</i>广告类别:</b>
+						<select class="kbShopAdmin_slt kbShopAdmin_sltblack " required="required" name="correlation_id">
+							<option value="-1">类型选择</option>
+							<foreach name="typeList" item="v">
+								<option value="{{$v.id}}">{{$v.type_name}}</option>
+							</foreach>
+						</select>
+					</p> -->
+					<p class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>广告图片:</b>
+						<!-- <span class="shopImg businessFileImgList">
+							<img src=""  alt="shopImg"/>
+						</span> -->
+						<input id="shopImg"  type="file" value="" name="banner_pic" />
+						<label class="" for="shopImg"><span style="font-size:27px">+</span><br /><span>选择一张图片作为广告封面</span></label>
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>广告标题:</b>
+					<input type="text" maxlength="18" name="banner_title" value=""  required="required" />
+					</p>
+					<input type="hidden" name="correlation_id" value="13">
+					<p class="kbShopAdmin_enter"><b><i>*</i>跳转路径:</b>
+					<input type="text" name="banner_url" value="" required="required" />
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>开始时间:</b>
+					<!-- <input type="date" name="start_time" value="" required="required" /> -->
+					<input  class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期"   readonly required="required" />
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>结束时间:</b>
+					<!-- <input type="date" name="end_time" value="" required="required" /> -->
+					<input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required" />
+					</p>
+					<div class="kbShopAdmin_operating">
+						<div class="kbShopAdmin_restsubmit">
+							<input  class="kbShopAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+							<input  class="kbShopAdmin_opt w100 h40" type="submit" value="保存" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="kbShopAdmin_alert spAnAdList_alertEdit">
+			<div class="kbShopAdmin_alertBox">
+				<button class="kbShopAdmin_alert-close "></button>
+				
+					<h3 class="mb10">编辑广告</h3>
+					<form action="" method="post" enctype="multipart/form-data">
+					<div>
+					<!-- <p class="kbShopAdmin_enter"><b><i>*</i>广告类别:</b>
+						<select name="correlation_id" class="kbShopAdmin_slt kbShopAdmin_sltblack" required="required">
+							<option>类型选择</option>
+							<foreach name="typeList" item="v">
+								<option value="{{$v.id}}">{{$v.type_name}}</option>
+							</foreach>
+						</select>
+						<strong class="kbShopAdmin_tip">必选项。广告banner图片出现的位置</strong>
+					</p> -->
+					<p class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>广告图片:</b>
+						<span class="shopImg businessFileImgList">
+							<span class="cleraIMG" onclick="clearImg(this)"></span>
+							<img src=""  alt="shopImg1"/>
+						</span>
+						<input id="shopImg1"  type="file" name="banner_pic" value=""  />
+						<label class="" for="shopImg1"><span style="font-size:27px">+</span><br /><span>选择一张图片作为广告封面</span></label>
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>广告标题:</b>
+					<input type="text" maxlength="18" name="banner_title" value="" required="required" />
+					<strong class="kbShopAdmin_tip">必填项。广告标题不能为空，文字字数不能超过18个字。</strong>
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>跳转路径:</b>
+					<input type="text" name="banner_url" value="" required="required" />
+					<strong class="kbShopAdmin_tip">必填项。若想跳转到指定的详情或者产品。需填上该详情或者产品的链接</strong>
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>开始时间:</b>
+					<input  class="datainp wicon"  type="text" name="start_time" placeholder="开始日期"   readonly required="required"  />
+					<strong class="kbShopAdmin_tip">必填项。广告图会在开始时间之后出现</strong>
+					</p>
+					<p class="kbShopAdmin_enter"><b><i>*</i>结束时间:</b>
+					<input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required" />
+					<strong class="kbShopAdmin_tip">必填项。广告图会在结束时间之后出现</strong>
+					</p>
+					<div class="kbShopAdmin_operating ">
+						<div class="kbShopAdmin_restsubmit">
+							<input  class="kbShopAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+							<input  class="kbShopAdmin_opt w100 h40" type="submit" value="保存" />
+						</div>
+					</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	<script type="text/javascript">
+	 $(function(){
+	 	var start = {
+            format: 'YYYY-MM-DD hh:mm:ss',
+            minDate: '2016-06-22 23:59:59', //设定最小日期为当前日期
+            festival:true,
+            //isinitVal:true,
+           // maxDate: $.nowDate(0), //最大日期
+            choosefun: function(elem,datas){
+                end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                checkData(elem);
+            },
+            // okfun:function(elem, val) {
+            //     checkData(elem);
+            // }
+        };
+      var end = {
+          format: 'YYYY-MM-DD hh:mm:ss',
+          minDate: $.nowDate(0), //设定最小日期为当前日期
+          festival:true,
+          //isinitVal:true,
+          //maxDate: '2099-06-16 23:59:59', //最大日期
+          choosefun: function(elem,datas){
+              start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+               checkData(elem);
+          },
+          //  okfun:function(elem, val) {
+          //     checkData(elem);
+          // }
+      };
+      $('.kbShopAdmin_enter input[name="start_time"]').jeDate(start);
+      $('.kbShopAdmin_enter input[name="end_time"]').jeDate(end);
+	 })
+     $(function(){
+   		$('.spAnAdList  .kbShopAdmin_add').on('click',function(){
+   			$('.spAnAdList_alert').fadeIn();
+   		});
+   		$('.kbShopAdmin_alert .kbShopAdmin_operating input[type="reset"]').on('click',function(){
+   			$('.kbShopAdmin_alert').fadeOut();
+   		});
+   		$('.spAnAdList .kbShopAdmin_tdAction .kbShopAdminEdit').on('click',function(){
+   			$('.spAnAdList_alertEdit').fadeIn();
+   			var $this = $(this);
+   			var ID=$this.parent().siblings().eq(0).text();
+   			var newDate=new Date();
+		    $.get("{{:U('ajaxControl')}}",{'flag':"selPosterInfo",'id':ID},function (res){
+	   			 	for(r in res[0]){
+	   			 		switch(r){
+			 				case "relevance_id":
+								$('.spAnAdList_alertEdit form select[name="relevance_id"]').find(' option[value="'+res[0].relevance_id+'"]').prop("selected",true);
+								break;
+			 				case "end_time":
+			 					var end_time=date('Y-m-d H:m:s',res[0].end_time);
+			 					$('.spAnAdList_alertEdit form').find('input[name="end_time"]').val(end_time);
+			 					break;
+			 				case "start_time":
+			 					var start_time=date('Y-m-d H:m:s',res[0].start_time);
+			 					$('.spAnAdList_alertEdit form').find('input[name="start_time"]').val(start_time);
+			 					break;
+			 				case "poster_pic":
+			 					$('.spAnAdList_alertEdit .businessFileImgList').find('img').prop("src","__PUBLIC__"+res[0].poster_pic);
+			 					break;
+			 				case "correlation_id":
+			 					$('.spAnAdList_alertEdit select[name="correlation_id"] option[value="'+ res[0].correlation_id +'"]').attr('selected',true);
+			 					break;
+								default:
+									$('.spAnAdList_alertEdit form').find('input[name="'+r+'"]').val(res[0][r]);
+	         			}
+	   			 	}
+	   			 	$('.spAnAdList_alertEdit .kbShopAdmin_alertBox form').attr('action','{{:U("bannerUpdate")}}?id='+ID);
+   			 	});
+            });
+   			 	
+   		$('.kbShopAdmin_pushBtn input').on('click',function(){
+   			var $this = $(this);
+   			
+   			var statusTxt=$this.siblings('label').text().replace(/(^\s+)|(\s+$)/g, "");
+   			var statusFlag = $this.is(':checked')? "show":"change";
+			var Status=$this.is(':checked')?1:0;
+		 	var ID = $this.parents('tr').children().eq(0).text().trim();
+
+   			$.get("{{:U('ajaxControl')}}",{'flag':statusFlag,'id':ID,'status':Status},function (res){
+   				// console.log(res)
+   				if(res!="更改成功"){
+   					$this.attr('checked',false)
+   		 	 		eTip(res)
+   				}else{
+   					sTip(res)
+   				}
+   			});
+   		});
+   		$('.kbShopAdmin_tdAction .kbShopAdminDel').on('click',function(){
+   			var $this = $(this);
+   			var ID = $this.parent().siblings().eq(0).text(); 
+   			Confirm("您确定删除该广告？",function(ren){
+   			 		if(ren){
+   			 			$.get("{{:U('ajaxControl')}}",{'flag':"del",'id':ID,},function (res){
+   			 				$this.parent().parent().remove();
+   			 			 	operatingTip((res=="删除成功")? true:false);
+   			 			});
+   			 		}else{
+   			 			console.log("不删除");
+   			 		}
+   			});
+   			
+   		});
+   		$('.kbShopAdmin_enter .datainp').on('click',function(){
+   			// var $this=$(this);
+   			// var status =($this.prop("name")==="start_time")?"start": "end"; 
+   			// jeDateTime(this,status);
+
+   		})
+   		
+	   		
+     })
+	</script>
+</block>

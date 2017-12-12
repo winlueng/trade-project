@@ -1,0 +1,115 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead  ">
+					<div class="kbVipAdmin_styledSelect">
+						<select class="kbVipAdmin_slt pl20">
+							<option value="">--请选择区域--</option>
+							<foreach name="region" item="v">
+								<option value="{{$v['id']}}">{{$v.region_name}}</option>
+							</foreach>
+						</select>
+					</div>
+					<!-- <form class="kbVipAdmin_inlineBlock" action="" >
+					<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入关键字搜索" />
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+					<ul class="kbVipAdmin_tableHead-tab mt10">
+						<li ><a   class="selected" href="javascript:;">待审核</a></li>
+						<li><a class="" href="javascript:;">审核记录</a></li>
+					</ul> -->
+				</div>
+				<div class="roleBox">
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>产品名称</th>
+							<!-- <th>操作人</th> -->
+							<th>操作时间</th>
+							<th>操作内容</th>
+							<th>状态</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span>
+					<else/>
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.goods_name}}</td>
+							<!-- <td>小小白</td> -->
+							<td>{{:date('Y年m月d日 H:i:s', $v['goods_control_time'])}}</td>
+							<td>推荐商品</td>
+							<td>
+								<switch name="v.goods_type" >
+									<case value="1"><b class="ftcolorGreen">申请中</case>
+									<case value="2"><b class="ftcolorGreen">已通过</case>
+									<case value="3"><b class="ftcolorRed">已拒绝</case>
+									<case value="4"><b class="ftcolorRed">已在官网下架</case>
+								</switch>
+							</b></td>
+						</tr>
+					</foreach>
+					</tbody>
+					</empty>
+				</table>
+				</div>
+				<div class="kbAdmin_page">
+				{{$page}}		
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- alert -->
+	<div class="kbVipAdmin_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>申请置顶</h2>
+			<div class="microWebAnnalAmendList">
+				<p class="microWebAnnalAmendText">
+					<b>店铺名称：</b>玛莎酒吧
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品名称：</b>玛莎啤酒
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品链接：</b>http://www.gdkbvip.com
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>店铺区域：</b>1楼-C区
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>行业：</b>餐饮
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品封面图：</b>
+					<div class="businessFileImgList">
+						<img src="images/21.jpg" alt=""/>
+					</div>
+				</p>
+
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn microWebAnnal">
+					<a class="adminFont kbVipAdmin_btnMenu">&#xe714;&nbsp;预览<a/>
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" />
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" />
+			</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	$(function(){
+		$('.MircoDetails').on('click',function(){
+			$('.kbVipAdmin_alert').fadeIn();
+		})
+	})
+		
+	</script>
+</block>

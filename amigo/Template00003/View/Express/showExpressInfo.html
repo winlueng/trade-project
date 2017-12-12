@@ -1,0 +1,50 @@
+<extend name="Common/tseconCom" />
+<block name="css_files">
+<style>
+
+</style>
+<php>
+ // echo('<pre>');
+ //  var_dump($info);exit;
+</php>
+</block>
+<block name="content">
+<section id="Main" class="kb_main bc main_bg kb_notFooter  tg_orderlist">
+ <article class="p10" style="border-bottom:1px solid #eee">
+    
+    <p>
+        <em class="tg_ft-default mr10">物流公司:</em>{{$info.express.name}}
+    </p>
+    <p>
+        <em class="tg_ft-default mr10">运单编号:</em>{{$info.express.express_number}}
+    </p>
+    <p>
+        <em class="tg_ft-default mr10">物流状态:</em>{{$info['express']['expressLast']['AcceptStation']}}
+    </p>
+    <!-- <p>
+        <em class="tg_ft-default mr10">快递电话:</em>
+    </p> -->
+
+ </article>
+ <article class="p10">
+    <empty name="info.express.trace">
+        <p>
+        暂无物流信息
+        </p>
+    <else />
+    <volist name="info.express.trace" id="v">
+        <p>
+            <em class=" mr10">
+            {{$v.AcceptTime}}
+            </em>
+            {{$v.AcceptStation}}
+        </p>
+    </volist>
+    </empty>
+ </article>
+</section>
+</block>
+<block name="js_files">
+
+
+</block>

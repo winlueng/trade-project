@@ -1,0 +1,23 @@
+<extend name="Web/default" />
+<block name="files">
+
+</block>
+<block name="content">
+    <div class="swiper-container carousel">
+            <div class="swiper-wrapper">
+                <foreach name="poster" item="v">
+                    <div class="swiper-slide"><a href="{{$v['poster_url']}}" onclick="clickStatistics(this)" posterid="{{$v.id}}"><img src="__PUBLIC__{{$v['poster_pic']}}"></a></div>
+                </foreach>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div id="LeagueMerchant">
+            <div class="title"><p>联盟商户</p></div>
+            <div class="card">
+                <!-- 跳转的是商户自己的网站 -->
+                <foreach name="list" item="v" >
+                    <a href="{{$v['company_link']}}"><img src="__PUBLIC__{{$v['company_pic']}}"></a>
+                </foreach>
+            </div>
+        </div>
+</block>

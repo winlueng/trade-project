@@ -1,0 +1,144 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/coupon/coupon.css">
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponBusiness_center">
+		
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead authAddBtn ">
+					<form class="kbVipAdmin_inlineBlock" action="" >
+					<input class="kbVipAdmin_search microWeb-search" type="search" name="selname" value="{{:I('get.selname')}}" placeholder="请输入分类名称搜索" />
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+					<input class=" adminFont kbVipAdmin_btn w100 h50 addPoejectAdmin fr"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th width="100">序号</th>
+							<th width="300">分类名称</th>
+							<th>分类描述</th>
+							<th>项目数量</th>
+							<th width="100">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无分类信息</span></center></td></tr>
+					<else />
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.category_name}}</td>
+							<td>{{$v.title}}</td>
+							<td>{{$v['projectTotal']?$v['projectTotal']:0}}</td>
+							<td>
+								<div class="kbVipAdmin_btnMenuBox bc">
+									<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_btnMenuEdit" type="button" value="&#xe601;&nbsp;编辑" />
+									
+									<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_btnMenuDel" type="button" value="&#xe606;&nbsp;删除" />
+									
+								</div>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+
+					</tbody>
+					
+				</table>
+			</div>
+			<div class="kbAdmin_page">
+				{{$page}}	
+			</div>
+		</div>
+
+	</div>
+	<div class="kbVipAdmin_alert couponBusiness_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加分类</h2>
+		<form class="couponBusiness_FormParent" action="" method="post">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>分类名称:</span>
+					<input type="text" value="" name="category_name" required="required" placeholder="请输入项目分类名称" />
+				</p>
+				<p>
+					<span><i>*</i>分类描述:</span>
+					<textarea type="text" value="" name="title" required="required" placeholder="请输入项目分类简单描述"></textarea>
+				</p>
+				
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+						<input class="authAddFormSmt" type='submit' value="保存" />
+				</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert addPoejectAdminWriter_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑分类</h2>
+		<form class="couponBusiness_FormParent" action="" method="post">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>分类名称:</span>
+					<input type="text" value="" name="category_name" required="required" placeholder="请输入项目分类名称" />
+				</p>
+				<p>
+					<span><i>*</i>分类描述:</span>
+					<textarea type="text" value="" name="title" required="required" placeholder="请输入项目分类简单描述"></textarea>
+				</p>
+				
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+						<input class="authAddFormSmt" type='submit' value="保存" />
+				</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.addPoejectAdmin').on('click',function(){
+				$('.couponBusiness_alert').fadeIn();
+			})
+			$('.kbVipAdmin_btnMenuEdit').on('click',function(){
+				$('.addPoejectAdminWriter_alert').fadeIn();
+				var $this=$(this);
+				var ajaxUrl='{{:U("Project/ajaxControl")}}';
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+			        params:{//这是ajax需要提交的集合
+			         flag:'selCategoryInfo'
+			        }
+				},function(res){
+					for(r in res){
+						if($('[name='+r+']').length){
+							$('[name='+r+']').val(res[r]);
+						}
+					}
+					$('.addPoejectAdminWriter_alert form').attr('action',"{{:U('categoryUpdate')}}?id="+res.id);
+				})
+			})
+			$('.kbVipAdmin_btnMenuDel').on('click',function(){
+				var $this=$(this);
+				var ajaxUrl='{{:U("Project/ajaxControl")}}';
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+			        params:{//这是ajax需要提交的集合
+			         flag:'categoryDel'
+			        }
+				},function(res){
+					operatingTip(res);
+					if(res=="删除成功"){
+						$this.parents('tr').remove();
+					}
+				})
+			})
+		})	
+	</script>
+</block>

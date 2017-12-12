@@ -1,0 +1,53 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+	<style>
+		.isReader{
+			position:relative;
+		}
+		.isReader::before{
+		    content: '';
+		    display: block;
+		    width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    background-color: rgba(255, 255, 255, 0.6);
+		}
+	</style>
+</block>
+
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+	</a>
+	
+</block>
+<block name="bsTitle">
+您的消息</block>
+<block name="content" >
+	<section id="bsMain" class="noFooter  bcf7f7f7">
+	
+		<ul class="cardList mt10">
+		<volist name="list" id="vo">
+			<p class="tc mb10"><b>{{:date('Y-m-d',$key)}}</b></p>
+			<volist name="vo" id="v">
+				<a  href="{{$v.url}}"  newsID='{{$v["id"]}}' {{$v['is_read']?"":"onclick='readed(this)'"}}>
+				<li class=" {{$v['is_read']?"isReader":""}}">
+					<h3 class=" c999 mb10 ">
+						<em>{{$v.title}}</em>
+						<!-- <time class="fr">14:00</time> -->
+					</h3>
+					<p class="f14  mb10">{{$v.content}}</p>
+					<p class="tr c999">
+						点击查看详情
+					</p>
+				</li>
+				</a>
+			</volist>
+		</volist>
+		</ul>
+	</section>
+	<script>
+		function readed(obj){
+			$.get('{{:U("ajaxControl")}}',{flag:'isRead',id:$(obj).attr('newsID'),companyName:"{{$_GET['companyName']}}"});
+		}
+	</script>
+</block>

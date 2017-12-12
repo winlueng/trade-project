@@ -1,0 +1,54 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    
+</style>
+<php>
+// echo("<pre>");
+//  var_dump($list);exit;
+</php>
+</block>
+<block name="title">
+ 建议与反馈
+</block>
+<block name="rightNav">
+ <label class="kb_choose">
+    <input type="button" value="" class=" w mark-sendmsg" />
+    <span class="kb_btn f15">
+      发送
+    </span>
+  </label>
+</block>
+<block name="content">
+ <section id="Main" class="kb_main bc kb_notFooter   ">
+    <form id="dl_sendMsg" action="" method="post">
+        <acticle class="kb_cell kb_celltextarea">
+          <p class="kb_cell-bd">
+            <textarea placeholder="在这里留下您宝贵的建议" maxlength="120" name="content" rows="3" class="kb_textarea mark-msg f15"></textarea>
+          </p>
+          <p class="kb_cell-info tr">
+            0/120
+          </p>
+        </acticle>
+    </form>
+  </section>
+</block>
+
+<block name="js_files">
+<script>
+  $('.mark-msg').on('input protochange',function(){
+    var $this,maxlength,nowTxt;
+    $this=$(this);
+    maxlength=$this.attr('maxlength');
+    if($this.val()<=maxlength){
+      $this.val($this.val().slice(0,maxlength));
+    }
+    maxlegnth=$this.val().length+"/"+maxlength;
+    $this.parents('.kb_cell').find('.kb_cell-info').text(maxlegnth);
+
+  })
+  $('.mark-sendmsg').on('click',function(){
+    $('#dl_sendMsg').submit();
+  })
+</script>
+</block>

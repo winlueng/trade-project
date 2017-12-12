@@ -1,0 +1,25 @@
+<extend name="Common/projectCom" />
+<block name="topname" >
+	<a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">活动详情</a>
+</block>
+<block name="center" >
+	<div id="kbMt_center" class="">
+		<div class="kbMt_goodsListImg bc mt15 pb10">
+			<h1 class="kbMt_font17 fb tc mb10">{{$info['activity_name']}}</h1>
+			<p class="mt10 mb10 tc">活动时间{{:date('Y年m月d日', $info['start_time'])}}-{{:date('Y年m月d日', $info['end_time'])}}</p>
+			 {{$info['activity_details']}}
+		</div>
+		<p class="kbmt_support tc mt10" style="font-size:9px"><a href="http://gdkbvip.gdallinone.com/">技术支持由旷邦科技提供</a></p>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function statisToGoods() 
+			{ 
+				$.get("{{:U('PT1/Activity/ajaxControl')}}", {flag: 'saveActivityStatistics',activity_id:"{{:I('get.id')}}"},function(res){
+	    			console.log(res);
+	    		});
+			} 
+			setTimeout(function(){statisToGoods();},3000); 
+		});
+	</script>
+</block> 

@@ -1,0 +1,167 @@
+<extend name="Common/tseconCom" />
+<block name="css_files" >
+<style>
+.tg_news-detail{
+	min-height:400px;
+    overflow: hidden;
+	/*height:calc(100% - 109px);*/
+}
+.tg_news-detail img{
+	max-width: 100%;
+	float: left !important;
+}
+.kb_list-cell-title{
+	font-size: 20px;
+}
+.f15{
+	font-size:15px;
+}
+</style>
+<php>
+	//echo('<pre>');
+    //var_dump($newsInfo);exit;
+</php>
+</block>
+<block name="title">
+	动态详情
+</block>
+
+<block name="content" >
+	<div id="Main" class="kb_main kb_notFooter">
+		<if condition="$newsInfo['is_video']==1">
+		<div class="w h200">
+			<video controls="controls"  style="background-color:#000;width:100%;height:100%" playsinline="isiPhoneShowPlaysinline" webkit-playsinline="isiPhoneShowPlaysinline"  preload="none" x-webkit-airplay=""  runat="server" poster="" >
+              <source type="video/mp4" src="__PUBLIC__{{$newsInfo['video']}}" webkit-playsinline=true>
+	        </video>
+		</div>
+		</if>
+		<div class="kb_list bc  pb10 main_bg p10">
+			<article class="kb_list-cell kb_list-source">
+	     	<aside class="kb_list-cell-bd">
+	     		<h2 class="kb_list-cell-title mb20">{{$newsInfo['news_name']}}</h2>
+	     		<!-- <p class="kb_list-cell-brief">{{$newsInfo['title']}}</p> -->
+
+     		</aside>
+			<p class="kb_list-cell-ft main_bg">
+				<time>
+	 				{{$newsInfo['addtime']}}
+	 			</time>
+	 			&nbsp;
+	 			<em>
+	 				阅读量
+	 			</em>
+	 			
+	 			&nbsp;|&nbsp;
+	 			<em>
+	 			{{$newsInfo['visit_total']? $newsInfo['visit_total']:'0'}}
+	 			</em>
+     		 </p>
+	     </article>
+	     <article class="tg_news-detail pt10">
+			 {{$newsInfo['img_path']}}
+		  </article>
+		</div>
+		<notempty name="newsInfo.goods_info">
+		<h1 class="kb_list-title main_bg mt10">相关产品链接</h1>
+
+		<a href="{{:U('Goods/goodsDetail', ['id' => $newsInfo['goods_info']['id'], 'companyName' => $_GET['companyName']])}}" class="kb_list-cell">  
+		   <div class="kb_list-cell-hd">
+		       <img src="__PUBLIC__{{$newsInfo.goods_info.goods_logo}}" alt="" />
+		   </div>
+		   <aside class="kb_list-cell-bd">
+		       <h2 class="kb_list-cell-title mb10 f15">{{$newsInfo.goods_info.goods_name}}</h2>
+		       <div class="kb_list-cell-brief">
+		          <if condition="($newsInfo.goods_info.is_promotion eq 1) AND ((int)$newsInfo.goods_info.sales_start_time lt time()) AND ((int)$newsInfo.goods_info.sales_end_time gt time())">
+		               <p class="tg_ft-price mb10 ">
+		                 距结束：{{:turnDistanceTime($newsInfo.goods_info.sales_end_time)}}
+		               </p>
+		               
+		              
+		              
+		               <p class="tg_ft-price mb10 f15">
+		                   <b class="f16 mr10">￥{{$newsInfo.goods_info.promotion_price}}</b><em class="tg_through">￥{{$newsInfo.goods_info.price}}</em>
+		               </p>
+		           <else />
+		               <p class="tg_ft-price mb10 f15">
+		                   <b class="f16 mr10">￥{{$newsInfo.goods_info.price}}</b>
+		               </p>
+		           </if>
+		           <!-- <p class="dl_bugShoping">
+		              <em>销量{{$newsInfo.goods_info.salesTotal?$newsInfo.goods_info.salesTotal:0}}</em> -->
+		              <!-- <button type="button" class="kb_btn icon-bugShoping mark-bugShoping w30 h30"></button> -->
+		           <!-- </p> -->
+		       </div>
+		   </aside>
+		</a>
+		</notempty>
+		<p class="kbmt_support tc mt10" style="font-size:9px"><a href="http://gdkbvip.gdallinone.com/">技术支持由旷邦科技提供</a></p>
+	</div>
+</block> 
+<block name="wx_share">
+    <script>
+      wx.ready(function(){
+          wx.onMenuShareAppMessage({
+             title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '{{$newsInfo['news_name']}}', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+             type: '', // 分享类型,music、video或link，不填默认为link
+             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+             success: function () { 
+                 // 用户确认分享后执行的回调函数
+                 console.log("asdasdasd");
+             },
+             cancel: function () { 
+                 // 用户取消分享后执行的回调函数
+             }
+         });
+           wx.onMenuShareTimeline({
+             title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+             success: function () { 
+                 // 用户确认分享后执行的回调函数
+             },
+             cancel: function () { 
+                 // 用户取消分享后执行的回调函数
+             }
+         });
+           wx.onMenuShareQQ({
+             title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '{{$newsInfo['news_name']}}', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+               success: function () { 
+                  // 用户确认分享后执行的回调函数
+               },
+               cancel: function () { 
+                  // 用户取消分享后执行的回调函数
+               }
+           });
+           wx.onMenuShareQZone({
+                title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '{{$newsInfo['news_name']}}', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+               success: function () { 
+                  // 用户确认分享后执行的回调函数
+               },
+               cancel: function () { 
+                   // 用户取消分享后执行的回调函数
+               }
+           });
+           wx.onMenuShareWeibo({
+                title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '{{$newsInfo['news_name']}}', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+               success: function () { 
+                  // 用户确认分享后执行的回调函数
+               },
+               cancel: function () { 
+                   // 用户取消分享后执行的回调函数
+               }
+           });
+       });
+    </script>
+  </block>

@@ -1,0 +1,103 @@
+<extend name="Web/default" />
+<block name="files">
+    <style>
+        tr > td:nth-child(3) {
+            width: 200px;
+        }
+        tr > td:nth-child(3) > img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</block>
+<block name="content">
+    <div id="right" class="merchantmanage">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>编号</th>
+                    <th>图片</th>
+                    <th>名称</th>
+                    <th>注册人</th>
+                    <th>联系电话</th>
+                    <th>类型</th>
+                    <th>地区</th>
+                    <th>行业</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <foreach name="list" item="v">
+                    <tr>
+                        <td>{{$v.id}}</td>
+                        <td>{{$v.merchantip}}</td>
+                        <td><img src="__PUBLIC__{{$v['merchant_pic']}}" alt=""></td>
+                        <td>{{$v.mname}}</td>
+                        <td>{{$v.uname}}</td>
+                        <td>{{$v.phone}}</td>
+                        <td>{{$v.merchant_type}}</td>
+                        <td>{{$v.merchant_address}}</td>
+                        <td>{{$v.business}}</td>
+                        <td>
+                            <div class='btn-group'>
+                                <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>操作<span class='caret'></span></button>
+                                <ul class='dropdown-menu'>
+                                    <li><a href='javasrcipt:;' status="1">隐藏</a></li>
+                                    <li><a href='javasrcipt:;' status="2">删除</a></li>
+                                    <li><a href='javasrcipt:;' status="3">显示</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td><a class="btn btn-primary upb" href="{{:U('merchantUpdate',['id'=>$v['id']])}}">修改</a></td>
+                        <td>{{$v.start_time}}</td>
+                        <td>{{$v.end_time}}</td>
+                    </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <div class="row">
+            <ul class="pagination">
+                {{$page}}
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.btn-group ul li a').on('click',function () {
+            var id = $(this).parentsUntil('tr').parent().children('td:eq(0)').text();
+            switch ($(this).attr('status')){
+                case '1':
+                    var flag = 'change';
+                    break;
+                case '2':
+                    var flag = 'del';
+                    $change = confirm('真的删除吗?');
+                    if (!$change) 
+                    {
+                        return $change;
+                    }
+                    $(this).parentsUntil('tr').parent().remove();
+                    break;
+                case '3':
+                    var flag = 'show';
+                    break;
+            }
+            $.get('__CONTROLLER__/ajaxControl',
+                {flag:flag,id:id},
+                function (res){
+                if (res != 2) 
+                {
+                    alert(res);
+                }else{
+                    alert('出问题了');
+                }
+            });
+        });
+
+        $('.pagination a').unwrap().wrap("<li></li>");
+        $('.pagination span').wrap("<li></li>");
+    </script>
+</block>

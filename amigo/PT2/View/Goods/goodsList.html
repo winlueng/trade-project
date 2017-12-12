@@ -1,0 +1,268 @@
+<extend name="Common/firstCom" />
+<block name="css_files">
+  <style>
+  
+  </style>
+  <php>
+    //echo('<pre>');
+    //var_dump($list);exit;
+  </php>
+</block>
+
+<block name="content">
+  <section id="Main" class="kb_main bc tg_classification">
+    <header id="facusWap" class="swiper-container main_bg">
+     <nav class="kb_tabNav   swiper-wrapper f16">
+     <foreach name="classifyList" key="k" item="v">
+      <a href="{{:U('goodsList',['companyName' => $_GET['companyName'],'classify_id' => $v['id']])}}" class=" swiper-slide" data-goodId="{{$v.id}}" >{{$v['classify_name']}}</a>
+     </foreach>
+     </nav>
+    </header>
+      <ul class="kb_list dl_goodsList">
+       <foreach name="list" item="vo">
+        <li class="kb_list-cells" data-goodsId="{{$vo['id']}}">
+           <a  href="{{:U('goodsDetail', ['id' => $vo['id'], 'companyName' => $_GET['companyName']])}}" class="kb_list-cell">
+              <p  class="kb_list-cell-hd">
+                  <img src="__PUBLIC__{{$vo['goods_logo']}}" alt="" />
+              </p>
+              <aside class="kb_list-cell-bd">
+                  <h2 class="dl_goods-title mb10">{{$vo.goods_name}}</h2>
+                  <div class="kb_list-cell-brief">
+                      <!-- <p class="tg_ft-price mb10">
+                          距结束：6天12时30分
+                      </p> -->
+                      <if condition="($vo['is_discount'] eq 1) AND ((int)$vo['sales_start_time'] lt time()) AND ((int)$vo['sales_end_time'] gt time())">
+                        <p class="tg_ft-price mb10">
+                          距结束：{{:turnDistanceTime($vo['sales_end_time'])}}
+                        </p>
+                        <p class="tg_ft-price mb10">
+                            <b class="f16 mr10">￥{{$vo['price'] * ($vo['discount']/10)}}</b><em class="tg_through">￥{{$vo['price']}}</em>
+                        </p>
+                    <else />
+                        <p class="tg_ft-price mb10">
+                            <b class="f16 mr10">￥{{$vo['price']}}</b>
+                        </p>
+                    </if>
+                      
+                      <p class="dl_bugShoping">
+                         <em>销量{{$vo['salesTotal']?$vo['salesTotal']:0}}</em>
+                         <button type="button" class="kb_btn icon-bugShoping mark-bugShoping w30 h30"></button>
+                      </p>
+                  </div>
+              </aside>
+           </a>
+        </li>
+       </foreach>
+        
+      </ul>
+
+  </section>
+</block>
+<block name="js_files">
+<nav class="dl_goShopCar">
+    <a class="icon-shoppCat {{$cartTotal?'dl_myself-order-point':''}}" href="{{:U('ShoppingCart/myCart')}}?companyName={{:I('get.companyName')}}&c_com=l"></a>
+</nav>
+<div class="sltShopBuy pt20" id="sltShopBuy" v-bind:data-goodid="goodsData.id">
+ <form id="sltShopBuyForm" action="{{:U('ShoppingCart/insertCart')}}" method="post">
+  <input type="hidden" name="goods_id" v-bind:value="goodsData.id" /> 
+  <button type="button" class="kb_btn w20 h20 sltShopClose"></button>
+  <article class="kb_list-cell pt20">  
+    <div class="kb_list-cell-hd">
+      <img v-bind:src="'__PUBLIC__'+goodsData.goods_logo" alt="" />
+    </div>
+    <aside class="kb_list-cell-bd pr20">
+      <h2 class="kb_list-cell-title mb10">
+      {{goodsData.goods_name}}
+      </h2>
+      <p class="kb_list-cell-brief ">
+        <b class="tg_ft-price">￥
+        {{goodsData.price}}
+        </b>
+        <em>库存{{goodsData.inventory_total ? goodsData.inventory_total:0}}</em>
+      </p>
+    </aside>
+  
+  </article>
+  <article class="main_bg p10">
+  <p>属性选择</p>
+  <p class="sltShopBuy-attr pt10">
+    <label class="kb_choose mr10" v-for="(attrName , indexs) in attrData">
+      <input type="radio" name="attribute_id"
+       v-bind:value="attrName.id"
+       v-bind:data-image="attrName.attr_pic"
+       v-bind:data-attr_val="attrName.attr_val" 
+       v-bind:data-inventory_total="attrName.inventory_total" 
+       v-bind:data-attr_price="attrName.attr_price" 
+       v-on:click="changeattr"
+      />
+      <span class=" kb_choose-check kb_choose-check_radio">
+        {{attrName.attr_val}}
+      </span>
+    </label>
+  </p>
+  </article>
+  <article class="kb_cell ">
+    <p class="kb_cell-bd">
+      数量选择
+    </p>
+    <p class="kb_cell-ft sltShopBuy-update">
+      <input type="button" value="-" class="kb_btn w30" @click="lower" />
+      <input type="number" v-bind:value="goodsNum" name="total" readonly class="sltShopBuy-update-number tc w30" />
+      <input type="button" value="+" class="kb_btn w30" @click="add" />
+    </p>
+  </article>
+  <p class="main_bg">
+  <button type="button" class="kb_btn kb_btn-main w h50 f18 mark-sltShopSub">确定</button>
+  </p>
+  </form>
+</div>
+
+<script type="text/javascript">
+window.onload=function(){
+    (function(){
+        var swiper = new Swiper('#facusWap',{
+            slidesPerView: 3.5,
+            paginationClickable: true,
+            freeMode: true
+        });
+    })();
+
+    (function(){
+        var app=new Vue({
+            el:'#sltShopBuy',
+            data:{
+                goodsData:{},
+                attrData:[],
+                goodsNum:1
+            },
+            methods:{
+                changeattr:function(event){
+                   var $this=$(event.srcElement)?$(event.srcElement):$(event.target);
+                   app.$data.goodsData.goods_logo=$this.attr('data-image');
+                   // app.$data.goodsData.attr_val=$this.attr('data-attr_val');
+                   app.$data.goodsData.price=$this.attr('data-attr_price');
+                   app.$data.goodsData.inventory_total=$this.attr('data-inventory_total');
+                },
+                lower:function(){
+                   if(app.$data.goodsNum==1){
+                    app.$data.goodsNum==1;
+                   }else{
+                      app.$data.goodsNum--;
+                   }
+                },
+                add:function(){
+                  app.$data.goodsNum++
+                }
+            }
+        });
+
+        $('.mark-bugShoping').on('click',function(e){
+          var $this,ID,data;
+          $this=$(this);
+          ID=$this.parents('[data-goodsId]').attr('data-goodsId').trim();
+          data={
+            flag:'getAttr',
+            id:ID 
+          };
+          $.ajax({
+            type: "GET",
+            url: "{{:U('Goods/ajaxControl')}}",
+            data: data,
+            dataType: "json",
+            
+            success: function(res) {
+                app.goodsData=res.info.Info;
+                app.attrData=res.info.goodsAttr;
+                app.goodsNum=1;
+                $('.sltShopBuy-attr input').prop('checked',false);
+            },
+            error: function(res) {
+                console.log(res);
+            }
+          });
+
+
+          $('.sltShopBuy').show();
+          return false;
+        });
+
+        // .mark-sltShopSub
+        $('.sltShopClose').on('click',function(){
+          $('.sltShopBuy').hide();
+        });
+        $('.mark-sltShopSub').on('click',function(){
+            /* attribute_id: 商品属性id 
+             * goods_id: 商品id 
+             */
+            var attributeid,goodsid,goodsNum,
+                $this=$(this),
+                formdata=new FormData($('#sltShopBuyForm')[0]);
+            attributeid=$this.parents('[data-goodid]').attr('data-goodid').trim();
+            // formdata.append('goods_id',attributeid);
+            goodsid=$this.parents('#sltShopBuy').find('.sltShopBuy-attr input:checked').val();
+            goodsNum=$this.parents('#sltShopBuy').find('.sltShopBuy-update input[name=total]').val();
+            goodsNum=(goodsNum>0)?goodsNum:1;
+            if(!goodsid){
+                oTip('请先选择属性');
+                return false;
+            }
+            $.ajax({
+                type:'POST',
+                url:"{{:U('ShoppingCart/insertCart')}}",
+                data:formdata,
+                dataType:'json',
+                enctype: 'multipart/form-data',
+                async: false,  
+                cache: false,  
+                contentType: false,  
+                processData: false,
+                success:function(res){
+                  if(res){
+                    oTip("加入购物车成功");
+                     $('.sltShopBuy').hide();
+                  }
+
+                },
+                error:function(xhr, errorType, error){
+                    console.log("xhr"+xhr);
+                    console.log("errorType"+errorType);
+                    console.log("error"+error);
+                }
+            })
+
+
+        })
+    })()
+    
+}
+$(function(){
+    var url=document.URL,
+        news_classify_id="classify_id"
+        indexs=url.indexOf('classify_id'),
+        newURL=url.substring(indexs+news_classify_id.length+1,url.length),
+        urlID=newURL.substring(0,newURL.indexOf('.'));
+        // 滑动位置从0开始，每个元素滑动距离为屏幕宽度/每屏显示的元素个数+屏幕宽度*第N屏-屏幕宽度*n屏
+        // n屏为tabNav的a元素长度/每屏放置3.5个元素得出
+
+        var tabNav = $('.kb_tabNav a');
+        var mWidth = $('body').width();
+        var group = Math.ceil(tabNav.length/3.5)
+        tabNav.each(function(indexs,elem){
+            var dataUrlID=$(elem).attr('data-goodId').trim();
+                if(dataUrlID==urlID){
+                  console.log(indexs)
+                  console.log($(elem).css('width'))
+                  var nowGroup = Math.ceil(indexs/3.5) || 1;
+                    $(elem).addClass('selected');
+                    $(elem).parent().css({
+                        'transition-duration': '0ms',
+                         'transform': 'translate3d(-'+(mWidth*group-(group-nowGroup+1)*mWidth+mWidth/4*(indexs-(nowGroup*4-1)+3)) +'px, 0px, 0px)'
+                    })
+                }
+        })
+        if(indexs=="-1"){
+            $('.kb_tabNav a').eq(0).addClass('selected');
+        }
+})
+</script>
+</block>

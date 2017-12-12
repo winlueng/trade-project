@@ -1,0 +1,60 @@
+<extend name="Common/tseconCom" />
+<block name="css_files">
+<style>
+   
+</style>
+<php>
+// echo("<pre>");
+//  var_dump($list);exit;
+</php>
+</block>
+<block name="title">
+ 足迹
+</block>
+
+<block name="content">
+ <section id="Main" class="kb_main bc   tg_colllected ">
+  <empty name="track">
+    <p class="tc pt50">
+    暂无足迹，去别处看看吧~~
+    </p>  
+  <else />
+  <volist name="track" id="v">
+    <h1 class="kb_list-title">{{:date('Y-m-d',$v['visit_date'])}}</h1>
+    <ul class="kb_list ">
+      <volist name="v.list" id="vo">
+      <li class="kb_list-cells">
+         <a href="{{$vo['link']}}" class="kb_list-cell">  
+            <div class="kb_list-cell-ft flexLayout-center mr10">
+            </div>
+            <div class="kb_list-cell-hd">
+                <img src="__PUBLIC__{{$vo['info']['goods_logo']}}" alt="" />
+            </div>
+            <aside class="kb_list-cell-bd">
+                  <h2 class="kb_list-cell-title mb10">
+                    {{$vo['info']['goods_name']}}
+                 </h2>
+                <div class="kb_list-cell-brief">
+                    <p class=" dl_bugShoping">
+                       <em class="tg_ft-price">￥{{$vo['info']['price']}}元</em>
+                    </p>
+                    <p class=" mb10">
+                        销量：{{$vo['sales']}}
+                    </p>
+                </div>
+            </aside>
+         </a>
+      </li>
+      </volist>
+    </ul>
+    </volist>
+
+    </empty>
+  </section>
+</block>
+
+<block name="js_files">
+<script>
+ 
+</script>
+</block>

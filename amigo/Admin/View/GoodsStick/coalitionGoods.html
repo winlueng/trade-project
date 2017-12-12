@@ -1,0 +1,104 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">    
+<!-- <link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?version=1.1"></link>
+ -->
+<style>
+    .HealthStatus{
+        display:none;
+    }
+</style>
+<php>
+//echo('<pre>');
+//var_dump($list);exit;
+</php>
+</block>
+<block name="content" >
+    <div id="kbVipAdmin_rightCenter" class=" OrderForm mb10"><!-- 内容页开始 -->
+            <div class="centerTitle">
+                <h1>商盟产品</h1>
+            </div>
+            <div class="kb_table-filter mb10">
+                <!-- <form action="" method="get" style="display:inline-block">
+                        <select class="kbVipAdmin_slt w100 h30" name="correlation_id" title="可选择分类查找相关商品">
+                            <option value="">全部类型</option>
+                            <foreach name="typeList" item="v">
+                                <option value="{{$v.id}}">{{$v.type_name}}</option>
+                            </foreach>
+                        </select>
+                        <input type="submit" class="kbVipAdmin_opt  w80 h30" value="确认查找">
+                </form> -->
+                <div class="filter-searchDate mr10">
+                    <form action="{{:U('VisitorInfo/visitorList')}}">
+                        <input type="search" value="{{:I('sel_name')}}" name="sel_name" placeholder="请输入用户呢称" />
+                        <input class="kbVipAdmin_opt w80 h30 fr" type="submit" value="确定" />
+                    </form>
+                </div>
+            </div>
+            <div class="main-contentBox kbVipAdmin_mt24" >
+            <div class="kbVipAdmin_table mb20">
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="50">编号</th>
+                            <th>所属区域</th>
+                            <th>所属行业</th>
+                            <th>店铺名称</th>
+                            <th>商品名称</th>
+                            <th>操作时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="list" id="v" >
+                        <tr>
+                            <td><p>{{$v.goods_id}}</p></td>
+                            <td><p>{{$v.region}}</p></td>
+                            <td><p>{{$v.business}}</p></td>
+                            <td><p>{{$v.company_name}}</p></td>
+                            <td><p>{{$v.goods_name}}</p></td>
+                            <td><p>{{:date('Y-m-d H:i:s',$v['update_time'])}}</p></td>
+                            <td>
+                            <p>
+                                {{$v['status']==1?'同意':'其他'}}
+                            </p></td>
+                            <td>
+                                <div class="kbVipAdmin_tdAction">
+                                   <a class=" kbVipAdminSea  w30 h30 copyButton-default" title="预览" href="{{:U('Goods/preview', ['id' => $v['goods_id']])}}" target="view_window"> </a>
+                                  <!--   <input class=" kbVipAdminStaff mb10" type="button" visitorID="{{$v.id}}" value="" title="通过"  />
+                                    <input class=" kbVipAdminHistorty mb10" type="button" visitorID="{{$v.id}}" nickName="{{$v.nick_name}}" value="" title="拒绝"  /> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+                <!-- 表格页数开始 -->
+                <div class="kbVipAdmin_page mb10">
+                    <div class="pageSize">
+                        {{$page}}
+                        <script type="text/javascript">
+                            $('.pageSize a:first-child').addClass('prevPage');
+                            $('.pageSize a:last-child').addClass('nextPage');
+                        </script>
+                    </div>
+                    <div class="pageJump">  
+                    <if condition="count($list) eq 10 ">
+                    <form >
+                        <input class="w60  fl" type="text" name="p" placeholder="{{:I('get.p')}}" />
+                        <input type="submit" class="fl" name="" value="跳转">
+                    </form> 
+                    </if>   
+                    </div>
+                </div>
+                <!-- 表格页数结束 -->
+            <!-- 表格结束 -->
+        </div>
+    </div><!-- 内容页结束 -->
+
+</block>
+<block name="js_files">
+    
+</block>

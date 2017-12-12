@@ -1,0 +1,194 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+    <link rel="stylesheet" href="__PUBLIC__/css/coupon/coupon.css"></link>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/module/uplo.js"></script> -->
+    <script type="text/javascript">
+        $(function(){ 
+            $('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+                if ( typeof(FileReader) === 'undefined' ){ 
+                    alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+                    this.setAttribute( 'disabled','disabled' ); 
+                } else { 
+                    readFile(this,this.files[0]);
+                } 
+            })
+        });
+    
+    </script>
+</block>
+<block name="content" >
+    <div id="kbVipAdmin_center" class="couponAdd_center">
+        <div class="kbVipAdmin_center_txt">
+            <div class="kbVipAdmin_center_tables">
+                <form class="couponBusiness_FormParent kbVipAdmin_form" action="{{:U('cardUpdate')}}?id={{$_GET['id']}}" method="post" enctype="multipart/form-data">
+                    <p><span>卡券名称：</span><input type="text" name="card_name" value="{{$card['id']}}" /> </p>
+                    <p><span>卡券ID:  </span>
+                    <input type="text" name="card_ip" value="{{$card['card_ip']}}" placeholder="请输入卡券的ID" required="required"> </p>
+                    <p><span>描述：</span>
+                    <input type="text" name="card_desc" value="{{$card['card_desc']}}" placeholder="请输入卡券描述" required="required"> 
+                    </p>
+                    <p class="microWebMenuAdmin"><span>卡券类型：</span>
+                        <input id="coupanAddSelf"  name="card_type" type="radio" value="1" {{$card['card_type'] == '1'?'checked':''}} />
+                        <label for="coupanAddSelf"><i></i><b>自身卡券</b></label>
+                        <input id="coupanAddCom"  name="card_type" type="radio" value="2" {{$card['card_type'] == '2'?'checked':''}}  />
+                        <label for="coupanAddCom"><i></i><b>联盟卡券</b></label>
+                    </p>
+                    <p class="microWebMenuAdmin"><span>优惠类型：</span>
+                        <input id="coupanAddSelf1"  name="sale_type" type="radio" value="1" {{$card['sale_type'] == '1'?'checked':''}} />
+                        <label for="coupanAddSelf1"><i></i><b>优惠券</b></label>
+                        <input id="coupanAddSelf2"  name="sale_type" type="radio" value="2" {{$card['sale_type'] == '2'?'checked':''}} />
+                        <label for="coupanAddSelf2"><i></i><b>体验券</b></label>
+                        <input id="coupanAddSelf3"  name="sale_type" type="radio" value="3" {{$card['sale_type'] == '3'?'checked':''}} />
+                        <label for="coupanAddSelf3"><i></i><b>现金券</b></label>
+                        <input id="coupanAddSelf4"  name="sale_type" type="radio" value="4" {{$card['sale_type'] == '4'?'checked':''}} />
+                        <label for="coupanAddSelf4"><i></i><b>代金券</b></label>
+                        <input id="coupanAddSelf5"  name="sale_type" type="radio" value="5" {{$card['sale_type'] == '5'?'checked':''}} />
+                        <label for="coupanAddSelf5"><i></i><b>折扣券</b></label>
+                    </p>
+                    <div class="couponAdd-action">
+                        <div class="couponAdd-actionListWeek microWebMenuAdmin">
+                            <span>活动：</span>
+                                <input id="roleSelect"  name="activity" type="checkbox" value="1" {{$card['activity'] == '1'?'checked':''}} />
+                                <label for="roleSelect"><i></i><b>每周优惠</b></label>
+                        </div>
+                        <div class="couponAdd-actionList" >
+                            <span>活动：</span>
+                            <p  class="microWebMenuAdmin">
+                                <input id="userAdminMicroWeb"  name="activity" type="checkbox" value="2" {{$card['activity'] == '2'?'checked':''}} />
+                                <label for="userAdminMicroWeb"><i></i><b>盟券发放</b></label>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <p class="couponAddr ">
+                        <span>所属商圈：</span>
+                        <select sta='1'>
+                            <option value="">省级</option>
+                                <foreach name="address" item="v">
+                                    <option value="{{$v['district_id']}}">{{$v.name}}
+                                    </option>
+                                </foreach>
+                        </select>
+                        <select sta='2'>
+                            <option value="">市级</option>
+                        </select>
+                        <select sta='3'>
+                            <option value="">区级</option>
+                        </select>
+                        <select sta='4'>
+                            <option value="">商圈</option>
+                        </select>
+                    </p>
+                    <p class="couponAddr"><span>行业：</span>
+                        <select sta='5'>
+                            <option>请选择行业</option>
+                        </select> 
+                    </p>
+                    <p class="couponTrade"><span>商家名称：</span>
+                        <select name="company_id">
+                            <option value="">商户</option>
+                        </select> 
+                    </p> -->
+                    <p class="couponTrade"><span>商家名称：</span>
+                        {{$card['mname']}}
+                    </p>
+                    <div class="kbVipAdmin_fileImg">
+                        <span>优惠券背景图：</span>
+                        <label class="fileImg" for="businessFileImg">点击上传图片</label>
+                        <input id="businessFileImg" type="file" name="card_bgaddress" />
+                        <div class="businessFileImgList">
+                        <span class="cleraIMG" onclick="clearImg(this)"></span>
+                        <img src="__PUBLIC__{{$card['card_bgaddress']}}" alt="" />
+                        </div>
+                    </div>
+                    <if condition="$card['card_type'] eq '1'">
+                    <div class="kbVipAdmin_fileImg coupanAddSelfBg" >
+                        <span>二维码图片：</span>
+                        <label class="fileImg" for="businessFileImg1">点击上传图片</label>
+                        <input id="businessFileImg1" type="file" name="card_code" />
+                        <div class="businessFileImgList">
+                        <span class="cleraIMG" onclick="clearImg(this)"></span>
+                        <img src="__PUBLIC__{{$card['card_code']}}" alt="" />
+                        </div>
+                    </div>
+                    </if>
+                    <p><span>开始时间：</span>
+                    <input  class="datainp wicon"  type="text" name="start_time" placeholder="开始日期"   readonly required="required" value="{{:date('Y-m-d H:m:s',$card['start_time'])}}" onclick="jeDateTime(this,'start');"/>
+                     </p>
+                    <p><span>结束时间：</span>
+                     <input  class="datainp wicon"  type="text" name="start_time" placeholder="结束日期"   readonly required="required" value="{{:date('Y-m-d H:m:s',$card['end_time'])}}" onclick="jeDateTime(this,'end');"/>
+                    </p>
+                    <p class="kbVipAdmin_MenuAdminBtn" >
+                        <input style="display:block" type='submit' value="确认修改"  />
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            // 角色分类选择时显示对应功能
+            // 联盟卡券
+            $('#coupanAddCom').on('click',function(){
+                var $this=$(this);
+                if($this.is(':checked')){
+                    $('.couponAdd-actionListWeek').fadeOut();
+                    $('.couponAdd-actionList').fadeIn();
+                }
+                $('.coupanAddSelfBg').fadeOut();
+            });
+            //自身
+            $('#coupanAddSelf').on('click',function(){
+                var $this=$(this);
+                if($this.is(':checked')){
+                    $('.couponAdd-actionListWeek').fadeIn();
+                    $('.couponAdd-actionList').fadeOut();
+                }
+                $('.coupanAddSelfBg').fadeIn();
+            });
+            $('#userAdminMicroWeb,#userAdminMicroWebAndCare').on('click',function(){
+                var $this=$(this);
+                
+                if($this.is(':checked')){
+                    $('.microWebUrl').fadeIn();
+                }
+            });
+            $('#userAdminCare').on('click',function(){
+                var $this=$(this);
+                if($this.is(':checked')){
+                    $('.microWebUrl').fadeOut();
+                }
+            });
+        });
+
+        $('.couponAddr select').on('change',function (){
+            var a ;
+            a = parseInt($(this).attr('sta'));
+            // console.log($(this).val());
+            var fa = $(this).next();
+            var flag = 'address';
+            switch (a)
+            {
+                case 3:
+                    flag = 'region';
+                    break;
+                case 4:
+                    flag = 'business';
+                    fa = $(this).parent().next().find('select');
+                    break;
+                case 5:
+                    flag = 'merchant';
+                    fa = $(this).parent().next().find('select');
+                    break;
+            }
+            var name = fa.find('option:eq(0)').text();
+            $.get('__CONTROLLER__/ajaxControl',{'flag':flag,'pid':$(this).val()},function (res){
+                var str = '<option value="">'+name+'</option>';
+                for(var k in res)
+                {
+                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+                }
+                fa.html(str);
+            });
+        });
+    </script>
+</block>

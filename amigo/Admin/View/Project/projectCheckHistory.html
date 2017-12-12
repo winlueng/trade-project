@@ -1,0 +1,76 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center">
+		
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead  ">
+					<form class="kbVipAdmin_inlineBlock" action="" >
+					<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入关键字搜索" name="selname" value="{{:I('get.selname')}}" />
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+				</div>
+				<div class="roleBox">
+					<div class="roleListDiv">
+						<table class="roleList">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>项目名称</th>
+									<th>申请人</th>
+									<th>操作时间</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+							<empty name="list">
+							<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无审核数据</span></center></td></tr>
+							<else />
+							<foreach name="list" item="v" >
+								<tr>
+									<td>{{$v.id}}</td>
+									<td>{{$v.project_name}}</td>
+									<td>{{$v.principal}}</td>
+									<td>{{:date('Y年m月d日', $v['control_time'])}}</td>
+									<td>
+										<eq name="v.status" value="0" >
+											<b class="ftcolorGreen">成功</b>
+										</eq>
+										<eq name="v.status" value="1" >
+											<b class="ftcolorRed">待审核</b>
+										</eq>
+										<eq name="v.status" value="2" >
+											<b class="ftcolorRed">失败</b>
+										</eq>
+									</td>
+								</tr>
+							</foreach>
+							</empty>
+							</tbody>
+						</table>
+						<div class="kbAdmin_page">
+							{{$page}}	
+						</div>
+					</div><!-- roleListDiv end -->
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(function(){
+		$('.MircoDetails').on('click',function(){
+			$('.AuditListInfo_alert').fadeIn();
+			var porInput=$('.AuditListInfo_alert .kbVipAdmin_form input')
+				$(porInput).prop('readonly',true);
+				$(porInput).css('border','none');
+			$('.AuditListInfo_alert .kbVipAdmin_MenuAdminBtn input').on('click',function(){
+				$('.AuditListInfo_alert').fadeOut();
+			});
+		})
+	})
+	</script>
+</block>

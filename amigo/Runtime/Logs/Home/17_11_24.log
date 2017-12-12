@@ -1,0 +1,3156 @@
+[ 2017-11-24T00:19:36+08:00 ] 219.142.152.32 /enterbj_print/jsp/print.jsp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000469s ]
+ERR: 无法加载控制器:Enterbj_print
+
+[ 2017-11-24T00:53:02+08:00 ] 220.181.108.115 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T01:00:32+08:00 ] 182.48.105.210 /invoker/readonly
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+ERR: 无法加载控制器:Invoker
+
+[ 2017-11-24T01:02:51+08:00 ] 123.125.67.162 /robots.txt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'robots' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'robots' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T01:02:53+08:00 ] 123.125.67.164 /Index/index/companyName/robots.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000293s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-11-24T01:28:31+08:00 ] 220.172.249.41 /login.action
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000263s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T01:39:58+08:00 ] 47.93.112.232 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.13.47:8000' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T02:39:35+08:00 ] 220.181.132.181 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+
+[ 2017-11-24T02:39:48+08:00 ] 106.120.162.93 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000254s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000285s ]
+
+[ 2017-11-24T03:14:12+08:00 ] 69.58.178.59 /robots.txt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'robots' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'robots' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T03:14:14+08:00 ] 69.58.178.59 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T03:37:16+08:00 ] 183.57.53.177 /login.action
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T04:27:39+08:00 ] 80.82.78.50 http://www.baidu.com/cache/global/img/gs.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+
+[ 2017-11-24T05:13:38+08:00 ] 120.132.19.52 http://www.qq.com/404/search_children.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+ERR: 无法加载控制器:404
+
+[ 2017-11-24T07:02:46+08:00 ] 220.181.51.102 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000285s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T07:23:15+08:00 ] 91.155.156.157 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T08:52:49+08:00 ] 123.125.71.98 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T08:58:10+08:00 ] 119.35.6.165 /003
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000355s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0008s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 12 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T08:58:20+08:00 ] 58.247.212.98 /003
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T08:59:58+08:00 ] 117.143.109.10 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000480s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T09:00:54+08:00 ] 101.226.65.107 /003
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0010s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T09:07:46+08:00 ] 119.35.6.165 /003
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T09:08:05+08:00 ] 119.35.6.165 /003
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T09:13:04+08:00 ] 94.102.49.174 http://www.baidu.com/cache/global/img/gs.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+
+[ 2017-11-24T09:19:31+08:00 ] 119.35.6.165 /003
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = '003' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T09:41:36+08:00 ] 47.92.2.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.63.89:8000' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T10:12:50+08:00 ] 163.177.13.2 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000282s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T10:43:24+08:00 ] 183.3.226.234 /qshidou
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T10:43:33+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000288s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T10:43:33+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T10:43:34+08:00 ] 183.192.201.97 /qshidou
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T10:43:37+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T10:43:37+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T10:52:04+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+
+[ 2017-11-24T10:52:08+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+
+[ 2017-11-24T10:55:10+08:00 ] 101.226.65.107 /qshidou
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T10:58:15+08:00 ] 101.226.66.174 /qshidou
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T11:29:08+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000316s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000437s ]
+
+[ 2017-11-24T11:40:59+08:00 ] 182.48.105.210 /invoker/readonly
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+ERR: 无法加载控制器:Invoker
+
+[ 2017-11-24T11:42:00+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T11:42:00+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T11:42:50+08:00 ] 183.3.226.234 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0006s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 20 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-11-24T11:43:00+08:00 ] 120.204.17.46 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T11:45:24+08:00 ] 101.226.66.174 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T11:45:56+08:00 ] 183.3.226.234 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000263s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:08:38+08:00 ] 42.156.251.198 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:08:39+08:00 ] 42.156.251.198 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:13:35+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:13:35+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000325s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:13:48+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000364s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:13:48+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:13:51+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:13:51+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:08+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:08+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000501s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:09+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000358s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:09+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:10+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:10+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:17+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000330s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:17+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:18+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:18+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:24+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:24+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000496s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T12:14:46+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:47+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:48+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T12:14:48+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T13:38:22+08:00 ] 115.231.218.43 /manager/html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+ERR: 无法加载控制器:Manager
+
+[ 2017-11-24T13:56:23+08:00 ] 157.255.172.22 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:23+08:00 ] 183.3.227.102 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0012s ]
+
+[ 2017-11-24T13:56:37+08:00 ] 121.51.14.26 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 20 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:47+08:00 ] 120.204.17.67 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:47+08:00 ] 58.248.141.150 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:48+08:00 ] 58.248.141.150 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:51+08:00 ] 58.248.141.150 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-11-24T13:56:51+08:00 ] 58.248.141.150 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:56+08:00 ] 58.248.141.150 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:56:56+08:00 ] 58.248.141.150 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000330s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:57:08+08:00 ] 183.3.255.32 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000450s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T13:57:11+08:00 ] 58.248.141.150 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:57:11+08:00 ] 58.248.141.150 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:57:12+08:00 ] 58.248.141.150 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:57:12+08:00 ] 58.248.141.150 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T13:57:17+08:00 ] 58.248.141.150 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2017-11-24T13:57:17+08:00 ] 58.248.141.150 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000208s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:05:09+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:05:09+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:06:29+08:00 ] 106.2.124.185 http://baidu.com/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'baidu.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:06:38+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000293s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:06:38+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:06:51+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:06:51+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000464s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:08:51+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:08:51+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000065s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:13:10+08:00 ] 101.226.35.225 /wp-includes/js/comment-reply.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+ERR: 无法加载控制器:Wp-includes
+
+[ 2017-11-24T14:13:10+08:00 ] 101.226.35.225 /skins/vector/csshover.htc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+ERR: 无法加载控制器:Skins
+
+[ 2017-11-24T14:13:10+08:00 ] 101.226.35.225 /misc/states.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+ERR: 无法加载控制器:Misc
+
+[ 2017-11-24T14:13:11+08:00 ] 101.226.35.225 /static/js/md5.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000348s ]
+ERR: 无法加载控制器:Static
+
+[ 2017-11-24T14:13:11+08:00 ] 101.226.35.225 /include/js/md5.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+ERR: 无法加载控制器:Include
+
+[ 2017-11-24T14:13:11+08:00 ] 101.226.35.225 /include/js/common.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+ERR: 无法加载控制器:Include
+
+[ 2017-11-24T14:13:12+08:00 ] 101.226.35.225 /include/js/ajax.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+ERR: 无法加载控制器:Include
+
+[ 2017-11-24T14:13:12+08:00 ] 101.226.35.225 /res/js/dev/pages/common/global.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+ERR: 无法加载控制器:Res
+
+[ 2017-11-24T14:13:12+08:00 ] 101.226.35.225 /js/wind_editor.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+ERR: 无法加载控制器:Js
+
+[ 2017-11-24T14:13:13+08:00 ] 101.226.35.225 /styles/prosilver/template/forum_fn.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+ERR: 无法加载控制器:Styles
+
+[ 2017-11-24T14:13:13+08:00 ] 101.226.35.225 /styles/prosilver/template/styleswitcher.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+ERR: 无法加载控制器:Styles
+
+[ 2017-11-24T14:13:13+08:00 ] 101.226.35.225 /editor/ubb/uploader.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+ERR: 无法加载控制器:Editor
+
+[ 2017-11-24T14:13:13+08:00 ] 101.226.35.225 /template/default/style.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+ERR: 无法加载控制器:Template
+
+[ 2017-11-24T14:13:14+08:00 ] 101.226.35.225 /static/js/reset.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+ERR: 无法加载控制器:Static
+
+[ 2017-11-24T14:13:14+08:00 ] 101.226.35.225 /images/js/common.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000293s ]
+ERR: 无法加载控制器:Images
+
+[ 2017-11-24T14:13:14+08:00 ] 101.226.35.225 /templets/style/dede.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+ERR: 无法加载控制器:Templets
+
+[ 2017-11-24T14:13:15+08:00 ] 101.226.35.225 /include/dedeajax2.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+ERR: 无法加载控制器:Include
+
+[ 2017-11-24T14:13:15+08:00 ] 101.226.35.225 /images/default/inc.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000342s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+ERR: 无法加载控制器:Images
+
+[ 2017-11-24T14:13:15+08:00 ] 101.226.35.225 /js/lang/core/zh-cn.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+ERR: 无法加载控制器:Js
+
+[ 2017-11-24T14:13:15+08:00 ] 101.226.35.225 /js/lang/cms/zh-cn.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+ERR: 无法加载控制器:Js
+
+[ 2017-11-24T14:13:16+08:00 ] 101.226.35.225 /d/js/acmsd/ecms_dialog.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+ERR: 无法加载控制器:D
+
+[ 2017-11-24T14:13:16+08:00 ] 101.226.35.225 /skin/default/js/tabs.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+ERR: 无法加载控制器:Skin
+
+[ 2017-11-24T14:13:16+08:00 ] 101.226.35.225 /media/system/js/tab.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+ERR: 无法加载控制器:Media
+
+[ 2017-11-24T14:13:17+08:00 ] 101.226.35.225 /media/system/css/mootree.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000208s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+ERR: 无法加载控制器:Media
+
+[ 2017-11-24T14:13:17+08:00 ] 101.226.35.225 /lang/zh/front.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+ERR: 无法加载控制器:Lang
+
+[ 2017-11-24T14:13:17+08:00 ] 101.226.35.225 /style/default/content.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000420s ]
+ERR: 无法加载控制器:Style
+
+[ 2017-11-24T14:13:18+08:00 ] 101.226.35.225 /lang/zh/edit.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+ERR: 无法加载控制器:Lang
+
+[ 2017-11-24T14:13:18+08:00 ] 101.226.35.225 /rockmongo/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:13:18+08:00 ] 101.226.35.225 /server-status
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:13:18+08:00 ] 101.226.35.225 /ueditor.all.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:13:19+08:00 ] 101.226.35.225 /wikilib.d/PmWiki.ChangeLog
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000468s ]
+ERR: 无法加载控制器:Wikilib.d
+
+[ 2017-11-24T14:13:19+08:00 ] 101.226.35.225 /4e5e5d7364f443e28fbf0d3ae744a59a
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:13:19+08:00 ] 101.226.35.225 /jenkins/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:13:20+08:00 ] 101.226.35.225 /solr/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:13:20+08:00 ] 101.226.35.225 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:16:05+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:16:05+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:18:43+08:00 ] 182.48.105.210 /invoker/readonly
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+ERR: 无法加载控制器:Invoker
+
+[ 2017-11-24T14:19:55+08:00 ] 157.255.172.22 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:19:55+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:19:55+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000332s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:20:51+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000327s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:20:51+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:22:24+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000486s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:22:24+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:23:40+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:23:40+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:23:42+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:23:42+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0009s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:25:25+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:25:25+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:25:43+08:00 ] 116.22.209.75 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:25:56+08:00 ] 120.204.17.68 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:28:34+08:00 ] 101.226.66.174 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:33:16+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000064s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+
+[ 2017-11-24T14:33:20+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:33:20+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000298s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:33:26+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:33:26+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:33:26+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+
+[ 2017-11-24T14:33:31+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+
+[ 2017-11-24T14:33:43+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+
+[ 2017-11-24T14:33:45+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000437s ]
+
+[ 2017-11-24T14:33:49+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+
+[ 2017-11-24T14:33:53+08:00 ] 116.22.209.75 /Public/JS/module/datenew/css/overcast/images/ui-bg_flat_75_ffffff_40x100.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+
+[ 2017-11-24T14:33:54+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+
+[ 2017-11-24T14:34:06+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+
+[ 2017-11-24T14:34:15+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0012s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:34:15+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:34:19+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+
+[ 2017-11-24T14:34:20+08:00 ] 116.22.209.75 /Public/JS/module/datenew/css/overcast/images/ui-bg_flat_75_ffffff_40x100.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+
+[ 2017-11-24T14:34:21+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+
+[ 2017-11-24T14:34:23+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+
+[ 2017-11-24T14:34:32+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+
+[ 2017-11-24T14:34:36+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000355s ]
+
+[ 2017-11-24T14:34:51+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000293s ]
+
+[ 2017-11-24T14:34:56+08:00 ] 116.22.209.75 /Public/JS/module/datenew/css/overcast/images/ui-bg_flat_75_ffffff_40x100.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+
+[ 2017-11-24T14:34:57+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+
+[ 2017-11-24T14:35:48+08:00 ] 157.255.172.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:35:52+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:35:52+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000380s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000419s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:35:59+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000420s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:35:59+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:36:02+08:00 ] 112.96.128.143 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:36:02+08:00 ] 112.96.128.143 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:37:23+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+
+[ 2017-11-24T14:38:22+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+
+[ 2017-11-24T14:38:24+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000288s ]
+
+[ 2017-11-24T14:38:24+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000494s ]
+
+[ 2017-11-24T14:38:36+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+
+[ 2017-11-24T14:38:38+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+
+[ 2017-11-24T14:38:56+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+
+[ 2017-11-24T14:39:03+08:00 ] 116.22.209.75 /Public/JS/module/datenew/css/overcast/images/ui-bg_flat_75_ffffff_40x100.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+
+[ 2017-11-24T14:39:05+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+
+[ 2017-11-24T14:39:10+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000496s ]
+
+[ 2017-11-24T14:39:20+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+
+[ 2017-11-24T14:39:34+08:00 ] 121.51.14.20 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:39:45+08:00 ] 120.204.17.46 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:39:59+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:39:59+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:40:10+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:40:10+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:40:42+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:40:42+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:41:12+08:00 ] 59.34.3.131 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T14:45:48+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000675s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+
+[ 2017-11-24T14:47:10+08:00 ] 116.22.209.75 /Public/JS/module/datenew/css/overcast/images/ui-bg_flat_75_ffffff_40x100.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+
+[ 2017-11-24T14:47:12+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+
+[ 2017-11-24T14:48:33+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000456s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000501s ]
+
+[ 2017-11-24T14:48:37+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000487s ]
+
+[ 2017-11-24T14:53:33+08:00 ] 183.192.201.97 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000428s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:53:43+08:00 ] 183.3.226.234 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000293s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:53:47+08:00 ] 183.3.226.234 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:53:52+08:00 ] 116.22.209.75 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:53:52+08:00 ] 116.22.209.75 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:55:23+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+
+[ 2017-11-24T14:55:27+08:00 ] 220.181.51.82 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T14:55:59+08:00 ] 101.226.65.107 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T14:56:02+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+
+[ 2017-11-24T14:56:03+08:00 ] 116.22.209.75 /Public/JS/module/datenew/css/overcast/images/ui-bg_flat_75_ffffff_40x100.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+
+[ 2017-11-24T14:56:03+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+
+[ 2017-11-24T14:56:06+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+
+[ 2017-11-24T14:56:55+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000358s ]
+
+[ 2017-11-24T14:56:56+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000456s ]
+
+[ 2017-11-24T14:56:58+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+
+[ 2017-11-24T14:56:59+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+
+[ 2017-11-24T14:57:19+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+
+[ 2017-11-24T15:08:59+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+
+[ 2017-11-24T15:11:16+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+
+[ 2017-11-24T15:11:49+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+
+[ 2017-11-24T15:11:52+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+
+[ 2017-11-24T15:15:28+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+
+[ 2017-11-24T15:22:15+08:00 ] 202.108.211.56 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T15:43:01+08:00 ] 195.19.11.225 
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+NOTIC: [8] Undefined index: HTTP_HOST /var/www/html/amigo/amigo/Admin/Controller/LoginController.class.php 第 16 行.
+NOTIC: [8] Undefined index: HTTP_HOST /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 26 行.
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = null AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T15:48:02+08:00 ] 14.116.133.170 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T15:48:02+08:00 ] 157.255.172.14 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:00:00+08:00 ] 121.51.14.20 /jinlongyu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'jinlongyu' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'jinlongyu' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 19 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T16:00:09+08:00 ] 121.51.32.144 /jinlongyu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'jinlongyu' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:00:18+08:00 ] 117.136.41.50 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T16:00:18+08:00 ] 117.136.41.50 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:02:40+08:00 ] 101.226.66.174 /jinlongyu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'jinlongyu' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T16:20:55+08:00 ] 183.3.226.234 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 20 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:20:55+08:00 ] 113.96.218.50 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:20:55+08:00 ] 157.255.172.126 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:21:05+08:00 ] 183.3.226.234 /qshidou
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'qshidou' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 21 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:47:14+08:00 ] 220.181.108.180 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T16:59:10+08:00 ] 116.22.209.75 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0009s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T16:59:11+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000344s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T16:59:14+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T16:59:20+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000398s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000537s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:03:06+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:03:55+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000442s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:06:56+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:07:17+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:08:07+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000311s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000440s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:09:36+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000261s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:10:20+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:10:36+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000358s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:10:42+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000308s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:10:44+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:11:31+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000288s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:11:33+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:11:34+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:15:01+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000427s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:22:41+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000198s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:26:33+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:28:06+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000413s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000448s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:28:29+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000334s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'favicon' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'favicon' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T17:28:29+08:00 ] 116.22.209.75 /Index/index/companyName/favicon.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000399s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000470s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T17:28:31+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000438s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:30:44+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:32:15+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000424s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:32:41+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000433s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:33:47+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:37:04+08:00 ] 116.22.209.75 /Public/trading/script/swiper/maps/swiper.jquery.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-11-24T17:42:45+08:00 ] 59.110.6.177 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.41.96:8000' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T18:00:47+08:00 ] 14.17.3.64 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T18:20:30+08:00 ] 163.177.90.152 /yuancun
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000403s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0006s ]
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = 20 LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2017-11-24T19:06:43+08:00 ] 104.236.167.180 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+ERR: 商户异常
+
+[ 2017-11-24T19:33:58+08:00 ] 112.96.109.186 /Publicundefined
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `status` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`company_name`,`phone`,`email`,`template_id`,`web_postfix` FROM `market_company` WHERE `web_postfix` = 'Publicundefined' AND `relevance_id` = 9 AND `status` = 0  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined offset: 0 /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = null LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company_picture` [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id /var/www/html/amigo/amigo/Home/Controller/CommonController.class.php 第 96 行.
+SQL: SELECT `company_logo` FROM `market_company_picture` WHERE `company_id` = null LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-11-24T19:33:58+08:00 ] 112.96.109.186 /Index/index/companyName/Publicundefined.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `phone`,`email`,`principal`,`market_name`,`project_logo`,`app_id`,`app_secret` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-24T20:06:09+08:00 ] 82.79.211.164 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+ERR: 商户异常
+
+[ 2017-11-24T20:16:26+08:00 ] 139.162.88.63 http://clientapi.ipip.net/echo.php?info=1234567890
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'clientapi.ipip.net' AND `status` = 0 LIMIT 1   [ RunTime:0.0006s ]
+ERR: 商户异常
+
+[ 2017-11-24T23:24:51+08:00 ] 139.162.119.197 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000385s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = '139.199.77.83' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+ERR: 商户异常
+
+[ 2017-11-24T23:26:57+08:00 ] 116.22.209.75 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000413s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000466s ]
+

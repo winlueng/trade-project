@@ -1,0 +1,70 @@
+<extend name="Common/websiteCom" />
+
+<block name="content">
+	<section id="bsMain" class="bsOrder bsOrderList">
+		<header class="bsClassNav mb10 swiper-container">
+			<nav class="bsClassHref swiper-wrapper">
+			<volist name="jobList" id="v">
+				<a class="swiper-slide" data-jobId="{{$v.id}}" href="?job_id={{$v.id}}">{{$v.job_name}}</a>
+			</volist>
+			</nav>
+			<script>
+				$(function(){
+				    var swiper = new Swiper('.bsClassNav', {
+				        slidesPerView: 3.5,
+				        paginationClickable: true,
+				        freeMode: true
+				    });
+				})	     	
+    
+			</script>
+		</header>
+		<ul class=" bsReservationList bc mb10">
+		<volist name="list" id="v" empty="还没有技师上班哦">
+			<li>
+				<p class="reservationListImg">
+					<a href="{{:U('staffInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+					<img src="__PUBLIC__{{$v.staff_logo}}" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo">
+					<h3 class="mb10">{{$v.store_nickname}}</h3>
+					<p class="mb10 c666">{{$v.professional_title}}</p>
+					<p>
+						<em class="c999">已完成服务 {{$v.service_total}} 单</em>
+						<a class="icon-reservation fr reservation" href="{{:U('SubscribeOrderForm/orderInsert', ['companyName' => $_GET['companyName'], 'staffID' => $v['id']])}}"></a>
+					</p>
+				</article>
+			</li>
+		</volist>
+		</ul>
+	</section>
+</block>
+<block name="js_file">
+	<script>
+		$(function(){
+			var url=document.URL,
+				job_idTxt='?job_id',
+				indexs=url.indexOf('?job_id'),
+				newURL=url.substring(indexs+1,url.length),
+
+				job_id=newURL.substring(job_idTxt.length,newURL.length);
+			
+				$('.bsClassHref a').each(function(indexs,elem){
+					var dataUrlID=$(elem).attr('data-jobId').trim();
+						if(dataUrlID==job_id){
+						
+							$(elem).addClass('selected');
+							
+							$(elem).parent().css({
+								'transition-duration': '0ms', 
+								 'transform': 'translate3d(-'+$(elem).width()*(indexs-1)+'px, 0px, 0px)'
+							})
+						}
+				})
+				if(indexs=="-1"){
+					$('.bsClassHref a').eq(0).addClass('selected');
+				}
+		})
+	</script>
+</block>

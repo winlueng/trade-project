@@ -1,0 +1,201 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css"></link>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnProductClass">
+		<div class="kbShopAdmin_operating spAnProductClass-operating" >
+			<input class="kbShopAdmin_opt kbShopAdmin_add w80 h30" type="button" value="添加" />
+		</div>
+		<div class="spAnProductClass-operating kbShopAdmin_mt24" >
+			<div class="kbShopAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>分类名称</th>
+							<th>分类logo</th>
+							<th>所属级别</th>
+							<th>所属商品数量</th>
+							<th>分类状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="showcate" item="vo">
+						<tr>
+							<td>{{$vo.id}}</td>
+							<td>{{$vo.classify_name}}</td>
+							<td><img src="__PUBLIC__{{$vo.classify_logo}}" width="100"></td>
+							<td>{{$vo.fname}}</td>
+							<td>{{$vo.gnum}}</td>
+							<td>
+								<p class="kbShopAdmin_checkbox">
+									<input  type="radio" name="status{{$vo.id}}" value="0" {{$vo['status'] == '0'?'checked':''}} />
+									<label class="font_6ccac9">
+										<b class="kbShopAdmin_buttonMr"></b>
+										启用
+									</label>
+								</p>
+								<p class="kbShopAdmin_checkbox">
+									<input type="radio"  name="status{{$vo.id}}" value="1" {{$vo['status'] == '1'?'checked':''}}/>
+									<label class="font_ff6c60">
+										<b class="kbShopAdmin_buttonMr">
+										</b>
+										禁用
+									</label>
+								</p>
+							</td>
+							<td class="kbShopAdmin_tdAction">
+								<input class="font_57c8f2 kbShopAdminEdit" type="button" value="编辑" />
+								<input class="font_ff6c60 kbShopAdmineDel" type="button" value="删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页位置 -->
+			<!-- <div class="kbShopAdmin_page">
+				<input type="button" value="上页" />
+				<div>
+					<a class="indexPade" href="javascript">1</a>
+					<a class="" href="javascript:;">2</a>
+				</div>
+				<input type="button" value="下页" />
+			</div> -->
+		</div>
+	</div>
+	<div class="kbShopAdmin_alert spAnProductClass_alert">
+		<div class="kbShopAdmin_alertBox">
+			<button type="button" class="kbShopAdmin_alert-close "></button>
+			<form action="{{:U('goodsClassifyAdd')}}" method="post" enctype="multipart/form-data">
+				 <h3>添加产品分类</h3>
+				
+				
+				<p class="kbShopAdmin_enter"><b><i>*</i>分类名称</b>
+				<input type="text" maxlength="6" name="classify_name" value="" placeholder="请输入子分类名字" required="required" />
+					<strong class="kbShopAdmin_tip">必填项。子分类名字不能超过6个字数</strong>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>分类封面:</b>
+						
+					<input id="shopImg"  type="file" value="" name="classify_logo" required="required" />
+					<label class="kbShopAdmin_button_ff6c60" for="shopImg">上传图片</label>
+					<strong class="kbShopAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过100k，仅可上传一张图片</strong>
+				</div>
+				<p class="kbShopAdmin_enter"><b><i>*</i>描述</b>
+				<textarea placeholder="请输入产品描述" name="title" required="required"></textarea>
+				</p>
+				<div class="kbShopAdmin_operating ">
+					<input  class="kbShopAdmin_button_ff6c60" type="rest" value="放弃" />
+					<input  class="kbShopAdmin_button_6ccac9" type="submit" value="保存" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="kbShopAdmin_alert spAnProductClass_alertEdit">
+		<div class="kbShopAdmin_alertBox">
+			<button type="button" class="kbShopAdmin_alert-close "><img src=" " alert="X" /></button>
+			<form action="" method="post" enctype="multipart/form-data">
+				<h3>编辑产品分类</h3>
+				
+				<p class="kbShopAdmin_enter"><b><i>*</i>分类名称:</b>
+				<input type="text" maxlength="6" name="classify_name" value="" placeholder="请输入子分类名字" required="required" />
+				<strong class="kbShopAdmin_tip">必填项。子分类名字不能超过6个字数</strong>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>分类封面:</b>
+					<div class="shopImg businessFileImgList">
+						<span class="cleraIMG" onclick="clearImg(this)"></span>
+					</div>	
+					<input id="shopImg1"  type="file" value="" name="classify_logo"  />
+					<label class="kbShopAdmin_button_ff6c60" for="shopImg1">上传图片</label>
+					<strong class="kbShopAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过100k，仅可上传一张图片</strong>
+				</div>
+				<p class="kbShopAdmin_enter"><b><i>*</i>描述:</b>
+				<textarea placeholder="请输入产品描述" name="title" required="required"></textarea>
+				</p>
+				<div class="kbShopAdmin_operating kbShopAdmin_restsubmit">
+					<input  class="kbShopAdmin_button_ff6c60" type="rest" value="放弃" />
+					<input  class="kbShopAdmin_button_6ccac9" type="submit" value="保存" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+     $(function(){
+   		$(".spAnProductClass .spAnProductClass-operating  .kbShopAdmin_add").on('click',function(){
+   			$(".spAnProductClass_alert").fadeToggle();
+
+   		})
+   		$(".kbShopAdmin_alert  .kbShopAdmin_operating input[type='rest']").on('click',function(){
+   			$(".kbShopAdmin_alert").fadeOut();
+
+   		})
+   		$(".spAnProductClass .kbShopAdmin_tdAction .kbShopAdminEdit").on('click',function(){
+   			$(".spAnProductClass_alertEdit").fadeToggle();
+   			var ID = $(this).parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+   			$.get('{{:U("ajaxControl")}}',{flag:'selClassifyInfo',id:ID},function(res){
+   				for(r in res){
+   					console.log(r);
+   					switch(r){
+   						/* case 'pid':
+   							$(".spAnProductClass_alertEdit form select").find('option[value="'+res.pid+'"]').prop('selected',true);
+   						break; */
+   						case 'title':
+   							$('.spAnProductClass_alertEdit form').find('textarea[name="'+r+'"]').val(res[r]);
+   						break;
+   						case 'classify_name':
+   							$('.spAnProductClass_alertEdit form').find('input[name="classify_name"]').val(res.classify_name);
+   						break;
+   						case 'classify_logo':
+   							$('.spAnProductClass_alertEdit form').find('.kbShopAdmin_fileImg .businessFileImgList').append("<img src='__PUBLIC__"+res.classify_logo+"' alt='产品分类图片' />");
+   						break;
+   					}
+   				}
+   			});
+   			$('.spAnProductClass_alertEdit form').prop('action',"{{:U('goodsClassifyUpdate')}}?id="+ID);
+   		})
+   		 $('.kbShopAdmin_tdAction .kbShopAdmineDel').on('click',function(){
+   		 	var $this = $(this);
+   		 	var ID =$this.parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+   		 	
+   		 	animationAlert({
+   		 		headline:"温馨提醒",//标题
+				alertContent:"你确定删除该分类吗？",//正文
+				act:"bounce",
+				alertHide:"alertShow",
+				determineName:"再想想",//第一个按钮的内容，返回值为true
+				cancelName:"确定",//第二个按钮的内容，返回值为false
+   		 	},function(ren){
+
+   		 		if(ren){
+   		 			console.log("不删除");
+   		 		}else{
+   		 			$.get('{{:U("ajaxControl")}}',{flag:'goodsClassifyDel',id:ID},function(res){
+		   		 		if(res){
+		   		 			operatingTip(res);
+		   		 			 $this.parent().parent().remove();
+		   		 		}
+   		 			})
+   		 		}
+   		 	});
+   		 	
+   		 });
+   		 $('.kbShopAdmin_checkbox input').on('click',function(){
+   		 	 var $this=$(this);
+   		 	 var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+   		 	 var Status=$this.val().trim();
+   		 	 jsAjaxControl($this,{
+   		 	 		ajaxURL:ajaxUrl,
+	   		 	 	params:{
+	   		 	 		flag:'changeGoodsClassifyStatus',
+	   		 	 		status:Status
+	   		 	 	}
+   		 	 },function(res){
+   		 	 		operatingTip(res);
+   		 	 })
+   		 })
+     });
+    	
+	</script>
+</block>

@@ -1,0 +1,38 @@
+<extend name="Common/websiteCom" />
+
+<block name="header">
+	<header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-back" href="javascript:;" onclick="javascript:history.back(-1)">
+			</a>
+		</nav>
+		<h1>历史形象</h1>
+		<nav>
+			
+		</nav>
+	</header>
+</block>
+<block name="content">
+	<section id="bsMain" class="noFooter bsPushReview">
+		
+		<volist name="list" id="v" >
+			<h1 class="pl10 pr10 bsGoodsTitle  mb10 c666">{{:date('Y-m-d', $v['create_time'])}}</h1>
+				<ul class="bsList imgList pl10 pr10 pt10">
+				<volist name="v.company_upload" id="vo" >
+					<li>
+						<img src="__PUBLIC__{{$vo}}" alt="" />
+					</li>
+				</volist>
+				</ul>
+				<ul class="bsList imgList pl10 pr10 pt10">
+				<volist name="v.visitor_upload" id="vo" >
+					<li>
+						<img src="__PUBLIC__{{$vo}}" alt="" />
+					</li>
+				</volist>
+				</ul>
+			<p class="bsSeparate"></p>
+		</volist>
+
+	</section>
+</block>

@@ -1,0 +1,182 @@
+ .registeredUse{
+	display:inline-block;
+	width:100px;
+	height:140px;
+	background-color:#fff;
+	border-radius:5px;
+	vertical-align:top;
+	margin-left:21px;
+ }
+.registeredUse p{
+	height:50%;
+	text-align:center;
+	line-height:70px;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.registeredUse p:first-child{
+	border-bottom:1px solid #eee;
+}
+#main{
+	display:inline-block;
+	margin-left:21px;
+	background-color:#fff;
+}
+
+/**/
+.allUser{
+	width:96%;
+	padding:10px 20px;
+	background-color:#fff;
+}
+.allUser>ul{
+	border:1px solid #ddd;
+	display:inline-block;
+	margin:10px 0;
+}
+.allUser>ul li{
+	display:inline-block;
+	width:60px;
+	height:25px;
+}
+.allUser>ul li a{
+	display:block;
+	text-align:center;
+	line-height:25px;
+	color:#131313;
+}
+.allUser>ul li a.selected{
+	background-color:#f55252;
+	color:#fff !important;
+}
+#screanUser input{
+	height:25px;
+	border-radius:5px;
+
+}
+#screanUser input[type="screan"]{
+	width:200px;
+	border:1px solid #a7a7a7;
+	margin-right:10px;
+	padding-left:5px;
+}
+#screanUser input[type=submit]{
+	width:40px;
+	text-align:center;
+	background-color:#f55252;
+	color:#fff;
+	border:1px solid #f55252;
+}
+
+.userTable table{
+	width:100%;
+	border:1px solid #a7a7a7;
+	border-radius:5px;
+}
+.userTable table thead{
+	background-color:#808080;
+	color:#fff;
+}
+.userTable table thead th,.userTable  tbody tr{
+	height:40px;
+	line-height:40px;
+	text-align:center;
+}
+.userTable table tbody{
+
+}
+.userTable  tbody td{
+	border:1px solid #a7a7a7;
+}
+.userTable  tbody td p{
+	display:inline-block;
+}
+.userTable  tbody td:nth-child(1) p{
+	width:100px;
+}
+
+/*collect*/
+.sectorBox{
+	display:inline-block;
+	width:435px;
+	height:302px;
+	background-color:#ddd;
+	border:1px solid #666;
+	border-radius:2px;
+}
+.Columnchart{
+	background-color:#ddd;
+	border:1px solid #666;
+	border-radius:2px;
+}
+
+/*messageList*/
+.messageList{
+	padding:10px 20px;
+	background-color:#fff;
+	border-radius:5px;
+}
+.messageList h1{
+	font-size:140%;
+	border-bottom:1px solid #eee;
+	padding:5px 0;
+	margin-bottom:10px;
+}
+.messageList li{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	height:80px;
+	overflow:hidden;
+	border-bottom:5px solid #eee;
+	padding:10px 0;
+}
+.messageList li>div{
+	display:inline-block;
+	vertical-align:top;
+}
+.messageList li>div:nth-child(1){
+	width:80px;
+	height:80px;
+	overflow:hidden;
+}
+.messageList li>div:nth-child(1) img{
+	width:100%;
+	height:100%;
+}
+.messageList li>div:nth-child(2){
+	width:90%;
+	height:100%;
+	margin-left:20px;
+}
+.messageList li>div:nth-child(2) p{
+	display:inline-block;
+}
+.messageList li>div:nth-child(2) p:nth-child(1){
+	width:70%;
+}
+.messageList li>div:nth-child(2) p:nth-child(2){
+	width:200px;
+}
+.messageList li>div:nth-child(2) p:nth-child(2) a{
+	color:#333;
+	border:1px solid #333;
+	width:80px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	vertical-align:top;
+	display:inline-block;
+	border-radius:5px;
+}
+.messageList li>div:nth-child(2) p:nth-child(2) a:nth-child(1){
+	margin-right:10px;
+}
+.messageList li>div:nth-child(2) p:nth-child(2) a:hover{
+	border-color:#57c8f2;
+}
+.messageList .sendDate{
+	color:#999;
+	font-size:12px;
+}

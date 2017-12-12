@@ -1,0 +1,3 @@
+<?php
+//000000000000a:16:{s:5:"appid";s:18:"wx5527d0875579adb4";s:9:"bank_type";s:9:"ABC_DEBIT";s:8:"cash_fee";s:5:"37900";s:8:"fee_type";s:3:"CNY";s:12:"is_subscribe";s:1:"Y";s:6:"mch_id";s:10:"1489806372";s:9:"nonce_str";s:32:"HbhzuQ0b3vDyTJiMn3ylX2wI4TSihx4D";s:6:"openid";s:28:"oU8vHwm3qO_hsFsggqzJ6ossSZNM";s:12:"out_trade_no";s:28:"V808C20D20171211153156822773";s:11:"result_code";s:7:"SUCCESS";s:11:"return_code";s:7:"SUCCESS";s:4:"sign";s:32:"589730C0C0DDC0C33F7C27C7E8570814";s:8:"time_end";s:14:"20171211153204";s:9:"total_fee";s:5:"37900";s:10:"trade_type";s:5:"JSAPI";s:14:"transaction_id";s:28:"4200000022201712112135529442";}
+?>

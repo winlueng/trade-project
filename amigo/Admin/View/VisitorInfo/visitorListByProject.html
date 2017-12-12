@@ -1,0 +1,209 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">	
+<!-- <link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?version=1.1"></link>
+ -->
+<style>
+	.HealthStatus{
+		display:none;
+	}
+</style>
+<php>
+	//echo('<pre>');
+	//var_dump($list);exit;
+</php>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_rightCenter" class=" OrderForm mb10"><!-- 内容页开始 -->
+			<div class="centerTitle">
+				<h1>用户列表</h1>
+			</div>
+			<div class="kb_table-filter mb10">
+				<!-- <form action="" method="get" style="display:inline-block">
+						<select class="kbVipAdmin_slt w100 h30" name="correlation_id" title="可选择分类查找相关商品">
+							<option value="">全部类型</option>
+							<foreach name="typeList" item="v">
+								<option value="{{$v.id}}">{{$v.type_name}}</option>
+							</foreach>
+						</select>
+						<input type="submit" class="kbVipAdmin_opt  w80 h30" value="确认查找">
+				</form> -->
+				<div class="filter-searchDate mr10">
+					<form action="{{:U('VisitorInfo/visitorListByProject',['module' => $_GET['module']])}}">
+						<input type="search" value="{{:I('sel_name')}}" name="sel_name" placeholder="请输入用户呢称" />
+						<input class="kbVipAdmin_opt w80 h30 fr" type="submit" value="确定" />
+					</form>
+				</div>
+			</div>
+			<div class="main-contentBox kbVipAdmin_mt24" >
+			<div class="kbVipAdmin_table mb20">
+				
+				<table>
+					<thead>
+						<tr>
+							<th width="50">用户ID</th>
+							<th>呢称</th>
+							<th>性别</th>
+							<th>电话号码</th>
+							<th>购买次数</th>
+							<th>充值次数</th>
+							<th>累计充值金额</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<volist name="list" id="v" >
+						<tr>
+							<td><p>{{$v.id}}</p></td>
+							<td><p>{{$v.nick_name}}</p></td>
+							<td><p>{{$v['sex'] == '1'?'男':'女'}}</p></td>
+							<td><p>{{$v.phone}}</p></td>
+							<td><p>{{$v.pay_total}}</p></td>
+							<td><p>{{$v.recharge_total}}</p></td>
+							<td><p>{{$v['recharge_sum']?$v['recharge_sum']:0}}</p></td>
+							<td>
+								<div class="kbVipAdmin_tdAction">
+									<input class=" kbVipAdminSea mb10" type="button" value="" title="详情" v-on:click="selectInfo(this)" />
+								<!-- 	<input class=" kbVipAdminStaff mb10" type="button" visitorID="{{$v.id}}" value="" title="历史形象"  />
+									<input class=" kbVipAdminHistorty mb10" type="button" visitorID="{{$v.id}}" nickName="{{$v.nick_name}}" value="" title="加入员工"  /> -->
+								</div>
+							</td>
+						</tr>
+					</volist>
+					</tbody>
+				</table>
+			</div>
+				<!-- 表格页数开始 -->
+				<div class="kbVipAdmin_page mb10">
+					<div class="pageSize">
+						{{$page}}
+						<script type="text/javascript">
+							$('.pageSize a:first-child').addClass('prevPage');
+							$('.pageSize a:last-child').addClass('nextPage');
+						</script>
+					</div>
+					<div class="pageJump">	
+					<if condition="count($list) eq 10 ">
+					<form >
+						<input class="w60  fl" type="text" name="p" placeholder="{{:I('get.p')}}" />
+						<input type="submit" class="fl" name="" value="跳转">
+					</form>	
+					</if>	
+					</div>
+				</div>
+				<!-- 表格页数结束 -->
+			<!-- 表格结束 -->
+		</div>
+	</div><!-- 内容页结束 -->
+
+	<div class="kbVipAdmin_alert visitorList_alert">
+		<div class="kbVipAdmin_alertBox"  id="visitorList_alert">
+			<button type="button" class="kbVipAdmin_alert-close "></button>
+				<h3 >个人资料</h3>
+			<form >
+				<div class="formDate">
+				<ul class="mt20"   >
+					<li class="kbVipAdmin_enter" >
+						<b>呢称:</b>
+						<p class="infoBlock">{{info.nick_name}}</p>
+					</li>
+					<!-- <li class="kbVipAdmin_enter" >
+						<b>微信ID:</b>
+						<p class="infoBlock"></p>
+					</li> -->
+					<li class="kbVipAdmin_enter" >
+						<b>姓名:</b>
+						<p class="infoBlock">{{info.real_name}}</p>
+					</li>
+					<li class="kbVipAdmin_enter" >
+						<b>性别:</b>
+						<p class="infoBlock" v-if="info.sex==='2'">女</p>
+						<p class="infoBlock" v-if="info.sex==='1'">男</p>
+					</li>
+					<li class="kbVipAdmin_enter" >
+						<b>生日:</b>
+						<p class="infoBlock">{{info.visitor_birthday}}</p>
+					</li>
+					<li class="kbVipAdmin_enter" >
+						<b>购物次数:</b>
+						<p class="infoBlock">{{info.pay_total}}</p>
+					</li>
+					<li class="kbVipAdmin_enter" >
+						<b>手机号码:</b>
+						<p class="infoBlock">{{info.phone}}</p>
+					</li>
+					<!-- <li class="kbVipAdmin_enter" >
+						<b>邮箱:</b>
+						<p class="infoBlock">{{info.email}}</p>
+					</li> -->
+					<li class="kbVipAdmin_enter" >
+						<b>所在地:</b>
+						<p class="infoBlock">{{info.city}}</p>
+					</li>
+					<li class="kbVipAdmin_enter" >
+						<b>个人说明:</b>
+						<p class="infoBlock">{{info.visitor_title}}</p>
+					</li>
+					<li class="kbVipAdmin_enter" >
+						<b>用户来源:</b>
+						<p class="infoBlock">{{info.company_name}}</p>
+					</li>
+				</ul>
+				</div>
+				<!-- <div class="kbVipAdmin_operating ">
+					<div class="kbVipAdmin_restsubmit">
+						<input  class="kbVipAdmin_opt_7facff  HistortyInfo w80 h30 tc" v-bind:visitorID="info.visitor_id" type="button" value="历史形象" />
+						<input  class="visitorInfo kbVipAdmin_opt_7facff w80 h30" v-bind:visitorID="info.visitor_id" type="button" value="完善资料" />
+					</div>
+				</div> -->
+			</form>
+		</div>
+	</div>
+	</div>
+		
+</block>
+<block name="js_files">
+	<script>
+		$(function(){
+			
+			
+
+		(function(){
+			var app =new Vue({
+				el:'#visitorList_alert',
+				data:{
+					info:{},
+
+				}
+			})
+			// 详细资料
+			$('.kbVipAdminSea').on('click',function(){
+				var $this=$(this),
+					visitor_id=$this.parents('tr').children('td').eq(0).children('p').text().trim();
+				$.get('{{:U("VisitorInfo/ajaxControl")}}',{
+					flag:"visitorInfo",
+					visitor_id:visitor_id
+				},function(res){
+					app.info=res.info;
+					
+					console.log(app.info);
+				var url = "{{:U('VisitorImage/insert')}}?visitor_id="+app.info.visitor_id;
+				$('.visitorListAdd_alert').find('form').attr('action',url);
+				})
+				$('.visitorList_alert').fadeIn();
+			})
+			$('.visitorInfo').on('click',function(){
+						$('.kbVipAdmin_alert').fadeOut();
+						$('.visitorListAdd_alert').fadeIn();
+				
+			})
+
+
+		})();
+		
+		
+		$('.kbVipAdmin_alert .kbVipAdmin_operating input[type="reset"],.kbVipAdmin_alert-close').on('click',function(){
+			$('.kbVipAdmin_alert').fadeOut();
+		});
+	})	
+	</script>
+</block>

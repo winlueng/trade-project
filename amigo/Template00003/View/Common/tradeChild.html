@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=0">
+    <title>阿密购商城</title>
+    <include file="Common/theader" />
+    <style>
+      .kb_hasTip-count{
+        top:7px;
+        right: 14px;
+      }
+    </style>
+    <block name="css_files">
+    
+    </block>
+</head>
+<body>
+<block name="header">
+  <header id="Header" class="kb_header kb_SearcHHref flexLayout-center ">
+    <nav>
+      <block name="leftNav">
+        <a href="javascript:;" class="icon-advisory w"></a>
+      </block>
+    </nav>
+    <h2 class="kb_header-title">
+    <block name="title">
+      <!-- <form>
+          <input type="search" value="" placheholder="请输入搜索内容" class="kb_search icon-search bc" />
+      </form> -->
+    </block>
+    </h2>
+    <nav>
+    <block name="rightNav">
+     <a class="icon-MoreMenu w" href="javascript:;" >
+        </a>
+        <div class="moreMenu">
+          <div class="Cover h"></div>
+          <div class="moreMenu-box">
+            <!-- <p>
+              <a href="{{:U('PT2/Index/index')}}?companyName={{:I('get.companyName')}}">
+                <span class="icon-MoreIndex"></span>
+                <b>首页</b>
+              </a>
+            </p> -->
+            <p>
+              <a href="{{:U('SystemNews/newsList')}}?companyName={{:I('get.companyName')}}">
+                <span class="icon-MoreMessage {{$newsCount>0?'kb_hasTip':''}}">
+                <if condition="$newsCount gt 0">
+                   <span class="kb_hasTip-count">
+                       {{$newsCount}}
+                   </span>
+                </if>
+                </span>
+                <b>消息</b>
+              </a>
+            </p>
+           <!--  <p>
+             <a href="javascript:;" class="mark-moreShare">
+               <span class="icon-MoreShare"></span>
+               <b>分享</b>
+             </a>
+           </p> -->
+          </div>
+        </div>
+    </block>
+    </nav>
+  </header>
+</block>
+<block name="content">
+  
+</block>
+<block name="footer">
+  <footer id="Footer" class="kb_footer ">
+    <ul class="firstNav flexLayout-center ">
+      <li>
+        <a href="{{:U('Index/index')}}?companyName={{$_GET['companyName']}}" button-type="1">
+          <em class="icon-menu-home"></em>
+            <b>首页</b>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('Goods/goodsList')}}?companyName={{$_GET['companyName']}}" button-type="2">
+          <em class="icon-menu-classification"></em>
+            <b>分类</b>
+        </a>
+      </li>
+      <li>
+          <a href="{{:U('News/newsList')}}?companyName={{$_GET['companyName']}}" button-type="3">
+            <em class="icon-menu-magazine"></em>
+            <b>杂志</b>
+          </a>
+      </li>
+      <!-- <li>
+        <a href="javascript:;" button-type="4">
+          <em class="icon-menu-experience"></em>
+          <b>体验店</b>
+        </a>
+      </li> -->
+      <li>
+        <a href="{{:U('VisitorInfo/myCenter')}}?companyName={{$_GET['companyName']}}" button-type="5">
+          <em class="icon-menu-myself"></em>
+          <b>我的</b>
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <script>
+    $('#Footer a').on('click',function(){
+      $.get("{{:U('Template00002/Index/ajaxControl')}}?companyName={{:I('get.companyName')}}", {flag: 'indexButtonClickStatistics', button:$(this).attr('button-type')});
+    })
+  </script>
+</block>
+  
+  <include file="Common/tfooter" />
+  <script>
+      $(function(){
+        $('.icon-MoreMenu').on('click',function(){
+          $('.moreMenu').show();
+          $('.moreMenu .Cover').on('click',function(){
+            $('.moreMenu').hide();
+           })
+        })
+        $('.mark-moreShare').on('click',function(){
+            $('.moreMenu').hide();
+            $('.dl_moreShara').show();
+            $('.dl_moreShara .Cover,.mark-sharecancel').on('click',function(){
+            $('.dl_moreShara').hide();
+
+           })
+        })
+      })
+      $(function(){
+        $('.kb_header.kb_SearcHHref  .kb_search').on('click',function(){
+          window.location.href='{{:U("Search/showSearch", ["companyName" => $_GET["companyName"]])}}';//搜索跳转
+        });
+      })
+    </script>
+  <block name="js_files">
+  </block>
+   <block name="wx_share">
+    <script>
+      wx.ready(function(){
+          wx.onMenuShareAppMessage({
+             title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '欢迎光临Imigo阿密购商城，这里有您想要的一切优质实惠商品', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+             type: '', // 分享类型,music、video或link，不填默认为link
+             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+             success: function () { 
+                 // 用户确认分享后执行的回调函数
+                 console.log("asdasdasd");
+             },
+             cancel: function () { 
+                 // 用户取消分享后执行的回调函数
+             }
+         });
+           wx.onMenuShareTimeline({
+             title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+             success: function () { 
+                 // 用户确认分享后执行的回调函数
+             },
+             cancel: function () { 
+                 // 用户取消分享后执行的回调函数
+             }
+         });
+           wx.onMenuShareQQ({
+             title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '欢迎光临Imigo阿密购商城，这里有您想要的一切优质实惠商品', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+               success: function () { 
+                  // 用户确认分享后执行的回调函数
+               },
+               cancel: function () { 
+                  // 用户取消分享后执行的回调函数
+               }
+           });
+           wx.onMenuShareQZone({
+                title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '欢迎光临Imigo阿密购商城，这里有您想要的一切优质实惠商品', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+               success: function () { 
+                  // 用户确认分享后执行的回调函数
+               },
+               cancel: function () { 
+                   // 用户取消分享后执行的回调函数
+               }
+           });
+           wx.onMenuShareWeibo({
+                title: '{{$companyInfo["company_name"]?$companyInfo["company_name"]:"阿密购商城"}}', // 分享标题
+             desc: '欢迎光临Imigo阿密购商城，这里有您想要的一切优质实惠商品', // 分享描述
+             link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+             imgUrl: 'http://www.chinaimigo.com/Public/trading/images/kblogo.jpg', // 分享图标
+               success: function () { 
+                  // 用户确认分享后执行的回调函数
+               },
+               cancel: function () { 
+                   // 用户取消分享后执行的回调函数
+               }
+           });
+       });
+    </script>
+  </block>
+</body>
+</html>

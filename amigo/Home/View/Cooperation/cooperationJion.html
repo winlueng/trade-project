@@ -1,0 +1,60 @@
+<extend name="Web/default" />
+<block name="files">
+	<style type="text/css">
+	    .info {
+	        font-size: 13px;
+	        color: #1c1c1c;
+	        line-height: 1.5;
+	    }
+	    main>#CooperationJion img {
+	        width: 100px;
+	        height: 100px;
+	        display: block;
+	        margin-top: 5px;
+	        border-radius: 0;
+	    }
+	    .info > p:nth-child(1) {
+	        font-size: 16px;
+	        line-height: 2;
+	        font-weight: bolder;
+	    }
+	    .info > p:nth-child(3),
+	    .info > p:nth-child(4),
+	    .info > p:nth-child(5),
+	    .info > p:nth-child(7),
+	    .info > p:nth-child(8) {
+	        /*text-indent: 2em;*/
+	    }
+    </style>
+</block>
+<block name="content">
+	<div class="swiper-container carousel">
+        <div class="swiper-wrapper">
+            <foreach name="list" item="v">
+                <div class="swiper-slide"><a href="{{$v['poster_url']}}"><img src="__PUBLIC__{{$v['poster_pic']}}" onclick="clickStatistics(this)" posterid="{{$v.id}}"></a></div>
+            </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div id="CooperationJion">
+        <div class="title"><p>合作加盟</p></div>
+        <div class="info">
+            <p>联系我们</p>
+            <p>联系人:<b>周先生</b></p>
+            <p>电话:<a href="tel:020-89625320">020-89625320</a></p>
+            <p>合作加盟电话:<a href="tel:13688894248">13688894248</a></p>
+            <p>邮箱:<a href="mailto:jaychow@gdkbvip.com">jaychow@gdkbvip.com</a></p>
+            <!-- <img src="images/01.jpg"> -->
+            <p style="margin-top: 15px;">联系人:<b>吕小姐</b></p>
+            <p>产品咨询电话:<a href="tel:15626181734">15626181734</a></p>
+            <p>邮箱:<a href="mailto:qluminlv@gdkbvip.com">qiuminlv@gdkbvip.com</a></p>
+            <p style="margin-top: 15px;">地址：广州市海珠区广州大桥南桃花街159号<br />&nbsp;&nbsp;&nbsp;经典居1301</p>
+        </div>
+        <ul style="margin-top: 20px;display:none;">
+            <li><span></span><p>助你开户营销新时代、无需公众号<br />轻松玩转微信营销</p></li>
+            <li><span></span><p>助你开户营销新时代、无需公众号<br />轻松玩转微信营销</p></li>
+            <li><span></span><p>助你开户营销新时代、无需公众号<br />轻松玩转微信营销</p></li>
+            <li><span></span><p>助你开户营销新时代、无需公众号<br />轻松玩转微信营销</p></li>
+        </ul>
+    </div>
+</block>

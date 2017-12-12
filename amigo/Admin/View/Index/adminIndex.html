@@ -1,0 +1,205 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/kbVipAdminCount.css">
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<ul class="microWebCount">
+				<h3>访问量</h3>
+				<li>
+					<p>微官网</p>
+					<p><b>{{$websiteVisitTotal}}</b></p>
+				</li>
+				<li>
+					<p>卡券速递</p>
+					<p><b>{{$cardVisitTotal}}</b></p>
+				</li>
+			</ul>
+			<ul class="preferentialCount">
+				<h3>卡券速递(联盟卡券)</h3>
+				<li>
+					<p>优惠券</p>
+					<div>
+					 	<p>
+						 	
+						 	<span>点击量：</span>
+						 	<b >{{$league['favorable']['click_total']}}</b>
+						 </p>
+						 <p>
+							
+							<span>领取量：</span>
+							<b>{{$league['favorable']['get_total']}}</b>
+						</p>
+					</div>
+				</li>
+				<li>
+					<p>体验券</p>
+					<div>
+					 	<p>
+						 	
+						 	<span>点击量：</span>
+						 	<b>{{$league['experience']['click_total']}}</b>
+						 </p>
+						 <p>
+							<span>领取量：</span>
+							<b>{{$league['experience']['get_total']}}</b>
+						</p>
+					</div>
+				</li>
+				<li>
+					<p>现金券</p>
+					<div>
+						<p>
+						 	<span>点击量：</span>
+						 	<b>{{$league['cash']['click_total']}}</b>
+
+						 </p>
+						 <p>
+							<span>领取量：</span>
+							<b>{{$league['cash']['get_total']}}</b>
+
+						</p>
+					</div>
+				</li>
+				<li>
+					<p>代金券</p>
+					<div>
+					 	<p>
+						 	<span>点击量：</span>
+						 	<b>{{$league['voucher']['click_total']}}</b>
+
+						 </p>
+						 <p>
+							<span>领取量：</span>
+							<b>{{$league['voucher']['get_total']}}</b>
+
+						</p>
+					</div>
+				</li>
+				<li>
+					<p>折扣券</p>
+					<div>
+					 	<p>
+						 	<span>点击量：</span>
+						 	<b>{{$league['discount']['click_total']}}</b>
+
+						 </p>
+						 <p>
+							<span>领取量：</span>
+							<b>{{$league['discount']['get_total']}}</b>
+
+						</p>
+					</div>
+				</li>
+			</ul>
+			<ul class="preferentialCount">
+				<h3>卡券速递(自身卡券)</h3>
+				<li>
+					<p>优惠券</p>
+					<div>
+					 	<p>
+						 	
+						 	<span>点击量：</span>
+						 	<b >{{$us['favorable']['click_total']}}</b>
+						 </p>
+					</div>
+				</li>
+				<li>
+					<p>体验券</p>
+					<div>
+					 	<p>
+						 	
+						 	<span>点击量：</span>
+						 	<b>{{$us['experience']['click_total']}}</b>
+						 </p>
+					</div>
+				</li>
+				<li>
+					<p>现金券</p>
+					<div>
+						<p>
+						 	<span>点击量：</span>
+						 	<b>{{$us['cash']['click_total']}}</b>
+						 </p>
+					</div>
+				</li>
+				<li>
+					<p>代金券</p>
+					<div>
+					 	<p>
+						 	<span>点击量：</span>
+						 	<b>{{$us['voucher']['click_total']}}</b>
+						 </p>
+					</div>
+				</li>
+				<li>
+					<p>折扣券</p>
+					<div>
+					 	<p>
+						 	<span>点击量：</span>
+						 	<b>{{$us['discount']['click_total']}}</b>
+						 </p>
+					</div>
+				</li>
+			</ul>
+			<ul class="businessCount">
+				<h3>商户统计</h3>
+				<li>
+					<p><b>{{$websiteCompanyCount}}</b></p>
+					<p>微官网</p>
+				</li>
+				<li>
+					<p><b>{{$cardCompanyCount}}</b></p>
+					<p>卡券速递</p>
+				</li>
+				<li>
+					<p><b>{{$dueCompanyCount}}</b></p>
+					<p>将要过期商户</p>
+				</li>
+			</ul>
+			<div class="businessCount">
+				<h3>近期过期商户</h3>
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>商户名称</th>
+							<th>商户地址</th>
+							<th>行业</th>
+							<!-- <th>协议类别</th> -->
+							<th>注册人</th>
+							<th>电话</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="dueCompanyList" item="v">
+						<tr>
+							<td>{{$v['uid']}}</td>
+							<td>{{$v['company_name']}}</td>
+							<td>{{$v['address']}}</td>
+							<td>{{$v['business']}}</td>
+							<!-- <td></td> -->
+							<td>{{$v['principal']}}</td>
+							<td>{{$v['phone']}}</td>
+							<td>{{:date('Y-m-d',$v['start_time'])}}</td>
+							<td>{{:date('Y-m-d',$v['end_time'])}}</td>
+						</tr>
+					</foreach>
+					</tbody>
+					<tfoot>
+			           <!--  <tr>
+			                <td colspan="9">
+			                    <div id="dvPager" class="page fr clearfix" style="margin: 10px 0 15px;"></div>
+			                </td>
+			            </tr> -->
+		        	</tfoot>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+</block>

@@ -1,0 +1,54 @@
+<extend name="Web/default" />
+<block name="files">
+
+</block>
+<block name="content">
+    <div class="swiper-container carousel">
+        <div class="swiper-wrapper">
+            <foreach name="poster" item="v">
+                <div class="swiper-slide"><a href="{{$v['poster_url']}}" onclick="clickStatistics(this)" posterid="{{$v.id}}"><img src="__PUBLIC__{{$v['poster_pic']}}"></a></div>
+            </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div id="LeagueCard">
+        <div class="title"><p>盟券发放</p></div>
+        <div class="card">
+            <foreach name="list" item="v">
+                <img src="__PUBLIC__{{$v['bgaddress']}}" cardid="{{$v['card_ip']}}" nonce="{{$v['nonce_str']}}" cardcid="{{$v['id']}}" timestamp="{{$v['timestamp']}}" signature="{{$v['Card_Ticket']}}">
+            </foreach>
+        </div>
+    </div>
+    <script type="text/javascript">
+        wx.config({
+            debug: false,//调试模式
+            appId: '{{$wechat["appId"]}}',//公众号ID
+            timestamp: '{{$wechat["timestamp"]}}',//时间戳
+            nonceStr: '{{$wechat["nonceStr"]}}',//随机字符串
+            signature: '{{$wechat["signature"]}}',//JSSDK接口签名
+            jsApiList: [
+              // 所有要调用的 API 都要加到这个列表中
+              'addCard'
+        ]});
+
+        $(".card img").on("click", function(){
+            wx.addCard({
+                cardList:[{
+                    cardId: $(this).attr('cardid'),
+                    cardExt: '{"code": "", "openid": "", "timestamp": "'+ $(this).attr('timestamp') +'", "nonce_str": "'+ $(this).attr('nonce') +'", "signature": "'+ $(this).attr('signature') +'"}',
+                }],
+                success: function (res) {
+                    $.get("{{:U('Merchant/ajaxControl')}}", {flag:'getAdd', cardip:$(this).attr('cardcid')});
+                    alert("领取成功");
+                }/* ,
+                cancel: function (res) {
+                    alert("取消了。。。。");
+                },
+                fail: function (res) {
+                    alert("接口调用失败");
+                } */
+            });
+        });
+
+    </script>
+</block>

@@ -1,0 +1,83 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/company/css/companyInfo/companyInfo.css"></link>
+
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnCouponAdmin">
+		<div class="kbShopAdmin_operating spAnCouponAdmin-operating" >
+		</div>
+		<div class="spAnCouponAdmin-operating kbShopAdmin_mt24" >
+			<div class="kbShopAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>卡券名称</th>
+							<th>优惠描述</th>
+							<th>库存量</th>
+							<th>领取量</th>
+							<!-- <th>核销量</th> -->
+							<th>使用时间</th>
+						</tr>
+					</thead>
+					<tbody>
+					<volist name="cardList" id="v" empty="$empty">
+						<tr>
+							<td>{{$i}}</td>
+							<td>
+								<switch name="v.card_type">
+				                    <case value="GROUPON">团购券</case>
+				                    <case value="DISCOUNT">折扣券</case>
+				                    <case value="GIFT">礼品券</case>
+				                    <case value="CASH">代金券</case>
+				                    <case value="GENERAL_COUPON">优惠券</case>
+				                </switch>
+							</td>
+							<td>{{$v.description}}</td>
+							<td>{{$v['sku']['total_quantity']}}</td>
+							<td>{{$v['sku']['total_quantity'] - $v['sku']['quantity']}}</td>
+							<td>
+								<switch name="v.date_info.type">
+				                    <case value="DATE_TYPE_FIX_TIME_RANGE">
+				                       {{:date('Y年m月d日', $v['date_info']['begin_timestamp'])}}- {{:date('Y年m月d日', $v['date_info']['end_timestamp'])}}
+				                    </case>
+				                    <case value="DATE_TYPE_FIX_TERM">
+				                      <if condition="$v['date_info']['fixed_begin_term']">
+				                        自领取后{{$v['date_info']['fixed_begin_term']}}天开始生效, 生效后有效期{{$v['date_info']['fixed_term']}}天
+				                      <else/>
+				                        <if condition="$v['date_info']['fixed_term']">
+				                        自领取后{{$v['date_info']['fixed_term']}}天内有效
+				                        <else/>
+				                        自领取后当天内有效
+				                        </if>
+				                      </if>
+				                    </case>
+				                </switch>
+							</td>
+							<td class="kbShopAdmin_tdAction">
+							</td>
+						</tr>
+					</volist>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+     $(function(){
+   		$('.spAnCouponAdmin .spAnCouponAdmin-operating .kbShopAdmin_add').on('click',function(){
+   			$('.spAnCouponAdmin_alert').fadeIn();
+   		});
+   		$('.kbShopAdmin_alert .kbShopAdmin_operating input').on('click',function(){
+   			$('.kbShopAdmin_alert').fadeOut();
+   		});
+   		$('.spAnCouponAdmin .kbShopAdmin_tdAction .kbShopAdminEdit').on('click',function(){
+   			$('.spAnCouponAdmin_alertEdit').fadeIn();
+   			
+   			
+   		});
+     })
+	</script>
+</block>

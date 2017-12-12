@@ -1,0 +1,83 @@
+<extend name="Common/secondCom" />
+
+<block name="css_file">
+  <link rel="stylesheet" href="__PUBLIC__/salon/css/oneselfCore.css?v=1.10" />
+  <php>
+   //echo '<pre>';
+    //var_dump($youLikeList);exit;
+  </php>
+    <style>
+    body{
+      background-color:#f7f7f7;
+    }
+   .infoMark{
+    margin-left:0;
+   }
+   .oneselfYouLike{
+     max-width:100%;
+   }
+   .oneselfYouLike li{
+    margin-bottom:5px;
+   }
+   .oneselfYouLike .oneselfBox:nth-child(2) h1 strong{
+      width:100%;
+   }
+   .oneselfYouLike  .oneselfBox:nth-child(2){
+      width: 54%;
+   }
+    .oneselfYouLike li a{
+      display:block;
+   }
+  </style>
+</block>
+
+<block name="bsTitle">
+ 猜你喜欢
+</block>
+ <block name="content">
+  <section id="bsMain" class="bsNews">
+    <ul class="oneselfList oneselfYouLike">
+       <empty name="youLikeList">
+        <li class="imgW100"> 
+        <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/16hot_img_none_default.png" alt="暂无数据" />
+        <p class="tc">暂无数据</p>
+      </li>
+      <else/>
+          <foreach name="youLikeList" item="v">
+            <a href="{{$v.link}}">
+              <li>
+                <div class="oneselfBox goodsIMG">
+                  <img src="__PUBLIC__{{$v.goods_logo}}" alt="logo" />
+                </div>
+                <div class="oneselfBox">
+                  <h1><strong class="ellipsis">{{$v.goods_name}}</strong></h1>
+                  <p><span class="infoMark">￥ 
+                    <!-- 判断是否特殊价格 -->
+                    <if condition="($v['is_promotion'] eq 1)">
+                        {{$v['promotion_price']}}
+
+                      <else />
+                      <!-- 原价乘以折扣 -->
+                        {{$v['price'] * $v['discount']}}
+                    </if>
+                  </span>
+                  <span class="ml10">销售量:{{$v['sales']?$v['sales']:0}}</span></p>
+                  <!-- <p class="ellipsis color796d4e">{{:date('Y-m-d',$v['addtime'])}}</p> -->
+                </div>
+              </li>
+            </a>
+          </foreach>
+      </empty>
+   
+    </ul>
+    <!-- 收藏end -->
+  </section>
+
+    <!-- 收藏start -->
+    
+   
+    
+
+</div>
+</block>
+

@@ -1,0 +1,236 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<style>
+		.project_second_link{
+			width:50%;
+			display: inline-block;
+		}
+		.project_second_link input{
+			width:100%;
+			margin-bottom:5px;
+		}
+		.project_second_link.bc {
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center">
+		
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead  ">
+					<form class="kbVipAdmin_inlineBlock" action="" >
+					<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入关键字搜索" name="selname" value="{{:I('get.selname')}}" />
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+				</div>
+				<div class="roleBox">
+					<div class="roleListDiv">
+						<table class="roleList">
+							<thead>
+								<tr>
+									<th>序号</th>
+									<th>申请人</th>
+									<th>项目名称</th>
+									<th>操作时间</th>
+									<th>操作内容</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+							<empty name="list">
+							<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无审核数据</span></center></td></tr>
+							<else />
+							<foreach name="list" item="v" >
+								<tr>
+									<td>{{$v.id}}</td>
+									<td>{{$v.principal}}</td>
+									<td>{{$v.project_name}}</td>
+									<td>{{:date('Y年m月d日', $v['addtime'])}}</td>
+									<td><a  class="ftcolorA MircoDetails" href="javascript:;" target="_Blank">详细内容</a></td>
+									<td>
+										<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" onclick="microWebAnnalYes(this)" />
+										<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" onclick="microWebAnnalNo(this)" />
+									</td>
+								</tr>
+							</foreach>
+							</empty>
+							</tbody>
+						</table>
+						<div class="kbAdmin_page">
+							{{$page}}	
+						</div>
+					</div><!-- roleListDiv end -->
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- alert -->
+	<div class="kbVipAdmin_alert AuditListInfo_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>审核资料</h2>
+		<form class="couponBusiness_FormParent" action="" method="get">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>项目名称:</span>
+					<input type="text" value="" name="project_name" required="required" />
+				</p>
+				<p class="couponTrade">
+					<span><i>*</i>项目分类:</span>
+					<input type="text" value="" name="category_name" required="required" />
+				</p>
+				<p class="couponAddr">
+					<span><i>*</i>地址:</span>
+					<input type="text" value="" name="address" required="required" />
+                  
+				</p>
+				<p><span><i>*</i>街道地址:</span><input type="text" value="" name="address_info" required="required" /></p>
+				<p><span><i>*</i>联系人:</span><input type="text" value="" name="principal" required="required" /></p>
+				<p><span><i>*</i>联系电话:</span><input type="tel" value="" name="phone" required="required" /></p>
+				<p><span><i>*</i>E-mail:</span><input type="email" value="" name="email" required="required" /></p>
+				<p><span><i>*</i>一级域名:</span>
+					<input type="text" value="" name="project_link" required="required" />
+				</p>
+				<div><span><i>*</i>二级域名:</span>
+						<p class="project_second_link bc">
+
+						</p>
+				</div>
+				<p><span><i>*</i>协议编号:</span><input type="text" value="" name="agreement_number" required="required" /></p>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>身份证正面：</span>
+					<div class="businessFileImgList" name="identity_card_front">
+						<img src="" alt=""/>
+					</div>
+					
+				</div>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>身份证反面：</span>
+					<div class="businessFileImgList" name="identity_card_rear">
+						<img src="" alt=""/>
+					</div>
+					
+				</div>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>营业执照：</span>
+					<div class="businessFileImgList" name="business_license">
+						<img src="" alt=""/>
+					</div>
+					
+				</div>
+
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input   type="text" name="start_time"  readonly="" required="required" />
+				 </p>
+				<p><span><i>*</i>结束时间：</span>
+					<input   type="text" name="end_time"  readonly="" required="required" />
+				</p>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" />
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" />
+				</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(function(){
+		$('.MircoDetails').on('click',function(){
+			$('.AuditListInfo_alert').fadeIn();
+			var porInput=$('.AuditListInfo_alert .kbVipAdmin_form input')
+				$(porInput).prop('disabled',true);
+				$(porInput).css('border','none');
+			$('.AuditListInfo_alert .kbVipAdmin_MenuAdminBtn input').on('click',function(){
+				$('.AuditListInfo_alert').fadeOut();
+			});
+			var $this=$(this);
+			var ajaxUrl='{{:U("Project/ajaxControl")}}';
+			jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					params:{
+						flag:'selProjectInfo',
+					}
+				},function(res){
+					for(r in res){
+						switch(r){
+							case 'start_time':
+								$('.AuditListInfo_alert').find('[name='+r+']').val(date('Y-m-d H:i:s',res.start_time));
+							break;
+							case 'end_time':
+								$('.AuditListInfo_alert').find('[name='+r+']').val(date('Y-m-d H:i:s',res.end_time));
+							break;
+							case 'business_license':
+								$('.AuditListInfo_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							case 'identity_card_front':
+								$('.AuditListInfo_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							case 'identity_card_rear':
+								$('.AuditListInfo_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							case 'project_second_link':
+								var project_second_link=res[r];
+								var attr=project_second_link.split(";");
+								for(var a=0;a<attr.length;a++){
+									var iptText='<input type="text" value="'+attr[a]+'"  disabled/>'
+									$('.project_second_link').append(iptText);
+								}
+								// $('.AuditListInfo_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							default:
+							if($('.AuditListInfo_alert').find('[name='+r+']').length){
+								$('.AuditListInfo_alert').find('[name='+r+']').val(res[r]);
+							}
+							break;
+						}
+					}
+			})
+			$('.microWebAnnalYes').on('click',function(){
+				var microYes=$this.parents('tr').find('.microWebAnnalYes');
+				microWebAnnalYes(microYes);
+			})
+			$('.microWebAnnalNo').on('click',function(){
+				var microNo=$this.parents('tr').find('.microWebAnnalNo');
+				microWebAnnalYes(microNo);
+			})
+		})
+	
+		
+	})
+	function microWebAnnalYes(_this){
+			var $this = $(_this);
+			var ajaxUrl='{{:U("Project/ajaxControl")}}';
+			jsAjaxControl($this,{
+				ajaxURL:ajaxUrl,
+				ajaxBranch:'Confirm',
+				params:{
+					flag:'passOrRefuse',
+					status:0,
+				}
+			},function(ren){
+				operatingTip(ren);
+				if(ren=="通过成功") $this.parents('tr').remove();
+			})
+		}
+		function microWebAnnalNo(_this){
+			var $this = $(_this);
+			var ajaxUrl='{{:U("Project/ajaxControl")}}';
+			jsAjaxControl($this,{
+				ajaxURL:ajaxUrl,
+				ajaxBranch:'Confirm',
+				params:{
+					flag:'passOrRefuse',
+					status:2,
+				}
+			},function(ren){
+				operatingTip(ren);
+				if(ren=="已拒绝") $this.parents('tr').remove();
+			})
+		}
+	</script>
+</block>

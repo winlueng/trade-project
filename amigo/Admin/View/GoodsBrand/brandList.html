@@ -1,0 +1,191 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css"></link>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnProductClass OrderForm">
+		<div class="centerTitle">
+			<h1>品牌管理</h1>
+		</div>
+		<div class="kbShopAdmin_operating spAnProductClass-operating" >
+			<input class="kbShopAdmin_opt kbShopAdmin_add w80 h30" type="button" value="添加" />
+		</div>
+		<div class="main-contentBox kbShopAdmin_mt24" >
+			<div class="kbShopAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>品牌名称</th>
+							<th>品牌logo</th>
+							<th>所属商品数量</th>
+							<th>品牌状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="vo">
+						<tr>
+							<td>{{$vo.id}}</td>
+							<td>{{$vo.brand_name}}</td>
+							<td><img src="__PUBLIC__{{$vo.brand_logo}}" width="100" style="margin-top: 3px"></td>
+							<td>{{$vo.goodsCount}}</td>
+							<td>
+								<p class="kbShopAdmin_pushBtn">
+									<input type="checkbox" value="" {{$vo['status'] == '0'?'checked':''}} title=" {{$vo['status'] == '0'?'启用':'禁用'}}"/>
+									<label><b></b></label>
+								</p>
+								
+							</td>
+							<td class="kbShopAdmin_tdAction">
+								<input class="font_57c8f2 kbShopAdminEdit" type="button" value="" title="编辑"/>
+								<input class="font_ff6c60 kbShopAdminDel" type="button" value="" title="删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页位置 -->
+			<div class="kbShopAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form action="{{:U('orderList')}}">	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+	<div class="kbShopAdmin_alert spAnProductClass_alert">
+		<div class="kbShopAdmin_alertBox">
+			<button type="button" class="kbShopAdmin_alert-close "></button>
+			<form action="" method="post" enctype="multipart/form-data">
+				 <h3 class="mb10">添加品牌</h3>
+				<p class="kbShopAdmin_enter"><b><i>*</i>品牌名称</b>
+				<input type="text" maxlength="6" name="brand_name" value="" placeholder="请输入子品牌名字" required="required" />
+					<strong class="kbShopAdmin_tip">必填项。品牌名字不能超过6个字数</strong>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>品牌封面:</b>
+						
+					<input id="shopImg"  type="file" value="" name="brand_logo"  />
+					
+					<label class="" for="shopImg" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为品牌封面</span></label>
+				</div>
+				<p class="kbShopAdmin_enter"><b><i>*</i>描述</b>
+				<textarea placeholder="请输入品牌描述" name="brand_describe" required="required"></textarea>
+				</p>
+				<div class="kbShopAdmin_operating ">
+					<div class="kbShopAdmin_restsubmit"> 
+						<input  class="kbShopAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+						<input  class="kbShopAdmin_opt w100 h40" type="submit" value="保存" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="kbShopAdmin_alert spAnProductClass_alertEdit">
+		<div class="kbShopAdmin_alertBox">
+			<button type="button" class="kbShopAdmin_alert-close "><img src=" " alert="X" /></button>
+			<form action="" method="post" enctype="multipart/form-data">
+				<h3 class="mb10">编辑品牌</h3>
+				
+				<p class="kbShopAdmin_enter"><b><i>*</i>品牌名称:</b>
+				<input type="text" maxlength="6" name="brand_name" value="" placeholder="请输入子品牌名字" required="required" />
+				<strong class="kbShopAdmin_tip">必填项。子品牌名字不能超过6个字数</strong>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>品牌封面:</b>
+					<div class="shopImg businessFileImgList">
+						<span class="cleraIMG" onclick="clearImg(this)"></span>
+					</div>	
+					<input id="shopImg1"  type="file" value="" name="brand_logo"  />
+					<label class="" for="shopImg1" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为品牌封面</span></label>
+				</div>
+				<p class="kbShopAdmin_enter"><b><i>*</i>描述:</b>
+				<textarea placeholder="请输入产品描述" name="brand_describe" required="required"></textarea>
+				</p>
+				<div class="kbShopAdmin_operating ">
+					<div class="kbShopAdmin_restsubmit"> 
+						<input  class="kbShopAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+						<input  class="kbShopAdmin_opt w100 h40" type="submit" value="保存" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+     $(function(){
+   		$(".spAnProductClass .spAnProductClass-operating  .kbShopAdmin_add").on('click',function(){
+   			$(".spAnProductClass_alert").fadeToggle();
+
+   		})
+   		$(".kbShopAdmin_alert  .kbShopAdmin_operating input[type='reset']").on('click',function(){
+   			$(".kbShopAdmin_alert").fadeOut();
+
+   		})
+   		$(".spAnProductClass .kbShopAdmin_tdAction .kbShopAdminEdit").on('click',function(){
+   			$(".spAnProductClass_alertEdit").fadeToggle();
+   			var ID = $(this).parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+   			$.get('{{:U("ajaxControl")}}',{flag:'selBrandInfo',id:ID},function(res){
+   				for(r in res){
+   					switch(r){
+   						case 'brand_describe':
+   							$('.spAnProductClass_alertEdit form').find('textarea[name="'+r+'"]').val(res[r]);
+   						break;
+   						case 'brand_name':
+   							$('.spAnProductClass_alertEdit form').find('input[name="brand_name"]').val(res.brand_name);
+   						break;
+   						case 'brand_logo':
+   							$('.spAnProductClass_alertEdit form').find('.kbShopAdmin_fileImg .businessFileImgList').append("<img src='__PUBLIC__"+res.brand_logo+"' alt='产品品牌图片' />");
+   						break;
+   					}
+   				}
+   			});
+   			$('.spAnProductClass_alertEdit form').prop('action',"{{:U('brandUpdate')}}?id="+ID);
+   		})
+   		 $('.kbShopAdmin_tdAction .kbShopAdminDel').on('click',function(){
+   		 	var $this = $(this);
+   		 	var ID =$this.parent().siblings('td').eq(0).text().replace(/(^\s+)|(\s+$)/g, "");
+   		 	Confirm("你确定进行该删除操作吗？",function(ren){
+   		 		if(ren){
+   		 			$.get('{{:U("ajaxControl")}}',{flag:'del',id:ID,status:'-1'},function(res){
+		   		 		if(res.status){
+		   		 			sTip("操作成功");
+		   		 			$this.parent().parent().remove();
+		   		 		}else{
+		   		 			Alert(res.err_msg);
+		   		 		}
+   		 			})
+   		 		}
+   		 	});
+   		 	
+   		 });
+   		 $('.kbShopAdmin_pushBtn input').on('click',function(){
+   		 	 var $this=$(this);
+   		 	 var ajaxUrl='{{:U("ajaxControl")}}';
+   		 	 var Status=$this.prop('checked')?0:1;
+   		 	  var ID = $this.parents('tr').children().eq(0).text().trim();
+   		 	$.get(ajaxUrl,{
+   		 	 	flag:'del',
+	   		 	status:Status,
+	   		 	id:ID
+   		 	 },function(res){
+   		 	 	if(!res.status){
+   		 	 		console.log($this);
+   		 	 		$this.attr('checked',Status)
+   		 	 		eTip('操作失败')
+   		 	 	}else{
+   		 	 		sTip("操作成功")
+   		 	 	}
+   		 	 	console.log(res);
+   		 	 })
+   		 	
+   		 })
+     });
+    	
+	</script>
+</block>

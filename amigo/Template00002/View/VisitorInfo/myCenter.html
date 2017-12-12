@@ -1,0 +1,184 @@
+<extend name="Common/websiteCom" />
+<block name="css_file">
+
+</block>
+<block name="header">
+  <header id="bsHeader" class="bsHeader">
+    <nav>
+      <a class="icon-Set" href="javascript:;" >
+    </a>
+    </nav>
+    <h1></h1>
+    <nav>
+      <!-- 有消息提醒，就加 class hasTip-->
+      <if condition="$newsCount">
+        <a class="icon-newsLeft hasTip" href="{{:U('SystemNews/newsList',['companyName' => $_GET['companyName']])}}"></a>
+      <else/>
+        <a class="icon-newsLeft" href="{{:U('SystemNews/newsList',['companyName' => $_GET['companyName']])}}"></a>
+      </if>
+    </nav>
+  </header>
+</block>
+<block name="content">
+  <section id="bsMain" class="bsVisitor">
+    <header class="userIMG  pt10 pb10">
+      <p class="userIMG-box bc mb10">
+      <a href="{{:U('MyCenter/myCenterInfoUpdate',['companyName' => $_GET['companyName']])}}">
+        <empty name="_SESSION.visitorInfo.head_portrait">
+          <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/01login_img_user_default.png" alt="头像" />
+        <else />
+             <img src="{{$info['head_portrait']}}" alt="头像" />
+        </empty>
+      </a>
+      </p>
+      <empty name="info">
+         
+        <p class="userLoginTip bc tc">
+          <a class="" href="javascript:;">登陆</a>/
+          <a class="" href="javascript:;">注册</a>
+        </p>
+      <else/>
+            <p class="userLoginTip bc font17 mt10 fb tc">{{$info['nick_name']}}</p>
+      </empty>
+      
+     
+    </header>
+    <ul class="bsList serviceList">
+      <li>
+        <a href="{{:U('VisitorInfo/myCollect',['companyName' => $_GET['companyName'], 'show' => 1])}}">
+          <p>{{$data['goodsCollectTotal']}}</p>
+          <p>商品收藏</p>
+        </a>
+      </li>
+      <if condition="!$staff" >
+      <li>
+        <a href="{{:U('SubscribeOrderForm/orderList',['companyName' => $_GET['companyName'],'show' => 0])}}">
+          <p>{{$data['subscribeTotal']}}</p>
+          <p>我的预约</p>
+        </a>
+      </li>
+      </if>
+      <li>
+        <a href="{{:U('ShoppingCart/myCart',['companyName' => $_GET['companyName']])}}">
+          <p>{{$data['cartTotal']}}</p>
+          <p>购物车</p>
+        </a>
+      </li>
+    </ul>
+    <p class="bsSeparate "></p>
+    <p class="myOrder "><b>我的订单</b><a class="icon-More fr" href="{{:U('OrderForm/orderList',['companyName' => $_GET['companyName'],'show' => 0])}}">查看更多订单</a></p>
+    <ul class="bsList serviceList">
+      <li>
+        <a href="{{:U('OrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>1])}}">
+          <p class="icon-PendingPay {{$count[1]?'hasTip':''}}"></p>
+          <p>待付款</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('OrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>2])}}">
+          <p class="icon-delivered {{$count[2]?'hasTip':''}}"></p>
+          <p>待发货</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{:U('OrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>3])}}">
+          <p class="icon-bereceived {{$count[3]?'hasTip':''}}"></p>
+          <p>待收货</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('OrderForm/orderList', ['companyName' => $_GET['companyName'],'show' =>4])}}">
+          <p  class="icon-evaluated {{$count[4]?'hasTip':''}}"></p>
+          <p>待评价</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('OrderForm/refundList', ['companyName' => $_GET['companyName'],'show' =>5])}}">
+          <p class="icon-refunds {{$count[6]?'hasTip':''}}"></p>
+          <p>退款/售后</p>
+        </a>
+      </li>
+    </ul>
+    <p class="bsSeparate"></p>
+    <ul class="bsList bsImitateGrid " >
+      
+      <li>
+        <a href="{{:U('VisitorInfo/visitorTrack',['companyName' => $_GET['companyName']])}}">
+          <p>
+           <i class="icon-footprints"></i>
+            <b>足迹</b>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('VisitorInfo/selYouLike',['companyName' => $_GET['companyName']])}}">
+          <p>
+           <i class="icon-mylike"></i>
+            <b>猜你喜欢</b>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('VisitorImage/imageList',['companyName' => $_GET['companyName']])}}">
+          <p>
+          <i class="icon-Historical"></i>
+            <b>历史形象</b>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('Privilege/privilegeList',['companyName' => $_GET['companyName']])}}">
+          <p>
+           <i class="icon-favorable"></i>
+            <b>优惠</b>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('Job/jobList', ['companyName' => $_GET['companyName']])}}">
+          <p>
+            <i class="icon-Recruitment"></i>
+            <b>招聘</b>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('VisitorAddress/addressList', ['companyName' => $_GET['companyName']])}}">
+          <p>
+           <i class="icon-shippingAddress"></i>
+            <b>收货地址</b>
+          </p>
+        </a>
+      </li>
+      <if condition="$staff" >
+        <li>
+          <a href="{{:U('Designer/orderList', ['companyName' => $_GET['companyName'], 'show' => 1])}}">
+            <p>
+              <i class="icon-myService"></i>
+              <b>设计师入口</b>
+            </p>
+          </a>
+        </li>
+      </if>
+      <li>
+        <a href="{{:U('Email/sendMail', ['companyName' => $_GET['companyName']])}}">
+          <p>
+            <i class="icon-feedback"></i>
+            <b>建议与反馈</b>
+          </p>
+        </a>
+      </li>
+      <li>
+        <a href="{{:U('Company/companyDetail',['companyName' => $_GET['companyName']])}}">
+          <p>
+            <i class="icon-myabout"></i>
+            <b>关于</b>
+          </p>
+        </a>
+      </li>
+    </ul>
+   
+  </section>
+</block>
+

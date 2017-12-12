@@ -1,0 +1,257 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/common.css">
+	<style>
+	.dlAlert{
+		z-index:99;
+	}
+	 .businessFileImgList{
+	 	/*height:;*/
+	 }
+	 .market_classify_id{
+	 	width:174px;
+	 }
+	</style>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead  ">
+					<div class="kbVipAdmin_styledSelect">
+						<select class="kbVipAdmin_slt pl20">
+							<option value="">--请选择区域--</option>
+							<foreach name="region" item="v">
+								<option value="{{$v['id']}}">{{$v.region_name}}</option>
+							</foreach>
+						</select>
+					</div>
+					<!-- <form class="kbVipAdmin_inlineBlock" action="" >
+					<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入关键字搜索" />
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+					<ul class="kbVipAdmin_tableHead-tab mt10">
+						<li ><a   class="selected" href="javascript:;">待审核</a></li>
+						<li><a class="" href="javascript:;">审核记录</a></li>
+					</ul> -->
+				</div>
+				<div class="roleBox">
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>产品名称</th>
+							<th>店铺名称</th>
+							<th>区域</th>
+							<th>行业</th>
+							<th>操作时间</th>
+							<th>操作内容</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td>
+					<else />
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.goods_name}}</td>
+							<td>{{$v.company_name}}</td>
+							<td>{{$v.region}}</td>
+							<td>{{$v.business}}</td>
+							<td>{{:date('Y-m-d', $v['goods_control_time'])}}</td>
+							<td>申请置顶...<a  class="ftcolorA MircoDetails" href="javascript:;" target="_Blank">详细内容</a></td>
+							<td><b class="ftcolorRed">待审核</b></td>
+							<td>
+								<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" />
+								<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" />
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+					
+				</table>
+				</div>
+				<div class="kbAdmin_page">
+				{{$page}}		
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- alert -->
+	<div class="kbVipAdmin_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>首页精选</h2>
+			<div class="microWebAnnalAmendList">
+				<p class="microWebAnnalAmendText">
+					<b>店铺名称：</b>
+					<input type="text" value="" name="company_name" />
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品名称：</b>
+					<input type="text" value="" name="goods_name" />
+				</p>
+				<!-- <p class="microWebAnnalAmendText">
+					<b>产品链接：</b>
+					<input type="text" value="" name="" />
+				</p> -->
+				<!-- <p class="microWebAnnalAmendText">
+					<b>店铺区域：</b>
+					<input type="text" value="" name="" />
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>行业：</b>
+					<input type="text" value="" name="" />
+				</p> -->
+				<p class="microWebAnnalAmendText">
+					<b>产品价格：</b>
+					<input type="text" value="" name="price" />
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品封面图：</b>
+					<div class="businessFileImgList goods_logos">
+						<img src="" alt="产品封面图"/>
+					</div>
+				</p>
+				<div class="microWebAnnalAmendText pic">
+					<b>产品图片：</b>
+					
+				</div>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn microWebAnnal">
+					<a class="adminFont kbVipAdmin_btnMenu">&#xe714;&nbsp;预览<a/>
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalYes" type="button" value="&#xe621;&nbsp;通过" />
+					<input class="adminFont kbVipAdmin_btnMenu microWebAnnalNo" type="button" value="&#xe61b;&nbsp;拒绝" />
+			</p>
+		</div>
+		
+	</div>
+		
+	<script type="text/javascript">
+	
+	$(function(){
+		$('.MircoDetails').on('click',function(){
+			$('.kbVipAdmin_alert').fadeIn();
+			$('.kbVipAdmin_alert').find('input').prop('readonly',true)
+			$('.kbVipAdmin_alert').find('input').css('border','none')
+			var $this = $(this);
+			var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+			jsAjaxControl($this,{
+			   ajaxURL:ajaxUrl,
+			   ajaxBranch:'Common',
+			   params:{
+			       flag:'selGoodsInfo',
+			   }
+			   },function(res){
+			   	console.log(res.info.goods_logo);
+			   		for(r in res.info){
+			   			switch(r){
+			   				case 'goods_logo':
+			   					$('.goods_logos').find('img').prop('src',"__PUBLIC__"+ res.info.goods_logo);
+			   				break;
+			   				default:
+			   				if($('.kbVipAdmin_alert').find('input[name='+r+']').length){
+			   					$('.kbVipAdmin_alert').find('input[name='+r+']').val(res.info[r]);
+			   				}
+			   				break;
+			   			}
+			   		}
+			   		for(a in res.pic){
+
+						
+					
+			   			$('.kbVipAdmin_alert .pic').append('<div class="businessFileImgList"><img src="__PUBLIC__'+res.pic[a].pic_path+'" alt="产品图" /></div>')
+			   		}
+			   // });
+			});
+		})
+
+		$('.microWebAnnalYes').on('click',function(){
+			var $this=$(this);
+			var ID=$this.parents('tr').children('td').eq(0).text().trim();
+			var actionURL="{{:U('Goods/ajaxControl')}}";
+			var htmlText='<form id="microWebAnnalYes" action="'+actionURL+'" method="get" enctype="multipart/form-data">'
+				htmlText+='<p><span>选择分类</span>'
+				htmlText+='<select class="market_classify_id" name="market_classify_id" required="required"><option value="">请选择产品分类</option>'
+					 $.ajax({
+				   	 	type: "get",
+				   	 	async: false,
+				   	 	dataType: "json",
+				   	 	url: '{{:U("Goods/ajaxControl")}}',
+				   	 	data: {'flag':"marketClassifyList"},
+				   	 	success: function(response) {
+				   	 		console.log(response)
+				   	 		for( r in response){
+				   	 			if(parseInt(response[r].parent_id)===0){
+				   	 				htmlText+='<option value="'+response[r].id+'">'+response[r].classify_name+'</option>'
+				   	 			}
+				   	 		}
+				   	 	},
+				   	 	error: function() {
+				   	 		htmlText+='<option>没有产品分类</option>'
+				   	 	}
+			   	 	});
+				htmlText+='</select></p>'
+				htmlText+='<p><span>结束时间</span><input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="sales_end_time" placeholder="结束时间" readonly="" required="required" onclick="jeDateTime(this,\'end\')"/></p>'
+				htmlText+=''
+			animationAlert({
+	            alertContent:htmlText,
+	            alertHide:'alertShow',
+	        },function(ren){
+
+	        	var $classify_id;
+	        	var $sales_end_time;
+	        	$('.dlAlert select[name=market_classify_id]').on('blur',function(){
+	        		$classify_id=$(this).children('option:selected').val();
+	        		console.log($classify_id);
+
+	        	})
+	        	$('.dlAlert input[name=sales_end_time]').on('change',function(){
+	        		$sales_end_time=$(this).val();
+	        	})
+	        	if(ren){
+
+	        		var data1={
+	        			flag:"passOrRefuse",
+	        			id:ID,
+	        			market_classify_id:$('.dlAlert select.market_classify_id').children('option:selected').val(),
+	        			sales_end_time:$('.dlAlert input[name=sales_end_time]').val(),
+	        			goods_type:2
+	        		}
+	        		$.get(actionURL,data1,function(res){
+	        			operatingTip(res);
+	        			if(res=="操作成功") $this.parents('tr').remove();
+					    console.log(res); // John
+					 });
+	        	}
+	        })
+		})
+		$('.microWebAnnalNo').on('click',function(){
+			var $this =$(this);
+			var ajaxUrl="{{:U('Goods/ajaxControl')}}";
+			jsAjaxControl($this,{
+				ajaxURL:ajaxUrl,
+				ajaxBranch:'Confirm',
+				params:{//这是ajax需要提交的集合
+					flag:'passOrRefuse',
+					goods_type:3
+				}
+			},function(res){
+				console.log(res)
+				operatingTip(res);
+				if(res=="操作成功"){
+					$this.parents('tr').remove();
+				}
+			})
+		})
+		$('.kbVipAdmin_alert .kbVipAdmin_MenuAdminBtn').on('click',function(){
+			$('.kbVipAdmin_alert').fadeOut();
+		})
+	})
+		
+	</script>
+</block>

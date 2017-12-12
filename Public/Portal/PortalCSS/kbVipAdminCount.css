@@ -1,0 +1,165 @@
+/*统计 公共css*/
+h3{
+	font-size:140%;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt h3{
+	margin-bottom:21px;
+}
+
+
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt ul{
+	margin-bottom:60px;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt ul li{
+	width:280px;
+	/*background:#e8e8e8;*/
+	text-align:center;
+	border:1px solid #ccc;
+	display:inline-block;
+	margin-right:79px;
+	border-radius:2px;
+	overflow:hidden;
+
+}
+
+/*微官网*/
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .microWebCount li{
+	height:100px;
+	line-height:100px;
+	
+}
+.kbVipAdmin_center_txt ul.microWebCount li p{
+	width:48%;
+	border-left:2px solid #fff;
+	display:inline-block;
+}
+.kbVipAdmin_center_txt ul.microWebCount li p:first-child{
+	border-left:none;
+}
+
+/*卡券速递*/
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .preferentialCount li{
+	height:198px;
+	line-height:198px;
+	margin-bottom:10px;
+}
+.kbVipAdmin_center_txt ul.preferentialCount li>p{
+	width:58px;
+	text-align:center;
+	display:inline-block;
+	vertical-align: top;
+	    text-indent: 7px;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .preferentialCount li div{
+	display:inline-block;
+	width:212px;
+	height: 100%;
+	border-left:2px solid #fff;
+}
+.kbVipAdmin_center_txt .preferentialCount li div>p{
+	height:97px;
+	width:100%;
+	line-height:97px;
+}
+.kbVipAdmin_center_txt .preferentialCount li div>p:first-child{
+	border-bottom:2px solid #fff;
+}
+.kbVipAdmin_center_txt .preferentialCount li div>p b{
+	font-size:20px;
+}
+/*商户*/
+
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .businessCount li,
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .businessCountMin li{
+	height:137px;
+	background:#fff;
+
+}
+.kbVipAdmin_center_txt .businessCount li p,
+.kbVipAdmin_center_txt .businessCountMin li p
+{
+	height:50%;
+	line-height:68px;
+	font-size: 200%;
+}
+/*#kbVipAdmin_rightCenter  .businessCount,
+#kbVipAdmin_rightCenter  .businessCountMin{
+	width:80%;
+}*/
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .businessCountMin li{
+	width:200px;
+	height: 94px;
+
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .businessCountMin li p{
+	font-size:150%;
+	line-height:42px;
+}
+/*各功能统计*/
+
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuAllCount>li{
+	border-radius: 5px;
+	border:none;
+	margin-right: 28px;
+    margin-bottom: 20px;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount{
+	width:320px;
+	display: inline-block
+	margin: 0;
+}
+
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li{
+	/*width:140px;*/
+	background-color:#fff;
+	height:46px;
+	line-height:46px;
+	float:left;
+	margin-top:-1px;
+	border:none;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li:nth-child(1){
+	background-color:#e8e8e8;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li:nth-child(1) p:last-child{
+	background: url("cmmImg/lookblack.png") no-repeat 10px center;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li p:first-child{
+	border-right:1px solid #e5e5e5;
+	 margin-left: 5px;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li:last-child p{
+	border-bottom:none;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li p{
+	display:inline-block;
+	width:48%;
+	border-bottom:1px solid #e8e8e8;
+	 height: 96%;
+	 float:left;
+}
+#kbVipAdmin_rightCenter .kbVipAdmin_center_txt .menuCount li p:last-child{
+	background: url("cmmImg/lookPink.png") no-repeat 10px center;
+}
+.roleList{
+	width:100%;
+	border:1px solid #808080;
+	min-width:300px;
+}
+.roleList thead th{
+	background:#e8e8e8;
+	font-weight:bold;
+}
+.roleList thead th,.roleList tbody td,.roleList tfoot td{
+	padding:5px;
+	border:1px solid #ccc;
+	text-align:center;
+}
+
+/*保留*/
+.fr{float:none;}
+.page a{padding:6px 12px;border:1px solid #ddd;float:left;margin-left:-1px;color:#006dae;text-align:center;}
+.page a:hover{background:#ddd;}
+.page a.current{background:#006dae;color:#fff;border:1px solid #006dae;cursor: default;}
+.page .first{margin-right:10px;}
+.pageinfo{margin-left:10px;padding:6px 12px;border:1px solid #ddd;float:left;color:#006dae;text-align:center;}

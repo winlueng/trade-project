@@ -1,0 +1,127 @@
+<extend name="Common/websiteCom" />
+<block name="css_file">
+  <php>
+    //echo '<pre>';
+    //var_dump($newList);exit;
+  </php>
+  <style>
+    body{
+      background-color:#f7f7f7;
+    }
+    .shopLogo{
+      width:24px;
+      height:24px;
+    }
+    .oneselfBox h1{
+      font-size:120%;
+    }
+    .systeamText{
+      padding:10px ;
+      padding-left:30px;
+      background-color:#f7f7f7;
+      border-radius:5px;
+    }
+    .systeamText p{
+      line-height:1.5em;
+    }
+    .systeamText p img{
+      width:100%;
+    }
+    .isRead{
+    position:relative;
+  }
+  .isRead::before{
+    content:'';
+    display:block;
+    width:10px;
+    height:10px;
+    background-color:#f55252;
+    border-radius:50px;
+    position:absolute;
+    left:0px;
+    top:3px;
+  }
+  .sendDate{
+    color:#999;
+    font-size:12px;
+  }
+  .oneselfList .oneselfBox{
+      padding-left: 20px;
+
+  }
+  .oneselfList{
+    padding-top: 10px;
+  }
+  </style>
+</block>
+<block name="secondtitle">
+   <a class="kbmt_gaBack"  href="javascript:;" onclick="javascript :history.back(-1);">系统消息</a>
+
+</block>
+<block name="collect">
+
+</block>
+<!--  <h1 class="tc ft160">系统消息</h1>
+ -->
+ <block name="content">
+<div id="kbMt_center">
+  <!-- 产品star -->
+   <ul class="oneselfList onselfsysteamInfo ">
+    <foreach name="newsList" item="v">
+      <li>
+        <div class="oneselfBox shopLogo">
+             <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/symbolize_icon_system_default.svg" alt="logo" />
+        </div>
+        <div class="oneselfBox oneselfBoxTxt mb10 {{$v['is_read']? 'isRead':''}}" data-id="{{$v['id']}}">
+          <h1>{{$v['news_title']}}</h1>
+          <p class="color666 ">{{:date('Y-m-d',$v['addtime'])}}</p>
+        </div>
+       <!--  <div class="systeamText">
+          <p>
+             系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息系统的消息
+             <img src="oneselfCore/oneselfCoreImages/test.jpg" />
+          </p>
+        </div> -->
+      </li>
+    </foreach>
+    
+   </ul>
+    <script id="systeamText" type="text/x-handlebars-template">
+        <div class="systeamText">
+             {{{newsInfo}}}
+             <!-- <img src="oneselfCore/oneselfCoreImages/test.jpg" /> -->
+        </div>
+    </script>
+  </div>
+</block>
+<block name="js_file">
+  <script>
+    $(function(){
+      var init=new Portal();
+      $('.onselfsysteamInfo li').on('click',function(){
+        var $this=$(this);
+
+        var ID=$this.children('.oneselfBoxTxt').attr('data-id').trim();
+        if($this.children('.isRead').length) $this.children('.isRead').removeClass('isRead');
+        $.get("{{:U('SystemNews/ajaxControl')}}",{flag:'saveSystemNews',news_id:ID})
+        console.log($this.find('.systeamText').length);
+        if($this.find('.systeamText').length>0){
+          $this.find('.systeamText').slideToggle();
+        }else{
+          $.get("{{:U('SystemNews/ajaxControl')}}",{flag:'showSystemNewsInfo',news_id:ID},function(res){
+                var myTemplate=Handlebars.compile($('#systeamText').html());
+                $this.find('.oneselfBoxTxt').after(myTemplate(res));
+          })
+        }
+        
+        
+      })
+
+   /*    $('.messageListDel').on('click',function(){
+        $.get("{{:U('SystemNews/ajaxControl')}}",{flag:'delSystemNewsByOther',news_id:ID})
+      }) */
+    })
+  </script>
+</block>
+ 
+  

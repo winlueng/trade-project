@@ -1,0 +1,111 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+  .kb_list-cell img{
+  	height: 64px;
+  	width: 64px;
+  }
+  .sltAttertionAlert{
+  	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	overflow: hidden;
+  }
+ 
+  .sltAttertionAlert .kb_cell{
+  	width: 100%;
+  	z-index: 41;
+  	text-align: center;
+  }
+  .kb_cell:not(:last-child){
+  	margin-bottom: 10px;
+  }
+</style>
+<php>
+ //echo("<pre>");
+//var_dump($list);exit;
+</php>
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc   tg_colllected kb_notFooter">
+    <ul class="kb_list">
+    <empty name="list">
+    	<p class="tc mt50 p10">还没有店铺收藏哦，快到处看看吧</p>
+    <else />
+    <foreach name="list"  item="v">
+	  <li class="kb_cells">
+	     <article class="kb_list-cell" data-id="{{$v.id}}">  
+	     	<a href="http://{{$v.link}}" class="kb_list-cell-hd">
+	     		<img src="__PUBLIC__{{$v.company_logo}}" alt="" class="w100 h100" />
+	     	</a>
+	     	<a href="http://{{$v.link}}" class="kb_list-cell-bd ml10">
+	     		<h2 class="kb_list-cell-title mb10">{{$v.company_name}}</h2>
+	     		<p class="kb_list-cell-brief">{{$v.address_info}}</p>
+     		</a>
+     		<footer class="kb_list-cell-ft">
+     		  <button typeo="button" class="kb_btn icon-MoreMenu mark-attertion w20 h50"></button>
+     		</footer>
+	     </article>
+	  </li>
+	</foreach>
+    </empty>
+
+    
+	</ul>
+  </section>
+
+</block>
+<block name="js_files">
+<div class="sltAttertionAlert" style="display: none;">
+  <div class="coverAlert coverblack"></div>
+  <article class="kb_cell ">
+    <p class="kb_cell-bd">
+      取消关注
+    </p>
+  </article>
+  <article class="kb_cell">
+    <p class="kb_cell-bd">
+      取消
+    </p>
+</div>
+<script>
+$(function(){
+	$('.mark-attertion').on('click',function(){
+		var $this,id,attertion;
+		$this=$(this);
+		id=$this.parents('[data-id]').attr("data-id").trim();
+		attertion=$('.sltAttertionAlert');
+		attertion.show();
+		attertion.children('.kb_cell').eq(0).on('click',function(){
+			$.ajax({
+				type:"GET",
+				url:"{{:U('/PT2/VisitorCollect/ajaxControl')}}",
+				data:{
+					flag:"collectCompany",
+					status:2,
+					company_id:id
+				},
+				datatype:"json",
+				success:function(data){
+					console.log(data);
+					if(data==1){
+						oTip("操作成功");
+						$this.parents('.kb_cells').remove();
+					}else{
+						oTip("操作失败");
+					}
+					attertion.hide();
+				},
+				error:function(error){
+					console.log(error)
+				}
+
+			})
+		})
+		attertion.children('.kb_cell').eq(1).on('click',function(){
+			attertion.hide();
+		})
+	})
+})
+</script>
+</block>

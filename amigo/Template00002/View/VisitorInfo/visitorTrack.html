@@ -1,0 +1,103 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<php>
+//echo '<pre>';
+//var_dump($track);exit;
+</php>
+<link rel="stylesheet" href="__PUBLIC__/salon/css/oneselfCore.css?v=1.10" /> 
+  <style>
+    body{
+      background-color:#f7f7f7;
+    }
+    .oneselfBox h1{
+      width:100%;
+      max-height:44px;
+    }
+    .onselfFootPrints li{
+      margin-bottom:10px;
+    }
+    .oneselfList>p{
+      text-indent:15px;
+      padding: 0 0 10px;
+      color:#666;
+      font-size:120%;
+      background-color:#f5f5f9;
+    }
+    .oneselfList .oneselfBox:nth-child(2){
+      height:70px;
+      width: 62%;
+    }
+    .shopLogo{
+      width:30%;
+    }
+    .infoMark{
+      margin-left:0;
+    }
+  </style>
+</block>
+<block name="leftNav">
+ <a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+  </a>
+</block>
+<block name="bsTitle">
+  我的足迹
+</block>
+<block name="collect">
+
+</block>
+<block name="content">
+  <div id="kbMt_center">
+      <empty name="track">
+          <ul class="oneselfList onselfFootPrints ">
+            <!-- <p>2月16日</p> -->
+           <li class="imgW100"> 
+              <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/17shop_img_none_default.png" alt="暂无数据" />
+              <p class="tc">暂无数据</p>
+            </li>
+          </ul>
+        <else />
+              <ul class="oneselfList onselfFootPrints ">
+                <foreach name="track" item="vt">
+                  <p>{{:date('Y-m-d',$vt['visit_date'])}}</p>
+                  <foreach name="vt.list" item="vg">
+                    <switch name="vg.type">
+                      <case value="1">
+                        <li>
+                          <a href="{{$vg.link}}">
+                          <div class="oneselfBox shopLogo">
+                               <img src="__PUBLIC__{{$vg.info.goods_logo}}" alt="logo" width="200" />
+                          </div>
+                          <div class="oneselfBox mb10">
+                            <h1>{{$vg.info.goods_name}}</h1>
+                            <!-- <p class="color666 mt10"><span class="infoMark">正佳广场</span></p> -->
+                            <p class="color666 mt10">￥ {{$vg.info.price}}</p>
+                            <p class="color666 mt10">销量: {{$vg.sales}}</p>
+                          </div>
+                          </a>
+                        </li>
+                      </case>
+                      <case value="2">
+                        <li>
+                          <a href="{{$vg.link}}">
+                          <div class="oneselfBox shopLogo">
+                               <img src="__PUBLIC__{{$vg.info.staff_logo}}" alt="logo"  width="200"/>
+                          </div>
+                          <div class="oneselfBox mb10">
+                            <h1>{{$vg.info.store_nickname}}</h1>
+                            <!-- <p class="color666 mt10"><span class="infoMark">正佳广场</span></p> -->
+                            <p class="color666 mt10">{{$vg.info.professional_title}}</p>
+                            <p class="color666 mt10">服务 {{$vg.service_total}} 单</p>
+                          </div>
+                          </a>
+                        </li>
+                      </case>
+                    </switch>
+                    
+                  </foreach>
+                </foreach>
+              </ul>
+      </empty>
+  </div>  
+  
+</block>
+

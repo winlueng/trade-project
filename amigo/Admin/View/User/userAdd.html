@@ -1,0 +1,270 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/coupon/coupon.css">
+	<style>
+		.microWebMenuAdmin .MenuAdminBox{
+			display:inline-block;
+			margin:0;
+			margin-right:40px;
+			vertical-align: top;
+		}
+		.microWebMenuAdmin label{
+			 width: 160px;
+		}
+		.MenuAdminBox{
+			width:150px;
+		}
+		.adminRoleCheck{
+			display:none;
+		}
+		.adminPorjectList{
+			display:none;
+		}
+	</style>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponAdClass_center">
+		<div class="kbVipAdmin_center_tables">
+			<div class="kbVipAdmin_tableHead">
+				<!-- <p class="authAddBtn">
+					添加用户
+				</p> -->
+			</div>
+			<form class="userAdmin_center-addUser kbVipAdmin_form" action="" method="post">
+				<p>
+					<span>
+						<i>*</i>账号：
+					</span>
+					<input class="accountlogin check" type="text" name="user_name" required="required" minlength="6" maxlength="17" placeholder="请输入数字和字母的混合号码" />
+					<strong class="kbAdmin_tip">必填项。请输入长度6到17位的数字和字母的混合号码，数字或者字母至少出现一次</strong>
+				</p>
+				<p><span><i>*</i>密码：</span>
+					<input type="password" name="password"  minlength="6" maxlength="15" required="required" placeholder="请输入字母、数字的混合密码"/>
+					<strong class="kbAdmin_tip">请输入长度6到15位的数字和字母的混合号码，数字或者字母至少出现一次</strong>
+				</p>
+				<p><span><i>*</i>重复密码：</span>
+					<input class="rePaw" type="password" name="repass" minlength="6" maxlength="15" required="required"  placeholder="请再次输入密码" /> 
+					<strong class="kbAdmin_tip">必填项。请再次输入密码</strong>
+				</p>
+				<p><span><i>*</i>邮箱：</span>
+					<input type="email" class="check" name="email" required="required" placeholder="请输入邮箱地址" />
+					<strong class="kbAdmin_tip">必填项。请输入电子邮箱地址</strong>
+				</p>
+				<!-- <p><span>联系人：</span><input type="text" name="" /> </p> -->
+				<p><span><i>*</i>电话：</span>
+					<input type="tel" class="check" name="phone" required="required" 
+						 minlength="11" maxlength="11" placeholder="请输入店铺负责人联系手机号码" />
+					<strong class="kbAdmin_tip">必填项。请输入商场负责人联系手机号码</strong>
+				</p>
+				<div id="adminRoleClass" class="microWebMenuAdmin adminRoleClass"><span><i>*</i>角色类别：</span>
+
+				<eq name="_SESSION.adminInfo.id" value="1">
+					<p class="MenuAdminBox mb10 bc">
+						<input  name="group_type" type="radio" value="1" required="required" />
+						<label ><i></i><b>内部管理员</b></label>
+					</p>
+				</eq>
+					<p class="MenuAdminBox bc companyAdmin">
+						<input  name="group_type" type="radio" value="3" required="required" />
+						<label ><i></i><b>商场管理员</b></label>
+					</p>
+				</div>
+				<!-- 
+					内部管理员列表(当选了内部管理员按钮显示)
+				 -->
+				<eq name="_SESSION.adminInfo.id" value="1">
+				<div class="microWebMenuAdmin adminRoleCheck"><span><i>*</i>管理员选择：</span>
+					<foreach name="adminList" item="v">
+						<p class="MenuAdminBox mb10 bc">
+							<input  name="group_id" type="radio" value="{{$v.id}}" />
+							<label ><i></i><b>{{$v.title}}</b></label>
+						</p>
+					</foreach>
+				</div>
+				</eq>
+
+				<!-- 商场管理员列表(当选了商场管理员按钮显示) -->
+				
+				<p class="kbVipAdmin_MenuAdminBtn">
+					<input type='submit' value="申请" />
+				</p>
+			</form>
+		</div>
+	</div>
+	<script id="adminRoleCheck" type="text/x-handlebars-template">
+		<div class="microWebMenuAdmin adminRoleCheck"><span><i>*</i>商场管理员:</span>
+			 <foreach name="projectAdmin" item="v">
+				<p class="MenuAdminBox mb10 bc">
+					<input  name="group_id" type="radio" value="{{$v.id}}" required="required" />
+					<label ><i></i><b>{{$v.title}}</b></label>
+				</p>
+			</foreach>
+		
+		<p class="couponAddr">
+			<span><i>*</i>地址:</span>
+			<select required="required">
+                <option value="-1">请选择省级</option>
+                    <foreach name="address" item="v">
+                        <option value="{{$v['district_id']}}">{{$v.name}}
+                        </option>
+                    </foreach>
+            </select>
+            <select required="required">
+                <option value="-1">请选择市级</option>
+            </select>
+            <select name="address_id" required="required">
+                <option value="-1">请选择区级</option>
+            </select>
+		</p>
+		
+		<p class="couponAddr adminPorjectList"><span><i>*</i>项目分类：</span>
+			<select name="category_id" required="required">
+				<option value="-1">请选择分类</option>
+				<foreach name="category" item="v">
+					<option value="{{$v.id}}">{{$v.category_name}}</option>
+				</foreach>
+			</select> 
+		</p>
+		<p class="couponAddr adminPorjectList"><span><i>*</i>项目名称：</span>
+			<!-- 通过ajax去搜索项目列表
+				地址:{{:U('Project/selProject')}}
+				参数1:所选择的category_id
+				参数2:所选择的address_id
+				必须两个参数同时存在才有返回信息
+			 -->
+			<select name="relevance_id" required="required">
+				
+			</select> 
+		</p> 
+		</div>
+	</script>
+	<script type="text/javascript">
+	$(function(){
+			$('.addCouponAreaList ').on('click',function(){
+				$('.couponAreaList_alert').fadeIn();
+			})
+
+			$('.couponAreaListWirte ').on('click',function(){
+				$('.couponAreaList_alertWriter').fadeIn();
+			})
+
+		
+		/* 选择角色类别显示不同内容 */
+		$('.adminRoleClass .MenuAdminBox.companyAdmin').on('click',function(){
+			var myTemplate=Handlebars.compile($('#adminRoleCheck').html());
+			if($('.adminRoleCheck').length){
+				$('.adminRoleCheck').eq(0).after(myTemplate()).fadeIn();
+			}else{
+				$('#adminRoleClass').after(myTemplate()).fadeIn();
+			}
+
+			$('.couponAddr select').on('change',function (){
+            var fa = $(this).next();
+            var flag = 'address';
+            var name = fa.find('option:eq(0)').text();
+            $.get('{{:U("Card/ajaxControl")}}',{'flag':flag,'pid':$(this).val()},function (res){
+                var str = '<option value="">'+name+'</option>';
+                for(var k in res)
+                {
+                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+                }
+                fa.html(str);
+            });
+        });
+
+        /*添加商场管理员时选择地址联动项目分类、名称*/
+        $('.couponAddr select[name="address_id"]').on('change',function(){
+        	var $this= $(this);
+        	var opValue=$this.children(':selected').val();
+        	if(opValue!='-1'){
+        		var adminPorjectList=$('.adminPorjectList')
+        		adminPorjectList.eq(0).fadeIn();//显示项目分类
+        		$('.couponAddr select[name="category_id"]').children('option[value="-1"]').prop('selected',true);//重置项目分类的选择结果
+        		adminPorjectList.eq(1).fadeOut();//重新隐藏项目列表
+        	}
+		})
+
+		$('.couponAddr select[name="category_id"]').on('change',function(){
+        	var $this= $(this);
+        	var opValue=$this.children(':selected').val();//分类id
+        	var address_id=$('.couponAddr select[name="address_id"]').children(':selected').val();//地区的id
+	        	if(opValue!='-1'){
+	        		var adminPorjectList=$('.adminPorjectList')
+	        		adminPorjectList.eq(1).fadeIn();
+	        		var projectList=$('.couponAddr select[name="relevance_id"]');
+		        	var options='<option>请选择项目名称</option>';
+		        	projectList.html('');
+
+	        		$.get("{{:U('Project/ajaxControl')}}",{flag:'selProject',address_id:address_id,category_id:opValue},function(res){
+	        		 	if(typeof(res)!='object'){
+							options='<option>暂无项目信息</option>';
+	        		 	}else{
+	        		 		console.log(typeof res);
+	        		 		for(r in res){
+	        		 		options+="<option value='"+res[r].id+"''>"+res[r].project_name+"</option>";
+	        		 		};
+	        		 	};
+						projectList.append(options);
+					});/* ajax end*/
+	        	};
+			});
+			
+		})
+		$('.adminRoleClass .MenuAdminBox').on('click',function(){
+			var $this=$(this);
+			var adminRoleClass = $('.adminRoleClass .MenuAdminBox');
+			var indexs=adminRoleClass.index($this);
+			var adminRoleCheck=$('.adminRoleCheck');
+			$(adminRoleCheck[indexs
+				]).fadeIn();
+			$(adminRoleCheck[indexs]).siblings('.adminRoleCheck').fadeOut();
+			
+
+		})/* 角色类别选择end */
+
+		
+		
+    })
+
+		/*$('.kbVipAdmin_form p .check').blur(function(){
+			var $this = $(this);
+			if ($this.val()) {
+				$.get("{{:U('ajaxControl')}}", {flag:'selUserAddBefore', key:$this.attr('name'), data:$this.val()}, function (res) {
+					console.log($this.val());
+					console.log(res);
+				})
+			}
+		});*/
+
+		// 查询数据唯一
+		// 错误
+     	function checkOnly(_this,callback){
+	        var onlyDate = $(_this).val();
+	        var onlyName = $(_this).prop('name');
+	        var status='Error';
+			$.ajax({
+		   	 	type: "get",
+		   	 	async: false,
+		   	 	dataType: "json",
+		   	 	url: '{{:U("User/ajaxControl")}}',
+		   	 	data: {'flag':"selUserAddBefore",'key':onlyName,data:onlyDate},
+		   	 	success: function(response) {
+		   	 		status=(response===true)?'Proper':'Error';
+			      	console.log(status);
+		   	 	},
+		   	 	error: function() {
+		   	 	
+		   	 	}
+	   	 	});
+			 return status;
+	 	}
+
+	 	$('.kbVipAdmin_MenuAdminBtn').on('click',function(){
+				checkData('.kbVipAdmin_center_tables',function(ren){
+				});
+		})
+		$('.kbVipAdmin_center_tables form [required="required"]').bind('change blur',function(){
+        	checkData(this);
+	    })
+	</script>
+</block>

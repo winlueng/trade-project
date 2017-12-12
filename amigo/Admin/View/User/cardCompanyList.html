@@ -1,0 +1,284 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/css/coupon/coupon.css"></link>
+	<script type="text/javascript">
+		$(function(){ 
+			$('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+				if ( typeof(FileReader) === 'undefined' ){ 
+					alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+					this.setAttribute( 'disabled','disabled' ); 
+				} else { 
+					readFile(this,this.files[0]);
+				} 
+			})
+		});
+	
+	</script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponBusiness_center">
+		
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead authAddBtn ">
+					<!-- <div class="kbVipAdmin_styledSelect">
+					<select class="kbVipAdmin_slt pl20">
+						<option>分类</option>
+						<option>行业</option>
+						<option>商圈</option>
+					</select>
+					</div> -->
+					<form class="kbVipAdmin_inlineBlock" action="{{:U('websiteCompanyList',['module' => $_GET['module']])}}" method="get" >
+					<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入商店名称" name="selName" value="{{$_GET['selName']}}"/>
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th width="150">功能类型</th>
+							<th>商店名称</th>
+							<th width="100">商户背景图片</th>
+							<th width="20">注册人</th>
+							<th>电话</th>
+							<th width="60">行业</th>
+							<th width="80">类型</th>
+							<th width="200">商圈</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th width="200">状态</th>
+							<th width="100">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="v" >
+						<tr>
+							<td class="cnBusinessID">{{$v.uid}}</td>
+							<td>{{$v.group_name}}</td>
+							<td>{{$v.company_name}}</td>
+							<td class="kbVipAdmin_tdImg"><div><img  src="__PUBLIC__{{$v['company_pic']}}" alt="店面图片" /></div></td>
+							<td><p class="registName">{{$v.principal}}</p></td>
+							<td>{{$v.phone}} </td>
+							<td>{{$v.business}}</td>
+							<td>{{$v.type}}</td>
+							<td>{{$v.region}}</td>
+							<td>{{$v.start_time}}</td>
+							<td>{{$v.end_time}}</td>
+							<td class="microWebMenuAdmin">
+								<input id="microWebEnabled{{$v.uid}}"  name="microWebMenuAdmin{{$v.uid}}" type="radio" value="0" {{$v['status']==0?'checked':''}} />
+								<label for="microWebEnabled{{$v.uid}}"><i></i><b>启用</b></label>
+								<input id="microWebDisabled{{$v.uid}}"  name="microWebMenuAdmin{{$v.uid}}" type="radio" value="1" {{$v['status']==1?'checked':''}} />
+								<label for="microWebDisabled{{$v.uid}}"><i></i><b>禁用</b></label>
+							</td>
+							<td>
+								<input class="adminFont kbVipAdmin_btnMenu couponListWirte mb10" type="button" value="&#xe601;&nbsp;编辑" />
+								<input class="adminFont kbVipAdmin_btnMenu mb10" type="button" value="&#xe606;&nbsp;删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页位置 -->
+			<div class="kbAdmin_page">
+				{{$page}}
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponBusiness_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑商户信息</h2>
+		<form class="couponBusiness_FormParent" action="" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span>商户编号:</span>
+					<input type="text" value="" name="user_ip" />
+				</p>
+				<p>
+					<span>商户名称:</span>
+					<input type="text" value="" name="company_name" />
+				</p>
+				<p>
+					<span>联系人:</span>
+					<input type="text" value="" name="principal" />
+				</p>
+				<p>
+					<span>商户类型:</span>
+					<input type="radio" value="0" name="company_type" /> 普通商户
+					<input type="radio" value="1" name="company_type" /> 联盟商户
+				</p>
+				<p>
+					<span>商户类型:</span>
+					<input type="radio" value="10" name="group_id" /> 微官网
+					<input type="radio" value="11" name="group_id" /> 卡券速递
+					<input type="radio" value="12" name="group_id" /> 微官网+卡券速递
+				</p>
+				<p class="couponAddrTrade"><span>所属商圈：</span>
+					<input type="text" value="" disabled="disabled" name="region" /><b>修改</b>
+				</p>
+				<p class="couponAddr ">
+					<span>所属商圈：</span>
+                    <select sta='1'>
+                        <option value="">省级</option>
+                            <foreach name="address" item="v">
+                                <option value="{{$v['district_id']}}">{{$v.name}}
+                                </option>
+                            </foreach>
+                    </select>
+                    <select sta='2'>
+                        <option value="">请选择市级</option>
+                    </select>
+                    <select sta='3'>
+                        <option value="">请选择区级</option>
+                    </select>
+                    <select sta='4' name="region_id">
+                        <option value="">请选择商圈</option>
+                    </select>
+				</p>
+				<p class="couponTrade"><span>商户行业:</span>
+					<select sta='5' name="business_id">
+						<option>请选择行业</option>
+					</select>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span>商家图片:</span>
+					<label class="fileImg" for="businessFileImg">点击上传商家店铺图片</label>
+					<!-- <label class="fileImg" for="businessFileImg">请上传商家店铺图片</label> -->
+					<input id="businessFileImg" type="file" name="company_pic" />
+					<div class="businessFileImgList">
+						<span class="cleraIMG" onclick="clearImg(this)"></span>
+						<img src="images/21.jpg" alt="店铺图片" />
+					</div>
+				</div>
+				<div class="kbVipAdmin_fileImg">
+					<span>商家LOGO:</span>
+					<label class="fileImg" for="businessFileImgLogo">点击上传商家店铺图片</label>
+					<!-- <label class="fileImg" for="businessFileImg">请上传商家店铺图片</label> -->
+					<input id="businessFileImgLogo" type="file" name="logo_path" />
+					<div class="businessFileImgList logo">
+						<span class="cleraIMG" onclick="clearImg(this)"></span>
+						<img src="images/21.jpg" alt="店铺LOGO" />
+					</div>
+				</div>
+				<p>
+					<span>商户手机:</span>
+					<input type="text" value="" name="phone" />
+				</p>
+				<p>
+					<span>商户邮箱:</span>
+					<input type="email" value="" name="email" />
+				</p>
+				<p>
+					<span>商户域名:</span>
+					<input type="text" value="" name="company_link" />
+				</p>
+				<p>
+					<span>开通时间:</span>
+					<input  class="datainp wicon"  type="text" name="start_time" placeholder="开始日期"   readonly required="required"  onclick="jeDateTime(this,'start');"/>
+				</p>
+				<p>
+					<span>结束时间:</span>
+					<input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required"  onclick="jeDateTime(this,'end');"/>
+				</p>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="确认修改" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			// couponBusiness_alert
+			$('.couponListWirte ').on('click',function(){
+				$('.couponBusiness_alert').fadeIn();
+				var $this=$(this)
+				var cnBusinessID = $this.parent().siblings('.cnBusinessID').text().replace(/(^\s+)|(\s+$)/g, "");
+				var newDate=new Date();
+				$.get('{{:U("User/ajaxControl")}}',{'flag':'selCompanyInfo',id:cnBusinessID},function (res){
+	         		for(r in res){
+	         			
+	         			switch(r){
+	         				case "start_time":
+	         					var start_time=date('Y-m-d H:m:s',res.start_time);
+	         					$('.couponBusiness_alert form').find('input[name="start_time"]').val(start_time);
+	         					break;
+	         				case "end_time":
+	         					var end_time=date('Y-m-d H:m:s',res.end_time);
+	         					$('.couponBusiness_alert form').find('input[name="end_time"]').val(end_time);
+	         					break;
+	         				case "company_pic":
+	         					$('.couponBusiness_alert .businessFileImgList').find('img').prop("src","__PUBLIC__"+res.company_pic);
+	         					break;
+	         				case "logo_path":
+	         					$('.couponBusiness_alert .logo').find('img').prop("src","__PUBLIC__"+res.logo_path);
+	         					break;
+         					case "company_type":
+         						$('.couponBusiness_alert form input[name="company_type"]').filter("input[value='"+res.company_type+"']").prop("checked",true);
+         						break;
+         					case "group_id":
+								$('.couponBusiness_alert form input[name="group_id"]').filter("input[value='"+res.group_id+"']").prop("checked",true);
+         						break;
+         					default:
+         						$('.couponBusiness_alert form').find('input[name="'+r+'"]').val(res[r]);
+	         			}
+	         			
+	         		}
+				});
+				$('.couponBusiness_alert form').prop('action',"{{:U('companyUpdate')}}?id="+cnBusinessID);
+				$('.couponAddrTrade b').on('click',function(){
+					$('.couponAddr').fadeToggle();
+					$('.couponTrade').fadeToggle();
+					$(this).text(($(this).text()=="修改")? "取消":"修改");
+				})
+			});
+		
+			$('.microWebMenuAdmin input[type="radio"]').on('click', function (){
+				var id = $(this).parent().parent().find('td:first-child').text();
+				$.get('{{:U("ajaxControl")}}', {flag:'changeAdminUserStatus', id: id,status:$(this).val()},function (res){
+					console.log(res)
+					if (res) 
+					{
+						alert('修改成功');
+					}
+				});
+			});
+		$('.couponAddr select').on('change',function (){
+            var a ;
+            a = parseInt($(this).attr('sta'));
+            // console.log($(this).val());
+            var fa = $(this).next();
+            var flag = 'address';
+            switch (a)
+            {
+            	case 3:
+            		flag = 'region';
+            		break;
+            	case 4:
+	            	flag = 'business';
+	                fa = $(this).parent().next().find('select');
+            		break;
+            	case 5:
+            		flag = 'merchant';
+                	fa = $(this).parent().next().find('select');
+            		break;
+            }
+            var name = fa.find('option:eq(0)').text();
+            $.get('{{:U("Card/ajaxControl")}}',{'flag':flag,'pid':$(this).val()},function (res){
+                var str = '<option value="">'+name+'</option>';
+                for(var k in res)
+                {
+                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+                }
+                fa.html(str);
+            });
+
+        	});
+		 
+		
+         
+      });
+	</script>
+</block>

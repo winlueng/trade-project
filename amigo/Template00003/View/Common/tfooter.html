@@ -1,0 +1,52 @@
+
+<script src="__PUBLIC__/tradchild/script/vue.js"></script>
+<script src="__PUBLIC__/tradchild/script/alertmodule.js"></script>
+<script src="__PUBLIC__/tradchild/script/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script>
+	wx.config({
+      	debug: false,
+      	appId: "{{$jssdk.appId}}",
+      	timestamp: "{{$jssdk.timestamp}}",
+      	nonceStr:  "{{$jssdk.nonceStr}}",
+      	signature: "{{$jssdk.signature}}",
+      	jsApiList: [
+        	'checkJsApi',
+        	'onMenuShareTimeline',
+        	'onMenuShareAppMessage',
+        	'onMenuShareQQ',
+        	'onMenuShareWeibo',
+        	'onMenuShareQZone',
+        	'hideMenuItems',
+        	'showMenuItems',
+        	'hideAllNonBaseMenuItem',
+        	'showAllNonBaseMenuItem',
+        	'translateVoice',
+        	'startRecord',
+        	'stopRecord',
+        	'onVoiceRecordEnd',
+        	'playVoice',
+        	'onVoicePlayEnd',
+        	'pauseVoice',
+        	'stopVoice',
+        	'uploadVoice',
+        	'downloadVoice',
+        	'chooseImage',
+        	'previewImage',
+        	'uploadImage',
+        	'downloadImage',
+        	'getNetworkType',
+        	'openLocation',
+        	'getLocation',
+        	'hideOptionMenu',
+        	'showOptionMenu',
+        	'closeWindow',
+        	'scanQRCode',
+        	'chooseWXPay',
+        	'openProductSpecificView',
+        	'addCard',
+        	'chooseCard',
+        	'openCard'
+      	]
+  	});
+   
+</script>

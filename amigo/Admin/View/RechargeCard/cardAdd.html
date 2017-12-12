@@ -1,0 +1,246 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<style>
+  .dl_addCard-main{
+    width:50%;
+    min-width:300px;
+  }
+  .dl_addCard-main .kb_cell::before{
+    display:none;
+  }
+  .dl_addCard-main .kb_cell-bd:not(.no-border){
+    border:1px solid #eee;
+    text-indent:.5em;
+    height:25px;
+    line-height:25px;
+  }
+</style>
+<php>
+//echo('<pre>');
+//var_dump();exit;
+</php>
+</block>
+<block name="content">
+<div id="kbVipAdmin_rightCenter" class="spAnDynamic OrderForm">
+  <div class="centerTitle">
+    <h2>现金卡/添加</h2>
+  </div>
+  <div class="kbVipAdmin_operating">
+  <section class="dl_addCard-main">
+    <form id="dl_addCard-form" action="" method="post">
+    <article class="kb_cell">
+        <p class="kb_cell-hd">
+            <label class="kb_label">现金卡金额</label>
+        </p>
+        <p class="kb_cell-bd pr10">
+            <input type="number" name="money" placeholder="请输入金额" class="kb_input   w"  required="required"/>
+        </p>
+        <p class="kb_cell-ft ml10 ">
+            元
+        </p>
+    </article>
+    <article class="kb_cell">
+        <p class="kb_cell-hd">
+            <label class="kb_label">赠送金额</label>
+        </p>
+        <p class="kb_cell-bd pr10">
+            <input type="number" name="presenter_money" placeholder="请输入金额" class="kb_input   w"  required="required"/>
+        </p>
+         <p class="kb_cell-ft ml10 ">
+            元
+        </p>
+    </article>
+    <article class="kb_cell">
+        <p class="kb_cell-hd">
+            <label class="kb_label">现金卡数量</label>
+        </p>
+        <p class="kb_cell-bd pr10">
+            <input type="number" name="card_count" placeholder="请输入现金卡数量" class="kb_input   w" required="required" />
+        </p>
+         <p class="kb_cell-ft ml10 ">
+            张
+        </p>
+    </article>
+    <article class="kb_cell">
+        <p class="kb_cell-hd ">
+            <label class="kb_label">开始时间</label>
+        </p>
+        <p class="kb_cell-bd pr10">
+            <input type="text"   placeholder="请输入开始时间" class="kb_input datainp mark-startTime  wicon  w" readonly required="required"/>
+             <input type="hidden" name="start_time" />
+        </p>
+       
+    </article>
+    <article class="kb_cell">
+        <p class="kb_cell-hd ">
+            <label class="kb_label">结束时间</label>
+        </p>
+        <p class="kb_cell-bd pr10">
+            <input type="text" placeholder="请输入结束时间" class="kb_input datainp wicon  mark-endTime w "  readonly required="required"/>
+            <input type="hidden" name="end_time" />
+        </p>
+        
+    </article>
+    <article class="kb_cell">
+        <p class="kb_cell-bd pr10 no-border tr">
+            <button type="button" class="kb_btn kb_btn-main w100 mark-cardAddSub">生成</button>
+        </p>
+         <p class="kb_cell-ft ml10 ">
+            <!-- <a href="javascript:;" class="kb_btn kb_btnPlain-main">下载序列表</a> -->
+        </p>
+    </article>
+    <form>
+  </section>
+  </div>
+ <!-- <div class="main-contentBox  kbVipAdmin_mt24" > -->
+    <!-- <div class="kbVipAdmin_table">
+      <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>序列号</th>
+                <th>卡号</th>
+                <th>金额</th>
+                <th>赠送金额</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>添加时间</th>
+            </tr>
+        </thead>
+        <tbody>
+          <foreach name="list" item="vo">
+            <tr>
+                <td>{{$vo.card_id}}</td>
+                <td>{{$vo.create_time}}</td>
+                <td>{{$vo.money}}</td>
+                <td>赠送金额</td>
+                <td>{{$vo.start_time}}</td>
+                <td>{{$vo.end_time}}</td>
+                <td>{{$vo.card_total}}</td>
+                <td>已用</td>
+            </tr>
+          </foreach>
+        </tbody>
+    </table>
+  </div> -->
+        <!-- 分页位置 -->
+    <!-- <div class="kbVipAdmin_page">
+        <div class="pageSize">
+            <a class="prevPage"  href="javascript:;"></a>
+            <p class="pageNum"><span>1</span><span>/</span><span>3</span></p>
+            <a class="nextPage" href="javascript:;"></a>
+        </div>
+        <div class="pageJump">          
+            <input class="w60  fl" type="text" value="" />
+            <a class="fl" href="javascript:;">跳转</a>
+        </div>
+    </div> -->
+    <!-- </div> -->
+</div>
+</block>
+<block name="js_files">
+<script>
+  $(function(){
+     var start = {
+         format: 'YYYY-MM-DD hh:mm:ss',
+         minDate: '2016-06-22 23:59:59', //设定最小日期为当前日期
+         festival:true,
+         //isinitVal:true,
+        // maxDate: $.nowDate(0), //最大日期
+         choosefun: function(elem,datas){
+             end.minDate = datas; //开始日选好后，重置结束日的最小日期
+            var startData=new Date(datas).getTime()/1000;
+            $(elem).next().val(startData)
+         },
+         // okfun:function(elem, val) {
+         //     checkData(elem);
+         // }
+     };
+   var end = {
+       format: 'YYYY-MM-DD hh:mm:ss',
+       minDate: $.nowDate(0), //设定最小日期为当前日期
+       festival:true,
+       //isinitVal:true,
+       //maxDate: '2099-06-16 23:59:59', //最大日期
+       choosefun: function(elem,datas){
+           start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+           var endData=new Date(datas).getTime()/1000;
+           $(elem).next().val(endData)
+
+       },
+        okfun:function(elem, val) {
+           checkData(elem);
+       }
+   };
+   $('.mark-startTime').jeDate(start);
+   $('.mark-endTime').jeDate(end);
+ 
+  })
+  $(function(){
+     
+  $('.mark-cardAddSub').on('click',function(){
+    var $this,formData;
+    $this=$(this);
+
+    formData=new FormData($('#dl_addCard-form')[0]);
+    $.ajax({
+        type:'POST',
+        url:"{{:U('RechargeCard/ajaxControl')}}?flag=cardAdd",
+        data:formData,
+        dataType:'json',
+        enctype: 'multipart/form-data',
+        async: false,  
+        cache: false,  
+        contentType: false,  
+        processData: false,
+        success:function(res){
+          console.log(res);
+          if(res){
+             Confirm("操作成功！继续添加还是返回现金卡表格页面？","温馨提醒","返回","继续",function(result){
+                if(result){
+                  window.location.href="{{:U('RechargeCard/cardList',['module' => $_GET['module']])}}"
+                }
+            })
+          }
+          // downloadExcelBefore(res);
+        },
+        error:function(xhr, errorType, error){
+            console.log("xhr"+xhr);
+            console.log("errorType"+errorType);
+            console.log("error"+error);
+        }
+    })
+    return false;
+  });
+  function downloadExcelBefore(id){
+    $.ajax({
+      type:"GET",
+      url:"{{:U('RechargeCard/ajaxControl')}}",
+      data:{flag:'downloadExcelBefore',card_id:id,used:1},
+      dataType:'json',
+      success:function(data){
+        console.log(data);
+      },
+      error:function(error){
+        console.log(error);
+      }
+    })
+  }
+ /*  添加成功后会返回id值
+  Recharge/ajaxControl (获取添加成功后数据)
+  flag: downloadExcelBefore
+  id:添加成功后返回的id
+  used: 1 (固定值1)
+  返回数据:
+  card_number: 卡号 
+  serial_number: 序列号  
+  money: 金额 
+  presenter_money: 赠送金额
+  status: (0: 默认, 1:启用)
+  start_time: 充值卡使用开始时间戳  
+  end_time: 充值卡使用结束时间戳   */
+    
+  })
+</script>
+
+</block>

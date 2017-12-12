@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>卡券速递</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=0" />
+	<link href="__PUBLIC__/CSS/common.css" tyle="text/css" rel="stylesheet "/>
+	<script type="text/javascript" src="__PUBLIC__/JS/jquery-1.8.2.min.js"></script>
+
+	<link href="__PUBLIC__/JS/module/swiper/swiper.min.css" tyle="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="__PUBLIC__/JS/module/swiper/swiper.jquery.min.js"></script>
+	<link href="__PUBLIC__/JS/module/dlalert/dlalert.css?version=3.1" tyle="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="__PUBLIC__/JS/module/dlalert/dlalert.js?version=3.1"></script>
+	<link href="__PUBLIC__/cardWeb/cardWebCSS/cardWeb.css?t=1" tyle="text/css" rel="stylesheet "/>
+	<script type="text/javascript" src="__PUBLIC__/cardWeb/cardWebJS/cardWeb.js?version=3.1"></script>
+	<block name="files">
+    
+    </block>
+</head>
+<body>
+	<header id="cardTitle" class="screen">
+		<div class="burger">
+			<div class="x"></div>
+			<div class="y"></div>
+			<div class="z"></div>
+		</div>
+		<h1 class="tc ft160"><block name="cardTitle">首页</block></h1>
+	</header>
+	<div class="menu">				
+		<!-- <img id="menu-bg" src="img/golden-gate-lights.jpg" /> -->
+		<ul>
+			<li><a href="{{:U(index/index)}}">首页</a></li>
+			<li><a href="{{:U('Discount/discount')}}">每周优惠</a></li>
+			<li class=""><!--class markDisplay show cardBusiness.html-->
+				<a href="javascript:;">合作商户<i class="markDisplay"></i></a>
+				<ol>
+					<foreach name="arr" key="key" item="value">
+					<li>
+						<a href="javascript:;">{{$key}}
+						<notempty name="value">
+							<i class="markDisplay"></i>
+						</notempty>
+						</a>
+						<ol>
+							<foreach name="value" item="values">
+							<li><a href="{{:U('Cooperation/cooperationMerchant',['region_id'=>$values['id']])}}">{{$values['region_name']}}</a></li>
+							</foreach>
+
+						</ol>
+					</li>
+					</foreach>
+				</ol>
+			</li>
+			<li>
+				<a href="javascript:;">战略联盟<i class="markDisplay"></i></a>
+				<ol>
+					<li><a href="{{:U('League/leagueCard')}}">盟券发放</a></li>
+					<li><a href="{{:U('League/leagueMerchant')}}">联盟商户</a></li>
+				</ol>
+			</li>
+			<li><a href="{{:U('Cooperation/cooperationJion')}}">合作加盟</a></li>
+			<li><a href="{{:U('Suggest/suggest')}}">投稿建议</a></li>
+
+		</ul>                
+	</div>	
+	
+	<div id="cardCenter" class="screen">
+		<bloc name="cardCenter">
+
+		<block>
+	</div><!-- cardCenter end -->
+
+	<footer id="footer" class="screen pb10">
+		<block name="footer">
+
+		</block>
+        <p class="tc">技术支持由旷邦科技提供&nbsp;&nbsp;|&nbsp;&nbsp;粤ICP备16039183号-1</p>
+    </footer>
+    <script type="text/javascript">
+        function clickStatistics(obj)
+        {
+            $.get("{{:U('Merchant/ajaxControl')}}",{flag:'otherDataStatistics',type:'poster',id:$(obj).attr('posterid')},function(res){
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<title>阿密购商城</title>
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+	<!-- public start -->
+	<link rel="stylesheet" href="__PUBLIC__/CSS/common.css">
+	<script type="text/javascript" src="__PUBLIC__/JS/jquery-1.8.2.min.js"></script>
+	<!-- module start -->
+	<link rel="stylesheet" href="__PUBLIC__/JS/module/swiper/swiper.min.css">
+	<script type="text/javascript" src="__PUBLIC__/JS/module/swiper/swiper.jquery.min.js"></script>
+
+	<link rel="stylesheet" href="__PUBLIC__/JS/module/dlalert/dlalert.css?version=1">
+	<script type="text/javascript" src="__PUBLIC__/JS/module/dlalert/dlalertNew.js?version=1.1"></script>
+	<!-- module end -->
+	<!-- public end -->
+	<!-- default -->
+	<link rel="stylesheet" href="__PUBLIC__/moduleWeb/portalWeb/portalWebCSS/portalMarket.css?version=4.3">
+	<block name="css_js" >
+	
+
+	<style>
+		/*div.ADleft{
+			position:relative;
+			
+		}*/
+		div.focusWap::before/*,.focusWap::before*/{
+			content:'广告';
+			display:block;
+			color:#fff;
+			width:32px;
+			height:20px;
+			text-align:center;
+			line-height:20px;
+			background-color:#8b582a;
+			position:absolute;
+			top:0;
+			right:0;
+			z-index:9;
+		}	
+	</style>
+	</block>
+</head>
+<body class="kbMt_bc-fdf7ee">
+	<div id="kbMt_Header" class="kbMt_font19">
+		<p class="kbMt_Header-mark kbMt_fontCr-fff ">
+		<block name="topname" >
+			<img src="__PUBLIC__{{$_SESSION['projectInfo']['project_logo']}}" alt="店铺LOGO" />
+			<!-- <a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">招商加盟</a> -->
+		</block>
+		</p>
+
+		<a href="tel:{{$_SESSION['projectInfo']['phone']}}"><img src="__PUBLIC__/moduleWeb/portalWeb/portalWebImages/phone.png" alt="拨号" /></a>
+	</div>
+<block name="center" >
+	
+</block>
+	<div class="kbmt_fixedMenu">
+		<nav class="menu-opener">
+		<div class="menu-opener-inner"></div>
+		</nav>
+
+		<nav class="menu">
+			<div class="menu-inner">
+				<a href="{{:U('Index/index')}}" class="menu-link" button-type="1"><span>首页</span></a>
+				<a href="{{:U('AllianceShops/companyList')}}" class="menu-link" button-type="2"><span>村村通</span></a>
+				<a href="{{:U('Privilege/privilegeList')}}" class="menu-link" button-type="3"><span>优惠</span></a>
+				<a href="{{:U('Activity/showActivityList')}}" class="menu-link" button-type="4"><span>活动</span></a>
+				<a href="{{:U('JoinUs/projectInfo')}}" class="menu-link" button-type="5"><span>加盟</span></a>
+			</div>
+		</nav>
+	
+		<script type="text/javascript">
+		$(".menu-opener").click(function(){
+			$(".menu-opener, .menu-opener-inner, .menu").toggleClass("active");
+		});
+		</script>
+	</div><!-- menu end -->
+	<script>
+		$(function(){
+        	$('.menu .menu-inner .menu-link').on('click', function (){
+        		$.get("{{:U('Index/ajaxControl')}}", {flag: 'indexButtonClickStatistics', buttonType:$(this).attr('button-type')},function(res){
+        			console.log(res);
+        		});
+        	});
+        });
+	</script>
+<block name="js_file" >
+
+</block>
+</body>
+</html>

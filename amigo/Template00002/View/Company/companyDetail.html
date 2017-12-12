@@ -1,0 +1,53 @@
+<extend name="Common/secondCom" />
+<block name="css_file" >
+	<style>
+		.kbMt_goodsListImg img {  
+		 max-width: 360px; /*图片自适应宽度*/  
+		}
+		.kbMt_goodsListImg{
+			background-color:#fff;
+		}
+		#bsMain{
+			background-color:#f7f7f7;
+		}
+		.bsAboutBrief{
+			text-indent:1em;
+			padding:10px 0;
+		}
+	</style>
+</block>
+<block name="bsTitle">
+	关于
+</block>
+<block name="content" >
+	<section id="bsMain" class="noFooter">
+
+		<h1>
+			<p class="bsAboutBrief f12 c999">简介</p>
+		</h1>
+		<div class="kbMt_goodsListImg bc">
+			{{$info.news}}
+		</div>
+		<h1>
+			<p class="bsAboutBrief f12 c999">联系我们</p>
+		</h1>
+		<article class="kbMt_goodsListImg p10">
+			<p class="mb10 f14">
+				<b>联系人：</b>
+				<b>{{$info.principal}}</b>
+			</p>
+			<p class="mb10 f14">
+				<b>联系电话：</b>
+				<b>{{$info.phone}}</b>
+			</p>
+			<p class="mb10 f14">
+				<b>联系邮箱：</b>
+				<b>{{$info.email}}</b>
+			</p>
+			<p class="mb10 f14">
+				<b>联系地址：</b>
+				<b>{{$info.address_info}}</b>
+			</p>
+		</article>
+	</section>
+</block>

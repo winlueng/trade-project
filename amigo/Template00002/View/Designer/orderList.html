@@ -1,0 +1,75 @@
+<extend name="Common/secondCom" />
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+	</a>
+	
+</block>
+<block name="bsTitle">
+	我的单子
+</block>
+<block name="content">
+	<section id="bsMain" class="noFooter bsDesigner bcf7f7f7">
+		<header class="fixedNav bsClassNav mb10 swiper-container">
+			<nav class=" bsClassHref swiper-wrapper">
+				<a class="swiper-slide {{$_GET['show'] == 1?'selected':''}}" href="{{:U('orderList', ['companyName' => $_GET['companyName'], 'show' => 1])}}">未完成</a>
+				<a class="swiper-slide {{$_GET['show'] == 2?'selected':''}}" href="{{:U('orderList', ['companyName' => $_GET['companyName'], 'show' => 2])}}">已完成</a>
+				
+			</nav>
+			<!-- <script>
+				$(function(){
+				    var swiper = new Swiper('.bsClassNav', {
+				        slidesPerView:auto,
+				        paginationClickable: true,
+				        freeMode: true
+				    });
+				})	     	
+    
+			</script> -->
+		</header>
+		<ul class="cardList mt10">
+		<volist name="list" id="v" empty="还没分派任务给你哦" >
+			<a  href="{{:U('orderInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+				<li>
+					<h3 class="icon-newsColor c999 mb10 ">
+						<em>订单信息</em>
+						<time class="fr">{{:date('Y-m-d H:i', $v['create_time'])}}</time>
+					</h3>
+				<switch name="v.status" >
+					<case value="1">
+						<p class="f14  mb10">客户{{$v['people']}}预约了你，预约时间：<time class="c00bec5">{{:date('Y-m-d H:i', $v['come_time'])}}</time></p>
+						<p class="f14  mb10">距离预约时间还有 {{$v['distance_time']}}</p>
+						<p class="f14  mb10">生成订单编号：<time class="c00bec5">{{$v['subscribe_number']}}</time></p>
+						<p class="tr c999">
+							点击查看详情
+						</p>
+					</case>
+					<case value="2">
+						<p class="f14  mb10">客户{{$v['people']}}的订单已完成, 提醒一下用户去支付哦!<time class="c00bec5"></time></p>
+						<p class="f14  mb10">订单完成时间: {{:date('Y-m-d H:i:s', $v['complete_time'])}}</p>
+						<p class="f14  mb10">订单编号：<time class="c00bec5">{{$v['subscribe_number']}}</time></p>
+						<p class="tr c999">
+							点击查看详情
+						</p>
+					</case>
+					<case value="3">
+						<p class="f14  mb10">客户{{$v['people']}}的订单已支付, 提醒一下用户去评价哦!<time class="c00bec5"></time></p>
+						<p class="f14  mb10">支付时间: {{:date('Y-m-d H:i:s', $v['update_time'])}}</p>
+						<p class="f14  mb10">订单编号：<time class="c00bec5">{{$v['subscribe_number']}}</time></p>
+						<p class="tr c999">
+							点击查看详情
+						</p>
+					</case>
+					<case value="4">
+						<p class="f14  mb10">客户{{$v['people']}}的订单已评价,看看他都说了什么!<time class="c00bec5"></time></p>
+						<p class="f14  mb10">订单编号：<time class="c00bec5">{{$v['subscribe_number']}}</time></p>
+						<p class="tr c999">
+							点击查看详情
+						</p>
+					</case>
+				</switch>
+				</li>
+			</a>
+		</volist>
+		</ul>
+	</section>
+</block>

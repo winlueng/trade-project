@@ -1,0 +1,283 @@
+<extend name="Common/firstCom" />
+
+
+<block name="css_files" >
+<!-- gaoCode -->
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=a2414330232c1ba563ad05237561e9d9"></script>
+<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+  <style>
+	.dl_locationImg{
+	  border-radius:50px;
+	  border:1px solid #eee;
+	  overflow:hidden;
+	}
+	.kb_list-cells{
+	}
+
+	.kb_list-cells .kb_list-cell_middle::after{
+	  display:none;
+	}
+	.dl_loaction-fifter{
+		position:relative;
+	}
+	.dl_choose-select a:nth-child(1){
+		border-right:1px solid #eee;
+	}
+	.dl_choose-select-result{
+		position:absolute;
+		width:100%;
+		z-index: 11;
+		display: none;
+	}
+	.dl_choose-select-result-list{
+		height: 300px;
+		overflow-x:hidden;
+		width:100%; 
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	.dl_choose-select-result-list input:checked+label{
+		color:#ebad31;
+	}
+	.dl_choose-select-cover{
+		z-index: -1;
+		position: fixed;
+		top:80px;
+		width:100%;
+		height:100%;
+	}
+	.dl_locationBgPic img{
+		width: calc(100% - 20px);
+	}
+  </style>
+  <php>
+	 //echo('<pre>');
+	 //var_dump($business);exit;
+  </php>
+</block>
+<block name="title">
+	体验店
+</block>
+<block name="content" >
+	<section id="Main" class="kb_main bc tg_experience">
+	<div class="dl_loading" style="display:block">
+       <div class="dl_loading-cell">
+	       <p class="dl_loading-icon"></p>
+	       <p class="dl_loading-info">正在初始化中....</p>
+       </div>
+    </div>
+    <header class="dl_loaction-fifter">
+      <article class="kb_cell dl_choose-select">
+        <a href="javascript:;" class="w h kb_cell-bd tc" v-on:click="tabHref">{{selectDefalut}}</a>
+        <a href="javascript:;" class="w h kb_cell-bd tc" v-on:click="tabHref">{{selectDefalut2}}</a>
+      </article>
+      <article class=" dl_choose-select-result">
+        <p class="dl_choose-select-cover coverblack"></p>
+        <ul class="kb_cells main_bg dl_choose-select-result-list"
+        v-if="changeHref==true">
+        	 <volist name="region" id="v">
+      	   <li class="kb_cell kb_cell-check">
+			<p class="kb_cell-bd kb_choose">
+				<input type="radio" name="region_name" value="{{$v['id']}}"
+				v-on:click="allLocation({{$v['id']}},'{{$v['region_name']}}')"
+				 />
+				<label >{{$v['region_name']}}</label>
+			</p>
+		   </li>
+		   </volist>
+      	   
+	      </ul>
+	      <ul class="kb_cells main_bg dl_choose-select-result-list" v-if="changeHref==false">
+      	  	<volist name="business" id="v">
+      	   <li class="kb_cell kb_cell-check">
+			<p class="kb_cell-bd kb_choose">
+				<input type="radio" v-on:click="allLocation({{$v['id']}},'{{$v['business_name']}}')" name="business_name" value="{{$v['id']}}" />
+				<label >{{$v['business_name']}}</label>
+			</p>
+		   </li>
+		   </volist>
+	      </ul>
+      <article>
+    </header>
+    <p v-if="locationList.length==0" class="tc mt50">
+	    暂无店铺，看看别的地方吧！
+    </p>
+    <a v-bind:href="mainhost + indexs.web_postfix" class="kb_list-cells main_bg pb10 mb10" v-for="indexs in locationList">
+      <article class="kb_list-cell kb_list-cell_middle mt10">
+        <div class="kb_list-cell-hd dl_locationImg">
+            <img v-bind:src="'__PUBLIC__'+indexs.company_logo" alt="" />
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class="kb_list-cell-title mb10">
+              {{indexs.company_name}} 
+              <em class="fr mr10">距离：{{indexs.distance?indexs.distance:">999k"}}m</em>
+            </h2>
+            <p class="kb_list-cell-brief">{{indexs.address_info}}
+            	
+            </p>
+          </aside>
+      </article>
+      <p class="w  mb10 main_bg pl10 pr10 pb10 dl_locationBgPic">
+        <img v-bind:src="'__PUBLIC__'+indexs.company_bgpic">
+      </p>
+    </a>
+  </section>
+</block>
+<block name="js_files">
+  
+
+  <script>
+  	$(function(){
+  		// $.get("{{:U('ajaxControl')}}",{flag:'get_company_list', x_point:'113.321258',y_point:'23.107025'}, function (res) {
+  		// 	console.log(res)
+  		// })
+
+  		var app=new Vue({
+  			el:"#Main",
+  			data:{
+  				selectDefalut:"请选择区域",
+  				selectDefalut2:"请选择行业",
+  				changeHref:true,
+  				getCompany:{
+  					region_id:-1,
+  					business:-1
+  				},
+  				locationList:[],
+  				mainhost:''
+  			},
+  			mounted:function(){
+			  	this.$data.mainhost="http://"+window.location.host+"/";
+			  	// setTimeout(function(){
+			  	// },1000);
+			  	(function(){
+	  			var map, geolocation;
+	  			   //加载地图，调用浏览器定位服务
+	  			   map = new AMap.Map('container1', {
+	  			       resizeEnable: true
+	  			   });
+	  			   map.plugin('AMap.Geolocation', function() {
+	  			       geolocation = new AMap.Geolocation({
+	  			           enableHighAccuracy: true,//是否使用高精度定位，默认:true
+	  			           timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+	  			           buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+	  			           zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+	  			           buttonPosition:'RB'
+	  			       });
+	  			       map.addControl(geolocation);
+	  			       geolocation.getCurrentPosition();
+	  			       AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+	  			       AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+	  			   });
+	  			   //解析定位结果
+	  			   function onComplete(data) {
+	  			   	var x_point,y_point;
+	  			   	x_point=data.position.getLng();
+	  			   	y_point=data.position.getLat();
+	  			    pointLocation(x_point,y_point,function(result){
+	  			    	
+	  			    	if(!result.status){
+	  			    		pointLocation(null,null,function(res){
+	  			    			if(res.status){
+		  			    			app.$data.locationList=res.data
+		  			    			loadsuccess();
+	  			    			}
+	  			    		})
+	  			    	}else{
+	  			    		app.$data.locationList=result.data;
+	  			    		loadsuccess();
+	  			    	}
+	  			    });
+	  			   }
+	  			   //解析定位错误信息
+	  			   function onError(data) {
+	  			       Alert('定位失败，去看看别的吧！',function(){
+	  			       	   pointLocation(null,null,function(res){
+	  			       			if(res.status){
+			  			    		app.$data.locationList=res.data;
+					  				loadsuccess();
+	  			    			}
+	  			       		})
+	  			       });
+	  			      
+	  			   }
+			  	})();
+			  	function pointLocation(xpoint,ypoint,callback){
+			  		var x_point,y_point,getData=new Object();
+			  		x_point=xpoint?xpoint:null;
+	  			   	y_point=ypoint?ypoint:null;
+	  			   	getData={
+	  			   		flag:"get_company_list"
+	  			   	}
+	  			   	if(x_point && y_point){
+	  			   		getData.x_point=x_point;
+	  			   		getData.y_point=y_point;
+	  			   	}
+			  		$.ajax({
+	  			   		type:'GET',
+	  			   		url:"{{:U('AllianceShops/ajaxControl')}}",
+	  			   		data:getData,
+	  			   		dataType:'json',
+	  			   		success:function(data){
+	  			   			callback(data);
+	  			   		},
+	  			   		error:function(error){
+	  			   			console.log(error);
+	  			   		}
+	  			   	})
+			  	}
+			},
+  			methods:{
+			  tabHref:function(event){
+			  	var $this=$(event.srcElement)?$(event.srcElement):$(event.target),
+			  		tabList=$('.dl_choose-select a'),
+			  		index=tabList.index($this);
+			  		index==0?this.$data.changeHref=true:this.$data.changeHref=false;
+			  		$('.dl_choose-select-result').show();
+			  		$('.dl_choose-select-cover').on('click',function(){
+			  			$('.dl_choose-select-result').hide();
+			  		})
+			  },
+			  allLocation:function(id,name){
+			  	if(this.$data.changeHref){
+			  		this.$data.selectDefalut=name;
+			  		this.$data.getCompany.region_id=id;
+			  	}else{
+			  		this.$data.selectDefalut2=name;
+			  		this.$data.getCompany.business=id;
+			  	}
+			  	$('.dl_choose-select-result').hide();
+			  	if(this.$data.getCompany.region_id!=-1&&this.$data.getCompany.business!=-1){
+			  		$.ajax({
+			  			type:"GET",
+			  			url:"{{:U('AllianceShops/ajaxControl')}}",
+			  			data:{
+			  				flag:"get_company_list",
+			  				region_id:this.$data.getCompany.region_id,
+			  				business_id:this.$data.getCompany.business
+			  			},
+			  			dataType:"json",
+			  			success:function(data){
+			  				if(data.status=='true'){
+				  				app.$data.locationList=data.data;
+				  				console.log(app.$data.locationList);
+			  				}else{
+			  					app.$data.locationList=[];
+			  					console.log(app.$data.locationList);
+			  				}
+
+			  			},
+			  			error:function(error){
+			  				console.log(error);
+			  			}
+			  		})
+			  	}
+			  }
+  			}
+  		});
+
+  	
+ })
+  </script>
+</block>

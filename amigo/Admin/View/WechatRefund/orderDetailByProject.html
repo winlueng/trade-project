@@ -1,0 +1,184 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+
+<style>
+	.RefundsBtnOrder{
+		width:50%;
+	}
+	.RefundsBtn_opt li:nth-child(2){
+	display:none;
+	}
+</style>
+</block>
+<block name="content" >
+
+<!-- 主内容 -->
+	<div id="kbVipAdmin_rightCenter" class="spAnProductList">
+		<!-- 内容标题部 -->
+		<div class="centerTitle">
+			<h1>
+				<a class="goback mr10" href="javascript:history.back(-1)" ><img src="__PUBLIC__/Business/BusinessImages/back.png"></a>
+				<b>订单详情</b>
+			</h1>
+		</div>
+		
+		<!-- 内容标题部结束 -->
+		<!-- 内容表格部 -->
+		
+		<section class="orderDetail" >
+			<article class="gSeparated">	
+				<p>原订单编号：{{$info.orderInfo.order_number}}</p>
+				<p>退款订单编号：{{$info.out_refund_no}}</p>
+				<p>交易时间：{{:date('Y年m月d日 H:i:s', $info['orderInfo']['create_time'])}}</p>
+				<switch name="info.status" >
+					<case value="0">
+						<p><b>订单状态: </b><b>申请退款</b></p>
+					</case>
+					<case value="1">
+						<p><b>订单状态: </b><b style="font-size: 20px;color: red">已退款</b></p>
+					</case>
+					<case value="2">
+						<p><b>订单状态: </b><b style="font-size: 20px;color: red">拒绝退款</b></p>
+					</case>
+				</switch>
+			</article>
+			<h2>商品信息</h2>
+			<volist name="info.orderInfo.goods_data" id="v">
+				<article class="goodsDetails">
+					<p><img src="__PUBLIC__{{$v.goodsAttr.attr_pic}}"  alt=""/></p>
+					<aside>
+						<p>{{$v.goodsInfo}}</p>
+						<p>{{$v.goodsAttr.attr_name}}:{{$v.goodsAttr.attr_val}}</p>
+						<p>￥{{$v.price}}</p>
+						<p>数量：X{{$v.total}}</p>
+					</aside>
+				</article>
+				<p class="gSeparated mb10"></p>
+			</volist>
+			<h2>费用信息</h2>	
+			<article>
+				<p>商品金额:{{$info.orderInfo.total}}元</p>
+				<p>运费:{{$info.orderInfo.express_price}}元</p>
+				<p>总计:{{$info.orderInfo.wechat_total}}元</p>
+			</article>
+			<h2>买家信息</h2>	
+			<article >
+				<p><b>买家呢称:{{$info.visitor_name}}</b></p>
+				<p><b>收货人:{{$info.orderInfo.address_id.consignee}}</b></p>
+				<p><b>收件人电话:{{$info.orderInfo.address_id.phone}}</b></p>
+				<p><b>收货地址:{{$info.orderInfo.address_id.address_str}}</b></p>
+			</article>
+			<switch name="info.status" >
+				<case value="0">
+					<article >
+						<p><b style="font-size: 15px; color: #5885cf">退款原因:&nbsp;&nbsp;&nbsp;</b><b style="font-size: 18px; color: #ee903c">{{$info.refund_remark}}</b></p>
+					</article>
+				</case>
+				<case value="1">
+					<article >
+						<p><b style="font-size: 15px; color: #5885cf">退款原因:&nbsp;&nbsp;&nbsp;</b><b style="font-size: 18px; color: #ee903c">{{$info.refund_remark}}</b></p>
+					</article>
+					<article >
+						<p><b style="font-size: 15px; color: #5885cf">同意退款备注:&nbsp;&nbsp;&nbsp;</b><b style="font-size: 18px; color: #ee903c">{{$info.admin_remark}}</b></p>
+					</article>
+				</case>
+				<case value="2">
+					<article >
+						<p><b style="font-size: 15px; color: #5885cf">退款原因:&nbsp;&nbsp;&nbsp;</b><b style="font-size: 18px; color: #ee903c">{{$info.refund_remark}}</b></p>
+					</article>
+					<article >
+						<p><b style="font-size: 15px; color: #5885cf">拒绝退款备注:&nbsp;&nbsp;&nbsp;</b><b style="font-size: 18px; color: #ee903c">{{$info.admin_remark}}</b></p>
+					</article>
+				</case>
+			</switch>
+			<p class="tc">
+			<input class="kbVipAdmin_opt w80 h30" type="button" onclick="javascript:history.back(-1)" value="返回" />
+			<switch name="info.status" >
+					<case value="0">
+						<input class="kbVipAdmin_opt w80 h30 RefundsBtn" type="button" value="退款操作" />
+					</case>
+					<case value="1">
+						<input class="kbVipAdmin_opt w80 h30" type="button" value="已退款" />
+					</case>
+					<case value="2">
+						<input class="kbVipAdmin_opt w80 h30" type="button" value="已拒绝" />
+					</case>
+				</switch>
+			</p>
+		</section>
+		<!-- 主体内容部分end -->
+		<div class="kbVipAdmin_alert showExpressInfo RefundsBtn_alert">
+			<div class="kbVipAdmin_alertBox ">
+				<button type="button" class="kbVipAdmin_alert-close "></button>
+				<h3 class="mb10">退款</h3>
+				<form action="{{:U('wxRefund', ['id' => I('get.id')])}}" method="post">
+						<!-- <article class="RefundsBtnOrder bc">
+							<h4>交易信息</h4>
+							<p>微信支付单号：12321323123123213</p>
+							<p>商品订单号：12321323123123213</p>
+							<p>订单金额：122</p>
+							<p>退款原因：122</p>
+						</article>
+											<hr/> -->
+					<article>
+						<p class="mb10 tc RefundsBtn_btn">
+							<button type="button" class="kbVipAdmin_opt kbVipAdmin_opt_7facff">同意退款</button>
+							<button type="button" class="kbVipAdmin_opt">拒绝退款</button>
+						</p>
+						<ul class="RefundsBtn_opt">
+							<li class="kbVipAdmin_enter ">
+								<p>
+									<b><i>*</i>退款金额:</b>
+									<input type="number" name="refund_fee" value=""   placeholder="退款金额" />
+								</p>
+								<p>
+									<b><i>*</i>同意退款备注:</b>
+									<input type="text" name="admin_remark" value=""  placeholder="同意退款备注" />
+								</p>
+							</li>
+							<li class="kbVipAdmin_enter ">
+								<p>
+									<b><i>*</i>拒绝原因:</b>
+									<input type="text" name="admin_remark"  value=""   placeholder="属性值" />
+								</p>
+							</li>
+						</ul>
+					</article>
+					<div class="kbVipAdmin_operating">
+						<div class="kbVipAdmin_restsubmit">
+							<input  class="kbVipAdmin_button_005aff w80 h30 tc" type="submit" value="好的" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+</block>
+<block name="js_files">
+		<script>
+
+			  $(function(){
+	   		
+		   		$('.kbVipAdmin_alert .kbVipAdmin_operating input[type="reset"]').on('click',function(){
+		   			$('.kbVipAdmin_alert').fadeOut();
+		   		});
+
+		   		$('.RefundsBtn').on('click',function(){
+		   			console.log("aaa");
+		   			$('.RefundsBtn_alert').fadeIn();
+		   			/* $('.RefundsBtn_alert form').attr('action', '{{:U("wxRefund")}}?id='+$(this).attr('refundID')); */
+	            });
+		   		$('.RefundsBtn_btn button').on('click',function(){
+		   			var RefundsBtn_btn=$('.RefundsBtn_btn button');
+		   				$this=$(this);
+		   				indexs=RefundsBtn_btn.index($this);
+		   				console.log(indexs);
+		   			$this.addClass('kbVipAdmin_opt_7facff').siblings().removeClass('kbVipAdmin_opt_7facff');
+		   			$('.RefundsBtn_opt li').eq(indexs).fadeIn().siblings('li').fadeOut();
+		   			// console.log($('.RefundsBtn_opt li').eq(indexs))
+		   			// $('.RefundsBtn_opt li').eq(indexs).siblings('li').fadeOut();
+		   		})
+		   		
+	         });
+	   	</script>
+
+</block>

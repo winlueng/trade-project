@@ -1,0 +1,67 @@
+<extend name="Common/websiteCom" />
+<block name="css_file">
+	<style>
+		.goodsName em{
+			color:#00bec5;
+		}
+	</style>
+</block>
+<block name="header">
+	<header id="bsHeader" class="bsHeader  ">
+		<form action="{{:U('goSearch',['companyName' => $_GET['companyName']])}}" >
+			<article class="bsHeader">
+			<nav >
+				<a class="icon-back" href="{{:U('Index/index',['companyName' => $_GET['companyName']])}}">
+				</a>
+			</nav>
+			<h1><input class="hd-search" type="search" name="words" value="{{$_GET['words']}}"  placeholder="" /></h1>
+			<nav>
+				<p class="choose w">
+					<input  type="submit" value="搜索">
+					<label class="w">搜索</label>
+				</p>
+			</nav>
+			</article>
+		</form>
+	</header>
+</block>
+<block name="content" >
+<section id="bsMain" class="bsSearch noFooter">
+	<article class=" hidden">
+			<nav>
+			<a class="icon-back back" href="javascript:;" >
+				</a>
+			</nav>
+			<h1><input class="hd-search" type="search" value="" placeholder="" /></h1>
+			<nav>
+				<a class="icon-newsLeft" href="javascript:;">
+					搜索
+				</a>
+			</nav>
+			<aside class="searchContent">
+			 <ul class=" bsReservationList bc mb10">
+		       	<volist name="list" id="v" empty="$empty">
+		     	<li >
+		     		<p class="reservationListImg">
+		     			<a href="{{:U('Goods/goodsDetail', ['companyName' => $_GET['companyName'], 'id' => $v->id])}}"> 
+		     			<img src="__PUBLIC__{{$v->goods_logo}}" alt="" />
+		     			</a>
+		     		</p>
+	     			<a href="{{:U('Goods/goodsDetail', ['companyName' => $_GET['companyName'], 'id' => $v->id])}}"> 
+		     		<article class="reservationListInfo">
+		     			<h3 class="mb10 goodsName">{{$searchObj->highlight($v->goods_name)}}</h3>
+		     			<p class="mb10 c666 goodsName">{{$searchObj->highlight($v->describe)}}</p>
+		     			<p class="mb10 c666">￥{{$v->price}}</p>
+		     			<p>
+		     				<em class="c999">已售{{$sales[$v->id]['sales']?$sales[$v->id]['sales']:0}}件</em>
+		     				<!-- <a class="icon-shopping fr reservation winCart" goodsid="{{$vo['id']}}" href="javascript:;"></a> -->
+		     			</p>
+		     		</article>
+		     		</a>
+		     	</li>
+		    	</volist>
+		     </ul>
+			</aside>
+		</article>
+</section>
+</block>

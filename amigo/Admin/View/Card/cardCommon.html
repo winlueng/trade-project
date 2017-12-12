@@ -1,0 +1,153 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/css/coupon/coupon.css"></link>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div class="kbVipAdmin_tableHead">
+					<form class="kbVipAdmin_inlineBlock" action="{{:U('cardCommon',['module' => $_GET['module']])}}" method="get" >
+					<!-- <div class="kbVipAdmin_styledSelect"> -->
+						<!-- <select class="kbVipAdmin_slt pl20" name="">
+							<option>活动类型</option>
+							<option>盟券发放</option>
+						</select> -->
+						<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入商店名称" name="selName" value="{{$_GET['selName']}}" style="width: 350px" />
+						<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+						<span style="color:#F516CA">{{$news}}</span>
+					<!-- </div> -->
+					</form>
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th width="190">商家名称</th>
+							<th>卡券名称</th>
+							<th>描述</th>
+							<th width="150">底图</th>
+							<th width="150">二维码</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th width="140">参与活动</th>
+							<th width="190">状态</th>
+							<th width="190">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.company_name}}</td>
+							<td>{{$v.card_name}}</td>
+							<td>{{$v.card_desc}}</td>
+							<td class="kbVipAdmin_tdImg">
+								<div><img src="__PUBLIC__{{$v['card_bgaddress']}}" />
+								</div>
+							</td >
+							<td class="kbVipAdmin_tdImg">
+								<div>
+								<img src="__PUBLIC__{{$v['card_code']}}">
+								</div>
+							</td>
+							<td>{{$v.start_time}}</td>
+							<td>{{$v.end_time}}</td>
+							<td class="microWebMenuAdmin couponAdminActivity">
+								<input id="couponWeek{{$v.id}}"  name="couponWeek{{$v.id}}" type="checkbox" {{$v['activity']=='1'?'checked':''}} />
+								<label class="w100" for="couponWeek{{$v.id}}"><i></i><b>每周优惠</b></label>
+							</td>
+							<td class="microWebMenuAdmin couponAdminStartus">
+								<input id="microWebEnabled{{$v.id}}" {{$v['status']=='0'?'checked':''}} name="microWebMenuAdmin{{$v.id}}" type="radio" />
+								<label for="microWebEnabled{{$v.id}}"><i></i><b>启用</b></label>
+								<input id="microWebDisabled{{$v.id}}" {{$v['status']=='1'?'checked':''}} name="microWebMenuAdmin{{$v.id}}" type="radio" />
+								<label for="microWebDisabled{{$v.id}}"><i></i><b>禁用</b></label>
+							</td>
+							<td>
+								
+								<a class="adminFont kbVipAdmin_btnMenu couponAdListWirte mb10" href="{{:U('cardUpdate')}}?id={{$v.id}}&module={{$_GET['module']}}" >&#xe601;&nbsp;编辑</a>
+								<input class="adminFont kbVipAdmin_btnMenu couponAdListDel" type="button" value="&#xe606;&nbsp;删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<!-- 分页位置 -->
+			<div class="kbAdmin_page">
+				{{$page}}
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAdList_alertWriter">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑行业</h2>
+		<form class="couponBusiness_FormParent kbVipAdmin_form" action="" method="get">
+			<p><span>卡券名称：</span><input type="text" /> </p>
+			<p><span>描述：</span><input type="text" /> </p>
+			<p class="couponAddr ">
+				<span>所属商圈：</span>
+				<select>
+					<option>请选择省份</option>
+				</select>
+				<select>
+					<option>请选择城市</option>
+				</select>
+				<select>
+					<option>请选择地区</option>
+				</select>
+				<select>
+					<option>请选择商圈</option>
+				</select>
+			</p>
+			<p><span>商家名称：</span><input type="text" /> </p>
+			<div class="kbVipAdmin_fileImg">
+				<span>底图：</span>
+				<label class="fileImg" for="businessFileImg">点击上传图片</label>
+				<input id="businessFileImg" type="file" />
+			</div>
+			<p><span>开始时间：</span><input type="text" /> </p>
+			<p><span>结束时间：</span><input type="text" /> </p>
+			<p class="kbVipAdmin_MenuAdminBtn" >
+				<input style="display:block" type='submit' value="增加" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+
+			$('.addCouponAdList ').on('click',function(){
+				$('.couponAdList_alert').fadeIn();
+			})
+			$('.couponAdminStartus input').on('click',function(){
+				var $this = $(this);
+				var ID = $this.parent().siblings().eq(0).text();
+				var statusTxt=$this.next('label').text().replace(/(^\s+)|(\s+$)/g, "");
+	   			var statusFlag = (statusTxt=="禁用")? "change":"show";
+	   			var status = (statusTxt=="启用")? "0":"1";
+	   			$.get("{{:U('ajaxControl')}}",{'flag':statusFlag,'id':ID,'status':status},function (res){
+	   			 	alert(res);
+	   			});
+			})
+
+			$('.couponAdminActivity input').on('click',function(){
+				var $this = $(this);
+				var ID = $this.parent().siblings().eq(0).text(); 
+				var activity=(($this.is(":checked"))? 1 : 0);
+				$.get("{{:U('ajaxControl')}}",{'flag':'activity','id':ID,'activity':activity},function (res){
+		   			 	alert(res);
+	   			});
+			})
+			$('.couponAdListDel').on('click',function(){
+				var $this = $(this);
+				var ID = $this.parent().siblings().eq(0).text(); 
+				$.get("{{:U('ajaxControl')}}",{'flag':'del','id':ID},function (res){
+						 $this.parent().parent().remove();
+		   			 	alert(res);
+	   			});
+			})
+		})
+	</script>
+</block>

@@ -1,0 +1,188 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+		<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/userAdmin/userAdmin.css">
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="userAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+			<div class="kbVipAdmin_tableHead">
+				<p class="authAddBtn">
+					<input class=" adminFont kbVipAdmin_btn w100 h50 "  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+				</p>
+			</div>
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>角色名称</th>
+							<th width="500">拥有权限</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="group" item="v">
+						<tr>
+							<td class="groupID">{{$v.id}}</td>
+							<td>{{$v.title}}</td>
+							<td class="groupRulesName"><p>{{$v.rulesName}}</p></td>
+							<td class="groupStatus">
+								{{$v.statusName}}
+							</td>
+							<td>
+								<input class="adminFont kbVipAdmin_btnMenu groupAddWrite mb10" type="button" value="&#xe601;&nbsp;编辑" />
+								<input class="adminFont kbVipAdmin_btnMenu mb10" type="button" value="&#xe606;&nbsp;删除" onclick="groupDel(this)" />
+								<input class=" kbVipAdmin_btnMenu childrenRightDisabled" type="button" value="{{$v['statusName']=='启用' ?'禁用':'启用'}}" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert userAdmin_alert">
+		<div class="kbVipAdmin_alert_box userAdmin_alert-box">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加角色</h2>
+		<form class="userAdmin_FormParent" action="{{:U('groupAdd')}}" method="post">
+			<p class="userAdmin_FormParent-addRoleName">
+				<label><b>角色名称</b></label>
+				<input type="text" name="title" value="" placeholder="请输入角色名称" required />
+			</p>
+			<p class="userAdmin_FormParent-addRoleName">
+			<label><b>角色名称:</b></label>
+				<input id="microWebEnabled"  name="group_type" type="radio" value="1" />
+				<label for="microWebEnabled"><i></i><b>内部管理员</b></label>
+				<input id="microWebDisabled"  name="group_type" type="radio" value="2" />
+				<label for="microWebDisabled"><i></i><b>商户</b></label>
+				<input id="microWebDisabled"  name="group_type" type="radio" value="3" />
+				<label for="microWebDisabled"><i></i><b>商场管理员</b></label>
+			</p>
+			<br>
+			<ul class="userAdmin_Form">
+				<foreach name='rules' item='v'>
+				<li>
+					<p class="userAdmin_Form-first">
+						<input type="checkbox" name="rules[]" value="{{$v.id}}" />
+						<label>{{$v.title}}</label>
+					</p>
+					<ul>
+						<foreach name="v.rule" item="vo">
+						<li>
+							<input type="checkbox" name="rules[]" value="{{$vo.id}}" />
+							<label>{{$vo.title}}</label>
+						</li>
+						</foreach>
+					</ul>
+				</li>
+				</foreach>
+			</ul>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="提交权限" />
+			</p>	
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert userAdmin_alertWrite">
+		<div class="kbVipAdmin_alert_box userAdmin_alert-box">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>修改角色</h2>
+		<form class="userAdmin_FormParent" action="{{:U('groupAdd')}}" method="post">
+			<p class="userAdmin_FormParent-addRoleName">
+				<label><b>角色名称：</b></label>
+				<input type="text" name="title" value="" placeholder="请输入角色名称" />
+			</p>
+			<p class="userAdmin_FormParent-addRoleName">
+				<label><b>角色名称：</b></label>
+				<input id="microWebEnabled"  name="group_type" type="radio" value="1" />
+				<label for="microWebEnabled"><i></i><b>内部管理员</b></label>
+				<input id="microWebDisabled"  name="group_type" type="radio" value="2" />
+				<label for="microWebDisabled"><i></i><b>商户</b></label>
+				<input id="microWebDisabled"  name="group_type" type="radio" value="3" />
+				<label for="microWebDisabled"><i></i><b>商场管理员</b></label>
+			</p>
+			<br>
+			<ul class="userAdmin_Form">
+				<foreach name='rules' item='value'>
+				<li>
+					<p class="userAdmin_Form-first">
+						<input type="checkbox" name="rules[]" value="{{$value.id}}" />
+						<label>{{$value.title}}</label>
+					</p>
+					<ul>
+						<foreach name="value.rule" item="vi">
+						<li>
+							<input type="checkbox" name="rules[]" value="{{$vi.id}}" />
+							<label>{{$vi.title}}</label>
+						</li>
+						</foreach>
+					</ul>
+				</li>
+				</foreach>
+			</ul>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="提交权限" />
+			</p>	
+		</form>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$(function(){
+
+			$('.authAddBtn input').on('click',function(){
+				$('.userAdmin_alert').fadeIn();
+			})
+			$('.groupAddWrite').on('click',function(){
+				$('.userAdmin_alertWrite').fadeIn();
+				var $this=$(this);
+				var groupID=$this.parent().siblings('.groupID').text();//
+				var userAdminNameInfo=$('.userAdmin_alertWrite .userAdmin_FormParent-addRoleName');
+				var userGroupRight = $('.userAdmin_alertWrite .userAdmin_Form');
+				
+
+				$.get('{{:U("ajaxControl")}}',{flag:'selGroup',id:groupID},function (res){
+					$(userAdminNameInfo[0]).find('input').val(res.title)
+					$(userAdminNameInfo[1]).find('input[value='+res.group_type+']').prop("checked",true);
+					for(var i=0;i<res.rules.length;i++){
+						$(userGroupRight).find('input[value='+res.rules[i]+']').prop("checked",true);
+					}
+		 			$('.userAdmin_alertWrite').find('form').prop("action",'{{:U("groupUpdate")}}?id='+groupID);
+		 		});
+			})
+			
+			 //禁用组别
+			 $('.childrenRightDisabled').on('click',function(){
+			 	var $this=$(this);
+			 	var groupID=$this.parent().siblings('.groupID').text();//获取该的表格元素编号
+			 	var groupStatus=($this.parent().siblings('.groupStatus').text().replace(/\s/gi,'')=="启用") ?  "1":"0";
+			 	
+			 	$.get('{{:U("ajaxControl")}}',{flag:'changeGroupStatus',id:groupID,status:groupStatus},function (res){
+		 			if(res==false){
+		 				console.log("参数错误");
+		 			}else{
+		 				$this.val((res=="启用") ? "禁用":"启用");
+		 				$this.parent().siblings('.groupStatus').text(res);
+		 			}
+			 	});
+			});
+		});
+
+		function groupDel(obj) 
+		{
+			var bool = confirm('确定要删除吗?');
+			if (bool) 
+			{
+				$.get('{{:U("ajaxControl")}}',{flag:'groupDel',id:$(obj).parent().siblings('.groupID').text()},function(res){
+					if (res) 
+					{
+						alert('删除成功');
+						$(obj).parent().parent().remove();
+					}
+				});
+			}
+		}
+	</script>
+</block>

@@ -1,0 +1,129 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/company/css/kbshopAdmin.css?version=2"></link>
+<link rel="stylesheet" href="__PUBLIC__/company/css/companyInfo/companyInfo.css"></link>
+<link rel="stylesheet" href="__PUBLIC__/company/css/kbshopAdmin.css"></link>
+<style type="text/css">
+	.kbShopAdmin_enter input[type=file]{
+	visibility:hidden;
+	z-index: -1;
+	position:absolute;
+}
+.kbShopAdmin_enter input[type=file]+label{
+	display: inline-block;
+	width: 70px;
+	height:30px;
+	line-height: 30px;
+	text-align:center;
+	border-radius: 5px;
+	vertical-align:top;
+}
+</style>
+</block>
+<block name="content" >
+<div id="kbShopAdmin_rightCenter" class="spAnUserCorePaw">
+		<div class="spAnUserCorePaw companyInfoLook">
+			<h3 class="mt20 mt10 tc">商户资料:</h3>
+			<ul class="mt20">
+				<li class="kbShopAdmin_enter"><b>营业执照:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info.business_license}}"  alt="shopImg"/>
+					</p>	
+				</li>
+				<li class="kbShopAdmin_enter"><b>身份证:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info.person_code}}"  alt="shopImg"/>
+					</p>
+				</li>
+				<li class="kbShopAdmin_enter"><b>店铺背景:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info.company_bgpic}}"  alt="shopImg"/>
+					</p>
+				</li>
+				<li class="kbShopAdmin_enter"><b>公众号二维码:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info.company_code}}"  alt="shopImg"/>
+					</p>
+				</li>
+				<li class="kbShopAdmin_enter"><b>店铺logo:</b>
+					<p class="shopImg">
+						<img src="__PUBLIC__{{$info.company_logo}}"  alt="shopImg"/>
+					</p>
+				</li>
+			</ul>
+			<empty name="info" >
+				<div class="kbShopAdmin_operating ">
+					<input class="spAnUserCorePaw-submit kbShopAdmin_button_6ccac9" id="company" type="button" value="添加" />
+				</div>
+			</empty>
+		</div>
+
+		<div class="spAnUserCorePaw companyInfo" style="display: none">
+			<form  action="{{:U('Company/companyPictureAdd')}}" method="post" enctype="multipart/form-data">
+				<h3 class="mt20 mt10 tc">商户资料</h3>
+				<ul class="mt20">
+					<li class="kbShopAdmin_enter"><b>营业执照:</b>
+						<p class="shopImg">
+							<img src="images/21.jpg"  alt="shopImg"/>
+						</p>	
+						<input id="shopImg"  type="file" value="" name="business_license" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg">上传图片</label>
+					</li>
+					<li class="kbShopAdmin_enter"><b>身份证:</b>
+						<p class="shopImg">
+							<img src=""  alt="shopImg"/>
+						</p>
+						<input id="shopImg2"  type="file" value="" name="person_code" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg2">上传图片</label>
+					</li>
+					<li class="kbShopAdmin_enter"><b>店铺背景:</b>
+						<p class="shopImg">
+							<img src=""  alt="shopImg"/>
+						</p>
+						<input id="shopImg3"  type="file" value="" name="company_bgpic" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg3">上传图片</label>
+					</li>
+					<li class="kbShopAdmin_enter"><b>公众号二维码:</b>
+						<p class="shopImg">
+							<img src=""  alt="shopImg"/>
+						</p>
+						<input id="shopImg4"  type="file" value="" name="company_code" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg4">上传图片</label>
+					</li>
+					<li class="kbShopAdmin_enter"><b>店铺logo:</b>
+						<p class="shopImg">
+							<img src=""  alt="shopImg"/>
+						</p>
+						<input id="shopImg5"  type="file" value="" name="company_logo" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg5">上传图片</label>
+					</li>
+				</ul>
+				<div class="kbShopAdmin_operating ">
+					<input class="spAnUserCorePaw-submit kbShopAdmin_button_6ccac9" id="reFade" type="button" value="取消" />
+					<input class="spAnUserCorePaw-submit kbShopAdmin_button_6ccac9" type="submit" value="保存" />
+				</div>
+			</form>
+		</div>
+	</div>	
+	<script type="text/javascript">
+		$(function(){
+			$('.spAnUserCorePaw [required="required"]').on('blur change',function(){
+				if(!$(this).hasClass('datainp')){
+			        checkData(this);
+			    }
+			})
+
+			$('#company').on('click', function(){
+				$('.companyInfo').fadeIn();
+				$('.companyInfoLook').fadeOut();
+			});
+
+			$('#reFade').on('click', function(){
+				$('.companyInfoLook').fadeIn();
+				$('.companyInfo').fadeOut();
+			})
+		})
+
+
+	</script>
+</block>

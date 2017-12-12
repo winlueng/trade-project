@@ -1,0 +1,71 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+ .dl_recharge{
+    width:94%;
+ }
+.dl_recharge .kb_btn{
+    height:44px;
+    line-height: 32px;
+   }
+</style>
+</block>
+<block name="title">
+    序列号充值
+</block>
+<block name="content">
+    <section id="Main" class="kb_main bc  kb_notFooter tg_myself main_bg">
+      <form action="" method="post">
+        
+        <article class="kb_cell f14">
+          <p class="kb_cell-hd">
+            <label class="kb_label">序列号</label>
+          </p>
+          <p class="kb_cell-bd">
+            <input type="number" maxlength="15" placeholder="请输入密条卡序列号" class="kb_input tr  w mark-rachangeCardID" />
+          </p>
+        </article>
+        <p class="dl_recharge bc mt100">
+          <button type="button" class="kb_btn kb_btn-main w mark-rechargeCard f18">确定</button>
+        </p>
+      </form>
+    </section>
+</block>
+<block name="js_files">
+<script>
+    $(function(){
+      $('.mark-rechargeCard').on('click',function(){
+        var rachangeID,flag,Url;
+        Url="{{:U('WasteBook/ajaxControl')}}";
+        flag="verification_card";
+        rachangeID=$('.mark-rachangeCardID').val();
+        if(rachangeID.length!=15){
+            Alert("请输入15位数字的序列卡号");
+            return false;
+        }
+        $.ajax({
+            type:"GET",
+            url:Url,
+            data:{
+                flag:flag,
+                serial_number:rachangeID
+            },
+            dataType:'json',
+            success:function(data){
+                if(data.status){
+                    Alert('充值成功');
+                    var url = 'http://{{$_SERVER["HTTP_HOST"]}}{{:U("WasteBook/myWallet")}}?companyName={{:I("get.companyName")}}&tem={{:I("get.tem")}}';
+                    setTimeout("window.location.href='"+url+"'",3000);
+                    // window.location.href='http://{{$_SERVER["HTTP_HOST"]}}{{:U("WasteBook/myWallet")}}';
+                }else{
+                    Alert('充值失败');
+                }
+            },
+            error:function(error){
+
+            }
+        })
+      })
+    })
+</script>
+</block>

@@ -1,0 +1,558 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+
+	<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?version=1.1"></link>
+	<link rel="stylesheet" href="__PUBLIC__/JS/module/datenew/css/jquery-ui-1.9.2.custom.css?v=1" type="text/css">
+	<style>
+		.filter-operating{
+
+		}
+		.filter-operating form{
+			display:inline-block;
+			vertical-align:top;
+		}
+	/*	.filterData input{
+			width:130px;
+		}*/
+		.filterData{
+			display:inline-block;
+			width:340px;
+		}
+	</style>
+</block>
+<block name="content" >
+<!-- 主内容 -->
+	<div id="kbShopAdmin_rightCenter" class="OrderForm">
+		<!-- 内容标题部 -->
+		<div class="centerTitle">
+			<!-- <h2 class="mb10">
+				<a class="mr10" href="javascript:history.back(-1)" ><img src="__PUBLIC__/Business/BusinessImages/back.png"></a>
+				<span>服务列表</span>
+			</h2> -->
+			<div class="kbShopAdmin_operating filter-operating" >
+				<form>
+					<div class="filterData">
+					<input type="text" class="ui-datepicker-time" readonly  value="" />
+					<input class="start" type="hidden" name="start" value="" />
+					<input  class="end"  type="hidden" name="end" value="" />
+					<button class="kbShopAdmin_opt w80 h30" type="submit">确定</button>
+					</div>
+				</form>
+				<form >
+				<span class="kbShopAdmin_enter"><input type="text" name="order_number" value="{{:I('get.order_number')}}" style="width: 200px" placeholder="请输入订单号进行搜索" ></span>
+					<button class="kbShopAdmin_opt w80 h30" type="submit">确定</button>
+				</form>
+			</div>
+		</div>
+		<div class="kb_table-filter mb10">
+			<nav class="hrefFlex">
+				<a class="{{$_GET['status']?'':'selected'}}" href="{{:U('')}}">全部订单</a>
+				<a class="{{$_GET['status'] == 1?'selected':''}}" href="{{:U('', ['status' => 1])}}">待确认</a>
+				<a class="{{$_GET['status'] == 2?'selected':''}}" href="{{:U('', ['status' => 2])}}">待服务</a>
+				<a class="{{$_GET['status'] == 3?'selected':''}}" href="{{:U('', ['status' => 3])}}">待评价</a>
+				<a class="{{$_GET['status'] == 4?'selected':''}}" href="{{:U('', ['status' => 4])}}">已完成</a>
+			</nav>
+			<button class="kbShopAdmin_opt w80 h30" type="button" onclick="javascript:window.location.href='?getExcel=1'">下载</button>
+		</div>
+		<!-- 内容标题部结束 -->
+		<!-- 内容表格部 -->
+		<div class="main-contentBox  kbShopAdmin_mt24" >
+			
+			<div class="kbShopAdmin_table mb20 orderTable">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>商品信息</th>
+							<th >预约时间</th>
+							<th>买家信息</th>
+							<th>交易状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+						<tr>
+							<td>
+							</td>
+							<td colspans="8">
+								<p>还没有订单哦</p>
+							</td>
+						</tr>
+					<else />
+						<volist name="list" id="v"  >
+							<tr>
+								<td>
+								</td>
+								<td colspans="8">
+									<p>
+										<time>{{:date('Y-m-d H:i:s', $v['create_time'])}}</time>
+										<b>订单编号:{{$v.subscribe_number}}</b>
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td><p>{{$v.id}}</p></td>
+								<td>
+									<article>
+										<p>{{$v.staffInfo.store_nickname}}</p>
+										<p>{{$v.staffInfo.professional_title}}</p>
+									</article>
+								</td>
+								<td><p>{{:date('Y-m-d H:i', $v['come_time'])}}</p></td>
+								
+								<td>
+									<p>{{$v.people}} {{$v['sex'] == 1?'男':'女'}} {{$v.phone}}</p>
+								</td>
+								<td><p>
+								<switch name="v.status" >
+									<case value="0">
+										待确认
+									</case>
+									<case value="1">
+										待服务
+									</case>
+									<case value="2">
+										待付款
+									</case>
+									<case value="3">
+										待评价
+									</case>
+									<case value="4">
+										已完成
+									</case>
+									<case value="5">
+										取消订单了
+									</case>
+									<case value="6">
+										已拒绝订单
+									</case>
+								</switch>
+
+								</p></td>
+							
+								<td>
+									<div class="kbShopAdmin_tdAction">
+									<switch name="v.status" >
+										<case value="0">
+											<p class="mb10">
+												<input class="kbShopAdmin_opt  h30 tc orderSubmit mb10" title="接受预约" type="button" value="接受" />
+											</p>
+											<p class="mb10">
+												<input class="kbShopAdmin_opt  h30 tc cancalServer mb10 mt10" title="拒绝预约" type="button" value="拒绝" />
+											</p>
+										</case>
+										<case value="1">
+											<p class="mb10">
+												<input class="kbShopAdmin_opt  h30 tc servicepay mb10 " title="确认服务，收取金额" type="button" value="确认" />
+											</p>
+											<p class="mb10">
+												<input class="kbShopAdmin_opt  h30 tc updateTime mb10 " title="延迟时间" type="button" value="延迟时间" />
+											</p>
+										</case>
+									</switch>
+										<p class="mb10">
+											<a class="kbShopAdmin_button_eee  " href="{{:U('orderDetail', ['id' => $v['id']])}}">订单详情</a>
+										</p>
+										<!-- <input class="kbShopAdmin_opt  h30 tc shipGoods mb10 " title="编辑" type="button" value="发送" />
+										<br/>
+										<input class="kbShopAdmin_opt  h30 tc updateTime mb10 " title="编辑" type="button" value="延迟时间" />
+										<br/>
+										<input class="kbShopAdmin_opt  h30 tc orderSubmit mb10 " title="编辑" type="button" value="确认" />
+										<br/>
+										<a class="kbShopAdmin_button_005aff mb10 p5" href="javascript:;">订单详情</a>
+										<br/>
+										<input class="kbShopAdmin_opt  h30 tc cancalServer mb10 mt10" title="编辑编辑编辑编辑" type="button" value="取消" /> -->
+									</div>
+								</td>
+							</tr>
+						</volist>
+					</empty>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbShopAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form action="{{:U('orderList')}}">	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- alert  -->
+		<div class="kbShopAdmin_alert cancalServer_alert ">
+			<div class="kbShopAdmin_alertBox">
+				<button type="button" class="kbShopAdmin_alert-close "></button>
+				<h3 class="mb10">取消原因</h3>
+					<form action="" id="addrForm" method="post" enctype="multipart/form-data">
+					<ul class="formList bc">				
+						<li>
+							<p class="kbShopAdmin_enter ">
+								<p class="kbShopAdmin_radio">
+									<input  type="radio" name="a" value="设计师好忙">
+									<label><b></b></label>
+								</p>
+								<span>设计师好忙</span>
+							</p>
+						</li>
+						<li>
+							<p class="kbShopAdmin_enter ">
+								<p class="kbShopAdmin_radio">
+									<input  type="radio" name="a" value="设计师心情不好">
+									<label><b></b></label>
+								</p>
+								<span>设计师心情不好</span>
+							</p>
+						</li>
+						<li>
+							<p class="kbShopAdmin_enter ">
+								<p class="kbShopAdmin_radio otherRadio">
+									<input  type="radio" name="a" value="">
+									<label><b></b></label>
+								</p>
+								<span>其他</span>
+							</p>
+						</li>
+						<li class="otherLi">
+							<textarea placeholder="请认真输入" ></textarea>
+						</li>
+					</ul>
+					<div class="kbShopAdmin_operating">
+						<div class="kbShopAdmin_restsubmit">
+							<input  class="kbShopAdmin_button_005aff w80  h30 tc" type="reset" value="取消" />
+							<input  class="kbShopAdmin_opt_7facff  w80 h30" type="button" value="保存" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="kbShopAdmin_alert  orderSubmit_alert">
+			<div class="kbShopAdmin_alertBox">
+				<button type="button" class="kbShopAdmin_alert-close "></button>
+				<h3 class="mb10">接受预约</h3>
+				<form>
+					<ul class="formList bc">
+						<li class="filter-searchDate mr10">
+							
+								<input type="search" value="" placeholder="请输入用户呢称">
+								<input class="kbShopAdmin_opt w80 h30 fr" type="button" value="确定">
+							
+						</li>
+						<li>
+							<select class="kbShopAdmin_slt w100 h30"  title="">
+								<option value="">默认</option>
+								
+							</select>
+						</li>
+						<li>
+							<p class="kbShopAdmin_enter ">
+								<p class="kbShopAdmin_radio">
+									<input  type="radio" name="a" value="">
+									<label><b></b></label>
+								</p>
+								<span>你妈</span>
+							</p>
+						</li>
+						<li>
+							<p class="kbShopAdmin_enter ">
+								<p class="kbShopAdmin_radio">
+									<input  type="radio" name="a" value="">
+									<label><b></b></label>
+								</p>
+								<span>你爸</span>
+							</p>
+						</li>
+						<li>
+							<p class="kbShopAdmin_enter ">
+								<p class="kbShopAdmin_radio">
+									<input  type="radio" name="a" value="">
+									<label><b></b></label>
+								</p>
+								<span>你大爷</span>
+							</p>
+						</li>
+					</ul>
+					<div class="kbShopAdmin_operating">
+						<div class="kbShopAdmin_restsubmit">
+							<input  class="kbShopAdmin_button_005aff w80 h30 tc" type="reset" value="取消" />
+							<input  class="kbShopAdmin_button_005aff w80 h30 tc" type="submit" value="好的" />
+
+						</div>
+					</div>
+					</form>
+			</div>
+		</div>
+
+
+		<div class="kbShopAdmin_alert  updateTime_alert">
+			<div class="kbShopAdmin_alertBox">
+				<button type="button" class="kbShopAdmin_alert-close "></button>
+				<h3 class="mb10">更改时间</h3>
+				<form action="" method="post">
+					<ul class="formList bc">
+						<li class="kbShopAdmin_enter">
+							<b><i>*</i>更改时间:</b>
+							<input  class="datainp wicon uppdataDate" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期"   readonly required="required" />
+							
+						</li>
+						
+					</ul>
+					<div class="kbShopAdmin_operating">
+						<div class="kbShopAdmin_restsubmit">
+							<input  class="kbShopAdmin_button_005aff w80 h30 tc" type="reset" value="取消" />
+							<input  class="kbShopAdmin_button_005aff w80 h30 tc" type="button" value="好的" />
+
+				
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="kbShopAdmin_alert  servicePay_alert">
+			<div class="kbShopAdmin_alertBox">
+				<h3 class="mb10">确认服务</h3>
+				<form action="" id="winFrom" method="post">
+					<ul class="formList bc">
+						<li class="kbShopAdmin_enter">
+							<b><i>*</i>服务项目:</b>
+							<input   type="text" name="service_content" placeholder="服务项目"    required="required" />
+						</li>
+						<li class="kbShopAdmin_enter price">
+							<b><i>*</i>交付金额:</b>
+							<input   type="number" min="1" name="total" placeholder="交付金额" value=""   required="required" />
+						</li>
+						<li class="kbShopAdmin_enter price">
+							<b><i>*</i>支付方式:</b>
+							<p class="kbShopAdmin_radio express">
+								<input type="radio" name="is_offline_pay" value="0"/>
+								<label><b></b></label>
+							</p>
+							<span>线上</span>
+							<p class="kbShopAdmin_radio ">
+								<input type="radio" name="is_offline_pay" value="1" />
+								<label>
+									<b></b>
+								</label>
+							</p>
+							<span>线下</span>
+						</li>
+					</ul>
+					<div class="kbShopAdmin_operating">
+						<div class="kbShopAdmin_restsubmit">
+							<input  class="kbShopAdmin_button_005aff w80 h30 tc" type="reset" value="取消" />
+							<input  class="kbShopAdmin_button_005aff w80 h30 tc" type="button" value="好的" />
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="ui-datepicker-css">	
+		    <div class="ui-datepicker-quick">
+		        <p>快捷日期<a class="ui-close-date">X</a></p>
+		        <div>
+		            <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+		            <input class="ui-date-quick-button" type="button" value="昨天" alt="-1" name=""/>
+		            <input class="ui-date-quick-button" type="button" value="7天内" alt="-6" name=""/>
+		            <input class="ui-date-quick-button" type="button" value="14天内" alt="-13" name=""/>
+		            <input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+		            <input class="ui-date-quick-button" type="button" value="60天内" alt="-59" name=""/>
+		        </div>
+		    </div>
+		    <div class="ui-datepicker-choose">
+			        <p>自选日期</p>
+			        <div class="ui-datepicker-date">
+			            <input name="startDate" id="startDate" class="startDate" readonly value="2014/12/20" type="text">
+			           -
+			            <input name="endDate" id="endDate" class="endDate" readonly  value="2014/12/20" type="text" disabled onChange="datePickers()">
+			        
+			        </div>
+			    </div>
+			</div>
+		</div>
+</block>
+<block name="js_files">
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/jquery-ui-1.9.2.custom.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/share.js?v=1.11"></script>
+	<script>
+
+		  $(function(){
+   		
+	   		$('.kbShopAdmin_alert .kbShopAdmin_operating input[type="reset"]').on('click',function(){
+	   			$('.kbShopAdmin_alert').fadeOut();
+	   		});
+
+	   		$('.cancalServer').on('click',function(){
+	   			$('.cancalServer_alert').fadeIn();
+	   			var $this=$(this),
+	   				id=$this.parents('tr').children('td').eq(0).children('p').text().trim(),
+	   				status=6;
+	   			$('.cancalServer_alert .formList .kbShopAdmin_radio input').on('click',function(){
+	   				var _this=$(this),
+	   					status=_this.parents('.kbShopAdmin_radio').hasClass('otherRadio');
+	   					if(status) {
+	   						 _this.parents('li').siblings('.otherLi').fadeIn();
+   						}else{
+   							 _this.parents('li').siblings('.otherLi').fadeOut();
+   						}
+	   			})
+	   			$('.cancalServer_alert .kbShopAdmin_operating input[type="button"]').on('click',function(){
+		   			var _this=$(this),
+		   				checked=$('.cancalServer_alert .formList input:checked'),
+		   				admin_remark=checked.parent().hasClass('otherRadio')? checked.parents('li').next('li').children('textarea').val():checked.val();
+		   				console.log(admin_remark);
+		   			if(admin_remark.length==0) {
+		   				Alert("请选择一个理由或输入拒绝理由");
+		   				return false
+		   			}else{
+		   				orderService({
+			   				flag:"concurnaysay",
+			   				id:id,
+			   				status:status,
+			   				admin_remark:admin_remark
+			   			})
+			   			$('.cancalServer_alert').fadeOut();
+		   			}
+		   			
+	   			})
+
+            });
+	   		$('.orderSubmit').on('click',function(){
+   				// $('.orderSubmit_alert').fadeIn();
+	   			var $this=$(this),
+	   				id=$this.parents('tr').children('td').eq(0).children('p').text().trim(),
+	   				status=1;
+	   			orderService({
+	   				flag:"concurnaysay",
+	   				id:id,
+	   				status:status
+	   			})
+
+	   		})
+	   		function orderService(params){
+	   			$.get('{{:U("SubscribeOrderForm/ajaxControl")}}',
+	   				params
+	   			,function(res){
+	   				if(res){
+	   					sTip("操作成功");
+	   				}else{
+	   					eTip("操作失败")
+	   				}
+	   			}).fail(function() { eTip("操作失败");})
+	   		}
+	   		$('.updateTime').on('click',function(){
+	   			$('.updateTime_alert').fadeIn();
+	   			var $this=$(this);
+	   				id=$this.parents('tr').children('td').eq(0).children('p').text().trim();
+	   			$('.updateTime_alert .kbShopAdmin_restsubmit input[type="button"]').on('click',function(){
+	   				var come_time=Math.round(new Date($('.updateTime_alert .uppdataDate').val()).getTime()/1000);
+	   				console.log(come_time);
+	   				console.log(come_time>0);
+	   				 if(come_time>0){
+			   			$.get('{{:U("SubscribeOrderForm/ajaxControl")}}',{
+			   				flag:'saveComeTime',
+			   				id:id,
+			   				come_time:come_time
+			   			},function(res){
+			   				if(res){
+			   					sTip('操作成功');
+			   				}else{
+			   					eTip('操作成功');
+			   				}
+			   				$('.updateTime_alert').fadeOut();
+			   			})
+	   				 }else{
+	   				 	eTip('请选择时间');
+	   				 }
+	   			})
+	   		})
+
+	   		$('.servicepay').on('click',function(){
+	   			$('.servicePay_alert').fadeIn();
+	   			var $this=$(this);
+	   				id=$this.parents('tr').children('td').eq(0).children('p').text().trim(),
+	   				total=1;
+	   			$('.servicePay_alert .kbShopAdmin_operating input[type="button"]').on('click',function(){
+	   				var _this=$(this);
+	   				var price=$('.servicePay_alert .formList li input[name="total"]').val();
+	   				/*var remark=$('.servicePay_alert .formList li input[name="remark"]').val();
+	   				var offline=$('.servicePay_alert .formList li input[name="is_offline_pay"][checked="checked"]').val();*/
+	   					// console.log(offline);
+	   					// console.debug(price);
+	   				if(price>=0.01){
+	   					$.ajax({
+			                cache: true,
+			                type: "GET",
+			                url:'{{:U("SubscribeOrderForm/ajaxControl",["flag" => "confirmServe"])}}?id='+id,
+			                data:$('#winFrom').serialize(),// 你的formid
+			                async: false,
+			                success: function(res) {
+			                    if(res){
+				   					sTip("操作成功");
+				   				}else{
+				   					eTip("操作失败");
+				   				}
+			                }
+			            });
+			   			/*$.get('{{:U("SubscribeOrderForm/ajaxControl")}}',{
+			   				flag:"confirmServe",
+			   				id:id,
+			   				total:price,
+			   				remark:remark,
+			   				is_offline_pay:offline
+			   			},function(res){
+			   				if(res){
+			   					sTip("操作成功");
+			   				}else{
+			   					eTip("操作失败")
+			   				}
+			   			}).fail(function() { eTip("操作失败");})*/
+		   			}else{
+		   				eTip("操作失败")
+		   			}
+		   			$('.servicePay_alert').fadeOut();
+	   			})
+
+	   		})
+         });
+		$(function(){
+		 	var start = {
+	            format: 'YYYY-MM-DD hh:mm:ss',
+	            minDate: '2016-06-22 23:59:59', //设定最小日期为当前日期
+	            festival:true,
+	            //isinitVal:true,
+	           // maxDate: $.nowDate(0), //最大日期
+	            choosefun: function(elem,datas){
+	                end.minDate = datas; //开始日选好后，重置结束日的最小日期
+	                checkData(elem);
+	            },
+	            // okfun:function(elem, val) {
+	            //     checkData(elem);
+	            // }
+	        };
+	      var end = {
+	          format: 'YYYY-MM-DD hh:mm:ss',
+	          minDate: $.nowDate(0), //设定最小日期为当前日期
+	          festival:true,
+	          //isinitVal:true,
+	          //maxDate: '2099-06-16 23:59:59', //最大日期
+	          choosefun: function(elem,datas){
+	              start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+	               checkData(elem);
+	          },
+	          //  okfun:function(elem, val) {
+	          //     checkData(elem);
+	          // }
+	      };
+	      $('#kbShopAdmin_inpstart').jeDate(start);
+	 })
+   	</script>
+</block>

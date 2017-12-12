@@ -1,0 +1,189 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+		<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/userAdmin/userAdmin.css">
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="userAdmin_center">
+		
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div class="dlOperat_filer mb10">
+					<div class="kbVipAdmin_styledSelect">
+					<form action="" >
+						<select class="kbVipAdmin_slt pl20" name="group_id">
+							<option>角色分类</option>
+
+							<option value="1" {{:I('get.group_id')==1?'selected':''}}>内部管理员</option>
+							<option value="2" {{:I('get.group_id')==2?'selected':''}}>商户</option>
+							<option value="3" {{:I('get.group_id')==3?'selected':''}}>商场管理员</option>
+						</select>
+						<input type="submit" class="kbVipAdmin_searchSmit" name="搜索">
+						
+					</form>
+					</div>
+				</div>
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>账号</th>
+							<th>邮箱</th>
+							<if condition="($_GET['group_id'] eq 2) OR ($_GET['group_id'] eq 3)" >
+								<th>所属项目</th>
+							</if>
+							<th>电话</th>
+							<th>角色类别</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="userList" >
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无用户数据</span>
+					<else />
+					<foreach name="userList" item="v">
+						<tr>
+							<td class="userListId">{{$v.id}}</td>
+							<td>{{$v.user_name}}</td>
+							<td>{{$v.email}}</td>
+							<if condition="($_GET['group_id'] eq 2) OR ($_GET['group_id'] eq 3)" >
+								<td>{{$v.project_name}}</td>
+							</if>
+							<td>{{$v.phone}}</td>
+							<td>{{$v.group_name}}</td>
+							<td class="microWebMenuAdmin">
+							<if condition="($_SESSION['adminInfo']['id'] neq 1)">
+							<span style="color:#F325C3">只有超级管理员才可操作状态</span>
+							<else/>
+							<neq name="v.id" value="1">
+								<input id="microWebEnabled{{$v.id}}"  name="status{{$v.id}}" type="radio" {{$v['status'] == '0'?'checked':''}}  value="0" />
+								<label for="microWebEnabled{{$v.id}}"><i></i><b>启用</b></label>
+								<input id="microWebDisabled{{$v.id}}"  name="status{{$v.id}}" type="radio" {{$v['status'] == '1'?'checked':''}} value="1" />
+								<label for="microWebDisabled{{$v.id}}"><i></i><b>禁用</b></label>
+							<else />
+								<span style="color:#F325C3">不可操作超级管理员状态</span>
+							</neq>
+							</if>
+							</td>
+							<td> 
+							<if condition="($_SESSION['adminInfo']['id'] eq 1) OR ($_SESSION['adminInfo']['id'] eq $v['id'])">
+								<input class="adminFont userAdmin_writer kbVipAdmin_btnMenu mb10" type="button" value="&#xe601;&nbsp;编辑" />
+								<if condition="($_SESSION['adminInfo']['id'] eq 1)">
+								<neq name="v.id" value="1">
+								<input class="adminFont kbVipAdmin_btnMenu" type="button" value="&#xe606;&nbsp;删除" />
+								</neq>
+								</if>
+							<else/>
+							<span style="color:#F325C3">非本用户不能编辑对应信息</span>
+							</if>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+		<div class="kbVipAdmin_alert">
+				<div class="kbVipAdmin_alert_box ">
+				<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+				<h2>编写资料</h2>
+				<form  action="" method="post">
+					<div class="kbVipAdmin_form">
+						<p class="userAdmin_alert_account ">
+							<span><i>*</i>账号：</span>
+							<input class="accountlogin" type="text" name="user_name" required="required" minlength="6" maxlength="17" placeholder="请输入数字和字母的混合号码" />
+							<strong class="kbAdmin_tip">必填项。请输入长度6到17位的数字和字母的混合号码，数字或者字母至少出现一次</strong>
+						 </p>
+						<p class="userAdmin_alert_paw">
+							<span>原始密码：</span>
+							<input type="password" name="oldpass" placeholder="如需修改密码,必须先填原始密码" /> 
+						</p>
+						<p class="userAdmin_alert_paw">
+							<span>密码：</span>
+							<input type="password" name="password"  minlength="6" maxlength="15"  placeholder="请输入字母、数字的混合密码"/>
+							<strong class="kbAdmin_tip">请输入长度6到15位的数字和字母的混合号码，数字或者字母至少出现一次</strong> 
+						</p>
+						<p class="userAdmin_alert_againPaw">
+							<span>重复密码：</span>
+							<input class="rePaw" type="password" name="repass" minlength="6" maxlength="15"   placeholder="请再次输入密码" />
+							<strong class="kbAdmin_tip">必填项。请再次输入密码</strong>
+						</p>
+						<p class="userAdmin_alert_email">
+							<span><i>*</i>邮箱：</span>
+							<input type="email" name="email" required="required" placeholder="请输入邮箱地址" />
+							<strong class="kbAdmin_tip">必填项。请输入电子邮箱地址</strong>
+						</p>
+						<p class="userAdmin_alert_tel">
+							<span><i>*</i>电话：</span>
+							<input type="tel" name="phone" required="required" 
+						 minlength="11" maxlength="11" placeholder="请输入店铺负责人联系手机号码" />
+						<strong class="kbAdmin_tip">必填项。请输入店铺负责人联系手机号码</strong>
+						</p>
+					</div>
+					<if condition="($_SESSION['adminInfo']['id'] eq 1)">
+						<div class="userAdmin-editUser-roleAllot" style="margin-top: -200px">
+								<h2>角色分类</h2>
+							<div>
+
+							</div>	
+						</div>
+					</if>
+					<p class="kbVipAdmin_MenuAdminBtn">
+						<input class="authAddFormSmt" type='submit' value="确认修改" />
+					</p>
+				</form>
+				</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(function(){
+		$('.userAdmin_writer').on('click',function(){
+			$('.kbVipAdmin_alert').fadeIn();
+		});
+
+		$('.microWebMenuAdmin input[type="radio"]').on('click', function (){
+			var id = $(this).parent().parent().find('td:first-child').text();
+			$.get('{{:U("ajaxControl")}}', {flag:'changeAdminUserStatus', id: id,status:$(this).val()},function (res){
+				if (res) 
+				{
+					alert('修改成功');
+				}
+			});
+		});
+		 $('.userAdmin_center .roleList .userAdmin_writer').on('click',function(){
+		 	 var $this =$(this);
+		 	 var userListId = $this.parent().siblings('.userListId').text().replace(/(^\s+)|(\s+$)/g, "");
+		 	 // htmlText+='<input id="roleSelect"  name="group_id" type="radio" value=" " />';
+		 	 // htmlText+='<label for="roleSelect"><i></i><b>{{$v.title}}</b></label>';							
+		 		var  htmlText;
+		 			$('.userAdmin-editUser-roleAllot>div').html(' ');
+		 	 $.get('{{:U("User/ajaxControl")}}',{'flag':'selAdminUserInfo',id:userListId},function (res){
+
+			 	   for(r in res.group ){
+			 	   		htmlText='<div class="serAdmin-editUser-roleSelect microWebMenuAdmin">';
+			 	   		var inputTxt='<input id="roleSelect'+res.group[r].id+'"  name="group_id" type="radio" value="'+res.group[r].id+'"/>\
+			 	   		<label for="roleSelect'+res.group[r].id+'"><i></i><b>'+res.group[r].title+'</b></label>'
+			 	   		htmlText+=inputTxt;
+			 	   		htmlText+='</div>';
+			 	   		$('.userAdmin-editUser-roleAllot>div').append(htmlText);
+			 	   		
+			 	   		 
+			 	   }
+			 	   $('.userAdmin_center .kbVipAdmin_alert_box form').prop('action','{{:U("User/adminUpdate")}}?id='+userListId);
+			 	   $('.kbVipAdmin_alert_box .userAdmin_alert_account input').val(res.user[0].user_name);
+			 	    $('.kbVipAdmin_alert_box .userAdmin_alert_email input').val(res.user[0].email);
+			 	     $('.kbVipAdmin_alert_box .userAdmin_alert_tel input').val(res.user[0].phone);
+		 	     	$('.userAdmin-editUser-roleAllot>div').find('input[value="'+res.userGroup.group_id+'"]').prop('checked',true);
+			 	   // console.log( $('.userAdmin-editUser-roleAllot>div').find('input[value="'+res.userGroup.group_id+'"]'));
+			 	   // console.log(res);
+            });
+		 	
+		 })
+		
+	})
+
+
+	</script>
+</block>

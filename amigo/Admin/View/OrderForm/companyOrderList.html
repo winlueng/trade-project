@@ -1,0 +1,529 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+   <!--  <link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?version=1.1"></link> -->
+    <link rel="stylesheet" href="__PUBLIC__/JS/module/datenew/css/jquery-ui-1.9.2.custom.css?v=1" type="text/css">
+    <link rel="stylesheet" href="__PUBLIC__/JS/module/contact/contact.css?v=1.2" type="text/css">
+    <style>
+        .filter-operating{
+
+        }
+        .filter-operating form{
+            display:inline-block;
+            vertical-align:top;
+        }
+    /*  .filterData input{
+            width:130px;
+        }*/
+        .filterData{
+            display:inline-block;
+            width:340px;
+        }
+        .shipGoods_alert .kbVipAdmin_radio{vertical-align: top;}
+        .shipGoods_alert  form{
+            height:calc(100% - 260px);
+        }
+        .OrderForm  .main-contentBox{
+            height: calc(100% - 250px);
+        }
+    </style>
+    <php>
+    //echo('<pre>');
+    //var_dump($region);exit;
+    </php>
+</block>
+<block name="content" >
+<!-- 主内容 -->
+    <div id="kbVipAdmin_rightCenter" class="OrderForm">
+        <!-- 内容标题部 -->
+        
+        <div class="centerTitle">
+            
+            <div class="kbVipAdmin_operating filter-operating" >
+                <form>
+                    <div class="filterData">
+                    <input type="text" class="ui-datepicker-time" readonly="readonly"  value="" />
+                    <input class="start" type="hidden" name="start" value="" />
+                    <input  class="end"  type="hidden" name="end" value="" />
+                    <button class="kbVipAdmin_opt w80 h30" type="submit">确定</button>
+                    </div>
+                </form>
+
+                <form >
+                <span class="kbVipAdmin_enter"><input type="text" name="order_number" value="{{:I('get.order_number')}}" style="width: 200px" placeholder="请输入订单号进行搜索" ></span>
+                    <button class="kbVipAdmin_opt w80 h30" type="submit">确定</button>
+                </form>
+                <form class="mr10 ml10" action="" method="get">
+                    <div class="userAreaSlt mb10">
+                    <label>
+                        区域选择
+                    </label>
+                    <select class="kbVipAdmin_slt     w100 h30" name="region" title="区域" >
+                        <option value="-1">选择区域</option>
+                        <foreach name="region" item="v">
+                            <option value="{{$v['id']}}" >
+                               {{$v['region_name']}}
+                            </option>
+                        </foreach>
+                    </select>
+                    </div>
+                    <div class="userTradeSlt mb10">
+                    <label>行业选择</label>
+                    <select class="kbVipAdmin_slt     w200 h30" name="region" title="区域" onchange="selCompanyList(this)">
+                       <option value="-1">选择行业</option>
+                    </select>
+                    </div>
+                    <button class="kbVipAdmin_opt w80 h30" >确定</button>
+                </form>
+            </div>
+        </div>
+        <div class="kb_table-filter mb10">
+            <nav class="hrefFlex">
+                <a class="{{$_GET['status'] == 0?'selected':''}}" href="{{:U('', ['status' => 0,'module' => $_GET['module']])}}">全部订单</a>
+                <a class="{{$_GET['status'] == 1?'selected':''}}" href="{{:U('', ['status' => 1, 'module' => $_GET['module']])}}">待付款</a>
+                <a class="{{$_GET['status'] == 2?'selected':''}}" href="{{:U('', ['status' => 2, 'module' => $_GET['module']])}}">
+                                <!-- <strong class="redInfoCount">99</strong> -->待发货
+                            </a>
+                <a class="{{$_GET['status'] == 3?'selected':''}}" href="{{:U('', ['status' => 3, 'module' => $_GET['module']])}}">已发货</a>
+                <a class="{{$_GET['status'] == 4?'selected':''}}" href="{{:U('', ['status' => 4, 'module' => $_GET['module']])}}">交易完成</a>
+                <a class="{{$_GET['status'] == 5?'selected':''}}" href="{{:U('', ['status' => 5, 'module' => $_GET['module']])}}">售后/退款</a>
+                <a class="{{$_GET['status'] == 6?'selected':''}}" href="{{:U('', ['status' => 6, 'module' => $_GET['module']])}}">退款已处理</a>
+            </nav>
+            <button class="choose kbVipAdmin_opt w80 h30 tc" type="button" onclick="javascript:window.location.href='?getExcel=1&status={{$_GET.status}}&start={{$_GET.start}}&end={{$_GET.end}}'">下载</button>
+        </div>
+        <!-- 内容标题部结束 -->
+        <!-- 内容表格部 -->
+        <div class="main-contentBox kbVipAdmin_mt24" >
+            
+            <div class="kbVipAdmin_table mb20 orderTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">序号</th>
+                            <th >订单所属店铺</th>
+                            <th width="30%">商品名称</th>
+                            <th >单价/数量</th>
+                            <th >总金额</th>
+                            <th>买家信息</th>
+                            <th>交易状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="list" id="v" >
+                        <tr>
+                            <td>
+                            </td>
+                            <td colspans="8">
+                                <p>
+                                    <time>{{:date('Y-m-d H:i:s', $v['create_time'])}}</time>
+                                    <b>订单编号:{{$v.order_number}}</b>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="5%"><p>{{$v.id}}</p></td>
+                            <td ><p>{{$v.company_name}}</p></td>
+                            <td width="30%">
+                            <volist name="v.goods_data" id="vo" >
+                                <article>
+                                    <p>{{$vo.goodsInfo}}</p>
+                                    <p>{{$vo.goodsAttr.attr_name}}: {{$vo.goodsAttr.attr_val}}</p>
+                                </article>
+                            </volist>
+                            </td>
+                            <td>
+                            <volist name="v.goods_data" id="vo" >
+                                <article>
+                                    <p>{{$vo.price}}&nbsp;X{{$vo.total}}</p>
+                                </article>
+                            </volist>
+                            <td><p>￥{{$v.total}}</p></td>
+                            
+                            <td>
+                                <p>{{$v.address_id.consignee}} {{$v.address_id.phone}}  </p>
+                            </td>
+                            <switch name="v.status" >
+                                <case value="0">
+                                    <td><p>待付款</p></td>
+                                    <td>
+                                        <div class="kbVipAdmin_tdAction">
+                                </case>
+                                <case value="1">
+                                    <td><p>用户取消订单</p></td>
+                                    <td>
+                                        <div class="kbVipAdmin_tdAction">
+                                </case>
+                                <case value="2">
+                                    <switch name="v.is_send_out" >
+                                        <case value="0">
+                                            <td><p>已付款,待发货</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                        </case>
+                                        <case value="1">
+                                            <td><p>待收货</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                    <p class="mb10">
+                                                    <!--    <input type="button" class="kbVipAdmin_opt_7facff   h30" value="确定按钮用" onclick="eTip()"> -->
+                                                        <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                    </p>
+                                                    
+                                        </case>
+                                        <case value="2">
+                                            <td><p>已收货</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                    <p class="mb10">
+                                                        <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                    </p>
+                                        </case>
+                                    </switch>
+                                </case>
+                                <case value="3">
+                                    <td><p>关闭交易</p></td>
+                                    <td>
+                                        <div class="kbVipAdmin_tdAction">
+                                </case>
+                                <case value="4">
+                                    <td><p>已完成</p></td>
+                                    <td>
+                                        <div class="kbVipAdmin_tdAction">
+                                            <p class="mb10">
+                                                <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                            </p>
+                                </case>
+                                <case value="5">
+                                    <switch name="v.is_send_out">
+                                        <case value="0">
+                                            <td><p>未发货,申请退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                        </case>
+                                        <case value="1">
+                                            <td><p>已发货,申请退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                <p class="mb10">
+                                                    <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                </p>
+                                        </case>
+                                        <case value="2">
+                                            <td><p>已收货,申请退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                <p class="mb10">
+                                                    <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                </p>
+                                        </case>
+                                    </switch>
+                                </case>
+                                <case value="6">
+                                    <switch name="v.is_send_out">
+                                        <case value="0">
+                                            <td><p>未发货,已退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                        </case>
+                                        <case value="1">
+                                            <td><p>已发货,已退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                <p class="mb10">
+                                                    <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                </p>
+                                        </case>
+                                        <case value="2">
+                                            <td><p>已收货,已退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                <p class="mb10">
+                                                    <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                </p>
+                                        </case>
+                                    </switch>
+                                </case>
+                                <case value="7">
+                                    <switch name="v.is_send_out">
+                                        <case value="0">
+                                            <td><p>未发货,拒绝退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                        </case>
+                                        <case value="1">
+                                            <td><p>已发货,拒绝退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                <p class="mb10">
+                                                    <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                </p>
+                                        </case>
+                                        <case value="2">
+                                            <td><p>已收货,拒绝退款</p></td>
+                                            <td>
+                                                <div class="kbVipAdmin_tdAction">
+                                                <p class="mb10">
+                                                    <input class="kbVipAdmin_opt  h30 tc showExpress" title="睇下去到边" orderID="{{$v.id}}" type="button" value="物流信息" />
+                                                </p>
+                                        </case>
+                                    </switch>
+                                </case>
+                                </switch>
+                                    <p class="mb10">
+                                    <a class="kbVipAdmin_button_eee " href="{{:U('OrderForm/companyOrderDetailByProject', ['id' => $v['id'],'module' => $_GET['module']])}}">订单详情</a>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+            <div class="kbVipAdmin_page">
+                <div class="pageSize">
+                    {{$page}}
+                </div>
+                <div class="pageJump">
+                <form action="{{:U('orderList')}}"> 
+                    <input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+                    <input type="submit" class="fl" value="跳转">
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="ui-datepicker-css"> 
+            <div class="ui-datepicker-quick">
+                <p>快捷日期<a class="ui-close-date">X</a></p>
+                <div>
+                    <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+                    <input class="ui-date-quick-button" type="button" value="昨天" alt="-1" name=""/>
+                    <input class="ui-date-quick-button" type="button" value="7天内" alt="-6" name=""/>
+                    <input class="ui-date-quick-button" type="button" value="14天内" alt="-13" name=""/>
+                    <input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+                    <input class="ui-date-quick-button" type="button" value="60天内" alt="-59" name=""/>
+                </div>
+            </div>
+            <div class="ui-datepicker-choose">
+                    <p>自选日期</p>
+                    <div class="ui-datepicker-date">
+                        <input name="startDate" id="startDate" class="startDate" readonly value="2014/12/20" type="text">
+                       -
+                        <input name="endDate" id="endDate" class="endDate" readonly  value="2014/12/20" type="text" disabled onChange="datePickers()">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  class="kbVipAdmin_alert shipGoods_alert " style="display:none">
+
+            <div  class="kbVipAdmin_alertBox">
+                <button type="button" class="kbVipAdmin_alert-close "></button>
+                <h3 class="mb10">发货</h3>
+                <article id="shipGoods_alert">
+                    <h4>买家收货信息</h4>
+                    <p>收货人：{{info.address_id.consignee}}</p>
+                    <p>收货地址：{{info.address_id.address_str}}</p>
+                    <p>联系电话：{{info.address_id.phone}}</p>
+               </article>
+                <hr/>
+                <form action="" id="addrForm" method="post" enctype="multipart/form-data">
+                    <article>               
+                        <div id="letter" ></div>
+                        <div>
+                            <label>物流选择:</label>
+                            <p class="kbVipAdmin_radio express">
+                                <input type="radio" name="a" value="" checked="checked"/>
+                                <label><b></b></label>
+                            </p>
+                            <span>快递</span>
+                            <p class="kbVipAdmin_radio ">
+                                <input type="radio" name="a" value="" />
+                                <label>
+                                    <b></b>
+                                </label>
+                            </p>
+                            <span>自提</span>
+                        </div>
+                        <div class="kbVipAdmin_enter">
+                            <label>快递公司:</label>
+                            <select class="kbVipAdmin_slt w100 h30" name="express_name">
+                                <volist name="express" id="v" >
+                                    <option value="{{$v.coding}}">{{$v.name}}</option>
+                                </volist>
+                            </select>
+                            <button class="testExpress" type="button">快速选择</button>
+                            <div class="kbVipAdmin_sltExpress sort_box">
+                                <button class="close" type="button"></button>
+                                <volist name="express" id="v" >
+                                    <div class="sort_list" data-val="{{$v.coding}}">
+                                        <p class="num_name">{{$v.name}}</p>
+                                    </div>
+                                </volist>
+                                <div class="initials">
+                                    <ul>
+                                        <li><img src="__PUBLIC__/images/068.png"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="kbVipAdmin_enter">
+                            <label>快递单号:</label>
+                            <input type="text" value="" name="express_number"  placeholder="请输入快递单号" />
+                        </p>
+                    </article>
+                    <div class="kbVipAdmin_operating">
+                        <div class="kbVipAdmin_restsubmit">
+                            <input  class="kbVipAdmin_button_eee w80 h30 tc" type="reset" value="取消" />
+                            <input  class="kbVipAdmin_opt_7facff w80 h30" type="submit" value="保存" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="kbVipAdmin_alert showExpressInfo ">
+            <div class="kbVipAdmin_alertBox">
+                <button type="button" class="kbVipAdmin_alert-close "></button>
+                    <h3 class="mb10">物流信息</h3>
+                <section class="kbVipAdmin_alertCentent">
+                        <article>
+                            <h4>买家收货信息</h4>
+                            <p>收货人：</p>
+                            <p>收货人电话：</p>
+                            <p>收货人地址：</p>
+                            
+                        </article>
+                    <hr/>
+                        <article>
+                            <p>
+                                <label>快递公司:</label>
+                                <b>收货人：张大充 13729000000</b>
+                            </p>
+                            <p class="kbVipAdmin_enter">
+                                <label>运单号:</label>
+                                <input type="text" value="" name="express_number" disabled="disabled" />
+                            </p>
+                            <div class="showExpressAddr">
+                                
+                            </div>
+                        </article>
+                    </section>
+                    <div class="kbVipAdmin_operating">
+                        <div class="kbVipAdmin_restsubmit">
+                            <input  class="kbVipAdmin_button_eee w80 h30 tc" type="reset" value="好的" />
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+        
+</block>
+
+<block name="js_files">
+    <script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/jquery-ui-1.9.2.custom.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/share.js?v=1.11"></script>
+    <script type="text/javascript" src="__PUBLIC__/JS/module/contact/jquery.charfirst.pinyin.js?t=1"></script>
+    <script type="text/javascript" src="__PUBLIC__/JS/module/contact/contactSort.js?v=1.17"></script>
+<script>
+  $(function(){
+
+    (function(){
+         var app=new Vue({
+            el:'#shipGoods_alert',
+            data:{
+                info:{
+                    address_id:{}
+                }
+            }
+         });
+
+        $('.shipGoods').on('click',function(){
+            var id = $(this).attr('orderID');
+            url = "{{:U('orderExpressUpdate')}}?id="+id;
+            $('.shipGoods_alert form').attr('action', url);
+            $('.shipGoods_alert:eq(0)').fadeIn();
+
+            $.get("{{:U('ajaxControl')}}",{
+                flag:'orderInfo',
+                id:id
+            },function(res){
+                console.log(res);
+                app.info.address_id=res.address_id;
+            })
+            $('.kbVipAdmin_radio.express').parent().find('input').on('click',function(){
+                var $this=$(this),
+                    status=$this.parent().hasClass('express');
+                if(status){
+                    $this.parents('form').find('.kbVipAdmin_enter').fadeIn();
+
+                }else{
+                    $this.parents('form').find('.kbVipAdmin_enter').fadeOut();
+                }
+
+            })
+
+            $('.shipGoods_alert form').find('[type="submit"]').on('click',function(){
+                if($('.shipGoods_alert form').find('.kbVipAdmin_enter').css('display')!="none"){
+                    var lengths=$('.shipGoods_alert form').find('[name="express_number"]').val().length;
+                    if(lengths>0){return true}else{Alert('请输入快递单号!');return false} ;
+                }
+            })
+
+        });
+            $('.testExpress').on('click',function(){
+                $('.kbVipAdmin_sltExpress').fadeIn();
+                
+                $('.kbVipAdmin_sltExpress .sort_list').on('click',function(){
+                    var $this=$(this),
+                        sltVal=$this.attr('data-val');
+                    $('.kbVipAdmin_slt').find('option[value="'+sltVal+'"]').attr('selected',true);
+            
+                    $('.kbVipAdmin_sltExpress').fadeOut();
+                })
+                $('.kbVipAdmin_sltExpress .close').click(function(){$('.kbVipAdmin_sltExpress').fadeOut();})
+            })
+            $('.kbVipAdmin_alert .kbVipAdmin_operating input[type="reset"]').on('click',function(){
+                $('.kbVipAdmin_alert').fadeOut();
+             });
+    })();
+
+    $('.showExpress').on('click',function(){
+        var data = {
+            flag : 'selExpress',
+            id:$(this).attr('orderID')
+        }
+        $.get("{{:U('ajaxControl')}}",data, function(res){
+            // console.log(res);
+            if(res){
+                $('.showExpressInfo article:eq(0) p').eq(0).text('收货人：'+res.info.address_id.consignee);
+                $('.showExpressInfo article:eq(0) p').eq(1).text('收货人电话：'+res.info.address_id.phone);
+                $('.showExpressInfo article:eq(0) p').eq(2).text('收货地址：'+ res.info.address_id.address_str);
+                $('.showExpressInfo article:eq(1) p:eq(0) b').text(res.info.express.name);
+                $('.showExpressInfo article:eq(1) .kbVipAdmin_enter input').val(res.info.express.express_number);
+                var str = '';
+                var info = res.info.express.Traces;
+                for(var k in info){
+                    str += '<p class="kbVipAdmin_enter">'
+                        +'<label>'+ info[k].AcceptTime +'</label><br>'
+                        + '<label>'+ info[k].AcceptStation +'</label></p>';
+                }
+                $('.showExpressInfo article:eq(1) .showExpressAddr').html(str);
+            }
+        })
+        $('.showExpressInfo').fadeIn();
+        });
+     $('.userAreaSlt select').on('change',function(){
+        var $this = $(this);
+        var options=$this.children('option:selected');
+        var optionsVal=options.val();
+        var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+        $('select[name=business_id]').children().not('option[value=-1]').remove();//区域选择有变动时，清除行业选择内容
+         userAreaSltChild(this,ajaxUrl);
+      
+    });/*userAreaSlt select end */
+});
+ 
+
+</script>
+</block>

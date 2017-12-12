@@ -1,0 +1,82 @@
+<extend name="Web/default" />
+<block name="files">
+    <style type="text/css">
+    main > #Discount > div#bigimg:before {
+        opacity: 1;
+    }
+    .hint {
+        font-size: 14px;
+        font-weight: bold;
+    	margin-top: 10px;
+    	text-align: center;
+    	color: #f70f36;
+    }
+    </style>
+</block>
+<block name="content">
+    <div class="swiper-container carousel">
+        <div class="swiper-wrapper">
+            <foreach name="poster" item="v">
+                <div class="swiper-slide"><a href="{{$v['poster_url']}}"><img src="__PUBLIC__{{$v['poster_pic']}}" onclick="clickStatistics(this)" posterid="{{$v.id}}"></a></div>
+            </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div id="Discount">
+        <div class="title"><p>每周优惠</p></div>
+        <p class="hint">点击二维码，长按识别领取</p>
+        <div class="card">
+        <!-- 测试的大图 -->
+            <!-- <img src="__PUBLIC__/CE/images/00001.jpg"> -->
+            <foreach name="list" item="v">
+                <div class="cardinfo" style="background-image: url('__PUBLIC__{{$v['card_bgaddress']}}');background-size: cover;width: 100%;">
+                    <img src="__PUBLIC__{{$v['card_bgaddress']}}" style="width: 100%;height: 100%;">
+                    <i>
+                        <span>{{$v.card_name}}</span>
+                        <img src="__PUBLIC__{{$v['card_code']}}" cardcid="{{$v['id']}}" onload="card(),clickAdd()">
+                        <span>{{$v.card_desc}}</span>
+                    </i>
+                </div>
+            </foreach>
+        </div>
+        <!-- 放大二维码 -->
+        <div id="bigimg" style="display: none;">
+            <span>&times;</span>
+            <img src="__PUBLIC__/CE/images/00001.jpg">
+            <i>卡券名</i>
+        </div>
+    </div>
+    <script type="text/javascript">
+        card();
+        $(document).ready(function() {
+            // $(".cardinfo i img").height($(".cardinfo").height() - 36);
+            // $(".cardinfo i img").width($(".cardinfo").height() - 36);
+        });
+        $(window).resize(function() {
+            $(".cardinfo i img").height($(".cardinfo").height() - 36);
+            $(".cardinfo i img").width($(".cardinfo").height() - 36);
+        });
+
+        function card(){
+            $(".cardinfo i img").height($(".cardinfo").height() - 36);
+            $(".cardinfo i img").width($(".cardinfo").height() - 36);
+        }
+
+        $(".cardinfo > i > img").on("click", function() {
+            $this = $(this);
+            $("#bigimg > img").attr("src",$this.attr("src"));
+            $("#bigimg > i").html($this.parents().find("> span:nth-child(1)").html());
+            $("#bigimg").css("display","block");
+            $(".swiper-container.carousel").css("z-index","-1");
+            //关闭
+            $("#bigimg > span:nth-child(1)").on("click",function() {
+                $("#bigimg").css("display","none");
+                $(".swiper-container.carousel").css("z-index","1");
+            });
+        });
+        function clickAdd()
+        {
+            $.get("{{:U('Merchant/ajaxControl')}}", {flag:'clickAdd', cardip:$(this).attr('cardcid')});
+        }
+    </script>
+</block>

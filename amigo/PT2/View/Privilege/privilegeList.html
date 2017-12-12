@@ -1,0 +1,173 @@
+<extend name="Common/tseconCom" />
+<block name="css_js">
+
+	<!-- gaoCode -->
+	<link rel="stylesheet" href="http://cache.amap.com/lbs/static/AMap.PlaceSearchRender1120.css"/>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=a2414330232c1ba563ad05237561e9d9&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+	<script type="text/javascript" src="http://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
+	<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+
+	<style>
+		.positionDistance{
+			display:inline-block;
+			width:39%;
+			height:18px;
+			line-height:18px;
+		}
+	</style>
+</block>
+<block name="topname" >
+	<a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">最新优惠</a>
+</block>
+<block name="center" >
+	<div id="kbMt_center" class="kbMt_center">
+		<div id="firstBanner" class="swiper-container focusWap">
+	        <ul class="swiper-wrapper">
+	        <foreach name="posterList" item="v" >
+	           <li class="swiper-slide bc mb10 kbMt_banner">
+	          		<a href="http://{{$v.poster_url}}" onclick="posterStatistics(this)" posterId="{{$v.id}}">
+		          		<img src="__PUBLIC__{{$v.poster_pic}}" alt="大图" />
+		          	</a>
+	           </li>
+	        </foreach>
+	        </ul>
+	        <div class="swiper-pagination banner-pagination mb10"></div>
+	          <script>
+	        function posterStatistics(obj) 
+			{
+			 	$.get("{{:U('Index/ajaxControl')}}", {flag: 'otherVisitStatistics',type:'poster',id:$(obj).attr('posterId')},function(res){
+        			console.log(res);
+        		});
+			}
+
+			 var swiper = new Swiper('#firstBanner', {
+	            autoplay:5000,//可选选项，自动滑动
+	            pagination: '.swiper-pagination',
+	        });
+			</script>
+	    </div>
+		
+		 <!-- 最新优惠 -->
+		<h1 class="kbMt_bigTitle kbMt_bc-ffeeca kbMt_font16">
+			<p class="kbMt_fontCr-fff kbMt_bc-000">最近店铺</p>
+		</h1>
+	  	<ul class="preferentialIndex-view bc mb10">
+	  	<foreach name="cardList" item="v" >
+			<li>
+				<div class="preferentialIndex-bgImg">
+					<a href="http://{{$_SERVER['HTTP_HOST']}}/{{$v['company_link']}}">
+						<p class="shopLogo">
+							<img src="__PUBLIC__{{$v.company_logo}}" alt="logo" >
+						</p>
+					</a>
+					<a class="preferentialIndex-href redBagAnimated redBagSwing " href="javascript:;" cardid="{{$v['card_ip']}}" nonce="{{$v['nonce_str']}}" cardcid="{{$v['id']}}" timestamp="{{$v['timestamp']}}" signature="{{$v['Card_Ticket']}}" onclick="youhui(this)"></a>
+					<div class='preferentialIndex-shopInfo'>
+						<h3 class="kbMt_font16">{{$v.company_name}}</h3><span class="positionDistance">&gt;&nbsp;99公里</span>
+						<p>地址:{{$v.address_info}}</p>
+
+						<input class="mapPosition" type="hidden" value="{{$v.x_coordinate}},{{$v.y_coordinate}}" /><!--input value="坐标点" -->
+						<!--  116.368904, 39.923423  113.407415,23.126436-->
+					</div>
+					<img src="__PUBLIC__/moduleWeb/portalWeb/portalWebImages/pBg.png" alt="优惠背景图" />
+				</div>
+			</li>
+		</foreach>
+		</ul>
+		<div id="tip"></div>
+	</div>
+	<script type="text/javascript">
+		wx.config({
+            debug: false,//调试模式
+            appId: '{{$wechat["appId"]}}',//公众号ID
+            timestamp: '{{$wechat["timestamp"]}}',//时间戳
+            nonceStr: '{{$wechat["nonceStr"]}}',//随机字符串
+            signature: '{{$wechat["signature"]}}',//JSSDK接口签名
+            jsApiList: [
+              // 所有要调用的 API 都要加到这个列表中
+              'addCard'
+        ]});
+
+       /* $(".mb10 li .redBagAnimated").on("click", function(){
+            // $.get("{{:U('ajaxControl')}}", {flag:'clickAdd', cardip:$(this).attr('cardcid')});
+            console.log(1);
+            wx.addCard({
+                cardList:[{
+                    cardId: $(this).attr('cardid'),
+                    cardExt: '{"code": "", "openid": "", "timestamp": "'+ $(this).attr('timestamp') +'", "nonce_str": "'+ $(this).attr('nonce') +'", "signature": "'+ $(this).attr('signature') +'"}',
+                }],
+                success: function (res) {
+                    $.get("{{:U('ajaxControl')}}", {flag:'getAdd', cardip:$(this).attr('cardcid')});
+                        alert("领取成功");
+                },
+            });
+        });*/
+
+        function youhui(obj) 
+        {
+        	wx.addCard({
+                cardList:[{
+                    cardId: $(obj).attr('cardid'),
+                    cardExt: '{"code": "", "openid": "", "timestamp": "'+ $(obj).attr('timestamp') +'", "nonce_str": "'+ $(obj).attr('nonce') +'", "signature": "'+ $(obj).attr('signature') +'"}',
+                }],
+                success: function (res) {
+                    $.get("{{:U('ajaxControl')}}", {flag:'getAdd', cardip:$(obj).attr('cardcid')});
+                        alert("领取成功");
+                },
+                /* cancel: function (res) {
+                    alert("取消了。。。。");
+                }, */
+                /* fail: function (res) {
+                    alert("接口调用失败");
+                } */
+            });
+        }
+	</script>
+	<script type="text/javascript">
+		// 113.286602,23.119968
+	    var map, geolocation;
+	    //加载地图，调用浏览器定位服务
+	    map = new AMap.Map('geoCoder', {
+	        resizeEnable: true
+	    });
+	    map.plugin('AMap.Geolocation', function() {
+	        geolocation = new AMap.Geolocation({
+	            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+	            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+	            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+	            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+	            buttonPosition:'RB'
+	        });
+	        map.addControl(geolocation);
+	        geolocation.getCurrentPosition();
+	        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+	        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+	    });
+	    //解析定位结果
+	    function onComplete(data) {
+
+	     	var mapPosition= $('.mapPosition');
+		   for(var i=0;i<mapPosition.length;i++){
+		    var shopPosition= $(mapPosition[i]).val().trim().split(",");
+		    // var mapDistance=parsetInt(data.position.distance(shopPosition));
+		   	var mapDistance=(data.position.distance(shopPosition).toFixed(0));
+
+		   	// alert(mapDistance);
+		   	if(mapDistance.length>5){
+		   		mapDistance="&gt;&nbsp;"+99+"公里"
+		   	}else if(mapDistance.length>3){
+		   		mapDistance="&gt;&nbsp;"+(mapDistance/1000).toFixed(2)+"公里"
+		   	}
+		   	else{
+		   		mapDistance="&lt;&nbsp;"+mapDistance+"米"
+		   	}
+	    	$(mapPosition[i]).siblings('.positionDistance').html(mapDistance);
+		    }
+	    }
+	   
+	    //解析定位错误信息
+	    function onError(data) {
+	        // document.getElementById('tip').innerHTML = '定位失败';
+	         animationAlert({alertContent:"定位失败",alertTip:false,});
+	    }
+	</script>
+</block>

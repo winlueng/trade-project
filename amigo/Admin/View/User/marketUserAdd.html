@@ -1,0 +1,258 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+	<style>
+		.marketUser_form-box{
+			margin-bottom:100px;
+		}
+		
+	</style>
+	 <script type="text/javascript">
+       $(function(){ 
+            $('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+                if ( typeof(FileReader) === 'undefined' ){ 
+                    alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+                    this.setAttribute( 'disabled','disabled' ); 
+                } else { 
+                    readFile(this,this.files[0]);
+                } 
+            })
+        });
+    
+    </script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponAdClass_center">
+				<div class="kbVipAdmin_tableHead">
+					<!-- <p class="authAddBtn">
+						添加用户
+					</p> -->
+				</div>
+				<form class="userAdmin_center-addUser kbVipAdmin_form" action="{{:U('marketUserAdd')}}" method="post" enctype="multipart/form-data">
+				<div class="marketUser_form-box">
+					<input type="hidden" name="group_type" value="2">
+					<div class="microWebMenuAdmin">
+						<span><i>*</i>商户类型：</span>
+						<empty name="projectCompany" >
+						暂未设置商户类型
+						<else />
+						<foreach name="projectCompany" item="v">
+							<p class="MenuAdminBox mb10 bc kbVipAdmin_inlineBlock">
+								<input  name="group_id" type="radio" value="{{$v.id}}" required="required"/>
+								<label ><i></i><b>{{$v.title}}</b></label>
+							</p>
+						</foreach>
+						</empty>
+					</div>
+					<p>
+						<span><i>*</i>账号：</span>
+						<input class="accountlogin" type="text" name="user_name" required="required" minlength="6" maxlength="17" placeholder="请输入数字和字母的混合号码" />
+						<strong class="kbAdmin_tip">必填项。请输入长度6到17位的数字和字母的混合号码，数字或者字母至少出现一次</strong>
+					</p>
+					<p>
+						<span><i>*</i>密码：</span>
+						<input type="password" name="password"  minlength="6" maxlength="15" required="required" placeholder="请输入字母、数字的混合密码"/>
+						<strong class="kbAdmin_tip">请输入长度6到15位的数字和字母的混合号码，数字或者字母至少出现一次</strong>
+					 </p>
+					<p>
+						<span><i>*</i>重复密码：</span>
+						<input class="rePaw" type="password" name="repass" minlength="6" maxlength="15" required="required"  placeholder="请再次输入密码" /> 
+						<strong class="kbAdmin_tip">必填项。请再次输入密码</strong>
+					</p>
+					<div class="kbVipAdmin_fileImg">
+						<span><i>*</i>商户营业执照：</span>
+						<label class="fileImg" for="businessFileImg">点击上传图片</label>
+						<input id="businessFileImg" type="file" name="business_license" required="required" />
+						<strong class="kbAdmin_tip">请上传商户营业执照，图片格式为png、jpg；不大于200k</strong>
+					</div>
+					<div class="kbVipAdmin_fileImg">
+						<span><i>*</i>商户身份证正面：</span>
+						<label class="fileImg" for="businessFileImg2">点击上传图片</label>
+						<input id="businessFileImg2" type="file" name="person_code_front" required="required" />
+						<strong class="kbAdmin_tip">请上传商户身份证正面，图片格式为png、jpg；不大于200k</strong>
+					</div>
+					<div class="kbVipAdmin_fileImg">
+						<span><i>*</i>商户身份证反面：</span>
+						<label class="fileImg" for="businessFileImg3">点击上传图片</label>
+						<input id="businessFileImg3" type="file" name="person_code_rear" required="required" />
+						<strong class="kbAdmin_tip">请上传商户身份证反面，图片格式为png、jpg；不大于200k</strong>
+					</div>
+					<p>
+						<span><i>*</i>邮箱：</span>
+						<input type="email" name="email" required="required" placeholder="请输入邮箱地址" />
+						<strong class="kbAdmin_tip">必填项。请输入电子邮箱地址</strong>
+					</p>
+					
+				<!-- 	<p class="couponAddr" ><span><i>*</i>微官网域名:  </span>
+						<empty name="link">
+						<input type="hidden" value="" required="required" />
+						贵司域名已全部分配,请向技术提供方申请域名以便贵司正常运营
+						<else />
+						<select name="company_link" style="width:460px" required="required" >
+							<option  value="-1">--请选择官网域名--</option>
+							<foreach name="link" item="v">
+								<option value="{{$v}}">{{$v}}</option>
+							</foreach>
+						</select>
+						</empty>
+					</p> -->
+					<p>
+						<span><i>*</i>联系人：</span>
+						<input type="text" name="principal" required="required" placeholder="请输入店铺负责人姓名" />
+						<strong class="kbAdmin_tip">必填项。请输入店铺负责人姓名</strong>
+					 </p>
+					<p>
+						<span><i>*</i>手机号码：</span>
+						<input type="tel" name="phone" required="required" 
+						 minlength="11" maxlength="11" placeholder="请输入店铺负责人联系手机号码" />
+						<strong class="kbAdmin_tip">必填项。请输入店铺负责人联系手机号码</strong>
+					</p>
+					<p><span><i>*</i>店铺名称：</span>
+						<input type="text" name="company_name" required="required" placeholder="请输入店铺名称" /> 
+						<strong class="kbAdmin_tip">必填项。请输入店铺名称</strong>
+					</p>
+					<div class="couponAddr userAreaSlt">
+						<span><i>*</i>商户区域：</span>
+						<select class="" required="required" >
+							<option value="-1">--请选择区域--</option>
+							<foreach name="region" item="v">
+								<option value="{{$v.id}}">{{$v.region_name}}</option>
+							</foreach>
+						</select>
+						<strong class="kbAdmin_tip">必填项。请选择商户区域</strong>
+					</div>
+					<div class="couponAddr userTradeSlt">
+						<span><i>*</i>行业：</span>
+						<select class="" required="required" name="business_id">
+							<option value="-1">请选择行业</option>
+						</select>
+						<!-- <p class='userAreaSltChild'></p> -->
+						<strong class="kbAdmin_tip">必填项。需先选择商户区域才能商户行业</strong>
+					</div>
+					<p>
+						<span><i>*</i>店铺编号：</span>
+						<input type="text" name="address_info" required="required" placeholder="请输入店铺编号" /> 
+						<strong class="kbAdmin_tip">必填项。请输入店铺编号</strong>
+					</p>
+					<p>
+						<span><i>*</i>开始时间：</span>
+						<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="服务开始日期" readonly="" required="required">
+						<strong class="kbAdmin_tip">必填项。鼠标左键双击输入框选择服务开始日期</strong>
+					</p>
+					<p>
+						<span><i>*</i>结束时间：</span>
+						<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="end_time" placeholder="服务结束日期" readonly="" required="required">
+						<strong class="kbAdmin_tip">必填项。鼠标左键双击输入框选择服务结束日期。结束日期不能小于开始日期</strong>
+					</p>
+					<p>
+						<span><i>*</i>合同签订日期：</span>
+						<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="addtime" placeholder="合同签订日期" readonly="" required="required"> 
+					</p>
+					<p class="kbVipAdmin_MenuAdminBtn">
+						<input type='submit' value="保存" />
+					</p>
+				</div>
+				</form>
+			</div>
+	
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			// 日期插件
+			  var start_time = {
+	            format: 'YYYY-MM-DD hh:mm:ss',
+	            minDate: '2016-01-01 00:00:00', //设定最小日期为当前日期
+	            festival:true,
+	            //isinitVal:true,
+	           // maxDate: $.nowDate(0), //最大日期
+	            choosefun: function(elem,datas){
+	                end_time.minDate= datas; //开始日选好后，重置结束日的最小日期
+	                checkData(elem);
+	            },
+           
+       		};
+      		var end_time = {
+	          format: 'YYYY-MM-DD hh:mm:ss',
+	          minDate: $.nowDate(0), //设定最小日期为当前日期
+	          festival:true,
+	          //isinitVal:true,
+	          //maxDate: '2099-06-16 23:59:59', //最大日期
+	          choosefun: function(elem,datas){
+             	 start_time.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                 checkData(elem);
+          	  }
+     		};
+			$('input.datainp[name="start_time"]').jeDate(start_time);
+			$('input.datainp[name="end_time"]').jeDate(end_time);
+			$('input.datainp[name="addtime"]').jeDate(start_time);
+ 			// $('input.datainp[name="start_time"]').jeDate(start_time.choosefun());
+		})
+		$(function(){
+
+			$('.addCouponAreaList ').on('click',function(){
+				$('.couponAreaList_alert').fadeIn();
+			})
+			$('.couponAreaListWirte ').on('click',function(){
+				$('.couponAreaList_alertWriter').fadeIn();
+			})
+			$('.kbVipAdmin_MenuAdminBtn').on('click',function(){
+				checkData('.kbVipAdmin_center_tables',function(ren){
+				});
+			})
+			$('.kbVipAdmin_center_tables form [required="required"]').bind('change blur',function(){
+	        	checkData(this);
+	        	
+		    })
+			 $('.userAreaSlt select').on('change',function(){
+                var $this = $(this);
+                var options=$this.children('option:selected');
+                var optionsVal=options.val();
+                var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+
+                $('select[name=business_id]').children().not('option[value=-1]').remove();//区域选择有变动时，清除行业选择内容
+                 userAreaSltChild(this,ajaxUrl);
+              
+               
+            });/*userAreaSlt select end */
+			$('#kbVipAdmin_center').find('[required="required"]').on('blur change',function(){
+				checkData(this);
+			})
+			$('#kbVipAdmin_center').find('[type="submit"]').on('change',function(){
+				var sStatus = false;
+				       var $this=$(this);
+				       var thisParent=$this.parents('form').parent();
+				         checkData(thisParent,function(ren){
+				            sStatus=ren;
+				         });
+				         //数据正确则提交
+				         return sStatus;
+			})
+
+		})
+		
+		// 查询数据唯一
+		// 错误
+	     function checkOnly(_this,callback){
+	      var onlyDate = $(_this).val();
+	      var onlyName = $(_this).prop('name');
+	      var status='Error';
+			 $.ajax({
+		   	 	type: "get",
+		   	 	async: false,
+		   	 	dataType: "json",
+		   	 	url: '{{:U("User/ajaxControl")}}',
+		   	 	data: {'flag':"selUserAddBefore",'key':onlyName,data:onlyDate},
+		   	 	success: function(response) {
+		   	 		status=(response===true)?'Proper':'Error';
+			      	console.log(status);
+		   	 	},
+		   	 	error: function() {
+		   	 	
+		   	 	}
+	   	 	});
+			 return status;
+	 	 	
+   	 	}
+   	 	
+	</script>
+</block>

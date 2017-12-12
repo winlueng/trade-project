@@ -1,0 +1,31 @@
+<extend name="Web/default" />
+<block name="files">
+
+</block>
+<block name="content">
+    <div class="swiper-container carousel">
+        <div class="swiper-wrapper">
+            <foreach name="list" item="v">
+                <div class="swiper-slide"><a href="{{$v['poster_url']}}" onclick="clickStatistics(this)" posterid="{{$v.id}}"><img src="__PUBLIC__{{$v['poster_pic']}}"></a></div>
+            </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div id="Index">
+        <div class="picture"><img src="__PUBLIC__/CE/images/1.png"></div>
+        <div class="swiper-container card">
+            <div class="swiper-wrapper">
+            <foreach name="second" item="v">
+                <div class="swiper-slide"><a href="{{$v['poster_url']}}"><img src="__PUBLIC__{{$v['poster_pic']}}"></a></div>
+            </foreach>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // alert('__MODULE__')
+        window.onload = function (){
+            $.get('__MODULE__/Index/ajaxControl',{plus:'plus'});
+        }
+    </script>
+</block>

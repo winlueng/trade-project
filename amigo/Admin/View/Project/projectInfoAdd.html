@@ -1,0 +1,418 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+	<style>
+		.kbVipAdmin_alert{
+
+		}
+		.addPorject{
+			width:30px;
+			height:30px;
+			overflow:hidden;
+			display:inline-block;
+			vertical-align:top;
+			border:none;
+			padding:0;
+			background-color:transparent;
+		}
+		.addPorject img{
+			width:100%;
+		}
+		.kbVipAdmin_MenuAdminBtn{
+			margin-top:0;
+		}
+		.project_second_link{
+			width:50%;
+			display: inline-block;
+		}
+		.project_second_link input{
+			width:100%;
+			margin-bottom:5px;
+		}
+		.project_second_link.bc {
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+		.kbVipAdmin_center_tables{
+			/*min-height:100%;*/
+		}
+	</style>
+		<script type="text/javascript">
+		$(function(){ 
+			$('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+				if ( typeof(FileReader) === 'undefined' ){ 
+					alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+					this.setAttribute( 'disabled','disabled' ); 
+				} else { 
+					readFile(this,this.files[0]);
+				} 
+			})
+		});
+	
+	</script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponBusiness_center">
+		
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead authAddBtn ">
+					<form class="kbVipAdmin_inlineBlock" action="" >
+					<div class="kbVipAdmin_styledSelect">
+						<select class="kbVipAdmin_slt pl20" name="category_id">
+							<option value="">分类选择</option>
+							<foreach name="category" item="v">
+								<option value="{{$v.id}}" {{$_GET['category_id'] == $v['id']?'selected':''}}>{{$v.category_name}}</option>
+							</foreach>
+						</select>
+					
+					</div>
+					<input class="kbVipAdmin_search microWeb-search" name="selname" type="search" placeholder="请输入关键字搜索" value="{{:I('get.selname')}}" />
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+					<input class=" adminFont kbVipAdmin_btn w100 h50 addPoejectAdmin" style="float:right"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th width="100">序号</th>
+							<th>项目名称</th>
+							<th>分类</th>
+							<th>地址</th>
+							<th>联系人</th>
+							<th>联系电话</th>
+							<th>E-mail</th>
+							<th>商户数量</th>
+							<th>近期离场数量</th>
+							<th>开户限额</th>
+							<th width="100">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list" >
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无项目信息</span></center></td></tr>
+					<else />
+					<foreach name="list" item="v" >
+						<tr>
+							<td class="projectId">{{$v.id}}</td>
+							<td>{{$v.project_name}}</td>
+							<td>{{$v.category_name}}</td>
+							<td>{{$v.address}}-{{$v.address_info}}</td>
+							<td>{{$v.principal}}</td>
+							<td>{{$v.phone}}</td>
+							<td>{{$v.email}}</td>
+							<td>{{$v.exist}}</td>
+							<td>{{$v.leave}}</td>
+							<td class="quota">{{$v.company_quota}}</td>
+							<td>
+								<div class="kbVipAdmin_btnMenuBox bc">
+									<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_urlAdd" type="button" value="&#xe601;&nbsp;开户限额修改" />
+									<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_look" type="button" value="&#xe714;&nbsp;查看" />
+									<input class="adminFont kbVipAdmin_btnMenu " type="button" value="&#xe714;&nbsp;模版选择" onclick="showDIV(this)" />
+									<!-- <input class="adminFont kbVipAdmin_btnMenu" type="button" value="&#xe606;&nbsp;删除" /> -->
+								</div>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+
+					</tbody>
+					
+				</table>
+			</div>
+			<div class="kbAdmin_page">
+				{{$page}}
+			</div>
+		</div>
+
+	</div>
+	<div class="kbVipAdmin_alert porjectAdminList_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加项目</h2>
+		<form class="couponBusiness_FormParent" action="{{:U(Project/projectInfoAdd)}}" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>项目名称:</span>
+					<input type="text" value="" name="project_name" required="required" />
+				</p>
+				<p class="couponTrade">
+					<span><i>*</i>项目分类:</span>
+					<select name="category_id" required="required">
+						<option value="">分类选择</option>
+						<foreach name="category" item="v">
+							<option value="{{$v.id}}">{{$v.category_name}}</option>
+						</foreach>
+					</select>
+				</p>
+				<p class="couponAddr">
+					<span><i>*</i>地址:</span>
+					<select required="required">
+                        <option value="" >请选择省级</option>
+                            <foreach name="address" item="v">
+                                <option value="{{$v['district_id']}}">{{$v.name}}
+                                </option>
+                            </foreach>
+                    </select>
+                    <select required="required">
+                        <option value="">请选择市级</option>
+                    </select>
+                    <select name="address_id" required="required">
+                        <option value="">请选择区级</option>
+                    </select>
+				</p>
+				<p><span><i>*</i>街道地址:</span><input type="text" value="" name="address_info" required="required" /></p>
+				<p><span><i>*</i>联系人:</span><input type="text" value="" name="principal" required="required" /></p>
+				<p><span><i>*</i>联系电话:</span><input type="tel" minlength="11" maxlength="11" value="" name="phone" required="required" /></p>
+				<p><span><i>*</i>E-mail:</span><input type="email" value="" name="email" required="required" /></p>
+				<p><span><i>*</i>项目主域名:</span><input type="text" value="" name="project_link" required="required" /></p>
+				<p><span><i>*</i>开通商户限额:</span><input type="number" value="" name="company_quota" required="required" min="1" /></p>
+				<!-- <p><span><i>*</i>分配子商户域名:</span><input type="text" value="" name="project_second_link[]" required="required" />
+					<button class="addPorject" type="button"><img src="__PUBLIC__/images/addPorject.png" alt="增加"></button>
+				</p> -->
+				
+				<p><span><i>*</i>协议编号:</span>
+					<input type="text" value="" name="agreement_number" required="required" />
+				</p>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>身份证正面：</span>
+					<label class="fileImg" for="businessFileImg01">点击上传图片</label>
+					<input id="businessFileImg01" type="file" name="identity_card_front" required="required" />
+					
+				</div>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>身份证反面：</span>
+					<label class="fileImg" for="businessFileImg02">点击上传图片</label>
+					<input id="businessFileImg02" type="file" name="identity_card_rear" required="required" />
+					
+				</div>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>营业执照：</span>
+					<label class="fileImg" for="businessFileImg1">点击上传图片</label>
+					<input id="businessFileImg1" type="file" name="business_license" required="required" />
+				</div>
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期" readonly="" required="required" onclick="jeDateTime(this,'start');">
+				 </p>
+				<p><span><i>*</i>结束时间：</span>
+					<input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="end_time" placeholder="结束时间：" readonly="" required="required" onclick="jeDateTime(this,'end');">
+				</p>
+				
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="保存" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert poejectAdminInfo_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>开通商户限额设置</h2>
+		<form class="couponBusiness_FormParent" action="{{:U('createCompanyQuota')}}" method="post">
+			<div class="kbVipAdmin_form">
+				<p><span><i>*</i>开通商户限额:</span><input type="number" value="" name="company_quota" placeholder="请输入限额数量" />
+					<strong class="kbAdmin_tip">必填项。请输入需要限额数量。需要多少，填写多少</strong>
+				</p>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="保存" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert template_change">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>此处可帮助项目切换模版</h2>
+		<form class="couponBusiness_FormParent" action="" method="post">
+			<p style="margin-bottom: 150px">
+				<span>当前选择模版:</span>
+				<foreach name="templateList" item="v">
+					<img src="__PUBLIC__{{$v.template_logo}}" width="80">
+					<input type="radio" value="{{$v.id}}" name="template_id" /> {{$v.template_name}}
+				</foreach>
+			</p>
+			<p class="kbVipAdmin_MenuAdminBtn">
+						<input class="authAddFormSmt" type='submit' value="保存" />
+				</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function showDIV(obj) 
+		{
+			$('.template_change').fadeIn();
+			var projectId = $(obj).parent().parent().siblings('.projectId').text()
+			$.get('{{:U("Project/ajaxControl")}}',{flag:'selProjectInfo',id:projectId},function(res){
+				for(var r in res)
+				{
+					switch(r){
+						case "template_id":
+						$('.template_change input[name="template_id"]').filter("input[value='"+res.template_id+"']").prop("checked",true);
+						break;
+					}
+				}
+				$('.template_change form').attr('action',"{{:U('projectTemplateChange')}}?id="+projectId);
+			});
+		}
+	</script>
+	<div class="kbVipAdmin_alert porjectAdminListInfoLook_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>查看项目</h2>
+		<form class="couponBusiness_FormParent" action="" method="get">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>项目名称:</span>
+					<input type="text" value="" name="project_name" required="required" />
+				</p>
+				<p class="couponTrade">
+					<span><i>*</i>项目分类:</span>
+					<input type="text" value="" name="category_name" required="required" />
+				</p>
+				<p class="couponAddr">
+					<span><i>*</i>地址:</span>
+					<input type="text" value="" name="address" required="required" />
+                  
+				</p>
+				<p><span><i>*</i>街道地址:</span><input type="text" value="" name="address_info" required="required" /></p>
+				<p><span><i>*</i>联系人:</span><input type="text" value="" name="principal" required="required" /></p>
+				<p><span><i>*</i>联系电话:</span><input type="tel" value="" name="phone" required="required" /></p>
+				<p><span><i>*</i>E-mail:</span><input type="email" value="" name="email" required="required" /></p>
+				<p><span><i>*</i>一级域名:</span>
+					<input type="text" value="" name="project_link" required="required" />
+				</p>
+				<p><span><i>*</i>开通商户限额:</span><input type="text" value="" name="company_quota" required="required" /></p>
+				<!-- <div ><span><i>*</i>二级域名:</span>
+					<p class="project_second_link bc">
+
+					</p>
+					<input type="text" value="" name="project_second_link[]" required="required" />
+				</div> -->
+				<p><span><i>*</i>协议编号:</span><input type="text" value="" name="agreement_number" required="required" /></p>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>身份证正面：</span>
+					<div class="businessFileImgList" name="identity_card_front">
+						<img src="" alt=""  />
+					</div>
+					
+				</div>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>身份证反面：</span>
+					<div class="businessFileImgList" name="identity_card_rear">
+						<img src="" alt=""/>
+					</div>
+					
+				</div>
+				<div class="kbVipAdmin_fileImg mb10">
+					<span><i>*</i>营业执照：</span>
+					<div class="businessFileImgList" name="business_license">
+						<img src="" alt=""/>
+					</div>
+					
+				</div>
+
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input   type="text" name="start_time"  readonly="" required="required" />
+				 </p>
+				<p><span><i>*</i>结束时间：</span>
+					<input   type="text" name="end_time"  readonly="" required="required" />
+				</p>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+						<input class="authAddFormSmt" type='submit' value="保存" />
+				</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+
+			$('.addPoejectAdmin ').on('click',function(){
+				$('.porjectAdminList_alert').fadeIn();
+			})
+			// 域名追加
+			$('.kbVipAdmin_urlAdd ').on('click',function(){
+				$('.poejectAdminInfo_alert').fadeIn();
+				var projectId = $(this).parent().parent().siblings('.projectId').text();
+				$('.poejectAdminInfo_alert form').attr('action', '{{:U("createCompanyQuota")}}?id='+projectId);
+				$('.poejectAdminInfo_alert form input[name="company_quota"]').val($(this).parent().parent().siblings('.quota').text());
+			})
+
+			$('.kbVipAdmin_look ').on('click',function(){
+
+				$('.porjectAdminListInfoLook_alert').fadeIn();
+				var porInput=$('.porjectAdminListInfoLook_alert .kbVipAdmin_form input')
+				$(porInput).prop('disabled',true);
+				$(porInput).css('border','none');
+				var $this=$(this);
+				var ajaxUrl='{{:U("Project/ajaxControl")}}';
+
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					params:{
+						flag:'selProjectInfo',
+					}
+				},function(res){
+					for(r in res){
+						switch(r){
+							case 'start_time':
+								$('.porjectAdminListInfoLook_alert').find('[name='+r+']').val(date('Y-m-d H:i:s',res.start_time));
+							break;
+							case 'end_time':
+								$('.porjectAdminListInfoLook_alert').find('[name='+r+']').val(date('Y-m-d H:i:s',res.end_time));
+							break;
+							case 'business_license':
+								$('.porjectAdminListInfoLook_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							case 'identity_card_front':
+								$('.porjectAdminListInfoLook_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							case 'identity_card_rear':
+								$('.porjectAdminListInfoLook_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							case 'project_second_link':
+								var project_second_link=res[r];
+								var attr=project_second_link.split(";");
+								console.log(attr);
+								for(var a=0;a<attr.length;a++){
+									var iptText='<input type="text" value="'+attr[a]+'"  disabled/>'
+									$('.project_second_link').append(iptText);
+								}
+								// $('.AuditListInfo_alert').find('[name='+r+']').children('img').prop('src',"__PUBLIC__"+res[r]);
+							break;
+							default:
+							if($('.porjectAdminListInfoLook_alert').find('[name='+r+']').length){
+								$('.porjectAdminListInfoLook_alert').find('[name='+r+']').val(res[r]);
+							}
+							break;
+						}
+					}
+				})
+
+			});
+		
+
+			$('.couponAddr select').on('change',function (){
+	            var fa = $(this).next();
+	            var flag = 'address';
+	            var name = fa.find('option:eq(0)').text();
+	            $.get('{{:U("Card/ajaxControl")}}',{'flag':flag,'pid':$(this).val()},function (res){
+	                var str = '<option value="">'+name+'</option>';
+	                for(var k in res)
+	                {
+	                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+	                }
+	                fa.html(str);
+	            });
+	        });
+
+        });/*end*/
+
+        function DelInput(_this){
+        	$(_this).parent().remove();
+        }
+	</script>
+</block>

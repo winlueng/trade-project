@@ -1,0 +1,19 @@
+<extend name="Common/projectCom" />
+<block name="css_js" >
+	<link rel="stylesheet" href="__PUBLIC__/PT1/css/kbVipMarket.css?version=4">
+	<link rel="stylesheet" href="__PUBLIC__/PT1/css/common.css">
+	<link rel="stylesheet" href="__PUBLIC__/PT1/css/swiper.min.css">
+	<script type="text/javascript" src="__PUBLIC__/PT1/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/PT1/js/swiper.jquery.min.js"></script>
+</block>
+<block name="content" >
+	<div id="kbMt_center" class="">
+	123123
+		<div class="kbMt_goodsListImg bc mt15 pb10">
+			<h1 class="kbMt_font17 fb tc mb10">{{$newsInfo['news_name']}}</h1>
+			<p class="mt10 mb10 tc">{{$newsInfo['addtime']}}</p>
+			 {{$newsInfo['img_path']}}
+		</div>
+		<p class="kbmt_support tc mt10" style="font-size:9px"><a href="http://gdkbvip.gdallinone.com/">技术支持由旷邦科技提供</a></p>
+	</div>
+</block> 

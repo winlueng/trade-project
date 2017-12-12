@@ -1,0 +1,42 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    .kb_list-cells .kb_cell::before{
+      display:none;
+    }
+</style>
+<php>
+ //echo("<pre>");
+ // var_dump($info);exit;
+</php>
+</block>
+<block name="title">
+ 招聘
+</block>
+
+<block name="content">
+ <section id="Main" class="kb_main bc   tg_colllected ">
+    <header class="kb_list-cells mb10">     
+      <h1 class="kb_cell f14 ">
+        <b class="kb_cell-bd">{{$info['job_name']}}</b>
+        <b class="kb_cell-ft">{{$info['payment']}}</b>
+      </h1>
+      <p class="kb_cell f14 briefColor">
+        <b class="kb_cell-bd">{{$info['job_title']}}</b>
+        <b class="kb_cell-ft">
+        {{:date('Y-m-d',$info['update_time']?$info['update_time']:$info['addtime'])}}
+        </b>
+      </p>
+    </header>
+    <article class="p10 main_bg">
+      {{$info.job_info}}
+    </article>
+  </section>
+
+</block>
+
+<block name="js_files">
+<script>
+ 
+</script>
+</block>

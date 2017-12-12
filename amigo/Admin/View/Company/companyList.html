@@ -1,0 +1,267 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+	<style>
+		.moduleUpdate li{
+			box-shadow: 0px -1px 3px 2px #eee;
+			text-align: center;
+		    margin-bottom: 30px;
+		    padding: 12px;
+		    width: 50%;
+		}
+		.spAnDynamic_alert_from{
+
+			height: 78%;
+		    overflow-x: hidden;
+		}
+	</style>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_rightCenter" class="couponBusiness_center OrderForm">
+		<div class="centerTitle">
+	      <h1>商盟管理</h1>
+	   </div>
+	   <div class="kbVipAdmin_operating">
+	   		<form class="kbVipAdmin_inlineBlock" action="{{:U('companyList',['module' => $_GET['module']])}}" method="get">
+	   	<p class=" filter-searchDate ">
+			<input  type="search" value="{{:I('get.selname')}}" name="selname" placeholder="请输入商户名称关键字搜索" />
+			<button   type="submit" class="kbVipAdmin_opt w80 h30 fr">查询</button>
+		</p>
+			</form>
+	   </div>
+		<div class="main-contentBox">
+			<div class="kbVipAdmin_table">
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>店铺名称</th>
+							<th>联系人</th>
+							<th>联系电话</th>
+							<th>区域</th>
+							<!-- <th>地址</th> -->
+							<th>行业</th>
+							<th>浏览量</th>
+							<th>截止时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list" >
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span>
+					<else />
+					<foreach name="list" item="v">
+						<tr>
+							<td class="companyId">{{$v.id}}</td>
+							<td>{{$v.company_name}}</td>
+							<td>{{$v.principal}}</td>
+							<td>{{$v.phone}} </td>
+							<td>{{$v.company_address}}</td>
+							<!-- <td>{{$v.address_info}}</td> -->
+							<td>{{$v.business}}</td>
+							<td>{{$v['visit_total']?$v['visit_total']:0}}</td>
+							<td>{{:date('Y-m-d', $v['end_time'])}}</td>
+							<td>
+								<div class="kbVipAdmin_btnMenuBox bc">
+									<!-- <input class="adminFont kbVipAdmin_btnMenu operatingTOP" type="button" value="&#xe601;&nbsp;精选" /> -->
+									<!-- <input class="adminFont kbVipAdmin_btnMenu" type="button" value="&#xe606;&nbsp;删除" /> -->
+									<input class="adminFont kbVipAdmin_btnMenu lookList " type="button" value="&#xe625;&nbsp;详情" />
+									<a class="adminFont kbVipAdmin_btnMenu lookWeb"  herf="javascript:;" target="_Blank" >&#xe714;&nbsp;预览 </a>
+								</div>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbVipAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form>	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="kbVipAdmin_alert companyList_alert">
+		<div class="kbVipAdmin_alertBox ">
+		<button class="kbVipAdmin_alert-close adminFont"></button>
+		<h3>商户详细信息</h3>
+			<div class="kbVipAdmin_form spAnDynamic_alert_from">
+				<p class="kbVipAdmin_enter">
+					<b>店铺编号:</b>
+					<input type="text" value="" name="address_info" />
+				</p>
+				<p class="kbVipAdmin_enter">
+					<b>商户名称:</b>
+					<input type="text" value="" name="company_name" />
+				</p>
+				<p class="kbVipAdmin_enter">
+					<b>联系人:</b>
+					<input type="text" value="" name="principal"/>
+				</p>
+				<!-- <p class="kbVipAdmin_enter">
+					<b>商户类型:</b>
+					<input type="text" value="" />
+				</p> -->
+				<p class="couponAddr kbVipAdmin_enter">
+					<b>商户地区:</b>
+					<input type="text" value="" name="company_address" />
+				</p>
+				<p class="couponTrade kbVipAdmin_enter"><b>商户行业:</b>
+					<input type="text" value="" name="business_name" />
+				</p>
+				<!-- <div class="kbVipAdmin_fileImg">
+					<b>商家图片:</span>
+					
+					<label class="fileImg" for="businessFileImg">请上传商家店铺图片</label>
+					<input id="businessFileImg" type="file" />
+					<h3 class="businessImg">
+						<img src="images/21.jpg" alt="店铺图片" />
+					</h3>
+				</div> -->
+					
+				<p class="kbVipAdmin_enter">
+					<b>商户手机:</b>
+					<input type="text" value="" name="phone" />
+				</p>
+				<p class="kbVipAdmin_enter">
+					<b>商户邮箱:</b>
+					<input type="text" value="" name="email" />
+				</p>
+				<p class="kbVipAdmin_enter">
+					<b>开通时间:</b>
+					<input   type="text" name="start_time"  readonly=""  required="required"/>
+				</p>
+		<form class="couponBusiness_FormParent" action="{{:U('companyInfoUpdate')}}" method="post" onsubmit="return confirm('请注意:每个商户一个月内只能切换一次模版哦!并且所有广告轮播图需要重新设置')">
+				<p class="kbVipAdmin_enter">
+					<b>结束时间:</b>
+					<input  type="text" name="end_time"  readonly="" onclick="jeDateTime(this,'end');" />
+				</p>
+				<p class="kbVipAdmin_enter">
+					<b>商户域名后缀:</b>
+					<input type="text" value="" name="web_postfix" />
+				</p>
+				<ul class="microWebMenuAdmin moduleUpdate kbVipAdmin_enter"><b>模版切换:</b>
+					<foreach name="templateList" item="v">
+					<li class="bc">
+					<img src="/Public{{$v.template_logo}}" width="150">
+					<br />
+					<p>
+					<label class="kb_choose" style="top:6px">
+						<input type="radio" name="template_id" value="{{$v.id}}" class="" required="required" />
+						<span class="kb_choose-check kb_choose-check_radio w20 h20">
+							<em class=" kb_choose-checkRadio"></em>
+						</span>
+					</label>
+					{{$v.template_name}}
+					</p>
+					<!-- <input id="microWebDisabled{{$v.id}}" style="width: 0%;height: 0%" name="template_id" type="radio" value="{{$v.id}}" required="required" />
+					<label for="microWebDisabled{{$v.id}}"><i></i>{{$v.template_name}}</label> -->
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="kbVipAdmin_operating ">
+			    <div class="kbVipAdmin_restsubmit"> 
+			       
+			        <input  class="kbVipAdmin_opt w100 h40" type="submit" value="确认更新" />
+			    </div>
+			</div>
+				
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		
+
+		$(function(){
+				// function init(){
+
+				// }
+				// init();
+			// ajax
+			// 详情
+			$('.lookList ').on('click',function(){
+				$('.kbVipAdmin_alert').fadeIn();
+				$('.companyList_alert').find('input').not('input[name="web_postfix"]').prop('readonly',true)
+				// $('.companyList_alert').find('input').prop('disabled',true)
+				$('.companyList_alert').find('input').not('input[name="end_time"],input[name="web_postfix"]').css('border','none')
+				
+				var $this=$(this)
+				var ajaxUrl ='{{:U("Company/ajaxControl")}}'
+				jsAjaxControl( $this,{
+					 ajaxURL:ajaxUrl,
+					 ajaxBranch:'Common',
+					 params:{
+						flag:'selCompanyInfo',
+					}
+				},function(ren){
+					$('.companyList_alert .couponBusiness_FormParent').attr('action', "{{:U('companyInfoUpdate')}}?id="+ren.id);
+					for(r in ren){
+						if(r=="start_time" || r=="end_time"){
+							$('.companyList_alert input[name="'+r+'"]').val(date('Y-m-d H:i:s',ren[r]));
+						}else if(r=="template_id"){
+							$('.companyList_alert input[name="template_id"][value="'+ren.template_id+'"]').attr('checked',true);
+
+						}else{
+							$('.companyList_alert input[name="'+r+'"]').val(ren[r]);
+						}
+						
+					}
+				})
+			})
+			//状态
+			$('tr .microWebMenuAdmin input').on('click',function(){
+				/* var ID = $(this).parent().parent().siblings().eq(0).text().trim();*/
+				var $this=$(this)
+				var ajaxUrl ='{{:U("Company/ajaxControl")}}'
+
+				var Status =$this.val().trim(); 
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Common',
+					params:{
+						flag:'changeCompanyStatus',
+						id:$this.parent().parent().siblings('.companyId').text(),
+						status:Status
+					}
+					},function(ren){
+						operatingTip(ren);
+				})
+			})
+			// 精选
+			$('.operatingTOP').on('click',function(){
+				var $this = $(this);
+				var ajaxUrl ='{{:U("Company/ajaxControl")}}'
+
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Confirm',
+					params:{
+						flag:'changeCompanyType',
+						status:1
+					}
+				},function(ren){
+					operatingTip(ren);
+					if(ren=="操作成功") $($this).parents('tr').children('td[class="microWebMenuAdmin"]').html('<center><span style="font-size: 15px;color: #FF54AE">店铺已推选为特色店铺,不能修改其状态</span></center>');
+				})
+			})
+		})/* end */
+
+		//精选
+		/* $.get('{{:U("ajaxControl")}}', {flag:'changeAdminUserStatus', id: id,status:$(this).val()},function (res){
+				if (res) 
+				{
+					alert('修改成功');
+				}
+			}); */
+	</script>
+</block>

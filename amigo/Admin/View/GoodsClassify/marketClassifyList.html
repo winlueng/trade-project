@@ -1,0 +1,221 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+	<script type="text/javascript">
+		$(function(){ 
+			$('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+				if ( typeof(FileReader) === 'undefined' ){ 
+					alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+					this.setAttribute( 'disabled','disabled' ); 
+				} else { 
+					readFile(this,this.files[0]);
+				} 
+			})
+		});
+	
+	</script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponAdClass_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+					<div class="kbVipAdmin_tableHead authAddBtn">
+						<form class="kbVipAdmin_inlineBlock" action="" >
+						<input class="kbVipAdmin_search microWeb-search" type="search" placeholder="请输入关键字搜索" />
+						<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+						</form>
+						<!-- <p class="authAddBtn"> -->
+							<input class=" adminFont kbVipAdmin_btn w100 h50 addCouponAdClass fr"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+						<!-- </p> -->
+					</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>类型</th>
+							<th>分类logo</th>
+							<th>父级分类</th>
+							<th>所属商品数量</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list" >
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td></tr>
+					<else/>
+					<foreach name="list" item="v" >
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.classify_name}}</td>
+							<td><img width="100" src="__PUBLIC__{{$v.classify_logo}}"></td>
+							<td>{{$v.fname}}</td>
+							<td>{{$v.gnum}}</td>
+							<td>
+								<div class="kbVipAdmin_btnMenuBox bc">
+									<input class="adminFont kbVipAdmin_btnMenu couponAdClassWirte" type="button" value="&#xe601;&nbsp;编辑" />
+									<input class="adminFont kbVipAdmin_btnMenu operatingTOP" type="button" value="&#xe601;&nbsp;置顶" />
+									<input class="adminFont kbVipAdmin_btnMenu operatingDel" type="button" value="&#xe606;&nbsp;删除" />
+								</div>
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAdClass_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button type="button" class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加产品分类</h2>
+		<form class="couponBusiness_FormParent" action="{{:U('marketClassifyList')}}" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>类型名称:</span>
+					<input type="text" value="" name="classify_name" />
+					<strong class="kbAdmin_tip">必填项。输入字符不超过10个</strong>
+				</p>
+				<p class="couponTrade" >
+					<span><i>*</i>产品类型:</span>
+					<select name="parent_id">
+						<option value="0" selected="true">顶级分类</option>
+					</select>
+					<strong class="kbAdmin_tip">必选项。请选择产品分类</strong>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span><i>*</i>分类图片：</span>
+					<label class="fileImg" for="businessFileImg">点击上传图片</label>
+					<input id="businessFileImg" type="file" name="classify_logo" />
+					<strong class="kbAdmin_tip">必填项。图片格式为png、jpg；不大于200k</strong>
+				</div>
+				<div class="kbVipAdmin_textArea mt15">
+						<span><i>*</i>类型描述:</span>
+						<textarea name="title"></textarea>
+						<strong class="kbAdmin_tip">必填项。请输入类型简单描述</strong>
+				</div>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="添加" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert marketClass_alertWriter">
+		<div class="kbVipAdmin_alert_box ">
+		<button type="button" class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑产品分类</h2>
+		<form class="couponBusiness_FormParent" action="" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p>
+					<span><i>*</i>类型名字:</span>
+					<input type="text" value="" name="classify_name" />
+					<strong class="kbAdmin_tip">必填项。输入字符不超过10个</strong>
+				</p>
+				<p class="couponTrade">
+					<span><i>*</i>产品类型:</span>
+					<select name="parent_id">
+						<option value="-1">请选择分类</option>
+						<option value="0">顶级分类</option>
+						<foreach name="list" item="v">
+							<option value="{{$v.id}}" /><php>echo str_repeat('&nbsp;', $v['count']*2).'|--'.$v['classify_name'];</php>
+						</foreach>
+					</select>
+					<strong class="kbAdmin_tip">必选项。请选择产品分类</strong>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span><i>*</i>店铺logo：</span>
+					<label class="fileImg" for="businessFileImg1">点击上传图片</label>
+					<input id="businessFileImg1" type="file" name="classify_logo" />
+					<div class="businessFileImgList">
+						<span class="cleraIMG" onclick="clearImg(this)"></span>
+						<img src="" alt="分类图片" />
+					</div>
+					<strong class="kbAdmin_tip">必填项。图片格式为png、jpg；不大于200k</strong>
+				</div>
+				<div class="kbVipAdmin_textArea mt15">
+						<span><i>*</i>类型描述:</span>
+						<textarea name="title"></textarea>
+						<strong class="kbAdmin_tip">必填项。请输入类型简单描述</strong>
+				</div>
+			</div>
+			
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="保存" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+
+			$('.addCouponAdClass ').on('click',function(){
+				$('.couponAdClass_alert').fadeIn();
+			})
+			
+			$('.couponAdClassWirte ').on('click',function(){
+				$('.marketClass_alertWriter').fadeIn();
+				var $this = $(this);
+				var ajaxUrl ='{{:U("Goods/ajaxControl")}}'
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Common',
+					params:{
+						flag:'selClassifyInfo',
+					}
+				},function(ren){
+					console.log(ren);
+					for(r in ren){
+						if(r=='parent_id'){
+							$('.marketClass_alertWriter .couponTrade select[name="parent_id"] option[value="'+ren.parent_id+'"]').prop('selected',true);
+						}else if(r=='title'){
+							$('.marketClass_alertWriter .kbVipAdmin_form textarea[name="title"]').val(ren.title);
+							// console.log($('.marketClass_alertWriter .kbVipAdmin_form  textarea[name="title"]'))
+						}else if(r=='classify_logo'){
+							$('.marketClass_alertWriter .kbVipAdmin_form input[name="classify_logo"]').siblings('.businessFileImgList').children('img').prop('src','__PUBLIC__'+ren.classify_logo);
+							// console.log($('.marketClass_alertWriter .kbVipAdmin_form  textarea[name="title"]'))
+						}else{
+							$('.marketClass_alertWriter .kbVipAdmin_form input[name="'+r+'"]').val(ren[r]);
+						};
+					}
+					$('.marketClass_alertWriter').find('form').prop('action',"{{:U('goodsClassifyUpdate')}}?id="+ren.id);
+				})
+			})
+			$('.operatingDel').on('click',function(){
+				var $this = $(this);
+				var ajaxUrl ='{{:U("Goods/ajaxControl")}}';
+				jsAjaxControl( $this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Confirm',
+					params:{
+						flag:'goodsClassifyDel',
+					}
+				},function(res){
+						console.log($this.parents('tr'));
+						console.log(res);
+					if(res==="删除成功"){
+						operatingTip("删除成功");
+						$this.parents('tr').remove();
+					}else{
+						operatingTip(res);
+					}
+				})
+				
+			})
+			$('.operatingTOP').on('click',function(){
+				var $this = $(this);
+				var ajaxUrl ='{{:U("Goods/ajaxControl")}}';
+				jsAjaxControl( $this,{
+					ajaxURL:ajaxUrl,
+					params:{
+						flag:'setControlTimeToTop',
+						goods_classify:1
+					}
+				},function(res){
+						operatingTip(res);
+				})
+			})
+		})
+	</script>
+</block>

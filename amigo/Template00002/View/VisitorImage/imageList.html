@@ -1,0 +1,143 @@
+<extend name="Common/secondCom" />
+
+<block name="css_file">
+	<style>
+	.shopImg{
+		width:100%;
+		height:100%;
+	}
+	.alertImg{
+		width:100%;
+		height:100%;
+		position: fixed;
+		left: 0;
+		top:0;
+		background-color:rgba(0,0,0,.5);
+		display: none;
+	}
+	.alertImg-box{
+		width:300px;
+		height:300px;
+		margin:auto;
+		position:absolute;
+		top:0;
+		bottom:0;
+		left:0;
+		right:0;
+		overflow: hidden;
+	}
+	.alertImg-box img{
+		width:100%;
+		height:100%;
+	}
+	</style>
+</block>
+
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+	</a>
+	
+</block>
+<block name="bsTitle">
+	历史形象
+</block>
+<block name="content">
+	<section id="bsMain" class="noFooter bsPushReview">
+		
+		<volist name="list" id="v" key="k">
+			<h1 class="pl10 pr10 bsGoodsTitle  mb10 c666">{{:date('Y-m-d', $v['create_time'])}}</h1>
+				<ul class="bsList imgList pl10 pr10 pt10">
+					<volist name="v.company_upload" id="vo" >
+						<li>
+							<img src="__PUBLIC__{{$vo}}" alt="" />
+						</li>
+					</volist>
+				</ul>
+				<ul class="bsList imgList pl10 pr10 pt10">
+				<if condition="$k eq 1" >
+					<li>
+						<div class="fileImg mb10 ">
+							<div class="fileImgMore">
+								<!-- <div class="shopImg businessFileImgList"></div> -->
+							<!-- <strong>请添加图片作为证据</strong> -->
+								<input id="imgCover" name="goods_logo" type="file" value="dafult" required="required">
+								<label class="" for="imgCover"><span style="font-size:27px">+</span><br><span class="colorAid">添加图片</span></label>
+							</div>
+						</div>
+					</li>
+				</if>
+				<volist name="v.visitor_upload" id="vo" >
+					<li>
+						<img src="__PUBLIC__{{$vo}}" alt="" />
+					</li>
+				</volist>
+				</ul>
+			<p class="bsSeparate"></p>
+		</volist>
+		
+	</section>
+</block>
+<block name="js_file">
+	<div class="alertImg">
+		<div class="alertImg-box">
+			<img src="" alt="" />
+		</div>
+	</div>
+<script>
+$(function(){
+	$('.fileImg input[type="file"]').on('change',function(){
+		console.log("aaa");
+		readFile(this,this.files);
+		var $this=$(this),
+			companyname="{{$_GET['companyName']}}",
+			formData=new FormData(),
+			url='{{:U("VisitorImage/ajaxControl")}}?flag=imageUpdate&companyName='+companyname,
+			fileImg=document.getElementById('imgCover').files[0];
+			
+			if(fileImg.size<2*1024*1000 && fileImg.type!="image/gif"){
+				formData.append("visitor_image",fileImg);
+				$.ajax({  
+		            url: url,  
+		            type: 'POST',  
+		            data: formData,  
+		            enctype: 'multipart/form-data',
+		            async: false,  
+		            cache: false,  
+		            contentType: false,  
+		            processData: false,  
+		            success: function (res) {  
+		            	if(res){
+		            		sTip('操作成功');
+		            	}else{
+		            		eTip('操作失败');
+
+		            	}
+		          		console.debug(res);
+		            },  
+		            error: function (returndata) {  
+		                alert(returndata);  
+		            }  
+			     }); 
+			}else{
+				Alert("图片格式不对或者大于2M")
+			}
+	})	
+	$('.imgList li img').on('click',function(){
+
+		$.get("{{:U('getArtwork')}}",{
+			url:$(this).attr("src"),
+			companyName:"{{$_GET['companyName']}}"
+
+		},function(res){
+			console.log(res);
+			$('.alertImg img').attr('src',res);
+		})
+		$('.alertImg').fadeIn();
+		$('.alertImg').on('click',function(e){
+			 e.stopPropagation();
+			 $('.alertImg').fadeOut();
+		})
+	})
+})
+</script>
+</block>

@@ -1,0 +1,43 @@
+<extend name="Web/secondCom" />
+<block name="css_file" >
+	<style>
+		#showimg img{  
+		 	max-width: 360px; /*图片自适应宽度*/  
+		}
+		.title{
+			border-bottom:1px solid #eee;
+		}
+	</style>
+	<php>
+		//echo '<pre>';
+		//var_dump($info);exit;
+	</php>
+</block>
+<block name="bsTitle">
+	动态详情
+</block>
+
+<block name="content" >
+	<section id="bsMain" class="noFooter bsNews bsNewsDetail">
+		<!-- <p class="imgWidt">
+			<img src="__PUBLIC__/images/1.png" alt="" />
+		</p> -->
+		<article>
+			<h1 class="mb10 tc">{{$info['title']}}</h1>
+			<p class="title c666 mb10 pb10">
+				<em id="showimg">
+					{{$info['news_name']}}
+				</em>
+				<time class=" mr10 fr">
+					{{:date('Y-m-d H:i:s',$info['addtime'])}}
+				</time>
+			</p>
+			{{$info['img_path']}}
+		</article>
+	</section>
+</block> 
+<block name="js_file">
+	<script>
+	
+	</script>
+</block>

@@ -1,0 +1,85 @@
+<php>
+$moduleList = showModuleList();
+$navList = showNavList();
+//echo('<pre>');
+//var_dump($navList);exit;
+</php>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<title><block name="title">管理后台</block></title>
+	<!-- public end -->
+	<link rel="stylesheet" href="__PUBLIC__/CSS/common.css">
+	<script type="text/javascript" src="__PUBLIC__/JS/jquery-1.8.2.min.js"></script>
+	<!--module start  -->
+    <script type="text/javascript" src="__PUBLIC__/JS/module/jedate/jquery.jedate.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="__PUBLIC__/JS/module/jedate/skin/jedate.css">
+	<script type="text/javascript" src="__PUBLIC__/JS/module/dlalert/dlalert.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/JS/module/dlalert/dlalert.css">
+	<!--module end  -->
+	<!-- public end -->
+	<!-- default -->
+	<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/projectBadmin.css?version=3.5"></link>
+	<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/coupon/coupon.css">
+	<script type="text/javascript" src="__PUBLIC__/JS/kbMarketAdmin.js?version=3.2"></script>
+
+	 <script src="__PUBLIC__/JS/module/handlebars/handlebars-base.js" type="text/javascript"></script>
+	<block name="css_files" >
+
+	</block>
+</head>
+<body>
+	<div id="kbVipAdmin_header" class="ftcolorNav ">
+		<p class="tr pl100 pr100 h25 lh200 kbVipAdmin_f20">欢迎回来，{{$_SESSION['adminInfo']['user_name']}}<a href="{{:U('Login/logout')}}" class="ml50">退出</a></p>
+		<nav class="kbVipAdmin_header_nav ft">
+		<foreach name="moduleList" item="v">
+			<a class="{{$_GET['module']==$v['id']?'selected':''}}" href="?module={{$v.id}}">{{$v.module_name}}</a>
+		</foreach>
+		</nav>
+	</div>
+	<nav class="kbVipAdmin_center_nav left_nav">
+		<ul >
+			<if condition="($_SESSION['adminInfo']['id'] eq 1) and ($_GET['module'] eq 1) ">
+			<li>
+				<a active="{{:U('Module/moduleAdd')}}" href="{{:U('Module/moduleAdd',[module=>1])}}">添加显示模块</a>
+			</li>
+			</if>
+			<foreach name="navList" item="v">
+			<li>
+				<if condition="$v['rules']" >
+				<a href="javascript:;" class="special">{{$v.parent_name.alias}}</a>
+				<!-- 子菜单 -->
+					<ul>
+					<foreach name="v.rules" item="vo" >
+						<li>
+							<a active="{{:U($vo['name'])}}" href="{{:U($vo['name'],[module=>$_GET['module']])}}">{{$vo.alias}}</a>
+						</li>
+					</foreach>
+					</ul>
+				<else />
+					<a active="{{:U($v['parent_name']['name'])}}" href="{{:U($v['parent_name']['name'],[module=>$_GET['module']])}}">{{$v.parent_name.title}}</a>
+				</if>
+			</li>
+			</foreach>
+		</ul>
+	</nav>
+	<block name="content">
+	</block>
+	<script type="text/javascript">
+	var nav_a = $('.left_nav a');
+	for(var i = 0;i < nav_a.length;i ++)
+	{
+
+		if($('.left_nav a:eq('+i+')').attr('active') == '__ACTION__'+'.html')
+		{
+			nav_a[i].parentNode.className = 'selected';
+			nav_a[i].parentNode.parentNode.className = 'selectedPar';
+		}
+	}
+	</script>
+	<block name="js_files">
+	</block>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+	<style>
+		.orderDetail h2{
+			font-size:1.6em;
+			font-weight:bold;
+		}
+	</style>
+</block>
+<block name="content" >
+<!-- 主内容 -->
+	<div id="kbShopAdmin_rightCenter" class="spAnProductList">
+		<!-- 内容标题部 -->
+		<php>
+		 	//echo('<pre>');
+			//var_dump($info[goods_data]);exit;
+		</php>
+		<div class="centerTitle">
+			<h1>
+				<a class="goback mr10" href="javascript:history.back(-1)" ><img src="__PUBLIC__/Business/BusinessImages/back.png"></a>
+				<b>订单详情</b>
+			</h1>
+		</div>
+		
+		<!-- 内容标题部结束 -->
+		<!-- 内容表格部 -->
+		
+		<section class="orderDetail" >
+			<article class="gSeparated">	
+				<p>订单编号：{{$info.order_number}}</p>
+				<p>交易时间：{{:date('Y年m月d日 H:i:s', $info['create_time'])}}</p>
+				<switch name="info.status" >
+					<case value="0">
+						<p><b>待付款</b></p>
+					</case>
+					<case value="1">
+						<p><b>用户取消订单</b></p>
+					</case>
+					<case value="2">
+						
+						<if condition="$info['is_send_out'] eq 0">
+							<p><b>已付款,待发货</b></p>
+						<elseif condition="$info['is_send_out'] eq 1"/>
+							<p><b>待收货</b></p>
+						<elseif condition="$info['is_send_out'] eq 2"/>
+							<p><b>已收货</b></p>
+						</if>
+					</case>
+					<case value="3">
+						<p><b>关闭交易</b></p>
+					</case>
+					<case value="4">
+						<p><b>已完成</b></p>
+					</case>
+					<case value="5">
+						<p><b style="font-size: 10px;color: #509fc9">退款申请中</b></p>
+						<p style="font-size: 10px;color: #509fc9"><b>退款订单号：{{$info.refundInfo.out_refund_no}}</b></p>
+					</case>
+					<case value="6">
+						<p><b style="font-size: 10px;color: #509fc9">退款结果: 同意退款</b></p>
+						<p style="font-size: 10px;color: #509fc9"><b>退款订单号：{{$info.refundInfo.out_refund_no}}</b></p>
+					</case>
+					<case value="7">
+						<p><b style="font-size: 10px;color: #509fc9">退款结果: 拒绝退款</b></p>
+						<p style="font-size: 10px;color: #509fc9"><b>退款订单号：{{$info.refundInfo.out_refund_no}}</b></p>
+					</case>
+				</switch>
+			</article>
+			<h2>商品信息</h2>
+			<volist name="info.goods_data" id="v">
+				<article class="goodsDetails">
+					<p><img src="__PUBLIC__{{$v.goodsAttr.attr_pic}}"  alt=""/></p>
+					<aside>
+						<p>{{$v.goodsInfo}}</p>
+						<p>{{$v.goodsAttr.attr_name}}:{{$v.goodsAttr.attr_val}}</p>
+						<p>￥{{$v.price}}</p>
+						<p>数量：X{{$v.total}}</p>
+					</aside>
+				</article>
+				<p class="gSeparated mb10"></p>
+			</volist>
+			<h2>费用信息</h2>	
+			<article>
+				<p>费用金额:{{$info.total}}元</p>
+				<p>运费:{{$info.express_price}}元</p>
+				<p>总计:{{$info.wechat_total}}元</p>
+			</article>
+			<h2>买家信息</h2>	
+			<article >
+				<p><b>买家呢称:{{$info.address_id.consignee}}</b><a href="{{:U('visitorOrder', ['visitor_id' => $info['visitor_id']])}}"><b style="font-size: 15px;color: #509fc9;margin-left:10px">查看历史订单</b></a></p>
+				<p><b>收件人电话:{{$info.address_id.phone}}</b></p>
+				<p><b>收货地址:{{$info.address_id.address_str}}</b></p>
+			</article>
+			<switch name="info.status" >
+				<case value="1" >
+					<h2>取消原因:</h2>	
+					<article>
+						<textarea placeholder="管理员什么都没写...." disabled>{{$info.refund_remark}}</textarea>
+						<br />
+					</article>
+				</case>
+				<case value="2" >
+					<h2>用户订单备注:</h2>	
+					<article>
+						<textarea placeholder="用户什么都没写...." disabled>{{$info.visitor_remark}}</textarea>
+						<br />
+					</article>
+				</case>
+				<case value="3" >
+					<h2>取消原因:</h2>	
+					<article>
+						<textarea placeholder="管理员什么都没写...." disabled>{{$info.refund_remark}}</textarea>
+						<br />
+					</article>
+				</case>
+				<case value="4" >
+					<h2>备注信息:</h2>	
+					<article>
+						<textarea placeholder="管理员什么都没写...." disabled>{{$info.admin_remark}}</textarea>
+						<br />
+					</article>
+				</case>
+				<case value="5" >
+					<h2>退款原因:</h2>
+					<article>
+						<textarea placeholder="他什么都没写...." disabled>{{$info.refundInfo.refund_remark}}</textarea>
+						<br />
+					</article>
+				</case>
+				<case value="6" >
+					<h2>退款原因</h2>
+					<article>
+						<textarea placeholder="他什么都没写...." disabled>{{$info.refundInfo.refund_remark}}</textarea>
+					</article>
+					<article>
+						<p>售后状态: <b style="font-size: 20px; color: pink">同意退款</b></p>
+						<p>售后备注: <b style="font-size: 20px; color: #dd6549">{{$info.refundInfo.admin_remark}}</b></p>
+					</article>
+				</case>
+				<case value="7" >
+					<h2>退款原因</h2>
+					<article>
+						<textarea placeholder="他什么都没写...." disabled>{{$info.refundInfo.refund_remark}}</textarea>
+					</article>
+					<article>
+						<p>售后状态: <b style="font-size: 20px; color: pink">拒绝退款</b></p>
+						<p>拒绝原因: <b style="font-size: 20px; color: #dd6549">{{$info.refundInfo.admin_remark}}</b></p>
+					</article>
+				</case>
+				<default />
+					<h2>用户订单备注:</h2>	
+					<article>
+						<textarea placeholder="用户什么都没写...." disabled>{{$info.visitor_remark}}</textarea>
+						<br />
+					</article>
+					<if condition="$info['admin_remark']" >
+						<h2>备注信息</h2>	
+						<article>
+							<textarea placeholder="他什么都没写...." name="admin_remark" disabled>{{$info.admin_remark}}</textarea>
+								<br />
+						</article>
+					<else />
+						<h2>添加备注</h2>	
+						<article>
+							<form action="{{:U('orderInfo', ['id' => $_GET['id']])}}" method="post">
+								<textarea placeholder="他什么都没写...." name="admin_remark">{{$info.admin_remark}}</textarea>
+								<br />
+								<input class="kbShopAdmin_opt w80 h30"" type="submit" value="确定" />
+							</form>
+						</article>
+					</if>
+			</switch>
+		<!-- 评价 start -->
+		<if condition="$info['goods_data'][0]['comment']" >
+		<hr>
+		<h2>用户评论</h2><br>
+		<section class="orderDetail" >
+			<volist name="info.goods_data" id="vi" >
+				<article class="bc pt10">
+					<p class="bsGondsImg " style="width:80px;height:80px;">
+						<img src="__PUBLIC__{{$vi.goodsAttr.attr_pic}}"  alt="商品图" />
+					</p>
+					<aside class="bsScore ml10 ">
+						<label>评分{{$vi.comment.score}}</label>
+						<for start="0" end="$vi['comment']['score']" >
+							<p class="choose">
+								<input type="checkbox" value="" checked disabled/>
+								<label class="icon-score" ></label>
+							</p>
+						</for>
+					
+						
+					</aside>
+					<p class="color_firstAid mt10">
+						商品名字:{{$vi.goodsInfo}} <br>
+						{{$vi['goodsAttr']['attr_name']}}:{{$vi['goodsAttr']['attr_val']}} <br>
+						购买数量：{{$vi.total}}
+					</p>
+				</article>
+				<h2>评价内容</h2>
+				<article class="bc pt10">
+					<p class="mb10">
+					<textarea name="recontent" disabled="disabled">{{$vi['comment']['content']}}</textarea>
+					<br />
+					</p>
+					<p class="reviewImg mb10">
+					<if condition="$vi['comment']['image'][0]" >
+						<volist name="vi.comment.image" id="vo" >
+							<img src="__PUBLIC__{{$vo}}" style="width: 300px" alt="" />
+						</volist>
+					</if>
+					</p>
+				</article>
+				<if condition="!$vi['comment']['recontent']" >
+					<h2>回复评价</h2>	
+					<article class="contentPush bc pt10">
+						<form action="{{:U('recontent',['id' => $vi['comment']['id']])}}" method="post">
+							<textarea name="recontent" placeholder="请输入"></textarea>
+							<br />
+							<input class="kbShopAdmin_opt w80 h30"" type="submit" value="回复" />
+						</form>
+					</article>
+				<else />
+					<h2>回复内容</h2>	
+					<article class="contentPush bc pt10">
+						<textarea disabled="disabled">{{$vi['comment']['recontent']}}</textarea>
+						<br />
+					</article>
+				</if>
+				<p class="gSeparated mb10"></p>
+			</volist>
+		</section>
+		</if>
+		</section>
+
+			<!-- <h2>回复评价</h2>	
+			<article class="contentPush bc pt10">
+				<form action="" method="post">
+					<textarea placeholder="请输入想要回复内容"></textarea>
+					<br />
+					<input class="kbShopAdmin_opt w80 h30"" type="submit" value="确定" />
+				</form>
+			</article> -->
+			<!-- 评价 -->
+		<!-- 主体内容部分end -->
+</block>

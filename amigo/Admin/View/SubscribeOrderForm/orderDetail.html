@@ -1,0 +1,198 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+	<style>
+		.orderDetail h2{
+			font-size:1.6em;
+			font-weight:bold;
+		}
+	</style>
+</block>
+<block name="content" >
+<!-- 主内容 -->
+	<!-- 主内容 -->
+	<div id="kbShopAdmin_rightCenter" class="spAnProductList">
+		<!-- 内容标题部 -->
+		<div class="centerTitle">
+			<h1>
+				<a class="goback mr10" href="javascript:history.back(-1)" ><img src="__PUBLIC__/Business/BusinessImages/back.png"></a>
+				<b>订单详情</b>
+			</h1>
+		</div>
+		
+		<!-- 内容标题部结束 -->
+		<!-- 内容表格部 -->
+		
+		<section class="orderDetail" >
+			<article class="gSeparated">	
+				<p>订单编号：{{$info.subscribe_number}}</p>
+				<p>生成时间：{{:date('Y-m-d H:i:s', $info['create_time'])}}</p>
+				<p><b>交易状态：
+					<switch name="info.status" >
+						<case value="0">
+							待确认
+						</case>
+						<case value="1">
+							待服务
+						</case>
+						<case value="2">
+							待付款
+						</case>
+						<case value="3">
+							待评价
+						</case>
+						<case value="4">
+							已完成
+						</case>
+						<case value="5">
+							取消订单了
+						</case>
+						<case value="6">
+							已拒绝订单
+						</case>
+					</switch>
+				</b></p>
+
+					<switch name="info.status" >
+						<case value="5">
+						<p><b>取消原因：{{$info.remark}}</b></p>
+						</case>
+						<case value="6">
+						<p><b>拒绝原因：{{$info.admin_remark}}</b></p>
+						</case>
+					</switch>
+				
+			</article>
+			<h2>服务信息</h2>
+			<article class="goodsDetails">
+				<p><img src="__PUBLIC__{{$info.staffInfo.staff_logo}}"  alt=""/></p>
+				<aside>
+					<p>{{$info.staffInfo.store_nickname}}</p>
+					<p>{{$info.staffInfo.professional_title}}</p>
+					<p>订单金额: 
+						<switch name="info.status" >
+							<case value="2">
+								￥ {{$info.total}}
+							</case>
+							<case value="3">
+								￥ {{$info.total}}
+							</case>
+							<case value="4">
+								￥ {{$info.total}}
+							</case>
+							<default />订单未完成, 金额未定
+						</switch>
+
+					</p>
+					<p>预约时间：{{:date('Y-m-d H:i', $info['come_time'])}}</p>
+					<switch name="info.status" >
+						<case value="0">
+						<p>备注：{{$info.remark}}</p>
+						</case>
+						<case value="1">
+						<p>备注：{{$info.remark}}</p>
+						</case>
+						<case value="2">
+						<p>备注：{{$info.remark}}</p>
+						</case>
+						<case value="3">
+						<p>备注：{{$info.remark}}</p>
+						</case>
+						<case value="4">
+						<p>备注：{{$info.remark}}</p>
+						</case>
+					</switch>
+				</aside>
+			</article>
+			<p class="gSeparated mb10"></p>
+			<!--<h2>费用信息</h2>	
+			 <article>
+				<p>费用金额:100.0元</p>
+				<p>运费:100.0元</p>
+				<p>总计:100.0元</p>
+			</article> -->
+			<h2>预约用户信息</h2>	
+			<article>
+				<p>预约人:{{$info.people}}   <a href="{{:U('visitorOrder', ['visitor_id' => $info['visitor_id']])}}"><b style="font-size: 15px;color: #509fc9;margin-left:10px">查看历史预约</b></a></p>
+				<p>预约电话:{{$info.phone}}</p>
+				<p>性别:{{$info['sex'] == 1?'男':'女'}}</p>
+			</article>
+			<p class="gSeparated mb10"></p>
+			<!-- 评价 start -->
+			<if condition="($info['status'] eq 4) AND $info['comment']">
+				<h2><b>用户评价</b></h2>	
+				<article class="bc pt10">
+					<p class="bsGondsImg">
+						<img src="{{$info['visitorInfo']['head_portrait']}}" alt="" />
+					</p>
+					<aside class="bsScore ml10">
+						<label>评分</label>
+						<for start="0" end="$info['comment']['score']" >
+							<p class="choose">
+								<input type="checkbox" value="" checked disabled/>
+								<label class="icon-score" ></label>
+							</p>
+						</for>
+						
+					</aside>
+				</article>
+				<h2>评价内容</h2>
+				<article class="bc pt10">
+					<p class="mb10">
+					<textarea name="recontent" disabled="disabled">{{$info['comment']['content']}}</textarea>
+					<br />
+					</p>
+				</article>
+				<p class="gSeparated mb10"></p>
+				<if condition="!$info['comment']['recontent']" >
+					<h2>回复评价</h2>	
+					<article class="contentPush bc pt10">
+						<form action="{{:U('recontent',['id' => $info['id']])}}" method="post">
+							<textarea name="recontent" placeholder="请输入"></textarea>
+							<br />
+							<input class="kbShopAdmin_opt w80 h30"" type="submit" value="确定" />
+						</form>
+					</article>
+				<else />
+					<h2>回复内容</h2>	
+					<article class="contentPush bc pt10">
+							<textarea placeholder="请输入" disabled="disabled">{{$info['comment']['recontent']}}</textarea>
+							<br />
+					</article>
+				</if>
+				<!-- <article class="contentPush bc pt10">
+					<form action="{{:U('addRemark',['id' => $info['id']])}}" method="post">
+						<textarea placeholder="请输入想要回复内容" name="recontent"></textarea>
+						<br />
+						<input class="kbShopAdmin_opt w80 h30"" type="submit" value="确定" />
+					</form>
+				</article> -->
+			<!-- 评价 -->
+			<p class="gSeparated mb10"></p>
+			</if>
+			<if condition="($info['status'] eq 2) OR ($info['status'] eq 3) OR ($info['status'] eq 4)" >
+				<h2>服务内容</h2>	
+				<article>
+					<textarea placeholder="漏写了服务信息" disabled="disabled">{{$info['service_content']}}</textarea>
+					<br />
+				</article>
+			<p class="gSeparated mb10"></p>
+			</if>
+			<if condition="(!$info['admin_remark']) AND ($info['status'] neq 3) AND ($info['status'] neq 4)" >
+				<h2>添加备注</h2>	
+				<article>
+					<form action="{{:U('addRemark',['id' => $info['id']])}}" method="post">
+						<textarea name="admin_remark" placeholder="请输入">{{$info['admin_remark']}}</textarea>
+						<br />
+						<input class="kbShopAdmin_opt w80 h30"" type="submit" value="确定" />
+					</form>
+				</article>
+			<else />
+				<h2>备注信息</h2>	
+				<article>
+						<textarea placeholder="无任何备注信息" disabled="disabled">{{$info['admin_remark']}}</textarea>
+						<br />
+				</article>
+			<p class="gSeparated mb10"></p>
+			</if>
+		</section>
+</block>

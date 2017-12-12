@@ -1,0 +1,136 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<link href="__PUBLIC__/salon/module/mobiscroll/mobiscroll.2.13.2.css?t=1" rel="stylesheet" />
+	<style>
+		#bsMain .receiptShopAddr {
+			background:none ;
+		}
+	</style>
+</block>
+<block name="bsTitle">
+	预约订单
+</block>
+
+<block name="content">
+<section id="bsMain" class="bsOrder bsBuyShop goOrderService">
+	<form action="{{:U('insert', ['companyName' => $_GET['companyName'], 'staffID' => $_GET['staffID']])}}" method="post">
+	<p class="bsSeparate" style="padding:5px">预约人</p>
+		<article class="receiptShopAddr">
+		<a href="{{:U('information', ['companyName' => $_GET['companyName'], 'staffID' => $_GET['staffID']])}}">
+		<if condition="($userInfo['phone']) OR ($_POST['phone'])">
+			<p><b class="c333">{{$_POST['people']?$_POST['people']:$userInfo['real_name']}}</b></p>
+				<input type="hidden" name="people" value="{{$_POST['people']?$_POST['people']:$userInfo['real_name']}}">
+			<p><b>{{$_POST['phone']?$_POST['phone']:$userInfo['phone']}}</b></p>
+				<input type="hidden" name="phone" value="{{$_POST['phone']?$_POST['phone']:$userInfo['phone']}}">
+			<p><b>{{$_POST['sex']?($_POST['sex'] == 1?'男':'女'):($userInfo['sex'] == 1?'男':'女')}}</b></p>
+				<input type="hidden" name="sex" value="{{$_POST['sex']?$_POST['sex']:$userInfo['sex']}}">
+			
+		<else /> 
+			<p>
+				<b>请设置预约用户信息</b>
+			</p>
+		</if>
+		</a>
+		</article>
+		<p class="bsSeparate" style="padding:5px">被预约的设计师</p>
+		<ul class="bsList bsReservationList  bc mb10 mt10">
+			<li>
+				<p class="reservationListImg">
+					<a href="{{:U('staffInfo', ['companyName' => $_GET['companyName'], 'id' => $_GET['staffID']])}}"> 
+					<img src="__PUBLIC__{{$staffInfo['staff_logo']}}" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo">
+					<h3 class="mb10">{{$staffInfo['store_nickname']}}</h3>
+					<p class="mb10 c666">职称: {{$staffInfo['professional_title']}}</p>
+					<p class="mb10 c666">特长: {{$staffInfo['speciality']}}</p>
+					
+				</article>
+				<!-- <p class="orderServiceAddr">
+					地址地址地址地址地址地址地址地址地址地址
+				</p> -->
+			</li>
+		</ul>
+		<p class="bsSeparate"></p>
+		<ul class="bsForm mb10">
+			<li class="bsFormTxt">
+				<label>预约时间:</label>
+				<input id="yearmd" type="text"  placeholder="请选择时间" />
+				<input  type="hidden" name="come_time"  value="" />
+			</li>
+		</ul>
+		<article class="sendMssage">
+			<label>预约备注:</label>
+			<textarea name="remark"></textarea>
+		</article>
+		<input  style="visibility:hidden" type="submit" value="">
+		</form>
+	</section>
+</block>
+<block name="footer">
+	<footer id="bsFooter" class="payShop bsFooter">
+		<p>
+			
+			<b class="c999">免费预约，服务完成后再收费</b>
+		</p>
+		<p>
+			<a class="submitOrder" href="javascript:;" >提交订单</a>
+			<!-- <input class="submitOrder" type="submit" value="提交订单"> -->
+		</p>
+	</footer>
+
+	<script src="__PUBLIC__/salon/module/mobiscroll/mobiscroll.2.13.2.js"></script>
+
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+			$('.submitOrder').on('click',function(){
+				// var res =1;
+				$("form").submit();
+				/* if(res){
+					sTip("预约成功");
+				}else{
+					eTip("预约失败");
+				} */
+			})
+		})
+
+		 $(function () {
+              var curr = new Date().getFullYear();
+              var opt = {  
+  				'default': {
+  					theme: 'default',
+  					mode: 'scroller',
+  					display: 'modal',
+  					animate: 'fade'
+                  },
+  				'dateYMD': {
+                    preset: 'datetime',
+  					dateFormat: 'yyyy-mm-dd',
+  					// defaultValue: new Date(new Date()),
+  					minDate: new Date(),
+  					
+                  },
+                  // 'select': {
+                  //     preset: 'select'
+                  // },
+                 /*  'select-opt': {
+                      preset: 'select',
+                      group: true,
+                      width: 50
+                  } */
+              }
+  			  $('#yearmd').scroller($.extend(opt['dateYMD'],opt['default']));
+
+			  $('#yearmd').on('input propertychange change',function(){
+			  		var $this=$(this),
+			  			timestamp=Date.parse(new Date($this.val()))/1000;
+			  			$this.next('[type="hidden"]').val(timestamp);
+			  		console.log(timestamp);
+			  })
+            // $('.constellation').scroller($.extend(opt['select'],opt['default']));			
+          });
+	</script>
+</block>

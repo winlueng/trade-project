@@ -1,0 +1,582 @@
+[ 2017-11-14T22:18:01+08:00 ] 183.36.112.205 /PT2/Goods/goodsDetail/id/858.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_visitor_collect` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_shopping_cart` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_shopping_cart` WHERE `visitor_id` = 744 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id`,`classify_id`,`goods_name`,`goods_title`,`goods_picture`,`promotion_price`,`is_promotion`,`price`,`discount`,`sales_start_time`,`sales_end_time`,`is_discount`,`company_id`,`relevance_id`,`express_price` FROM `market_goods` WHERE `status` NOT IN ('-1','3') AND `company_id` = 0 AND `relevance_id` = 9 AND `id` = 858 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `goods_collect` FROM `market_visitor_collect` WHERE `visitor_id` = 744 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_name`,`goods_logo`,`price` FROM `market_goods` WHERE `classify_id` = 134 AND `id` <> '858' AND `status` NOT IN ('-1','3') ORDER BY addtime desc LIMIT 4   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_sales_volume` [ RunTime:0.0005s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 858 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_goods_statistics` WHERE `relevance_id` = 858 AND `date` = 1510588800 LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `market_goods_statistics` (`relevance_id`,`date`) VALUES ('858','1510588800') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_visitor_track` [ RunTime:0.0005s ]
+SQL: SELECT `id_aggregate` FROM `market_visitor_track` WHERE `visitor_id` = 744 AND `visit_date` = 1510588800 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_visitor_track` SET `id_aggregate`='[{\"id\":858,\"type\":1},{\"id\":841,\"type\":1},{\"id\":838,\"type\":1},{\"id\":902,\"type\":1},{\"id\":855,\"type\":1},{\"id\":768,\"type\":1},{\"id\":833,\"type\":1},{\"id\":628,\"type\":1},{\"id\":530,\"type\":1},{\"id\":896,\"type\":1},{\"id\":456,\"type\":1},{\"id\":532,\"type\":1},{\"id\":556,\"type\":1},{\"id\":693,\"type\":1},{\"id\":904,\"type\":1},{\"id\":889,\"type\":1},{\"id\":881,\"type\":1},{\"id\":903,\"type\":1},{\"id\":901,\"type\":1},{\"id\":893,\"type\":1},{\"id\":894,\"type\":1},{\"id\":892,\"type\":1},{\"id\":891,\"type\":1}]' WHERE `visitor_id` = 744 AND `visit_date` = 1510588800 [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000130s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008751s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008787s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000110s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000350s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000443s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000510s ]
+
+[ 2017-11-14T22:18:02+08:00 ] 14.30.147.135 /PT2/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_visitor_info` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_news` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`news_logo`,`news_name`,`title`,`video`,`is_video` FROM `market_news` WHERE `relevance_id` = 9 AND `company_id` = 0 AND `status` = 0 AND `is_top` = 1 ORDER BY addtime desc LIMIT 6   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_project_banner` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`banner_pic`,`banner_url`,`banner_type`,`banner_title` FROM `market_project_banner` WHERE `status` NOT IN ('-1','1') AND `project_id` = 9  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_stick` [ RunTime:0.0006s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510669082 AND `end_time` > 1510669082 AND `status` = 1 AND `stick_classify` = 1  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('855','857') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_sales_volume` [ RunTime:0.0005s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 855 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 855 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 857 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510669082 AND `end_time` > 1510669082 AND `status` = 1 AND `stick_classify` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('835','840') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 835 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 840 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 840 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510669082 AND `end_time` > 1510669082 AND `status` = 1 AND `stick_classify` = 3  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('839','838','834') AND `status` NOT IN ('-1','3')  [ RunTime:0.0005s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 834 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 834 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 838 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 839 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 839 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_shopping_cart` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_shopping_cart` WHERE `visitor_id` = 744 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant banner_url - assumed 'banner_url' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 254 行.
+NOTIC: [8] Use of undefined constant banner_pic - assumed 'banner_pic' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 257 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Undefined index: companyName /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 345 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012295s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012325s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000106s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000187s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000449s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-11-14T22:18:11+08:00 ] 120.204.17.73 /PT2/Goods/goodsDetail/id/858.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+
+[ 2017-11-14T22:18:12+08:00 ] 101.226.66.179 /PT2/Goods/goodsDetail/id/858.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = null AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_visitor_collect` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_shopping_cart` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_shopping_cart` WHERE `visitor_id` = null LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-11-14T22:18:13+08:00 ] 101.226.66.179 /PT2/Login/defaultLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000077s ]
+NOTIC: [8] Undefined variable: jssdk /var/www/html/amigo/amigo/Runtime/Cache/PT2/cd7dcdecd83993c647d2eff8f04eccae.php 第 109 行.
+NOTIC: [8] Undefined variable: jssdk /var/www/html/amigo/amigo/Runtime/Cache/PT2/cd7dcdecd83993c647d2eff8f04eccae.php 第 110 行.
+NOTIC: [8] Undefined variable: jssdk /var/www/html/amigo/amigo/Runtime/Cache/PT2/cd7dcdecd83993c647d2eff8f04eccae.php 第 111 行.
+NOTIC: [8] Undefined variable: jssdk /var/www/html/amigo/amigo/Runtime/Cache/PT2/cd7dcdecd83993c647d2eff8f04eccae.php 第 112 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004858s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004887s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000093s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000178s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000366s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000404s ]
+
+[ 2017-11-14T22:21:05+08:00 ] 101.226.65.107 /PT2/SystemNews/newsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0005s ]
+
+[ 2017-11-14T22:21:11+08:00 ] 101.226.65.107 /PT2/Goods/goodsList/classify_id/134.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+
+[ 2017-11-14T22:21:23+08:00 ] 101.226.66.174 /PT2/Goods/goodsDetail/id/858.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+
+[ 2017-11-14T22:53:26+08:00 ] 14.17.21.58 /PT2/VisitorCollect/ajaxControl.html?flag%253DcollectCompany%2526status%253D1%2526company_id%253D12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = null AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_visitor_collect` [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000314s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000354s ]
+
+[ 2017-11-14T23:23:59+08:00 ] 58.248.85.84 /PT2/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_visitor_info` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_news` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`news_logo`,`news_name`,`title`,`video`,`is_video` FROM `market_news` WHERE `relevance_id` = 9 AND `company_id` = 0 AND `status` = 0 AND `is_top` = 1 ORDER BY addtime desc LIMIT 6   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_project_banner` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`banner_pic`,`banner_url`,`banner_type`,`banner_title` FROM `market_project_banner` WHERE `status` NOT IN ('-1','1') AND `project_id` = 9  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_stick` [ RunTime:0.0005s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673039 AND `end_time` > 1510673039 AND `status` = 1 AND `stick_classify` = 1  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('855','857') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_sales_volume` [ RunTime:0.0005s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 855 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 855 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673039 AND `end_time` > 1510673039 AND `status` = 1 AND `stick_classify` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('835','840') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 840 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 840 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673039 AND `end_time` > 1510673039 AND `status` = 1 AND `stick_classify` = 3  [ RunTime:0.0003s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('839','838','834') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 834 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 834 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 839 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 839 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_shopping_cart` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_shopping_cart` WHERE `visitor_id` = 766 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000121s ]
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant banner_url - assumed 'banner_url' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 254 行.
+NOTIC: [8] Use of undefined constant banner_pic - assumed 'banner_pic' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 257 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Undefined index: companyName /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 345 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012281s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012316s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000104s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000166s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000496s ]
+
+[ 2017-11-14T23:24:07+08:00 ] 58.248.85.84 /PT2/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_visitor_info` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_news` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`news_logo`,`news_name`,`title`,`video`,`is_video` FROM `market_news` WHERE `relevance_id` = 9 AND `company_id` = 0 AND `status` = 0 AND `is_top` = 1 ORDER BY addtime desc LIMIT 6   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_project_banner` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`banner_pic`,`banner_url`,`banner_type`,`banner_title` FROM `market_project_banner` WHERE `status` NOT IN ('-1','1') AND `project_id` = 9  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_stick` [ RunTime:0.0005s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673047 AND `end_time` > 1510673047 AND `status` = 1 AND `stick_classify` = 1  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('855','857') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_sales_volume` [ RunTime:0.0005s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 855 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 855 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673047 AND `end_time` > 1510673047 AND `status` = 1 AND `stick_classify` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('835','840') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 840 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 840 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673047 AND `end_time` > 1510673047 AND `status` = 1 AND `stick_classify` = 3  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('839','838','834') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 834 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 834 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 839 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 839 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_shopping_cart` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_shopping_cart` WHERE `visitor_id` = 766 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant banner_url - assumed 'banner_url' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 254 行.
+NOTIC: [8] Use of undefined constant banner_pic - assumed 'banner_pic' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 257 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Undefined index: companyName /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 345 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017032s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017078s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000153s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000240s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000418s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000477s ]
+
+[ 2017-11-14T23:24:16+08:00 ] 101.226.33.223 /PT2/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id`,`sx_data_base` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `market_wechat_visitor` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = null AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_visitor_info` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_news` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`news_logo`,`news_name`,`title`,`video`,`is_video` FROM `market_news` WHERE `relevance_id` = 9 AND `company_id` = 0 AND `status` = 0 AND `is_top` = 1 ORDER BY addtime desc LIMIT 6   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_project_banner` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`banner_pic`,`banner_url`,`banner_type`,`banner_title` FROM `market_project_banner` WHERE `status` NOT IN ('-1','1') AND `project_id` = 9  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_stick` [ RunTime:0.0005s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673056 AND `end_time` > 1510673056 AND `status` = 1 AND `stick_classify` = 1  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('855','857') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_goods_sales_volume` [ RunTime:0.0005s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 855 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 855 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 857 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673056 AND `end_time` > 1510673056 AND `status` = 1 AND `stick_classify` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('835','840') AND `status` NOT IN ('-1','3')  [ RunTime:0.0008s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 835 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 840 LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 840 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `goods_id` FROM `market_goods_stick` WHERE `relevance_id` = 9 AND `start_time` < 1510673056 AND `end_time` > 1510673056 AND `status` = 1 AND `stick_classify` = 3  [ RunTime:0.0004s ]
+SQL: SELECT `id`,`goods_logo`,`goods_name`,`is_discount`,`promotion_price`,`price`,`discount`,`sales_start_time`,`sales_end_time` FROM `market_goods` WHERE `id` IN ('839','838','834') AND `status` NOT IN ('-1','3')  [ RunTime:0.0004s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 834 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 834 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 838 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT SUM(sales_total) AS tp_sum FROM `market_goods_sales_volume` WHERE `goods_id` = 839 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `company_id`,`relevance_id` FROM `market_goods` WHERE `id` = 839 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `project_link`,`template_id` FROM `market_project` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_visitor_track` [ RunTime:0.0005s ]
+SQL: DELETE FROM `market_visitor_track` WHERE `visit_date` < 1507994656 [ RunTime:0.0003s ]
+SQL: SELECT `id_aggregate` FROM `market_visitor_track` WHERE `visitor_id` = null AND `visit_date` > 1509981856 ORDER BY visit_date desc  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: res /var/www/html/amigo/amigo/PT2/Model/VisitorInfoModel.class.php 第 158 行.
+NOTIC: [8] Undefined variable: res /var/www/html/amigo/amigo/PT2/Model/VisitorInfoModel.class.php 第 174 行.
+SQL: SHOW COLUMNS FROM `market_shopping_cart` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_shopping_cart` WHERE `visitor_id` = null LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000107s ]
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 206 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 209 行.
+NOTIC: [8] Use of undefined constant is_promotion - assumed 'is_promotion' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Array to string conversion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 211 行.
+NOTIC: [8] Use of undefined constant price - assumed 'price' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 213 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 229 行.
+NOTIC: [8] Use of undefined constant banner_url - assumed 'banner_url' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 254 行.
+NOTIC: [8] Use of undefined constant banner_pic - assumed 'banner_pic' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 257 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Use of undefined constant link - assumed 'link' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 271 行.
+NOTIC: [8] Use of undefined constant goods_logo - assumed 'goods_logo' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 273 行.
+NOTIC: [8] Use of undefined constant goods_name - assumed 'goods_name' /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 276 行.
+NOTIC: [8] Undefined index: is_promotion /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 278 行.
+NOTIC: [8] Undefined index: companyName /var/www/html/amigo/amigo/Runtime/Cache/PT2/910f855a3499aa583a1b921f8a9139a4.php 第 345 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012217s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012247s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000096s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000159s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000468s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+

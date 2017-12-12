@@ -1,0 +1,289 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">    
+<!-- <link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css?version=1.1"></link>
+ -->
+<style>
+    .HealthStatus{
+        display:none;
+    }
+</style>
+<php>
+  echo('<pre>');
+  var_dump($list);exit;
+</php>
+</block>
+<block name="content" >
+    <div id="kbVipAdmin_rightCenter" class=" OrderForm mb10"><!-- 内容页开始 -->
+            <div class="centerTitle">
+                <h1>审核列表</h1>
+            </div>
+            <div class="kb_table-filter mb10">
+                <!-- <form action="" method="get" style="display:inline-block">
+                        <select class="kbVipAdmin_slt w100 h30" name="correlation_id" title="可选择分类查找相关商品">
+                            <option value="">全部类型</option>
+                            <foreach name="typeList" item="v">
+                                <option value="{{$v.id}}">{{$v.type_name}}</option>
+                            </foreach>
+                        </select>
+                        <input type="submit" class="kbVipAdmin_opt  w80 h30" value="确认查找">
+                </form> -->
+                <div class="filter-searchDate mr10">
+                    <form action="{{:U('VisitorInfo/visitorList')}}">
+                        <input type="search" value="{{:I('sel_name')}}" name="sel_name" placeholder="请输入用户呢称" />
+                        <input class="kbVipAdmin_opt w80 h30 fr" type="submit" value="确定" />
+                    </form>
+                </div>
+            </div>
+            <div class="main-contentBox kbVipAdmin_mt24" >
+            <div class="kbVipAdmin_table mb20">
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="50">编号</th>
+                            <th>所属区域</th>
+                            <th>所属行业</th>
+                            <th>店铺名称</th>
+                            <th>商品名称</th>
+                            <th>操作时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="list" id="v" >
+                        <tr>
+                            <td><p>{{$v.goods_id}}</p></td>
+                            <td><p>{{$v.region}}</p></td>
+                            <td><p>{{$v.business}}</p></td>
+                            <td><p>{{$v.company_name}}</p></td>
+                            <td><p>{{$v.goods_name}}</p></td>
+                            <td><p>{{:date('Y-m-d H:i:s',$v['create_time'])}}</p></td>
+                            <td>
+                              <p>
+                                <switch  name="v.status">
+                                  <case value="-1">已删除</case>
+                                  <case value="0">申请中</case>
+                                  <case value="1">已同意</case>
+                                  <case value="2">已拒绝</case>
+                                </switch>
+                              </p>
+                            </td>
+                            <td>
+                                <div class="kbVipAdmin_tdAction">
+                                    <a class=" kbVipAdminSea  w30 h30 copyButton-default" title="预览" href="{{:U('Goods/preview', ['id' => $v['goods_id']])}}" target="view_window"> </a>
+                                    <input class="icon-complete"  type="button"  value="" title="通过"
+                                        v-on:click="complete($event,'{{$v['goods_id']}}')"
+                                      />
+                                    <input class=" icon-refuse " type="button"  value="" title="拒绝" 
+                                      v-on:click="refuse($event,{{$v['goods_id']}})"
+                                     />
+                                </div>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+                <!-- 表格页数开始 -->
+                <div class="kbVipAdmin_page mb10">
+                    <div class="pageSize">
+                        {{$page}}
+                       
+                    </div>
+                    <div class="pageJump">  
+                    <if condition="count($list) eq 10 ">
+                    <form >
+                        <input class="w60  fl" type="text" name="p" placeholder="{{:I('get.p')}}" />
+                        <input type="submit" class="fl" name="" value="跳转">
+                    </form> 
+                    </if>   
+                    </div>
+                </div>
+                <!-- 表格页数结束 -->
+            <!-- 表格结束 -->
+        </div>
+
+        <div class="kbVipAdmin_alert recommend_alert">
+            <div class="kbVipAdmin_alertBox">
+                <button type="button" class="kbVipAdmin_alert-close "></button>
+                <form id="recommendForm" action="" method="post" enctype="multipart/form-data">
+                     <h3 class="mb10">置顶商品</h3>
+                    <p class="kbVipAdmin_enter"><b><i>*</i>显示位置</b>
+                        <select name="stick_classify" class="kbVipAdmin_slt kbVipAdmin_sltblack"
+                         required="required"
+                         data-datatype="select"
+                         >
+                            <option value="-1">请选择推荐位置</option>
+                            <option value="1"> 折扣区</option>
+                            <option value="2"> 热销区</option>
+                            <option value="3">新品区</option>
+                        </select>
+                    </p>
+                  <!--   <p class="kbVipAdmin_enter"><b><i>*</i>开始时间:</b>
+                      <input  class="datainp wicon" id="kbVipAdmin_inpstart" type="text" name="start_time" placeholder="开始日期"   readonly required="required" />
+                      </p> -->
+                      <p class="kbVipAdmin_enter"><b><i>*</i>结束时间:</b>
+                      <!-- <input type="date" name="end_time" value="" required="required" /> -->
+                      <input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required"
+                       data-datatype="input"
+                       />
+                      </p>
+                    <div class="kbVipAdmin_operating ">
+                        <div class="kbVipAdmin_restsubmit"> 
+                            <input  class="kbVipAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+                            <input  class="kbVipAdmin_opt w100 h40" type="button" value="保存" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="kbVipAdmin_alert refuse_alert">
+            <div class="kbVipAdmin_alertBox">
+                <button type="button" class="kbVipAdmin_alert-close "></button>
+                <form id="recommendForm" action="" method="post" enctype="multipart/form-data">
+                     <h3 class="mb10">拒绝</h3>
+
+                      <p class="kbVipAdmin_enter">
+                        <b><i>*</i>拒绝理由:</b>
+                        <input  class="mark-refuse"  type="text" name="refuse_remark" placeholder="请输入拒绝理由"    required="required"
+                          data-datatype="input"
+                       />
+                      </p>
+                    <div class="kbVipAdmin_operating ">
+                        <div class="kbVipAdmin_restsubmit"> 
+                            <input  class="kbVipAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+                            <input  class="kbVipAdmin_opt w100 h40" type="button" value="保存" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- 内容页结束 -->
+</block>
+<block name="js_files">
+<script type="text/javascript">
+    $('.pageSize a:first-child').addClass('prevPage');
+    $('.pageSize a:last-child').addClass('nextPage');
+</script>
+  <script>
+    $(function(){
+       var app=new Vue({
+         el:'#kbVipAdmin_rightCenter',
+         data:{
+
+         },
+         methods:{
+            myTitle:vueMethods.myTitile,
+            complete:function(event,id){
+              var $this, stick_classify,end_time,checkData,url,getData=new Object();
+              $('.recommend_alert').fadeIn();
+              $this=$(event.srcElement)?$(event.srcElement):$(event.target);
+              checkData=new CheckData('.recommend_alert');
+              getData={
+                goods_id:id,
+                status:1,
+                 flag:"passOrRefuse",
+              };
+              url="{{:U('GoodsStick/ajaxControl')}}";
+              $('.recommend_alert .kbVipAdmin_restsubmit .kbVipAdmin_opt').on('click',function(){
+                 if(!checkData.verify()) return false;
+                 getData.stick_classify=$('.recommend_alert select').val();
+                 
+                 $.ajax({
+                    type:"GET",
+                    url:url,
+                    data:getData,
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data);
+                        if(data.status){
+                            sTip('操作成功');
+                           $this.parents('tr').remove();
+                        }else{
+                            eTip('操作失败')
+                        }
+                         $('.recommend_alert').fadeOut();
+                    },
+                    error:function(error){
+                        console.log(error);
+                        eTip('操作失败')
+                    }
+                 })
+              })
+            },
+            refuse:function(event,id){
+              var $this,getData,url,refuseRemark,checkData;
+              $('.refuse_alert').fadeIn();
+              $this=$(event.srcElement)?$(event.srcElement):$(event.target);
+              checkData=new CheckData('.refuse_alert');
+              getData={
+                goods_id:id,
+                status:2,
+                flag:"passOrRefuse",
+              };
+              url="{{:U('GoodsStick/ajaxControl')}}";
+              $('.refuse_alert .kbVipAdmin_restsubmit .kbVipAdmin_opt').on('click',function(){
+                 if(!checkData.verify()) return false;
+                 getData.refuse_remark=$('.recommend_alert .mark-refuse').val();
+                 $.ajax({
+                    type:"GET",
+                    url:url,
+                    data:getData,
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data);
+                        if(data.status){
+                            sTip('操作成功');
+                           $this.parents('tr').remove();
+                            
+                        }else{
+                            eTip('操作失败')
+                        }
+                        $('.refuse_alert').fadeOut();
+                    },
+                    error:function(error){
+                        console.log(error);
+                        eTip('操作失败')
+                    }
+                 })
+              })
+            }
+         },
+         mounted:function(){
+            this.myTitle();
+            (function(){
+               var now=new Date(),
+                   nowTime=now.getFullYear()+'-'+(now.getMonth()+1)+"-"+now.getDate()+" 00:00:00";
+                   console.log(nowTime);
+               var start = {
+                   format: 'YYYY-MM-DD hh:mm:ss',
+                   minDate: $.nowDate(-1), //设定最小日期为当前日期
+                   festival:true,
+                   //isinitVal:true,
+                  // maxDate: $.nowDate(0), //最大日期
+                   choosefun: function(elem,datas){
+                       end.minDate = datas; //开始日选好后，重置结束日的最小日期
+                   },
+               };
+                 var end = {
+                     format: 'YYYY-MM-DD hh:mm:ss',
+                     minDate: $.nowDate(0), //设定最小日期为当前日期
+                     festival:true,
+                     //isinitVal:true,
+                     //maxDate: '2099-06-16 23:59:59', //最大日期
+                     choosefun: function(elem,datas){
+                         start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                     },
+                 };
+                 $('.kbVipAdmin_enter input[name="start_time"]').jeDate(start);
+                 $('.kbVipAdmin_enter input[name="end_time"]').jeDate(end);
+             })();
+             $('.kbVipAdmin_alert .kbVipAdmin_alert-close,.kbVipAdmin_alert .kbVipAdmin_restsubmit input[type=reset]').on('click',function(){
+                 $('.kbVipAdmin_alert').fadeOut();
+             })
+         }
+       });
+    })
+  </script>
+</block>

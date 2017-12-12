@@ -1,0 +1,181 @@
+.couponBusiness_roleList{
+	font-size:12px;
+}
+.couponBusiness_roleList .adminFont{
+	font-size:12px;
+}
+
+.couponBusiness_center .kbVipAdmin_styledSelect ,.couponBusiness_center .kbVipAdmin_inlineBlock{
+	display:inline-block;
+	vertical-align:middle;
+}
+.couponBusiness_center .kbVipAdmin_slt,
+.couponBusiness_center .kbVipAdmin_searchSmit{
+	height:32px;
+}
+.couponBusiness_center .kbVipAdmin_search
+{
+	font-size: 100%;
+   height: 32px;
+   background-size: 8%;
+   text-indent: 30px;
+   width: 300px;
+
+}
+
+.couponBusiness_alert .couponBusiness_FormParent{
+    overflow-x: hidden;
+    height: 80%;
+}
+
+#businessFileImg,#businessFileImg1{
+	position:absolute;
+	top:0;
+	z-index:-1;
+}
+.couponBusiness_roleList .couponAdListWirte
+{
+	display:inline-block;
+	color:#000;
+	vertical-align:middle;
+
+}
+.couponBusiness_roleList .microWebMenuAdmin input[type="checkbox"]+label{
+	width:81px;
+}
+
+.couponBusiness_alert .authAddFormSmt,
+.couponBusiness_alertWriter .authAddFormSmt,
+.couponBusiness_alert	.authAddFormSmt,
+.couponAdList_alert .authAddFormSmt,
+.couponAdList_alertWriter .authAddFormSmt,
+.couponAdClass_alert .authAddFormSmt,
+.couponAdClass_alertWriter .authAddFormSmt
+{
+	display:block;
+}
+
+/*商户行业*/
+.couponTrade_center {
+
+}
+/*广告列表*/
+.couponAdList_center .kbVipAdmin_styledSelect,
+.couponAdList_center .authAddBtn{
+	display:inline-block;
+}
+.couponAdList_center .authAddBtn{
+	float:right;
+	margin-right:10px;
+}
+.couponAddrTrade b{
+	margin-left: 10px;
+    width: 50px;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #e86565;
+    background-color: #e86565;
+    color: #fff;
+    font-weight: bold;
+    display:inline-block;
+    line-height:30px;
+    vertical-align:top;
+    text-align:center;
+}
+
+.couponBusiness_alert .couponAddr,
+.couponBusiness_alert .couponTrade{
+display:none;
+}
+
+/*广告分类*/
+.couponAdList_center{
+
+}
+
+
+/*广告添加*/
+.couponAdd_cente{
+
+}
+.couponAdd_center .microWebMenuAdmin label,
+.couponAdList_alertWriter .microWebMenuAdmin label{
+
+	width:100px;
+}
+.couponAdd_center .couponAdd-action,
+.couponAdList_alertWriter .couponAdd-action{
+	position:relative;
+	height:30px;
+}
+/*.couponAdd_center .couponBusiness_FormParent span,*/
+.couponAdList_alertWriter .couponBusiness_FormParent span{
+	float:left;
+}
+.couponAdd_center .couponAdd-action .couponAdd-actionList,
+.couponAdd_center .couponAdd-action .couponAdd-actionListWeek,
+.couponAdList_alertWriter .couponAdd-action .couponAdd-actionList,
+.couponAdList_alertWriter .couponAdd-action .couponAdd-actionListWeek
+{
+	position:absolute;
+	top:0;
+    width: 100%;
+    display:none;
+}
+.couponAdd_center .kbVipAdmin_fileImg label{
+	width:50%;
+	height:30px;
+	line-height:30px;
+}
+.couponAdd-actionListWeek input,.couponAdd-actionList input{
+	opacity:0;
+}
+.coupanAddSelfBg{
+	/*display:none;*/
+}
+.coupanAddSelfBg .businessFileImgList{
+	/*display:block;*/
+}
+.businessFileImgList{
+	width:50%;
+	
+	overflow: hidden;
+    height: 110px;
+    margin:10px 0;
+    margin-left:18%;
+    /*display:none;*/
+    position:relative;
+}
+.businessFileImgList img{
+	width:100%;
+	height:100%;
+}
+.businessFileImgList .cleraIMG{
+	position:absolute;
+	top:10px;
+	right:10px;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcpJREFUeNq8l4GRgjAQRUPGAqzg5krACjw60A6gAmuxgtCBdIBWoCXcXAV0oJubz51gkt1AcGcyGYaQ/7LJLpuVEtr9Q+XU7ahtqX15hp2pXag12Y+6SebNBMIldQdquYozC3AkkHoSAAl/UmcCq5Wa9UpFIN+ul9ojbl19TSCuMMcVc/IAcPmJ2lqlMzvXCXP7AUBp1HJmxp7Qjj1f2gy0XjxgErs9tB1mAIC94Q5cjdCShF/NHcz+PPQeOHDiFEYV9QUDYd8VGMtB/GpqZLhcIK6o7wIQvXiHsRxEbrU10qtiBv6dDQ/EQBzbuhZkz51Gbg8CUGsDED7xVgCwzWjwPSK3u4TURHF/Ko7xxBzxWAAnxBzxKQDJLRbg5Rww0ZEUwHkIBSHKApxnREDLhChbrGjUcFPFc0GeCNnFAjQcgCDUfBAcQKNRvYYGljSxEYTaAALflMzCbis8HJlixEKoJ5dzeeLGiPea/1UxfdQmKkJFlTKtvhiHof19dm8Q76A1zAOo26s3AAzuCHqUzZqFISpo+DMhrlL7xNth59q7rmnOVAzKjTBLSq5mm/HK2X+B3Sec1Cr2B/OUQe2qC9+9UHQ7Xvp6/hBgAPtU0Zj32JNRAAAAAElFTkSuQmCC");
+	width:32px;
+	height:32px;
+	background-position:center;
+}
+/*.couponAdList_center table{
+	table-layout:fixed;
+}
+.couponAdList_center table td{
+	overflow:hidden;
+	height:100px;
+}*/
+.couponAdd_center .couponAddr select {
+    width: 122px;
+}
+.businessPosterAdd_center .kbVipAdmin_styledSelect{
+	display:inline-block;
+}
+.businessPosterAdd_center .kbVipAdmin_slt{
+	width:180px;
+}
+.businessPosterAdd_center .kbVipAdmin_inlineBlock .kbVipAdmin_searchSmit{
+    vertical-align: top;
+    width: 100px;
+}

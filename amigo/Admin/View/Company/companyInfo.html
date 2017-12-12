@@ -1,0 +1,60 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css"></link>
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnCompanyInfo">
+		<div class="kbShopAdmin_operating spAnCompanyInfo-operating">
+			<input class="kbShopAdmin_button_ff6c60 kbShopAdmin_writer fr" type="button" value="编辑" />
+		</div>
+		<div class="spAnCompanyInfo-introduction">
+			<h3 class="mb10">公司简介:</h3>
+			<p>
+				{{$newsInfo}}
+			</p>
+		</div>
+		<div id="spAnCompanyInfo-edit" >
+			<h3 class="mb10">公司简介:</h3>
+			<form action="{{:U('companyInfo')}}" method="post">
+				<div id="myEditor"  class="myEditor">
+				<script id="container" name="news" type="text/plain">
+				{{$newsInfo}}
+			    </script>
+			    <!-- 配置文件 -->
+			    <script type="text/javascript" src="ueditor.config.js"></script>
+			    <!-- 编辑器源码文件 -->
+			    <script type="text/javascript" src="ueditor.all.js"></script>
+			    <!-- 实例化编辑器 -->
+			    <script type="text/javascript">
+			        var ue = UE.getEditor('container',{
+			        		'initialFrameWidth':1050,
+			        		'initialFrameHeight':360,
+			        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+			        });
+			    </script>
+				</div>
+				<div class="kbShopAdmin_operating" style="margin-top: 50px;">
+					<input class="kbShopAdmin_button_6ccac9" type="submit" value="保存" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+     $(function(){
+   		$(".spAnCompanyInfo .spAnCompanyInfo-operating .kbShopAdmin_writer").on('click',function(){
+   			$('#spAnCompanyInfo-edit').fadeIn();
+   			$('#spAnCompanyInfo-edit').siblings().fadeOut();
+   		});
+   		$("#spAnCompanyInfo-edit  [type='submit']").on('click',function(){
+   			$('#spAnCompanyInfo-edit').fadeOut();
+   			$('#spAnCompanyInfo-edit').siblings().fadeIn();
+   		});
+
+     })
+	</script>
+</block>

@@ -1,0 +1,123 @@
+<extend name="Common/websiteCom" />
+<block name="header" >
+	<header id="bsHeader" class="bsHeader">
+		<if condition="$_GET['order']" >
+		<nav>
+			<a class="icon-back" href="{{:U('OrderForm/orderDetail', ['id' => $_GET['order'],'companyName' => $_GET['companyName']])}}">
+			</a>
+		</nav>
+		<h1>收货地址</h1>
+		<nav>
+			<a  href="{{:U('VisitorAddress/addressAdd', ['companyName' => $_GET['companyName'],'order' => $_GET['order']])}}">新增</a>
+		</nav>
+		<else />
+		<nav>
+			<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}">
+			</a>
+		</nav>
+		<h1>收货地址</h1>
+		<nav>
+			<a  href="{{:U('VisitorAddress/addressAdd', ['companyName' => $_GET['companyName']])}}" class="f15">新增</a>
+		</nav>
+		</if>
+	</header>
+</block>
+<block name="content" >
+	<section id="bsMain" class="bsGoods noFooter receiptAddrList ">
+	<volist name="list" id="v" >
+		<article class="receiptShopAddr" >
+			<if condition="$_GET['order']" >
+				<a href="{{:U('addressInfo',['companyName' => $_GET['companyName'], 'id' => $v['id'], 'order' => $_GET['order']])}}">
+			<else />
+				<a href="{{:U('addressInfo',['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+			</if>
+			<p>
+				<b>{{$v.consignee}}</b>
+				<b>{{$v.phone}}</b>
+			</p>
+			<p>{{$v.address_str}}</p>
+			</a>
+			<p class="adminAddress" style="width:0;display:none" >
+				<span class="addressCover" ></span>
+				<input class="delAddress" data-addrID="{{$v['id']}}" type="button" value="删除" />
+			</p>
+		</article>
+		<p class="bsSeparate"></p>
+	</volist>
+	</section>
+</block>
+<block name="footer">
+<footer id="bsFooter" class="defaultFooter bsFooter">
+		<switch name="info.status" >
+		<case value="0" >
+			<p>
+				<input class="defineBtn mr10 btnColorFFF bc" type="button" value="取消订单" />
+			</p>
+			<p>
+				<input class="defineBtn btnColor00bec5 bc" id="pay" type="button" value="确认支付" />
+			</p>
+		</case>
+		<case value="2" >
+			<p>
+				<input class="defineBtn mr10 btnColorFFF bc" type="button" value="交易已关闭" />
+			</p>
+		</case>
+		<case value="2" >
+			<p>
+				<input class="defineBtn mr10 btnColorFFF bc" type="button" value="退款" />
+			</p>
+			<p>
+				<input class="defineBtn btnColor00bec5 bc" id="pay" type="button" value="确认收货" />
+			</p>
+		</case>
+		</switch>
+		
+	</footer>
+	
+</block>
+<block name="js_file">
+	<script>
+		$(function(){
+	
+			(function(){
+				var receiptShopAddr= document.getElementsByClassName('receiptShopAddr');
+				Object.keys(receiptShopAddr).map(function(elem,indexs,arr){
+					receiptShopAddr[elem].addEventListener('touchmove',function(){
+						
+						$(this).find('.adminAddress').fadeIn().attr('style','');
+						$(this).find('.addressCover').show();
+						$('.addressCover').on('click',function(event){
+							event.stopPropagation();
+							var $this=$(this);
+							$this.parent().fadeOut().css("width",0);
+						})
+					})
+				})
+			})();
+			
+			
+			
+			$('.delAddress').on('click',function(){
+				var $this=$(this),
+					addrID=$this.attr('data-addrID');
+				$.get('{{:U("VisitorAddress/ajaxControl")}}',{
+					flag: 'del',
+					id : addrID,
+					companyName:"{{$_GET['companyName']}}"
+				},function(res){
+					if(res==1){
+						sTip("操作成功");
+						$this.parents('.receiptShopAddr').remove();
+					}else{
+						eTip("操作失败");
+					}
+					$this.parent().css("width",0).fadeOut();
+				}).fail(function(res){
+					console.log(res);
+					eTip('操作失败');
+				});
+			});
+		})
+	
+	</script>
+</block>

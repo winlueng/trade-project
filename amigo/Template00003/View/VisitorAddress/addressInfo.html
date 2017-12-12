@@ -1,0 +1,80 @@
+<extend name="Common/secondCom" />
+<block name="css_file" >
+	<style>
+	.bsAddReceiptAddr form{
+		background-color:#fff;
+	}
+	</style>	
+</block>
+<block name="bsTitle">
+	修改地址
+</block>
+<block name="content" >
+	<section id="bsMain" class="bsGoods noFooter bsAddReceiptAddr">
+	<if condition="$_GET['order']" >
+		<form class="f15" action="{{:U('addressInfo', ['companyName' => $_GET['companyName'], 'id' => $_GET['id'],'order' => $_GET['order']])}}" method="post">
+	<else />
+		<form class="f15" action="{{:U('addressInfo', ['companyName' => $_GET['companyName'], 'id' => $_GET['id']])}}" method="post">
+	</if>
+		<ul class="bsForm">
+			<li class="bsFormTxt">
+				<label>收货姓名:</label>
+				<input type="text" name="consignee" value="{{$info['consignee']}}" placeholder="请输入..."/>
+			</li>
+			<li class="bsFormTxt">
+				<label>手机号码:</label>
+				<input type="tel" name="phone" value="{{$info['phone']}}"  placeholder="请输入..." placeholder="请输入..."/>
+			</li>
+			<li class="bsFormTxt">
+				<label>所在地区:</label>
+				<input id="nowCity" type="text" name="city" value="{{$info['city']}}" placeholder="请输入你现居的城市" readonly />
+	        <input id="nowCityhide" type="hidden" value="" placeholder="" />
+			</li>
+			<li class="bsFormTxt">
+				<label>详细地址:</label>
+				<input type="text" name="address_str" value="{{$info['address']}}"  placeholder="请输入..."/>
+			</li>
+			<li class="bsFormTxt" >
+				<label>设为默认</label>
+				<p class="choose pushBtn  mr10">
+					<input type="checkbox" name="status" value="1" {{$info['status'] == '1'?'checked':''}} />
+					<label>
+
+					</label>
+				</p>
+			</li>
+			
+		</ul>
+		<p class="bsFormSumit tc">
+			<input class="defineBtn btnColor00bec5 f14"  type="submit" value="保存" />
+		</p>
+	</form>
+	</section>
+</block>
+<block name="footer" >
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script src="__PUBLIC__/js/module/LArea/LAreaData1.js"></script>
+    <script src="__PUBLIC__/js/module/LArea/LAreaData2.js"></script>
+    <script src="__PUBLIC__/js/module/LArea/LArea.js"></script>
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+		 var area1 = new LArea();
+         area1.init({
+             'trigger': '#nowCity', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+             'valueTo': '#nowCityhide', //选择完毕后id属性输出到该位置
+             'keys': {
+                 id: 'id',
+                 name: 'name'
+             }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+             'type': 1, //数据源类型
+             'data': LAreaData //数据源
+
+         });
+         area1.value=[1,13,3];//控制初始位置，注意：该方法并不会影响到input的value
+		})
+	</script>
+</block>

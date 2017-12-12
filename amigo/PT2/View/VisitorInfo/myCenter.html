@@ -1,0 +1,180 @@
+<extend name="Common/firstCom" />
+<block name="css_files">
+  <php>
+   // echo '<pre>';
+   //var_dump($newsCount);exit;
+  </php>
+  <style>
+    .dl_btnPlain-default{
+      border:1px solid #CF7368;
+      color:#CF7368;
+      background-color:#fff;
+      border-radius: 0
+    }
+  </style>
+</block>
+<block name="header">
+<header id="Header" class="kb_header flexLayout-center dl_selfHeader">
+<nav>
+  <a href="javascript:;" class="icon-setting w"></a>
+</nav>
+<h2 class="kb_header-title"></h2>
+<nav>
+  <a href="{{:U('SystemNews/newsList')}}" class="icon-mesg w {{$newsCount>0?'kb_hasTip':''}}">
+    <span class="kb_hasTip-count">
+        {{$newsCount}}
+    <span>
+  </a>
+</nav>
+</header>
+</block>
+<block name="content">
+    <section id="Main" class="kb_main bc   tg_myself">
+   <header class="dl_mysel-header pb10  pt10">
+       <a href="{{:U('VisitorInfo/myCenterUpdate')}}" class=" kb_cell    kb_cell-href">
+        <p class="kb_cell-hd">
+          <empty name="userInfo.head_portrait">
+            <img src="__PUBLIC__/trading/images/1.jpg" alt="use header" class="dl_mysel-header-userInfo-image" />
+          <else />
+            <img src="{{$userInfo[head_portrait]}}" alt="use header" class="dl_mysel-header-userInfo-image" />
+          </empty>
+        </p>
+        <p class="ml20 kb_cell-bd">
+            <empty name="userInfo.nick_name">
+                请完善资料先
+             <else />
+                {{$userInfo[nick_name]}}
+            </empty>
+            <button type="button" class="kb_btn mt10 dl_btnPlain-default">查看个人资料</button>
+        </p>
+        <p class="kb_cell-ft">
+        </p>
+       </a>
+       <empty name="userInfo">
+       <p class="w100 bc ">
+        <a  href="{{:U('Login/defaultLogin')}}" class="kb_btn kb_btn-main">登陆/注册</a>
+       </p>
+       </empty>
+   </header>
+   <article class="kb_list-cell dl_navlist mb10 f13 ">
+        <!-- {{:U('VisitorCollect/goodsCollect')}} -->
+        <a href="{{:U('VisitorCollect/goodsCollect')}}" class="kb_list-cell-bd">
+            <p class="tc ">{{$data['goodsCollect']}}</p>
+            <p class="tc">收藏</p>
+        </a>
+        <!-- {{:U('VisitorCollect/companyCollect')}} -->
+        <a href="{{:U('VisitorCollect/companyCollect')}}" class="kb_list-cell-bd">
+            <p class="tc ">{{$data['companyCollect']}}</p>
+            <p class="tc">关注</p>
+        </a>
+        <a href="{{:U('ShoppingCart/myCart')}}?c_com=c" class="kb_list-cell-bd">
+            <p class="tc ">{{$data['cartTotal']}}</p>
+            <p class="tc">购物车</p>
+        </a>
+   </article>
+   <a href="{{:U('OrderForm/orderList')}}?show=0" class="kb_cell kb_cell-href f16">
+        <p class="kb_cell-bd">
+            我的订单
+        </p>
+        <p class="kb_cell-ft f14">
+            <em>查看全部订单</em>
+        </p>
+    </a>
+    <article class="kb_list-cell dl_navlist mb10 dl-myself-order f13">
+        <a href="{{:U('OrderForm/orderList')}}?show=1" class="kb_list-cell-bd {{$orderCount[1]?'dl_myself-order-point':''}}">
+            <p class="icon-pendingPay h20"></p>
+            <p class="tc">待付款</p>
+        </a>
+        <a href="{{:U('OrderForm/orderList')}}?show=2" class="kb_list-cell-bd {{$orderCount[2]?'dl_myself-order-point':''}}">
+            <p class="icon-delivered h20"></p>
+            <p class="tc">待发货</p>
+        </a>
+        <a href="{{:U('OrderForm/orderList')}}?show=3" class="kb_list-cell-bd {{$orderCount[3]?'dl_myself-order-point':''}}">
+            <p class="icon-received h20"></p>
+            <p class="tc">待收货</p>
+        </a>
+        <a href="{{:U('OrderForm/orderList')}}?show=4" class="kb_list-cell-bd {{$orderCount[4]?'dl_myself-order-point':''}}">
+            <p class="icon-evaluated h20"></p>
+            <p class="tc">待评价</p>
+        </a>
+        <a href="{{:U('OrderForm/refundList')}}?show=5" class="kb_list-cell-bd {{$orderCount[5]?'dl_myself-order-point':''}}">
+            <p class="icon-refunds h20"></p>
+            <p class="tc">退款/售后</p>
+        </a>
+   </article>
+   <article class="kb_grid dl_myself-grid main_bg f14">
+        <a  href="{{:U('VisitorTrack/myTrack')}}"class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-footprints.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                足迹
+            </p>
+        </a>
+        <a  href="{{:U('VisitorInfo/selYouLike')}}"class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-like.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                猜你喜欢
+            </p>
+        </a>
+        <a href="{{:U('WasteBook/myWallet')}}" class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-wallet.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                钱包
+            </p>
+        </a>
+      <!--   <a  href="javascript:;"class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-love.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                爱心捐赠
+            </p>
+        </a> -->
+        <a href="{{:U('Discount/privilegeList')}}" class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-offer.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                优惠
+            </p>
+        </a>
+        <a href="{{:U('VisitorAddress/addressList')}}" class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-address.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                收货地址
+            </p>
+        </a>
+        <a  href="{{:U('WriteInfo/about_us')}}"class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-about.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                关于
+            </p>
+        </a>
+        <a  href="{{:U('Email/sendEmail')}}"class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-feedback.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                建议与反馈
+            </p>
+        </a>
+        <!-- <a href="{{:U('Job/jobList')}}" class="kb_grid-cell">
+            <p class="kb_grid-cell-icon">
+                <img src="__PUBLIC__/trading/images/grid/tr-recruitment.svg" alt="">
+            </p>
+            <p class="kb_grid-cell-info">
+                招聘
+            </p>
+        </a> -->
+   </article>
+  </section>
+</block>

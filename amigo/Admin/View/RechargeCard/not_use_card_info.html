@@ -1,0 +1,118 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<style>
+.filter-searchDate input[type="search"]{
+    width:254px;
+}
+</style>
+<php>
+//echo('<pre>');
+//var_dump($list);exit;
+</php>
+</block>
+<block name="content">
+<div id="kbVipAdmin_rightCenter" class="spAnDynamic OrderForm">
+  <div class="centerTitle">
+    <h2>现金卡/未使用情况</h2>
+  </div>
+   <div class="kbVipAdmin_operating filter-operating" >
+    <form>
+        <div class="filter-searchDate">
+            <input type="search" name="order_number" value="" placeholder="请输入想要查找的内容">
+            <button class="kbVipAdmin_opt w80 h30" type="submit">确定</button>
+        </div>
+    </form>
+    <button class="choose kbVipAdmin_opt w80 h30 tc fr" type="button" onclick="javascript:window.location.href='?downloadExcel=1&card_id={{$_GET.card_id}}&card_number={{$_GET.card_number}}'">下载</button>
+   </div>
+   <div class="main-contentBox  kbVipAdmin_mt24" >
+    <div class="kbVipAdmin_table">
+      <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>序列号</th>
+                <th>卡号</th>
+                <th>金额</th>
+                <th>赠送金额</th>
+                <th>开始时间</th>
+                <th>添加时间</th>
+                <th>激活状态</th>
+            </tr>
+        </thead>
+        <tbody>
+          <foreach name="list" item="vo">
+            <tr>
+                <td>序号</td>
+                <td>{{$vo.serial_number}}</td>
+                <td> {{$vo.card_number}}</td>
+                <td>{{$vo.money}}</td>
+                <td>{{$vo.presenter_money}}</td>
+                <td>{{:date('Y-m-d', $vo['start_time'])}}</td>
+                <td>{{:date('Y-m-d', $vo['end_time'])}}</td>
+                <td class="kbVipAdmin_tdAction">
+                    <label class="kb_choose  ml5">
+                        <input type="checkbox" value="" title="激活" class="mark-cardActivation" {{$vo['status']=='1'?'checked':''}} data-cardNum='{{$vo.card_number}}' />
+                        <span class="kb_choose-pushBtn">
+                            <b class="kb_choose-pushBtn-radio"></b>
+                        </span>
+                    </label>
+                </td>
+            </tr>
+            
+          </foreach>
+        </tbody>
+    </table>
+  </div>
+        <!-- 分页位置 -->
+    <div class="kbVipAdmin_page">
+        <div class="pageSize">
+            {{$page}}
+        </div>
+        <div class="pageJump">          
+            <input class="w60  fl" type="text" value="" />
+            <a class="fl" href="javascript:;">跳转</a>
+        </div>
+    </div>
+    </div>  
+               
+</div>
+
+</block>
+<block name="js_files">
+<script>
+$(function(){
+    // 
+    $(".mark-cardActivation").on('click',function(){
+        var $this,status,cardNum,flag,Url,params=new Object();
+        $this=$(this);
+        flag='changeCardStatus',
+        Url="{{:U('RechargeCard/ajaxControl')}}";
+        cardNum=$this.attr('data-cardNum').trim();
+        status=$this.prop('checked')?1:0;
+        params={
+            flag:flag,
+            status:status,
+            card_number:cardNum
+        }
+        $.ajax({
+            type:"GET",
+            data:params,
+            url:Url,
+            dataType:'json',
+            success:function(data){
+                if(data==1){
+                    sTip('操作成功');
+                }else{
+                   eTip('操作成功'); 
+                   $this.prop('checked',status);
+                }
+            },
+            error:function(error){
+                console.log(error);
+            }
+        })
+        
+    })
+})
+</script>
+</block>

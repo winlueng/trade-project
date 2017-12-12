@@ -1,0 +1,138 @@
+#shopAdminLogin{
+			width:100%;
+			height:100%;
+			/*background: url("images/architecture-1842614.jpg") no-repeat left top;*/
+			color:#fff;
+		}
+.shopAdminLoginBox{
+	width:80%;
+	height:521px;
+	margin:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	overflow:hidden;
+	min-width:980px;
+    z-index: 2;
+}
+.shopAdminLoginBox-left,.shopAdminLoginBox-right{
+	display:inline-block;
+	vertical-align:top;
+	overflow:hidden;
+}
+.shopAdminLoginBox-left{
+	width:48%;
+	height:100%;
+}
+.shopAdminLoginBox-left img{
+	width:100%;
+	height:100%;
+}
+.shopAdminLoginBox-right{
+	width: 40%;
+	background-color: #808080;
+	padding: 40px 56px;
+	height: 84.5%;
+}
+.shopAdminLoginBox-right h2{
+	font-size:260%;
+	font-weight:bold;
+	text-align:center;
+	margin-bottom:80px;
+    text-indent: 72px;
+}
+.shopAdminLoginBox-right p{
+	width:100%;
+	font-weight:bold;
+	font-size:130%;
+	height:40px;
+	margin-bottom:20px;
+}
+.shopAdminLoginBox-right p label{
+	display:inline-block;
+	width:30%;
+	text-align:right;
+	height:100%;
+}
+.shopAdminLoginBox-right p input{
+	display:inline-block;
+	width:55%;
+	border:1px solid #fff;
+	color:#322f2f;
+	background-color:#fff;
+	height:100%;
+	padding-left:8px;
+	border-radius:4px;
+}
+/*输入框提示语字体颜色*/
+　::-webkit-input-placeholder { /* WebKit browsers */
+
+　　color:#808080;
+	font-size:115%;
+　　}
+
+　　:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+
+　　color:#808080;
+	font-size:115%;
+　　}
+
+　　::-moz-placeholder { /* Mozilla Firefox 19+ */
+
+　　color:#808080;
+	font-size:115%;
+　　}
+
+　　:-ms-input-placeholder { /* Internet Explorer 10+ */
+
+　　color:#808080;
+	font-size:115%;
+　　}
+.shopAdminLoginBox-right .shopAdminLoginBox-right-remember{
+	width:69%;
+
+}
+.shopAdminLoginBox-right .shopAdminLoginBox-right-remember input{
+	visibility:hidden;
+	position:absolute;
+}
+.shopAdminLoginBox-right .shopAdminLoginBox-right-remember label{
+	width:24px;
+	height:24px;
+	border:2px solid #fff;
+	border-radius:4px;
+	background-color:transparent;
+}
+.shopAdminLoginBox-right .shopAdminLoginBox-right-remember label+b{
+	display:inline-block;
+	height:24px;
+	line-height:29px;
+	vertical-align:top;
+    margin-left: 10px;
+}
+.shopAdminLoginBox-right-remember input:checked + label{
+	background:url("../cmmImg/gouxuan.png") center;
+}
+.shopAdminLoginBox-right p:last-child{
+	/*width:55%;*/
+
+}
+.shopAdminLoginBox-right p:last-child input{
+	/*width:100%;*/
+	background-color:#ff6c60;
+	border-color:#ff6c60;
+	margin-left:31%;
+	color:#fff;
+	font-size:16px ;
+	font-weight:bold;
+	letter-spacing:4px;
+}
+.shopAdminLoginBg{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}

@@ -1,0 +1,222 @@
+<extend name="Common/projectCom" />
+<block name="center" >
+	<div id="kbMt_center" class="kbMt_center">
+		<div id="firstBanner" class="swiper-container">
+	        <ul class="swiper-wrapper">
+	        <!-- 推荐动态 -->
+	        <foreach name="posterHead" item="v" >
+	            <li class="swiper-slide bc mb10 kbMt_banner">
+		          	<a href="{{$v.web_link}}" newsId="{{$v.id}}" onclick="newsStatistics(this)">
+		          		<img src="__PUBLIC__{{$v.news_logo}}" alt="大图" width="500" />
+		          	</a>
+	            </li>
+	        </foreach>
+	           <!-- 推荐动态 -->
+	        </ul>
+	        <div class="swiper-pagination banner-pagination mb10"></div>
+	        <script>
+	        
+				var swiper = new Swiper('#firstBanner', {
+		            autoplay:5000,//可选选项，自动滑动
+		            pagination: '.swiper-pagination',
+		        
+		        });
+				
+				function newsStatistics(obj) 
+				{
+	        		$.get("{{:U('Index/ajaxControl')}}", {flag: 'indexTypeClickStatistics',statistics_type:1},function(res){
+	        			console.log(res);
+	        		});
+				}
+
+			</script>
+	    </div>
+	    <!-- index first Banner -->
+	    <div id="focusWap" class="kbMt_classNav mb10  swiper-container">
+		    <nav class="kbMt_classHref swiper-wrapper kbMt_font17">
+			<foreach name="classify" item="v">
+		    	<a class=" swiper-slide" href="javascript:;" classifyId="{{$v.id}}" onclick="showGoodsList(this)">{{$v.classify_name}}</a>
+		    </foreach>
+		    </nav>
+		     <script>
+				var lengths=$('.kbMt_classHref a').length;
+		     	var slidesPerView=(lengths>3)? 3.5:lengths;
+			    var swiper = new Swiper('#focusWap', {
+			        slidesPerView: slidesPerView,
+			        paginationClickable: true,
+			        freeMode: true
+			    });
+			</script>
+	    </div>
+	    <!-- index first Banner end -->
+	    <!-- 商品列表开始 -->
+
+	    <div id="goodsList">
+	    <empty name="goodsList" >
+	    	<center><span style="font-size:20px;color:#B2377F">此分类赞未推荐商品</span></center>
+	    </empty>
+		    <foreach name="goodsList" item="v" >
+				<div class="bc mb10 kbMt_goodsBrief">
+					<a href="{{$v['web_link']}}" onclick="goodsStatistics(this)" goodsId="{{$v['id']}}"><img src="__PUBLIC__{{$v.goods_logo}}" alt="大图" />
+					<div class="goodsBrief-info kbMt_fontCr-fdf7ee">
+						<h3 class="kbMt_font16">{{$v.goods_name}}</h3>
+						<if condition="!empty($v['price']) AND ($v['price'] neq 0)" >
+						<p>￥：{{$v.price}}</p>
+						</if>
+					</div>
+					</a>
+				</div>
+			</foreach>
+	    </div>
+		<!-- 商品列表结束 -->
+
+		<!-- secondBanner start -->
+		<div  id="secondBanner" class="swiper-container focusWap  ADleft1">
+		        <ul class="swiper-wrapper">
+		        	<foreach name="posterTop" item="v" >
+			            <li class="swiper-slide bc mb10 kbMt_banner2 ">
+				          	<a href="http://{{$v.poster_url}}" onclick="posterStatistics(this)" statistics_type="3" posterId="{{$v.id}}">
+				          		<img src="__PUBLIC__{{$v.poster_pic}}" alt="大图" />
+				          	</a>
+			            </li>
+		            </foreach>
+		        </ul>
+		        <div class="swiper-pagination banner-pagination mb10"></div>
+		         <script>
+					 var swiper = new Swiper('#secondBanner', {
+			            autoplay:5000,//可选选项，自动滑动
+			            pagination: '.swiper-pagination',
+			        
+			        });
+
+					
+				</script>
+	    </div>
+	  	<!-- secondBanner end -->
+			<h1 class="kbMt_bigTitle kbMt_bc-ffeeca kbMt_font16">
+			<p class="kbMt_fontCr-fff kbMt_bc-000 kbMt_icon-aboutJob">合作伙伴</p>
+			</h1>
+			<foreach name="featureShop" item="v">
+				<div class="bc mb10 kbMt_goodsBrief">
+					<a href="http://{{$_SERVER['HTTP_HOST']}}/{{$v.web_postfix}}" onclick="companyStatistics(this)" ><img src="__PUBLIC__{{$v.bgpic}}" alt="大图" />
+					<div class="goodsBrief-info kbMt_fontCr-fdf7ee">
+						<h3 class="kbMt_font16">{{$v.company_name}}</h3>
+						<p>店铺地址：{{$v.address_info}}</p>
+					</div>
+					</a>
+				</div>
+			</foreach>
+			<script type="text/javascript">
+				function companyStatistics(obj) 
+				{
+	        		$.get("{{:U('Index/ajaxControl')}}", {flag: 'indexTypeClickStatistics',statistics_type:4},function(res){
+	        			console.log(res);
+	        		});
+				}
+			</script>
+		<!-- thirdBanner start -->
+		<div id="thirdBanner" class="swiper-container focusWap">
+	        <ul class="swiper-wrapper">
+            <foreach name="posterFoot" item="v" >
+	            <li class="swiper-slide bc mb10 kbMt_banner2 ">
+		          	<a href="http://{{$v.poster_url}}" onclick="posterStatistics(this)" statistics_type="5" posterId="{{$v.id}}">
+		          		<img src="__PUBLIC__{{$v.poster_pic}}" alt="大图" />
+		          	</a>
+	            </li>
+            </foreach>
+	        </ul>
+	        <div class="swiper-pagination banner-pagination mb10"></div>
+			<script>
+					 var swiper = new Swiper('#thirdBanner', {
+			            autoplay:5000,//可选选项，自动滑动
+			            pagination: '.swiper-pagination',
+			        
+			        });
+
+			</script>
+		 </div>
+		 <!-- thirdBanner end -->
+		<h1 class="kbMt_bigTitle kbMt_bc-ffeeca kbMt_font16">
+			<p class="kbMt_fontCr-fff kbMt_bc-000 kbMt_icon-aboutJob">联盟活动</p>
+		</h1>
+		<!-- action start -->
+		<div class="kbMt_action mb10 swiper-container">
+			<ul class="swiper-wrapper mt10">
+			<foreach name="activityList" item="v" >
+				<li class="swiper-slide">
+				<a href="{{:U('Activity/activityDetail',['id' => $v['id']])}}" onclick="activityStatistics(this)" activityId="{{$v.id}}">
+					<p class="kbMt_action-img">
+						<img src="__PUBLIC__{{$v.activity_cover}}" alt="活动封面图">
+					</p>
+					<h3>主题:{{$v.activity_name}}</h3>
+					<span>时间:{{:date('Y-m-d', $v['start_time'])}}-{{:date('Y-m-d', $v['end_time'])}}</span>
+				</a>
+				</li>
+			</foreach>
+			</ul>
+			 <script>
+			    var swiper = new Swiper('.kbMt_action', {
+			        slidesPerView: 'auto',
+			        paginationClickable: true,
+			        spaceBetween: 20,
+			        freeMode: true
+			    });
+			    $(function(){
+			    	$('.kbMt_classHref a:first-child').addClass('selected');
+			    })
+			    function showGoodsList(obj)
+    			{
+    				$(obj).siblings('.selected').removeClass('selected');
+    				$(obj).addClass('selected');
+    				$.get('{{:U("Index/ajaxControl")}}',{flag:'showGoodsFromClassify',market_classify_id:$(obj).attr('classifyId')},function (res){
+    					if (res) 
+    					{
+	    					var str = '';
+	    					var goodsprice = '';
+	    					for(var k in res)
+	    					{
+	    						if (res[k].price != 0 && res[k].price == '') 
+	    						{
+	    							goodsprice = '<p>￥：'+ res[k].price +'</p>';
+	    						}
+	    						str += '<div class="bc mb10 kbMt_goodsBrief"><a href="'+ res[k].web_link +'" onclick="goodsStatistics(this)" goodsId="'+res[k].id+'"><img src="__PUBLIC__'+ res[k].goods_logo +'" alt="大图" /><div class="goodsBrief-info kbMt_fontCr-fdf7ee"><h3 class="kbMt_font16">'+ res[k].goods_name +'</h3>'+ goodsprice +'</div></a></div>';
+	    					}
+	    					$('#goodsList').html(str);
+    					}else{
+    						str = '<center><span style="font-size:20px;color:#B2377F">此分类赞未推荐商品</span></center>';
+    						$('#goodsList').html(str);
+    					}
+    				});
+    			}
+
+    			function activityStatistics(obj) 
+				{
+
+	        		$.get("{{:U('Index/ajaxControl')}}", {flag: 'indexTypeClickStatistics',statistics_type:6},function(res){
+	        			console.log(res);
+	        		});
+				}
+
+    			function goodsStatistics(obj) 
+				{
+
+	        		$.get("{{:U('Index/ajaxControl')}}", {flag: 'indexTypeClickStatistics',statistics_type:2},function(res){
+	        			console.log(res);
+	        		});
+				}
+				
+				function posterStatistics(obj) 
+				{
+				 	$.get("{{:U('Index/ajaxControl')}}", {flag: 'otherVisitStatistics',type:'poster',id:$(obj).attr('posterId')},function(res){
+	        			console.log(res);
+	        		});
+
+	        		$.get("{{:U('Index/ajaxControl')}}", {flag: 'indexTypeClickStatistics',statistics_type:$(obj).attr('statistics_type')},function(res){
+	        			console.log(res);
+	        		});
+				}
+			</script>
+		</div>
+		<!-- action end -->
+	</div><!--center end-->
+</block>

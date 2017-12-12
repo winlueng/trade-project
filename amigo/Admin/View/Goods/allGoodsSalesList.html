@@ -1,0 +1,215 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="couponTrade_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead authAddBtn ">
+					<div  class="kbVipAdmin_tableHead authAddBtn ">
+						<div class="kbVipAdmin_styledSelect">
+						<form>
+							<select class="kbVipAdmin_slt pl20" name="market_classify_id">
+								<option value="">--请选择区域--</option>
+								<foreach name="classifyList" item="v">
+									<option value="{{$v['id']}}">{{$v.classify_name}}</option>
+								</foreach>
+							</select>
+							<input type="submit" name="" value="查询">
+						</form>
+					</div>
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>产品名称</th>
+							<th>店铺名称</th>
+							<th>区域</th>
+							<th>行业</th>
+							<th>热度统计</th>
+							<th>截止时间</th>
+							<th>所属分类</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<empty name="list">
+						<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td></tr>
+						<else />
+						<foreach name="list" item="v">
+							<tr>
+								<td>{{$v.id}}</td>
+								<td>{{$v.goods_name}}</td>
+								<td>{{$v.company_name}}</td>
+								<td>{{$v.region}}</td>
+								<td>{{$v.business}}</td>
+								<td>{{$v.visit_staticis}}</td>
+								<td>{{:date('Y-m-d', $v['sales_end_time'])}}</td>
+								<td>{{$v.market_classify_info.classify_name}}</td>
+								<!-- <td class="microWebMenuAdmin">
+									<p class="MenuAdminBox mb10 bc">
+										<input  name="microWebMenuAdmin" type="radio" checked="checked" />
+										
+										<label ><i></i><b>启用</b></label>
+									</p>
+									<p class="MenuAdminBox bc">
+										<input   name="microWebMenuAdmin" type="radio" />
+										
+										<label ><i></i><b>禁用</b></label>
+									</p>
+								</td> -->
+								<td>
+									<div class="kbVipAdmin_btnMenuBox bc">
+										<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_btnMenuTOP" type="button" value="&#xe601;&nbsp;置顶" />
+										<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_btnMenuEdit" type="button" value="&#xe601;&nbsp;编辑" />
+										<input class="adminFont kbVipAdmin_btnMenu kbVipAdmin_btnMenuDel" type="button" value="&#xe606;&nbsp;删除" />
+										<!-- <input class="adminFont kbVipAdmin_btnMenu lookList" type="button" value="&#xe625;&nbsp;详情" /> -->
+										<a class="adminFont kbVipAdmin_btnMenu lookWeb"  herf="javascript:;" target="_Blank" >&#xe714;&nbsp;预览 
+										</a>
+									</div>
+								</td>
+							</tr>
+						</foreach>
+						</empty>	
+					</tbody>
+				</table>
+			</div>
+			<div class="kbAdmin_page">
+				{{$page}}		
+			</div>
+		</div>
+	</div>
+	<!-- <div class="kbVipAdmin_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>推荐商品详情</h2>
+			<div class="microWebAnnalAmendList">
+				<p class="microWebAnnalAmendText">
+					<b>店铺名称：</b>玛莎酒吧
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品名称：</b>玛莎啤酒
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品链接：</b>http://www.gdkbvip.com
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>店铺区域：</b>1楼-C区
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>行业：</b>餐饮
+				</p>
+				<p class="microWebAnnalAmendText">
+					<b>产品封面图：</b>
+					<div class="businessFileImgList">
+						<img src="images/21.jpg" alt=""/>
+					</div>
+				</p>
+
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn microWebAnnal">
+				<input class="adminFont kbVipAdmin_btnMenu" type="button" value="&#xe714;&nbsp;预览" />
+			</p>
+		</div> -->
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.lookList').on('click',function(){
+				$('.kbVipAdmin_alert').fadeIn()
+			})
+			$('.kbVipAdmin_btnMenuDel').on('click',function(){
+				var $this =$(this);
+				var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					ajaxBranch:'Confirm',
+					params:{
+						flag:'passOrRefuse',
+						goods_type:4
+					}
+				},function(ren){
+					operatingTip(ren);
+					if(ren="操作成功") $this.parents('tr').remove();
+
+				})
+			})
+			$('.kbVipAdmin_btnMenuTOP').on('click',function(){
+				var $this=$(this);
+				var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+				jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+					params:{
+						flag:'setControlTimeToTop',
+					}
+				},function(ren){
+					operatingTip(ren);
+				})
+			})
+			$('.kbVipAdmin_btnMenuEdit').on('click',function(){
+				var $this=$(this);
+					var ID=$this.parents('tr').children('td').eq(0).text().trim();
+					var actionURL="{{:U('Goods/ajaxControl')}}";
+					var htmlText='<form id="microWebAnnalYes" action="'+actionURL+'" method="get" enctype="multipart/form-data">'
+						htmlText+='<p><span>选择分类</span>'
+						htmlText+='<select class="market_classify_id" name="market_classify_id" required="required"><option value="">请选择产品分类</option>'
+							 $.ajax({
+						   	 	type: "get",
+						   	 	async: false,
+						   	 	dataType: "json",
+						   	 	url: '{{:U("Goods/ajaxControl")}}',
+						   	 	data: {'flag':"marketClassifyList"},
+						   	 	success: function(response) {
+						   	 		console.log(response)
+						   	 		for( r in response){
+						   	 			if(parseInt(response[r].parent_id)===0){
+						   	 				htmlText+='<option value="'+response[r].id+'">'+response[r].classify_name+'</option>'
+						   	 			}
+						   	 		}
+						   	 	},
+						   	 	error: function() {
+						   	 		htmlText+='<option>没有产品分类</option>'
+						   	 	}
+					   	 	});
+						htmlText+='</select></p>'
+						htmlText+='<p><span>结束时间</span><input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="sales_end_time" placeholder="结束时间" readonly="" required="required" onclick="jeDateTime(this,\'end\')"/></p>'
+						htmlText+=''
+					animationAlert({
+			            alertContent:htmlText,
+			            alertHide:'alertShow',
+			        },function(ren){
+
+			        	var $classify_id;
+			        	var $sales_end_time;
+			        	$('.dlAlert select[name=market_classify_id]').on('blur',function(){
+			        		$classify_id=$(this).children('option:selected').val();
+			        		console.log($classify_id);
+
+			        	})
+			        	$('.dlAlert input[name=sales_end_time]').on('change',function(){
+			        		$sales_end_time=$(this).val();
+			        	})
+			        	if(ren){
+
+			        		var data1={
+			        			flag:"passOrRefuse",
+			        			id:ID,
+			        			market_classify_id:$('.dlAlert select.market_classify_id').children('option:selected').val(),
+			        			sales_end_time:$('.dlAlert input[name=sales_end_time]').val(),
+			        			goods_type:2
+			        		}
+			        		$.get(actionURL,data1,function(res){
+			        			if(res=="操作成功"){
+				        			operatingTip(res+"，<b style='color:red;font-size:1.2em'>请重新刷新页面<b/>");
+			        			}
+			        			
+							 });
+			        	}
+			        })
+			});
+
+
+		})
+	</script>
+</block>

@@ -1,0 +1,641 @@
+<extend name="Common/secondCom" />
+<block name="leftNav">
+	<if condition="$_GET['back']">
+		
+			<a class="icon-back" href="{{:U('orderList',['companyName' => $_GET['companyName'],'show' => 0])}}"></a>
+		
+	</if>
+	<if condition="(!$_GET['back']) AND (!$_GET['refund'])" >
+		
+			<a class="icon-back" href="{{$_SERVER['HTTP_REFERER']}}"></a>
+		
+	</if>
+	<if condition="$_GET['refund']">
+		
+			<a class="icon-back" href="{{:U('refundList',['companyName' => $_GET['companyName'],'show' => 5])}}"></a>
+		
+	</if>
+</block>
+<block name="bsTitle">
+	订单详情
+</block>
+
+<block name="content" >
+	<section id="bsMain" class="bsGoods bsBuyShop">
+		<if condition="($info['pay_status'] eq 0) AND ($info['status'] eq 0)" >
+			<if condition="((($info['create_time']+172800)-time()) gt 0)">
+				<article class="urlBlock icon-detailcolor">
+					<p>
+						<b>等待买家付款</b>
+					</p>
+					<p>剩{{:turnDistanceTime(($info['create_time']+172800))}}自动关闭</p>
+				</article>
+			<else />
+				<article class="urlBlock icon-detailcolor">
+					<p>
+						<b>订单超时已关闭</b>
+					</p>
+				</article>
+			</if>
+			<p class="bsSeparate"></p>
+		</if>
+		<if condition="($info['is_send_out'] eq 1) AND ($info['status'] eq 2)" >
+			<article class="urlBlock icon-detailcolor">
+				<!-- <a href="javascript:;"> -->
+				<p>
+					<b>待确认收货</b>
+				</p>
+				<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+				<!-- </a> -->
+			</article>
+			<p class="bsSeparate"></p>
+		</if>
+		<switch name="info.status" >
+			<case value="1" >
+				<article class="urlBlock icon-detailcolor">
+					<p>
+						<b>订单已取消</b>
+					</p>
+					<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+				</article>
+				<p class="bsSeparate"></p>
+			</case>
+			<case value="3" >
+				<article class="urlBlock icon-detailcolor">
+					<p>
+						<b>交易已关闭</b>
+					</p>
+					<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+				</article>
+				<p class="bsSeparate"></p>
+			</case>
+			<case value="4" >
+				<article class="urlBlock icon-detailcolor">
+					<p>
+						<b>交易已完成</b>
+					</p>
+					<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+				</article>
+				<p class="bsSeparate"></p>
+				<article class="receiptShopAddr">
+					<a href="{{:U('Express/showExpressInfo', ['companyName' => $_GET['companyName'], 'id' => $info['id']])}}">
+					<p>
+						<b>物流详情</b><br>
+						<b>快递公司 : {{$info['express']['name']}}</b><br>
+						<b>快递单号 : {{$info['express']['LogisticCode']}}</b>
+					</p>
+					<p>{{$info['express']['expressLast']['AcceptTime']}}</p>
+					<p>{{$info['express']['expressLast']['AcceptStation']}}</p>
+					</a>
+				</article>
+				<p class="bsSeparate"></p>
+			</case>
+			<case value="5">
+				<article class="urlBlock icon-detailcolor">
+					<p>
+						<b>申请退款中</b>
+					</p>
+					<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+				</article>
+				<p class="bsSeparate"></p>
+			</case>
+			<case value="6">
+				<article class="urlBlock icon-detailcolor">
+				<p>
+					<b>退款已处理</b>
+				</p>
+				<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+			</article>
+			<p class="bsSeparate"></p>
+			</case>
+			<case value="7">
+				<article class="urlBlock icon-detailcolor">
+				<p>
+					<b>退款被拒绝</b>
+				</p>
+				<!-- <p>您已确认收货，写下你对产品的评价吧</p> -->
+			<p class="bsSeparate"></p>
+			</article>
+			</case>
+		</switch>
+		<if condition="($info['is_send_out'] eq 2) AND ($info['status'] eq 2)" >
+			<article class="urlBlock icon-detailcolor">
+				<p>
+					<b>待评价</b>
+				</p>
+				<p>您已确认收货，写下你对产品的评价吧</p>
+			</article>
+			<p class="bsSeparate"></p>
+			<article class="urlBlock icon-detailcolor">
+				<a href="{{:U('Express/showExpressInfo', ['companyName' => $_GET['companyName'], 'id' => $info['id']])}}">
+				<p>
+					<b>物流详情</b><br>
+					<b>快递公司 : {{$info['express']['name']}}</b><br>
+					<b>快递单号 : {{$info['express']['LogisticCode']}}</b>
+				</p>
+					<p>{{$info['express']['expressLast']['AcceptTime']}}</p>
+					<p>{{$info['express']['expressLast']['AcceptStation']}}</p>
+				</a>
+			</article>
+			<p class="bsSeparate"></p>
+		</if>
+		<if condition="($info['is_send_out'] eq 0) AND ($info['status'] eq 2)" >
+			<article class="urlBlock icon-detailcolor">
+				<!-- <a href="javascript:;"> -->
+				<p>
+					<b>等待卖家发货</b>
+				</p>
+				<p>请耐心等待哦</p>
+				<!-- </a> -->
+			</article>
+			<p class="bsSeparate"></p>
+		<elseif condition="($info['is_send_out'] eq 1) AND ($info['status'] eq 2)"/>
+			<article class="urlBlock icon-detailcolor">
+				<a href="{{:U('Express/showExpressInfo', ['companyName' => $_GET['companyName'], 'id' => $info['id']])}}">
+				<p>
+					<b>物流详情</b><br>
+					<b>快递公司 : {{$info['express']['name']}}</b><br>
+					<b>快递单号 : {{$info['express']['LogisticCode']}}</b>
+				</p>
+				<p>{{$info['express']['expressLast']['AcceptTime']}}</p>
+				<p>{{$info['express']['expressLast']['AcceptStation']}}</p>
+				</a>
+			</article>
+			<p class="bsSeparate"></p>
+		</if>
+		<if condition="($info['address_id']) AND ($info['status'] eq 0)" >
+			<article class="receiptShopAddr ">
+				<a href="{{:U('addressList', ['companyName' => $_GET['companyName'],'order' => $_GET['id']])}}">
+				<p>
+					<b>{{$address.consignee}}</b>
+					<b>{{$address.phone}}</b>
+				</p>
+				<p>{{$address.address_str}}</p>
+				</a>
+			</article>
+			<p class="bsSeparate"></p>
+		<elseif condition="($info['status'] gt 1) AND ($info['status'] lt 3)"/>
+			<article class="receiptShopAddr ">
+				<p>
+					<b>{{$address.consignee}}</b>
+					<b>{{$address.phone}}</b>
+				</p>
+				<p>{{$address.address_str}}</p>
+			</article>
+			<p class="bsSeparate"></p>
+		<elseif condition="($info['status'] eq 1) AND (!$info['address_id'])"/> 
+			<article class="receiptShopAddr">
+				<a href="{{:U('VisitorAddress/addressAdd', ['companyName' => $_GET['companyName'],'order' => $_GET['id']])}}">
+				<p>
+					<b>哎哟,你好像忘记添加地址了,现在就去设置好吗?</b>
+				</p>
+				</a>
+			</article>
+			<p class="bsSeparate"></p>
+		</if>
+		<ul class=" bsReservationList  bc mb10 mt10">
+		<volist name="info.goods_data" id="v">
+			<li>
+				<p class="reservationListImg">
+					<a href="{{$v.link}}"> 
+					<img src="__PUBLIC__{{$v.attrInfo.attr_pic}}" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo">
+					<h3 class="mb10">{{$v.goods_name}}</h3>
+					<p class="mb10 c666">{{$v.attrInfo.attr_name}}：{{$v.attrInfo.attr_val}}</p>
+					<article>
+						<em class="c999">￥{{$v.price}}</em>
+						<p class="changeNumber tr">
+							x {{$v.total}}
+						</p>
+					</article>
+				</article>
+			</li>
+		</volist>
+
+		</ul>
+		<p class="bsSeparate"></p>
+		<article>
+			<em >商品总价</em>
+			<em class="fr">￥{{$info.total}}</em>
+		</article>
+		<article>
+			<em >订单编号</em>
+			<em class="fr">{{$info.order_number}}</em>
+		</article>
+		<article>
+			<em >运费:</em>
+			<if condition="info.express_price">
+			<em class="fr">￥{{$info.express_price}}</em>
+			<else />
+			<em class="fr">卖家承担运费</em>
+			</if>
+		</article>
+		<article>
+			<em >订单总价</em>
+			<em class="fr" style="font-size: 18px; color: #dd6549">￥{{$info['total'] + $info['express_price']}}</em>
+		</article>
+		<article>
+			<em >创建时间</em>
+			<em class="fr">{{:date('Y-m-d H:i:s', $info['create_time'])}}</em>
+		</article>
+		<if condition="$info['status'] eq 3" >
+		<article>
+			<em >交易关闭原因</em>
+			<em class="fr">{{$info['admin_remark']}}</em>
+		</article>
+		</if>
+		<!-- <article class="mb10">
+			<em>商家优惠</em>
+			<b class="c999 fr">	-￥1.00</b>
+		</article> -->
+
+		<article class="sendMssage">
+			<label >交易备注:</label>
+			<p class="mt10" >{{$info.visitor_remark}}</p>
+		</article>
+		<p class="bsSeparate"></p>
+		<if condition="$info['status'] eq 5" >
+			<article class="sendMssage">
+				<label >退款原因:</label>
+				<p class="mt10" >{{$info.refund_remark}}</p>
+			</article>
+		</if>
+		
+		<if condition="$info['status'] eq 6" >
+			<article class="sendMssage">
+				<label >退款原因:</label>
+				<p class="mt10" >{{$info.refund_remark}}</p>
+			</article>
+			<article class="sendMssage">
+				<label >同意备注:</label>
+				<p class="mt10">同意退款</p>
+			</article>
+		</if>
+		<if condition="$info['status'] eq 7" >
+			<article class="sendMssage">
+				<label >退款原因:</label>
+				<p class="mt10" >{{$info.refund_remark}}</p>
+			</article>
+			<article class="sendMssage">
+				<label >拒绝原因:</label>
+				<p class="mt10">{{$info.refuse_remark}}</p>
+			</article>
+		</if>
+	</section>
+</block>
+<block name="footer">
+	
+
+	<footer id="bsFooter" class="defaultFooter bsFooter" data-orderID="{{$info.id}}">
+		<switch name="info.status" >
+			<case value="0" >
+				<if condition="((($info['create_time']+172800)-time()) gt 0)">
+					<p>
+						<input class="cancelOrder defineBtn mr10 btnColorFFF bc" type="button" value="取消订单" />
+					</p>
+					<p>
+						<input class="defineBtn btnColor00bec5 bc" id="pay" type="button" value="确认支付" />
+					</p>
+				</if>
+			</case>
+			<case value="1" >
+				<p>
+					<input class="defineBtn mr10 btnColorFFF bc" type="button" value="交易已取消" />
+				</p>
+			</case>
+			<case value="2" >
+				<if condition="$info['is_send_out'] eq '0'" >
+					<p>
+						<input class="defineBtn mr10 btnColorFFF bc returnMoney" type="button" value="退款" />
+					</p>
+					<!-- <p>
+						<input class="defineBtn btnColor00bec5 bc" type="button" value="确认收货" />
+					</p> -->
+				<elseif condition="$info['is_send_out'] eq '1'" />
+					<p>
+						<input class="defineBtn mr10 btnColorFFF bc returnMoney" type="button" value="退款" />
+					</p>
+					<p>
+						<input class="affirmGoods defineBtn btnColor00bec5 bc" type="button" value="确认收货" />
+					</p>
+				<elseif condition="$info['is_send_out'] eq '2'" />
+					<p>
+						<input class="defineBtn mr10 btnColorFFF bc returnMoney" type="button" value="申请售后" />
+					</p>
+					<p>
+						<a class="defineBtn mr10 btnColorFFF bc  " href="{{:U('GoodsComment/commentIns', ['companyName' => $_GET['companyName'], 'id' => $info['id']])}}">去评价</a>
+					</p>
+				</if>
+			</case>
+		</switch>
+		
+	</footer>
+	<!-- 退款原因 -->
+	<div class="bsAlert returnMoneyAlert">
+		<div class="alertCover CoverBc999"></div>
+		<form action="" method="post">
+		<div class="AlertBox" style="height:280px">
+			<h2>退款/售后原因</h2>
+			<button type="button" class="alertClose"></button>
+			<div class="alertContent">
+				<ul class="optionCard">
+					<li>
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" name="drawback_remark" value="协商一致退款" />
+								<label class=""></label>
+							</span>
+						</p>
+
+						<p>协商一致退款</p>
+					</li>
+					<li>
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" name="drawback_remark" value="拍错/多拍/不想要" />
+								<label class=""></label>
+							</span>
+						</p>
+						<p>拍错/多拍/不想要</p>
+					</li>
+					<li>
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" name="drawback_remark" value="货物损坏了" />
+								<label class=""></label>
+							</span>
+						</p>
+						<p>货物损坏了</p>
+					</li>
+					<li class="other">
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" name="drawback_remark" value="" />
+								<label class=""></label>
+							</span>
+						</p>
+						<p>其他</p>
+						<p class="otherArea">
+							<textarea placholder="请认真填写..."></textarea>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="alertFooter">
+				<p><input class="cancel" type="button" value="取消" /></p>
+				<p><input class="determine" type="button" value="确认" /></p>
+			</div>
+			</div>
+		</form>
+		</div>
+	</div>
+	<!-- 取消订单 -->
+	<div class="bsAlert cancelOrderAlert">
+		<div class="alertCover CoverBc999"></div>
+		<div class="AlertBox" style="height:270px">
+			<h2>取消订单</h2>
+			<button type="button" class="alertClose"></button>
+			<div class="alertContent">
+				<ul class="optionCard">
+					
+					<li>
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" value="拍错/多拍/不想要"  name="a" />
+								<label class=""></label>
+							</span>
+						</p>
+						<p>拍错/多拍/不想要</p>
+					</li>
+					<li>
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" value="线下交易了"  name="a" />
+								<label class=""></label>
+							</span>
+						</p>
+						<p>线下交易了</p>
+					</li>
+					<li class="other">
+						<p>
+							<span class="choose chooseGoods roundChoose">
+								<input type="radio" value=""  name="a" />
+								<label class=""></label>
+							</span>
+						</p>
+						<p>其他</p>
+						<p class="otherArea">
+							<textarea placholder="请认真填写..."></textarea>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="alertFooter">
+				<p><input class="cancel" type="button" value="取消" /></p>
+				<p><input class="determine" type="button" value="确认" /></p>
+			</div>
+		</div>
+	</div>
+		
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script>
+		$(function(){
+			$('.Popout .icon-close,.Popout .popoutMask').on('click',function(){
+				$('.Popout').slideUp();
+			});
+		});
+	</script>
+	<script>
+		$(function(){
+			$('.refund').on('click',function(){
+				$('.Popout').slideDown();
+			})
+
+			$('#pay').on('click',function(){
+				var $this = $(this);
+				$.get("{{:U('ajaxControl')}}",{
+					flag:'createAdvance',
+					id:'{{:I("get.id")}}',
+					companyName:'{{$_GET["companyName"]}}'
+				},function (result) {
+					if(!result){
+						alert('因库存不足或订单关闭原因, 交易已关闭');
+					}else if(result == 2){
+						alert('请设置好收货地址');
+					}else{
+						showPay(result);
+					}
+				})
+			});
+
+
+			// 订单退款
+			$('.returnMoney').on('click',function(){
+				/*var url = "{{:U('orderForm/orderApplicationForDrawback', ['companyName' => $_GET['companyName'], 'id' => $info['id']])}}";
+				$('.returnMoneyAlert form').attr('action', url);
+				*/
+				$('.returnMoneyAlert').fadeIn();
+				var _this=$(this),
+					orderID=_this.parents('[data-orderID]').attr('data-orderID').trim();
+				$('.returnMoneyAlert .optionCard li  .roundChoose input').on('click',function(){
+					var $this=$(this);
+						checkedStatus=$this.is(":checked");
+						hasOther=$this.parents('li').hasClass('other'),
+						otherArea= $('.returnMoneyAlert .otherArea').children('textarea'),
+						drawback_remark='';
+						console.debug(hasOther);
+						if(hasOther){
+							otherArea.fadeIn();
+							
+						}else{
+							otherArea.fadeOut();
+							
+						}
+						$('.returnMoneyAlert .determine').on('click',function(){
+							if(hasOther){
+							 drawback_remark=otherArea.val();
+
+							}else{
+								drawback_remark=$this.val();
+							}
+
+							if(drawback_remark.length==0){Alert('请选择或者填写退款理由'); return false; }
+							console.log(drawback_remark);
+							
+							$.get('{{:U("OrderForm/ajaxControl")}}',{
+								flag:'orderApplicationForDrawback',
+								id:orderID,
+								drawback_remark:drawback_remark,
+								companyName:"{{$_GET['companyName']}}"
+							},function(res){
+								// console.log()
+								if(res){
+									sTip('操作成功')
+								}else{
+									eTip('操作失败')
+								}
+							}).fail(function(){
+								eTip('操作失败!')
+							})
+							$('.returnMoneyAlert').fadeOut();
+						})
+					
+				})
+			});
+
+			/*确认收货*/
+			$('.affirmGoods').on('click',function(){
+				var $this=$(this),
+					orderID=$this.parents('[data-orderID]').attr('data-orderID').trim();
+					console.log(orderID);
+				$.get('{{:U("OrderForm/ajaxControl")}}',{
+					flag:'receiving',
+					id:orderID,
+					companyName:"{{$_GET['companyName']}}"
+				},function(res){
+					
+					if(res){
+						sTip('操作成功')
+					}else{
+						eTip('操作失败')
+					}
+				}).fail(function(){
+					eTip('操作失败!')
+				})	
+			});
+
+			// 取消订单
+			$('.cancelOrder').on('click',function(){
+				$('.cancelOrderAlert').fadeIn();
+				var _this=$(this),
+					orderID=_this.parents('[data-orderID]').attr('data-orderID').trim();
+				$('.cancelOrderAlert .optionCard li  .roundChoose input').on('click',function(){
+					var $this=$(this);
+						checkedStatus=$this.is(":checked");
+						hasOther=$this.parents('li').hasClass('other'),
+						otherArea= $this.parents('p').siblings('.otherArea').children('textarea'),
+						cancel_remark='';
+						if(hasOther){
+							otherArea.fadeIn();
+						}else{
+							otherArea.fadeOut();
+						}
+						$('.cancelOrderAlert .determine').on('click',function(){
+							if(hasOther){
+							 	cancel_remark=otherArea.val();
+							}else{
+								cancel_remark=$this.val();
+							}
+						
+							if(cancel_remark.length==0){Alert('请选择或者填写取消订单理由'); return false; }
+
+							$.get('{{:U("OrderForm/ajaxControl")}}',{
+								flag:'orderCancel',
+								id:orderID,
+								cancel_remark:cancel_remark,
+								companyName:"{{$_GET['companyName']}}"
+							},function(res){
+								// console.log()
+								if(res){
+									sTip('操作成功')
+								}else{
+									eTip('操作失败')
+								}
+							}).fail(function(){
+								eTip('操作失败!')
+							})
+							$('.cancelOrderAlert').fadeOut();
+						})
+				})
+			});
+
+		});
+
+
+		function onBridgeReady(info){
+
+			var data = JSON.parse(info);
+
+		   	WeixinJSBridge.invoke(
+		       'getBrandWCPayRequest', {
+		       		"appId":data.appId,
+		       		"timeStamp":data.timeStamp,
+		       		"nonceStr":data.nonceStr,
+		       		"package":data.package,
+		       		"signType":data.signType,
+		       		"paySign":data.paySign
+		       	},
+		       	function(res){     
+		            if(res.err_msg == "get_brand_wcpay_request:ok" ) {// 支付成功走这
+                    	WeixinJSBridge.log(res.err_msg);
+                    	$.get("{{:U('ajaxControl')}}",{flag:'selOrderStatus',id:'{{:I("get.id")}}',companyName:'{{$_GET["companyName"]}}'},function (result) {
+								if(result){
+                    				location.reload();
+								}else{
+									alert('订单支付失败!');
+								}
+						})
+                    }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+		       	}
+		   ); 
+		}
+
+		function showPay(pay){
+			if (typeof WeixinJSBridge == "undefined"){
+			   if( document.addEventListener ){
+			       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			   }else if (document.attachEvent){
+			       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+			       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			   }
+			}else{
+				// console.log(pay)
+			  	onBridgeReady(pay);
+			}
+		}
+		 
+	</script>
+</block>

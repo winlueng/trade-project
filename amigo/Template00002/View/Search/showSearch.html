@@ -1,0 +1,140 @@
+<extend name="Common/websiteCom" />
+<block name="css_file">
+	<style>
+
+	</style>
+</block>
+<block name="header">
+	<header id="bsHeader" class="bsHeader  ">
+		<form id="toSearch" action="{{:U('goSearch',['companyName' => $_GET['companyName']])}}" >
+			<article class="bsHeader">
+			<nav >
+				<a class="icon-back" href="javascript:javascript:history.back(-1)">
+				</a>
+			</nav>
+			<h1><input class="hd-search" type="search" name="words" value=""  placeholder="" /></h1>
+			<nav>
+				<p class="choose w">
+					<input  type="submit" value="搜索">
+					<label class="w">搜索</label>
+				</p>
+			</nav>
+			</article>
+		</form>
+	</header>
+</block>
+<block name="content" >
+<section id="bsMain" class="bsSearch noFooter">
+		<article >
+			<aside class="searchContent">
+			<br>
+			 <ul id="searchbox" class=" bsReservationList bc mb10">
+		     	 <li is="my-components" v-bind:Phrase="arr"  v-for="(arr, index) in arr" >
+		     	 </li>
+		     </ul>
+
+			<ul class="bsSearchCare">
+				<h2>历史搜索</h2>
+				<volist name="historyWords" id="v" >
+				<li><a href="{{:U('goSearch',['companyName' => $_GET['companyName'], 'words' => $v])}}">{{$v}}</a></li>
+				</volist>
+			</ul>
+			<br><br><br>
+			<ul class="bsSearchCare">
+				<h2>热门搜索</h2>
+				<volist name="hotWords" id="v" >
+				<li><a href="{{:U('goSearch',['companyName' => $_GET['companyName'], 'words' => $v])}}">{{$v}}</a></li>
+				</volist>
+			</ul>
+			
+			</aside>
+		</article>
+
+</section>
+<script id="searchPhrase" type="text/x-template">
+	<li >
+		<a v-bind:href="Phrase.link">
+		<p v-on:click="searchTxt">{{Phrase.name}}</p>
+		</a>
+	</li>
+	
+</script>
+</block>
+<block name="js_file">
+<script>
+	$(function(){
+			var Child = {
+						  template: '#searchPhrase',
+						  props: ['Phrase'],
+						  methods:{
+						  	searchTxt:function(event){
+						  		console.log("event");
+						  		console.log(event);
+						  		var Value=(event.srcElement.outerText.length>0)?event.srcElement.outerText:event.target.innerText;
+						  		$('.hd-search').val(Value);
+						  		$('#toSearch').submit();
+						  	}
+						  }
+						}
+			var app=new Vue({
+					components:({
+					  'my-components': Child
+					}),
+					el:'#searchbox',
+					data:{
+							arr:[]
+						},
+					computed: {
+					  // a computed getter
+					  reversedMessage: function () {
+					    // `this` points to the vm instance
+					    return this.arr.split('').reverse().join('')
+					  }
+					}
+					
+			})
+			
+		$('.bsSearchCare li>a').on('click',function(){
+			var $this=$(this),
+				searchVal=$this.text().trim();
+			$('#bsHeader').find('.hd-search').val(searchVal);
+			searchResult(searchVal);
+		})
+		$('.bsHeader .hd-search').on('input propertychange',function(){
+			$('.bsReservationList').siblings().fadeOut();
+			var $this=$(this),
+				Value=$this.val();
+			if($this.val().length==0) $('.bsReservationList').siblings().fadeIn();
+			 
+			searchResult($this.val(),function(res){
+				// 搜索出来的数据
+				if(res.length>0){
+					app.arr=res;
+				}else{
+					app.arr=[{name:"暂无该搜索商品"}];
+				}
+			})
+		})
+
+		function insert_flg(str,flg,sn){
+		    var newstr="";
+		    for(var i=0;i<str.length;i+=sn){
+		        var tmp=str.substring(i, i+sn);
+		        newstr+=tmp+flg;
+		    }
+		    return newstr;
+		}
+		function searchResult(text,callback){
+			var callback = callback ? callback:"callback";
+			$.get('{{:U("Search/ajaxControl")}}',{
+				flag:"getCorrelation",
+				correlation:text,
+				companyName: '{{$_GET["companyName"]}}'
+			},function(res){
+				callback(res);
+				
+			})
+		}
+	})
+</script>
+</block>

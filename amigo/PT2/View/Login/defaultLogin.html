@@ -1,0 +1,86 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+    <style>
+        .dl-loginContent{
+            width:76%;
+            height:100%;
+            padding-top:50px;
+        }
+        .dl-registered{
+            display:flex;
+            display:-webkit-flex;
+            justify-content:space-between;
+            -webkit-justify-content:space-between;
+            align-items:center;
+            -webkit-align-items:center;
+            padding:10px 0;
+            text-indent: 10px;
+        }
+        .dl-loginContent .mark-loginSub{
+            margin-top:120px;
+            height: 44px;
+            font-size: 18px;
+        }
+        .kb_main{
+            overflow:hidden;
+        }
+        .kb_cell-bd{
+            padding-left:0;
+            padding-right:0;
+            font-size:15px;
+        }
+        .dl-gift{
+            display: none;
+        }
+        .dl-gift .tg_ft-main{
+            background-size: 35px;
+            background-position: 100% center;
+            padding-right: 32px;
+        }
+    </style>
+</block>
+<block name="header">
+    <header id="Header" class="kb_header flexLayout-center">
+        <nav>
+        </nav>
+        <h2 class="kb_header-title">登录</h2>
+        <nav>
+        </nav>
+    </header>
+</block>
+<block name="content">
+    <section id="Main" class="kb_main bc kb_notFooter main_bg">
+        <section class="dl-loginContent  bc ">
+            <form action="" method="post">
+                <article class="kb_cell mb20">
+                    <p class="kb_cell-bd">
+                        <input type="tel" placeholder="请输入手机号码" name="phone" class="kb_input  w " />
+                    </p>
+                </article>
+                <article class="kb_cell">
+                    <p class="kb_cell-bd">
+                        <input type="password" placeholder="请输入密码" name="password" class="kb_input  w " />
+                    </p>
+                </article>
+                <article class="dl-registered mt10">
+                    <p class="tg_ft-minor ">
+                    还没有账号?<a href="{{:U('Login/visitorSignIn')}}" class="tg_ft-main ml10">立即注册</a>
+                    </p>
+                    <a href="{{:U('login/forgetPassword')}}" class="">
+                        忘记密码?
+                    </a>
+                </article>
+                <article class="dl-registered dl-gift mt10">
+                    <p class="tg_ft-minor ">
+                        <a href="{{:U('Login/visitorSignIn')}}" class="tg_ft-main icon-gift">注册送好礼</a>
+                    </p>
+                    <a href="javascript:;" class="">
+                        忘记密码?
+                    </a>
+                </article>
+                <input type="submit" value="登录" class="kb_btn kb_btn-main w mark-loginSub" />
+            </form>
+        </section>
+    </section>
+</block>
+

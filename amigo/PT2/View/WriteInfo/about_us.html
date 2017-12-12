@@ -1,0 +1,74 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    .dl_contactMe .kb_cell::before{
+      display:none;
+    }
+</style>
+<php>
+ //echo("<pre>");
+ //var_dump($info);exit;
+</php>
+</block>
+<block name="title">
+ 关于我们
+</block>
+
+<block name="content">
+ <section id="Main" class="kb_main bc kb_notFooter  tg_colllected ">
+    <div class="dl_about-page main_bg p10 mb10">
+      <h1 class="kb_list-title mb10">简介</h1>
+      <article>
+        <!-- <h2 class="mb10 tc">{{$info.abstruct}}</h2> -->
+       <!--  <div>  -->
+         {{$info.abstruct}}
+        <!-- </div> -->
+      </article>
+    </div>
+    <div class="dl_contactMe main_bg">
+      <h1 class="kb_list-title ml10 mr10">联系我们</h1>
+      <article class="kb_cell">
+        <p class="kb_cell-hd">
+          <label class="kb_label">联系人：</label>
+        </p>
+        <p class="kb_cell-bd">
+          {{$info.principal}}
+        </p>
+        
+      </article>
+      <article class="kb_cell">
+        <p class="kb_cell-hd">
+          <label class="kb_label">联系电话：</label>
+        </p>
+        <p class="kb_cell-bd">
+          {{$info.phone}}
+        </p>
+        
+      </article>
+      <article class="kb_cell">
+        <p class="kb_cell-hd">
+          <label class="kb_label">联系邮箱：</label>
+        </p>
+        <p class="kb_cell-bd">
+          {{$info.email}}
+        </p>
+        
+      </article>
+      <article class="kb_cell">
+        <p class="kb_cell-hd">
+          <label class="kb_label">联系地址：</label>
+        </p>
+        <p class="kb_cell-bd">
+          {{$info.address_info}}
+        </p>
+        
+      </article>
+    </div>
+  </section>
+</block>
+
+<block name="js_files">
+<script>
+ 
+</script>
+</block>

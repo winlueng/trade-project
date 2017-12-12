@@ -1,0 +1,69 @@
+/* line 3, ../sass/login.scss */
+.loginbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 40px 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+  background: #011224;
+  background: -moz-linear-gradient(45deg, #011224 0, #07acda 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #011224), color-stop(100%, #07acda));
+  background: -webkit-linear-gradient(45deg, #011224 0, #07acda 100%);
+  background: -o-linear-gradient(45deg, #011224 0, #07acda 100%);
+  background: -ms-linear-gradient(45deg, #011224 0, #07acda 100%);
+  background: linear-gradient(45deg, #011224 0, #07acda 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#011224', endColorstr='#07acda', GradientType=1);
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+}
+/* line 25, ../sass/login.scss */
+.loginbar:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../images/bs-docs-masthead-pattern.png) repeat center center;
+  opacity: .5;
+}
+/* line 36, ../sass/login.scss */
+.loginbar.row {
+  margin-left: 0;
+  margin-right: 0;
+  font-family: SimHei;
+}
+/* line 41, ../sass/login.scss */
+.loginbar.row > .col-sm-4 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 48, ../sass/login.scss */
+.loginbar.row > .col-sm-4 .form-horizontal {
+  position: relative;
+  z-index: 100;
+}
+/* line 51, ../sass/login.scss */
+.loginbar.row > .col-sm-4 .form-horizontal > .col-sm-8 {
+  text-align: center;
+  font-size: 24px;
+  line-height: 50px;
+}
+/* line 57, ../sass/login.scss */
+.loginbar.row > .col-sm-4 .btn-link {
+  color: #000;
+}
+/* line 59, ../sass/login.scss */
+.loginbar.row > .col-sm-4 .btn-link:hover {
+  color: #000;
+}

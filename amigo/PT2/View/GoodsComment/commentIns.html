@@ -1,0 +1,277 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    .dl_reviewCom .kb_list-cell::after{
+      display:none;
+    }
+</style>
+<php>
+ //echo("<pre>");
+ //var_dump($info['goods_data']);exit;
+</php>
+</block>
+<block name="title">
+发表评价
+</block>
+<block name="rightNav">
+  <label class="kb_choose">
+    <input type="button" value="" class=" w mark-sendreview" />
+    <span class="kb_btn">
+      发表
+    </span>
+  </label>
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc  kb_notFooter tg_myself">
+  <form id="sendreview" action="" method="post" enctype="multipart/form-data"> 
+    <input type="hidden" name="company_id" value="{{$info.company_id}}">
+    <input type="hidden" name="order_id" value="{{$info.id}}">
+    <volist name="info.goods_data" id="v">
+    <div class="kb_list-cells mb10">
+      <article class="kb_list-cell kb_list-cell_small mt10">
+        <div class="kb_list-cell-hd">
+            <img src="__PUBLIC__{{$v['attrInfo']['attr_pic']}}" alt="" />
+        </div>
+        <input type="hidden" name="goods_id[]" value="{{$v.goods_id}}">
+          <aside class="kb_list-cell-bd">
+            <h2 class=" dl_score">
+              <label class="kb_choose ">
+                 <input type="checkbox" value="1" 
+                 	name="score[{{$v.goods_id}}]"
+                  checked="checked"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked" value="2" 
+                 name="score[{{$v.goods_id}}]"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked" value="3"
+                 	name="score[{{$v.goods_id}}]"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked" value="4"
+                 	name="score[{{$v.goods_id}}]"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+               <label class="kb_choose">
+                 <input type="checkbox" checked="checked" value="5" 
+                 name="score[{{$v.goods_id}}]"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>  
+            </h2>
+          </aside>
+      </article>
+      <acticle class="kb_cell kb_celltextarea">
+        <p class="kb_cell-bd">
+          <textarea placeholder="请留下您的宝贵评价"
+           name="content[{{$v.goods_id}}]" maxlength="120"
+          rows="3" required="required" class="kb_textarea mark-msg"></textarea>
+        </p>
+        <p class="kb_cell-info tr">
+          0/120
+        </p>
+
+      </acticle>
+      <article class="kb_cell kb_cell-upload">
+        <div class="kb_cell-bd">
+          <p class="kb_fileBox-img">
+
+          </p>
+          <label class="kb_fileBox">
+            <input  type="file" value=""
+            name="image{{$v.goods_id}}[]"
+            multiple="multiple"
+            class="kb_file" />
+            <span class="kb_file-btn">
+            </span>
+          </label>
+        </div>
+      </article>
+    </div>
+    </volist>
+
+    <div class="kb_list-cells dl_reviewCom">
+      <article class="kb_list-cell kb_list-cell_small ">
+        <div class="kb_list-cell-hd">
+            描叙相符：
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class=" dl_score">
+              <label class="kb_choose ">
+                 <input type="checkbox" value="1" 
+                   name="goods_score" checked="true"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" value="2" 
+                 	name="goods_score" checked="true"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" value="3" 
+                 name="goods_score" checked="true"
+                  />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" value="4" 
+                 name="goods_score" checked="true"
+                  />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+               <label class="kb_choose">
+                 <input type="checkbox" value="5" 
+                 name="goods_score" checked="true"
+                  />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>  
+            </h2>
+          </aside>
+      </article>
+      <article class="kb_list-cell kb_list-cell_small ">
+        <div class="kb_list-cell-hd">
+            服务态度：
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class=" dl_score">
+              <label class="kb_choose ">
+                 <input type="checkbox" checked="checked"  
+                 	name="server_attitude"
+                 value="1">
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  
+                 	name="server_attitude"
+                 value="2">
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  
+                 	name="server_attitude"
+                 value="3">
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  
+                 	name="server_attitude"
+                 value="4">
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+               <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  
+                 	name="server_attitude"
+                 value="5">
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>  
+            </h2>
+          </aside>
+      </article>
+      <article class="kb_list-cell kb_list-cell_small ">
+        <div class="kb_list-cell-hd">
+            物流速度：
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class=" dl_score">
+              <label class="kb_choose ">
+                 <input type="checkbox" checked="checked"  value="1" 
+                 	name="express_score"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  value="2" 
+                 	name="express_score"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  value="3" 
+                 	name="express_score"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+              <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  value="4" 
+                 	name="express_score"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>
+               <label class="kb_choose">
+                 <input type="checkbox" checked="checked"  value="5" 
+                 	name="express_score"
+                 />
+                 <span class="kb_choose-check icon-isScore"></span>
+              </label>  
+            </h2>
+          </aside>
+      </article>
+    </form>
+  </section>
+</block>
+<block name="js_files">
+<script>
+    $(function(){
+      $('.mark-sendreview').on('click',function(){
+      	$('#sendreview').submit();
+      })
+      
+      $('.fileImg #imgCover').on('change',function(){
+        readFile(this,this.files);
+      })
+      $('.dl_score .kb_choose input').on('change',function(){
+        var $this=$(this);
+          score=$this.parents('.dl_score').find('.kb_choose input');
+          indexs=score.index($this);
+          Object.keys(score).slice(0,indexs+1).map(function(elem,indexs){
+            if(score.eq(elem).length){
+              score.eq(elem).prop("checked",true)
+            }
+          });
+          Object.keys(score).slice(indexs+1,score.length).map(function(elem,indexs){
+            if(score.eq(elem).length){
+              score.eq(elem).prop("checked",false)
+            }
+          });
+         
+      })
+      $('.mark-msg').on('input protochange',function(){
+        var $this,maxlength,nowTxt;
+        $this=$(this);
+        maxlength=$this.attr('maxlength');
+        if($this.val()<=maxlength){
+          $this.val($this.val().slice(0,maxlength));
+        }
+        maxlegnth=$this.val().length+"/"+maxlength;
+        $this.parents('.kb_cell').find('.kb_cell-info').text(maxlegnth);
+
+      })
+      $('.kb_file').on('change',function(){
+        var files,$this;
+        $this=$(this);
+        files=this.files;
+        $this.parents('.kb_fileBox').siblings('.kb_fileBox-img').html('');
+        Object.keys(files).map(function(elem,indexs){
+          var reader=new FileReader();
+          reader.readAsDataURL(files[elem]);
+          reader.onload=function(e){
+          var Html="<label class='kb_fileBox imgW imgH'><img src='"+this.result+"' alt='' /></label>"
+          $this.parents('.kb_fileBox').siblings('.kb_fileBox-img').append(Html)
+            
+          }
+          //filse[elem]
+        })
+      })
+    })
+  </script>
+</block>

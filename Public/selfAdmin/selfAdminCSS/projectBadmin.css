@@ -1,0 +1,716 @@
+/*page Common css*/
+@font-face {
+  font-family: 'adminFont';
+  src: url('adminFont/iconfont.eot');
+  src: url('adminFont/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('adminFont/iconfont.woff') format('woff'),
+  url('adminFont/iconfont.ttf') format('truetype'),
+  url('adminFont/iconfont.svg#iconfont') format('svg');
+}
+.adminFont{
+  font-family:"adminFont" !important;
+  font-size:100%;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,body{
+	width:100%;
+	min-width:768px;
+	height:100%;
+	overflow-y:hidden;
+	font-family:Microsoft YaHei;
+	background:#f3f3f3;
+}
+.kbVipAdmin_inlineBlock,.kbVipAdmin_styledSelect{
+	display:inline-block;
+	vertical-align: middle;
+ }
+.kbVipAdmin_f24{
+	font-size:24px;
+}
+
+.ftcolorNav{
+	color:#fff;
+}
+.ftcolorRed{
+	color:red;
+}
+.ftcolorGreen{
+	color:#09b136;
+}
+.ftcolorA{
+	color:#5c9fc2;
+}
+/*page nav css*/
+#kbVipAdmin_header{
+	width:100%;
+	background:#3e3e3e;
+}
+
+.kbVipAdmin_header_nav{
+	font-size:24px;
+	width:64%;
+	margin:0 auto;
+	height: 54px;
+	line-height: 54px;
+	/*display:box;
+	display:-moz-box; 
+	display:-webkit-box; */
+}
+.kbVipAdmin_header_nav a{
+	color:#000;
+	display:inline-block;
+	height:100%;
+	text-align:center;
+	width: 125px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	/*-moz-box-flex:1.0; 
+	-webkit-box-flex:1.0; 
+	box-flex:1.0;*/
+}
+.kbVipAdmin_header_nav a.selected,
+.kbVipAdmin_header_nav a:hover{
+	background:#fff;
+}
+.kbVipAdmin_center_nav a:hover,
+.kbVipAdmin_center_nav a.selected{
+	background:#5abd88;
+	color:#fff;
+}
+/*page center css*/
+#kbVipAdmin_center{
+	width:83%;
+	
+	height:100%;
+	display:inline-block;
+}
+.kbVipAdmin_center_nav,.kbVipAdmin_center_txt{
+	display:inline-block;
+	height:100%;
+	vertical-align: top;
+}
+.kbVipAdmin_center_nav{
+	width:13%;
+	background:#505050;
+	padding-top:15px;
+}
+.kbVipAdmin_center_nav a{
+	display:block;
+	width:100%;
+	text-align:center;
+	height:50px;
+	line-height:50px;
+	color:#f7fffb;
+	margin-bottom:5px;
+	font-weight: bold;
+}
+.kbVipAdmin_center_nav a:hover{
+	color:#fff ;
+	background:#5abd88;
+	border:none;
+}
+
+.kbVipAdmin_center_nav a.special{
+	background: url("cmmImg/aSpeialRight.png") no-repeat 90% center;
+    color: #f7fffb;
+	margin: 0;
+    cursor: pointer;
+}
+
+.kbVipAdmin_center_nav a.special{
+	background-color:#505050;
+	/*color:#fff !important;*/
+}
+.kbVipAdmin_center_nav ul li ul.selectedPar>li{
+	display:block;
+}
+.kbVipAdmin_center_nav ul{
+	/*border-bottom:1px solid #666;*/
+}
+.kbVipAdmin_center_nav ul li>ul>li{
+	display:none;
+	margin-bottom:5px;
+}
+
+
+.kbVipAdmin_center_nav ul li ul>li>a{
+	width:80%;
+	margin:0 auto;
+	/*border-bottom:1px solid #666;*/
+	text-align:center;
+	height: 50px;
+    line-height: 50px;
+	/*color:#fff;*/
+	font-size: 80%;
+	text-indent:10px;
+
+}
+.kbVipAdmin_center_nav ul li ul>li:hover,.kbVipAdmin_center_nav a.special:hover{
+	background-color:#5abd88;
+	 color:#fff;
+}
+.kbVipAdmin_center_nav ul li:last-child{
+	border-bottom:none;
+
+}
+.kbVipAdmin_center_nav ul li.selected {
+	background-color:#f7fffb;
+
+}
+.kbVipAdmin_center_nav ul li.selected  a{
+	border:none;
+    color:#505050;
+
+}
+
+.kbVipAdmin_center_txt{
+	width:100%;
+	height:100%;
+	overflow-x:hidden;
+	padding-top:22px;
+	padding-left:12px;
+	position:relative;
+}
+.kbVipAdmin_center_txt:after{
+	content:"";
+	display:block;
+	height:100px;
+	margin-bottom:100px;
+}
+
+.kbVipAdmin_tableHead{
+	margin-bottom:10px;
+	position:relative;
+	overflow:hidden;
+}
+
+/*表格的样式*/
+.kbVipAdmin_center_tables{
+	width:100%;
+    /*height: 100%;*/
+}
+
+.roleList{
+	width:100%;
+	border:1px solid #808080;
+	min-width:300px;
+}
+.roleList thead th{
+	background:#e8e8e8;
+	font-weight:bold;
+}
+.roleList thead th,.roleList tbody td,.roleList tfoot td{
+	padding:5px;
+	border:1px solid #ccc;
+	text-align:center;
+}
+.kbVipAdmin_tdImg>div{
+	width:90%;
+	height:50px;
+	overflow:hidden;
+	margin:auto;
+}
+.kbVipAdmin_tdImg>div img{
+	width:100%;
+	height:100%;
+}
+/*按钮样式*/
+.kbVipAdmin_btn,.kbVipAdmin_searchSmit{
+	border-radius:4px;
+	background:#e8e8e8;
+	text-align:center;
+	border:1px solid #e8e8e8;
+    height: 32px;
+}
+/*下拉选择样式*/
+.kbVipAdmin_slt{
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: solid 1px #e8e8e8;
+
+  /*很关键：将默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("cmmImg/downTriangles.png") no-repeat scroll 90% center #e8e8e8;
+  background-size:15px;
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 14px;
+  width: 120px;
+  height: 32px;
+  font-size:16px;
+  font-weight:bold;
+  font-family:'Microsoft YaHei';
+}
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+
+.kbVipAdmin_slt option{
+}
+.couponTrade select{
+	width:50%;
+	height:30px;
+	padding-left:10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+/*输入框的样式*/
+.kbVipAdmin_search{
+	padding:0 18px;
+	background: url("cmmImg/search.png") no-repeat 18px center;
+	text-indent: 30px;
+	border:1px solid #ccc;
+	border-radius:5px;
+	 font-size: 100%;
+	letter-spacing:4px;
+	font-family:'Microsoft YaHei';
+
+    height: 32px;
+    background-size: 8%;
+    
+    width: 300px;
+}
+.kbVipAdmin_searchSmit{
+	width:60px;
+	font-weight:bold;
+	background:#f55252;
+	color:#fff;
+	 height: 32px;
+	 vertical-align: top;
+}
+.kbVipAdmin_btnMenuBox{
+	width:130px;
+}
+.kbVipAdmin_btnMenu{
+	padding:5px;
+	border-radius:4px;
+	border:1px solid #ccc;
+	position:relative;
+	overflow:hidden;
+	margin-bottom:5px;
+}
+.kbVipAdmin_center_tables .roleList .microWebMenuAdmin{
+	text-align:left;
+}
+.microWebMenuAdmin input[type="radio"],
+.microWebMenuAdmin input[type="checkbox"]
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+	opacity:0;
+}
+.microWebMenuAdmin label{
+	display:inline-block;
+	margin-right:10px;
+	/*width:80px;*/
+	/*height:100%;*/
+	text-align: center;
+	    height: 50%;
+	/*line-height:200%;*/
+
+}
+.microWebMenuAdmin label i{
+	display:inline-block;
+	height:20px;
+	width:20px;
+	vertical-align:middle;
+	border:1px solid #ccc;
+	border-radius:4px;
+	margin-right:4px;
+	font-weight:bold;
+}
+.microWebMenuAdmin input[type="radio"]:checked + label i,
+.microWebMenuAdmin input[type="checkbox"]:checked + label i{
+	background:url("cmmImg/gouxuan.png") no-repeat center;
+}
+.MenuAdminBox{
+	position:relative;
+	width:100px;
+	height:25px;
+	text-align: center;
+}
+
+/*弹窗*/
+.kbVipAdmin_alert{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:99;
+	display:none;
+}
+.kbVipAdmin_alert::before{
+	content:'';
+	display:block;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.6;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+}
+.kbVipAdmin_alert_box{
+	width:50%;
+	margin:0 auto;
+	margin-top:5%;
+	background:#fff;
+	border-radius:4px;
+	min-height:500px;
+	padding:20px;
+	position:relative;
+	overflow:hidden;
+    min-width: 670px;
+    height: 80%;
+}
+.kbVipAdmin_alert_box h2{
+	text-align:left;
+	margin-bottom:10px;
+    text-indent: 8%;
+    font-size:120%;
+    font-weight: bold;
+}
+.kbVipAdmin_alert_box li{
+	width:80%;
+	margin:0 auto;
+}
+.kbVipAdmin_alert_box li label{
+	margin-left:5px;
+}
+.kbVipAdmin_alert_box ul{
+	/*margin-left:30px;*/
+}
+.kbVipAdmin_alert_box>li>label{
+	font-size:120%;
+}
+.kbVipAdmin_alert form{
+	height:100%;
+}
+
+.kbVipAdmin_form{
+	width:80%;
+	margin:0 auto;
+	overflow-x:hidden;
+	height:90%;
+}
+.kbVipAdmin_form p{
+	
+	margin:10px 0;
+}
+.kbVipAdmin_form span{
+	width:25%;
+	height:100%;
+	display:inline-block;
+	text-align:right;
+	 line-height: 200%;
+	     vertical-align: top;
+}
+
+.kbVipAdmin_form  span i{
+	color:red;
+	margin:0 5px;
+	vertical-align: middle;
+}
+.kbAdmin_tip{
+	width:52%;
+	margin-left:26%;
+	display:block;
+	color:#8d8d8d;
+	margin-top:5px;
+	font-size:12px;
+
+}
+.kbAdmin_tip-error{
+	color:red;
+}
+/*input 样式*/
+/*.kbVipAdmin_form input[type="text"],
+.kbVipAdmin_form input[type="date"],
+.kbVipAdmin_form input[type="file"],
+
+.kbVipAdmin_form input[type="password"]*/
+.kbVipAdmin_form textarea,
+.kbVipAdmin_fileImg label.fileImg,
+.kbVipAdmin_form input
+{
+	width:50%;
+	height:100%;
+	border-radius:4px;
+	border:1px solid #ccc;
+	padding-left: 10px;
+	display:inline-block;
+	height:30px;
+}
+.kbVipAdmin_form input[type="file"]{
+	position: absolute;
+    top: 0;
+    z-index: -1;
+}
+.kbVipAdmin_form textarea{
+	min-height:200px;
+	padding: 5px;
+}
+.kbVipAdmin_textArea span{
+	vertical-align:top;
+
+}
+.couponAddr select{
+	    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.kbVipAdmin_alert-close{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	border: none;
+	background: transparent;
+}
+
+.kbVipAdmin_MenuAdminBtn{
+  
+    width: 100%;
+    /*margin-top: 20px;*/
+    text-align: center;
+   
+}
+.kbVipAdmin_MenuAdminBtn input{
+	width:140px;
+	height:30px;
+	margin: 0 auto;
+    background: #ccc;
+    border: none;
+    font-weight:bold;
+    font-size:120%;
+    letter-spacing:5px;
+
+}
+
+/*tab选项卡*/
+.kbVipAdmin_tableHead .kbVipAdmin_tableHead-tab{
+	border-bottom:1px solid #ccc;
+}
+.kbVipAdmin_tableHead .kbVipAdmin_tableHead-tab li{
+	display:inline-block;
+	width:200px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	border:1px solid #ccc;
+	border-bottom:none;
+	background:#e8e8e8;
+	margin-bottom: -1px;
+}
+
+.kbVipAdmin_tableHead .kbVipAdmin_tableHead-tab li a{
+	display:block;
+	width:100%;
+	height:100%;
+	color:#505050;
+	margin-bottom:-1px;
+	font-weight:bold;
+}
+.kbVipAdmin_tableHead .kbVipAdmin_tableHead-tab li a.selected{
+	background-color:#fff;
+}
+.microWebAnnalYes{
+	margin-right:10px;
+	color:green;
+}
+.microWebAnnalNo{
+	color:red;
+}
+.roleBox{
+	position:relative;
+
+}
+.kbAdmin_page{
+	width:600px;
+	overflow:hidden;
+	height:30px;
+	margin:auto;
+	margin-top:47px;
+
+}
+
+.kbAdmin_page .inputButton{
+	display:inline-block;
+	height:28px;
+	border-radius:5px;
+	border:1px solid #ff6c60;
+	color:#1a1a1a;
+	font-size:14px;
+	width:68px;
+	background:transparent;
+}
+.kbAdmin_page .inputButton{
+	text-align:center;
+	line-height:28px;
+}
+
+.kbAdmin_page a,.kbAdmin_page span{
+	display:inline-block;
+	border-radius:4px;
+	border:none;
+	width:30px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	color:#505050;
+	font-size:14px;
+	margin:0 5px;
+}
+.kbAdmin_page  span.current,.kbAdmin_page div a:hover{
+	color:#fff;
+	background:#ff6c60;
+}
+/*上传文件*/
+.kbVipAdmin_fileImg{
+	position:relative;
+}
+.kbVipAdmin_fileImg .businessImg{
+	width:50%;
+	margin-left:20%;
+}
+.kbVipAdmin_fileImg .businessImg img{
+	width:100%;
+}
+.businessFileImgList{
+	width:50%;
+	
+	overflow: hidden;
+    height: 110px;
+    margin:10px 0;
+    margin-left:18%;
+    /*display:none;*/
+    position:relative;
+}
+.businessFileImgList img{
+	width:100%;
+	height:100%;
+}
+.businessFileImgList .cleraIMG{
+	position:absolute;
+	top:10px;
+	right:10px;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAcpJREFUeNq8l4GRgjAQRUPGAqzg5krACjw60A6gAmuxgtCBdIBWoCXcXAV0oJubz51gkt1AcGcyGYaQ/7LJLpuVEtr9Q+XU7ahtqX15hp2pXag12Y+6SebNBMIldQdquYozC3AkkHoSAAl/UmcCq5Wa9UpFIN+ul9ojbl19TSCuMMcVc/IAcPmJ2lqlMzvXCXP7AUBp1HJmxp7Qjj1f2gy0XjxgErs9tB1mAIC94Q5cjdCShF/NHcz+PPQeOHDiFEYV9QUDYd8VGMtB/GpqZLhcIK6o7wIQvXiHsRxEbrU10qtiBv6dDQ/EQBzbuhZkz51Gbg8CUGsDED7xVgCwzWjwPSK3u4TURHF/Ko7xxBzxWAAnxBzxKQDJLRbg5Rww0ZEUwHkIBSHKApxnREDLhChbrGjUcFPFc0GeCNnFAjQcgCDUfBAcQKNRvYYGljSxEYTaAALflMzCbis8HJlixEKoJ5dzeeLGiPea/1UxfdQmKkJFlTKtvhiHof19dm8Q76A1zAOo26s3AAzuCHqUzZqFISpo+DMhrlL7xNth59q7rmnOVAzKjTBLSq5mm/HK2X+B3Sec1Cr2B/OUQe2qC9+9UHQ7Xvp6/hBgAPtU0Zj32JNRAAAAAElFTkSuQmCC");
+	width:32px;
+	height:32px;
+	background-position:center;
+}
+.myEditor{
+width: 60%;
+display: inline-block;
+vertical-align: top;
+}
+
+/*预览*/
+.microWebAnnalAmendList{
+	height:80%;
+	overflow-x:hidden;
+}
+.microWebAnnalAmendList .microWebAnnalAmendText{
+	width:70%;
+	margin:10px 0;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+
+.shopAuditlist{
+	/*border: 1px solid #ccc;*/
+	position:relative;
+}
+.shopAuditlist>p,.shopAuditlist>li {
+	overflow:hidden;
+	
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.shopAuditlist>p{
+	height:37px;
+}
+.shopAuditlist>p span,.shopAuditlist li span{
+	display:inline-block;
+	/*width:15%;*/
+	text-align:center;
+	/*border: 1px solid #ccc;*/
+	float:left;
+	margin-left:-1px;
+	height:100%;
+	line-height:35px;
+}
+.shopAuditlist>li{
+	
+}
+.shopAuditlist li span{
+	
+}
+.shopAuditlist>p span:nth-child(1),
+.shopAuditlist li span:nth-child(1){
+	width:50px;
+}
+.shopAuditlist>p span:nth-child(2),
+.shopAuditlist li span:nth-child(2){
+	width:150px;
+}
+.shopAuditlist>p span:nth-child(3),
+.shopAuditlist li span:nth-child(3){
+	width:50px;
+}
+.shopAuditlist>p span:nth-child(4),
+.shopAuditlist li span:nth-child(4){
+	width:80px;
+}
+.shopAuditlist>p span:nth-child(5),
+.shopAuditlist li span:nth-child(5){
+	width:150px;
+}
+.shopAuditlist>p span:nth-child(6),
+.shopAuditlist li span:nth-child(6){
+	width:200px;
+}
+.shopAuditlist>p span:nth-child(7),
+.shopAuditlist li span:nth-child(7){
+	width:300px;
+}
+.shopAuditlist>li>ul>li{
+	display:block;
+	overflow:hidden;
+	width:100%;
+	height:35px;
+	margin:10px 0;
+	line-height:35px;
+}
+.shopAuditMin{
+	display:none;
+	 min-height: 220px;
+}
+.shopAuditlist.roleList{
+	border:none;
+}
+.couponAddr>select{
+}
+/*p.userAreaSltChild{
+	display:inline-block;
+	margin-left: 5px;
+}
+.userAreaSltChild select{
+	margin-right:10px;
+}*/

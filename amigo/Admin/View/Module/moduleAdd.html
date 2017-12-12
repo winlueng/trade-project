@@ -1,0 +1,133 @@
+<extend name="Web/adminCom" />
+<block name="css_files">
+		<link rel="stylesheet" href="__PUBLIC__/selfAdmin/selfAdminCSS/userAdmin/userAdmin.css">
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="userAdmin_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+			<div class="kbVipAdmin_tableHead">
+				<p class="authAddBtn">
+					<input class=" adminFont kbVipAdmin_btn w100 h50 "  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+				</p>
+			</div>
+				<table class="roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>模块名称</th>
+							<th>显示功能模块</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="v">
+						<tr>
+							<td class="moduleID">{{$v.id}}</td>
+							<td>{{$v.module_name}}</td>
+							<td>{{$v.ruleName}}</td>
+							<td>
+								<input class="adminFont kbVipAdmin_btnMenu moduleAddWrite" type="button" value="&#xe601;&nbsp;编辑" />
+								<input class="adminFont kbVipAdmin_btnMenu" type="button" value="&#xe606;&nbsp;删除" onclick="delList(this)" delid='{{$v.id}}'/>
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert userAdmin_alert">
+		<div class="kbVipAdmin_alert_box userAdmin_alert-box">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加模块</h2>
+		<form class="userAdmin_FormParent" action="{{:U('moduleAdd')}}" method="post">
+			<p class="userAdmin_FormParent-addRoleName">
+				<label><b>模块名称</b></label>
+				<input type="text" name="module_name" value="" placeholder="请输入模块名称" />
+			</p>
+			<ul class="userAdmin_Form">
+				<foreach name='rules' item='v'>
+				<li>
+					<p class="userAdmin_Form-first">
+						<input type="checkbox" name="parent_rules[]" value="{{$v.id}}" />
+						<label>{{$v.title}}</label>
+					</p>
+				</li>
+				</foreach>
+			</ul>
+			<p class="kbVipAdmin_MenuAdminBtn">
+					<input class="authAddFormSmt" type='submit' value="确认添加" />
+				</p>	
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert userAdmin_alertWrite">
+		<div class="kbVipAdmin_alert_box userAdmin_alert-box">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>修改模块信息</h2>
+		<form class="userAdmin_FormParent" action="{{:U('moduleAdd')}}" method="post">
+			<p class="userAdmin_FormParent-addRoleName">
+				<label><b>模块名称</b></label>
+				<input type="text" name="module_name" value="" placeholder="请输入模块名称" />
+			</p>
+			<ul class="userAdmin_Form">
+				<foreach name='rules' item='v'>
+				<li>
+					<p class="userAdmin_Form-first">
+						<input type="checkbox" name="parent_rules[]" value="{{$v.id}}" />
+						<label>{{$v.title}}</label>
+					</p>
+				</li>
+				</foreach>
+			</ul>
+			<p class="kbVipAdmin_MenuAdminBtn">
+					<input class="authAddFormSmt" type='submit' value="确认修改" />
+				</p>	
+		</form>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$(function(){
+			$('.authAddBtn input').on('click',function(){
+				$('.userAdmin_alert').fadeIn();
+			})
+			$('.moduleAddWrite').on('click',function(){
+				$('.userAdmin_alertWrite').fadeIn();
+				var $this=$(this);
+				var moduleID=$this.parent().siblings('.moduleID').text();//
+				var moduleNameInfo=$('.userAdmin_alertWrite .userAdmin_FormParent-addRoleName');
+				var moduleForm = $('.userAdmin_alertWrite .userAdmin_Form');
+				console.log(moduleForm);
+				console.log(moduleID);
+				$.get('{{:U("ajaxControl")}}',{flag:'selModuleInfo',id:moduleID},function (res){
+					console.log(res)
+					$(moduleNameInfo[0]).find('input').val(res.module_name)
+					for(var i=0;i<res.parent_rules.length;i++){
+						$(moduleForm).find('input[value='+res.parent_rules[i]+']').prop("checked",true);
+					}
+		 			$('.userAdmin_alertWrite').find('form').prop("action",'{{:U("moduleUpdate")}}?id='+moduleID);
+		 		});
+			})
+			/* $.get('{{:U("ajaxControl")}}',{flag:'selModuleInfo',id:1},function (res){
+			 console.log(res)		
+			}); */
+		})
+
+		// 删除当前模块
+		function delList(obj) 
+		{
+			var res = confirm('确认要删除吗?');
+			if (res) {
+				$.get('{{:U("ajaxControl")}}', {flag:'del',id:$(obj).attr('delid')},function (res) {
+					if (res) 
+					{
+						$(obj).parent().parent().remove();
+					}
+				});
+			}
+		}
+		
+	</script>
+</block>

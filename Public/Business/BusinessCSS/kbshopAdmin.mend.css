@@ -1,0 +1,335 @@
+.copyButton-default{
+	/*min-height:20px;
+	height:;*/
+}
+.choose,.copyButton-default{
+	display:inline-block;
+	position:relative;
+}
+.choose input{
+	display:block;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0;
+	z-index:9;
+}
+.choose label{
+	display:block;
+}
+
+.kbShopAdmin_opt_7facff:disabled{
+	opacity:0.3;
+}
+.property{
+	/*display:flex;*/
+}
+
+.property p{
+	margin-bottom:10px;
+}
+.property .adminProperty{
+	position: absolute;
+    left: 78%;
+    top: 0;
+}
+.hrefFlex{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+	border:1px solid #eee;
+}
+.hrefFlex a{
+	display:inline-block;
+	padding: 0 10px;
+	text-align:center;
+	border-right:1px solid #eee;
+}
+.hrefFlex a:last-child{
+	border-right:none;
+}
+.hrefFlex a.selected{
+	color:#fff;
+	background-color:#00afb5;
+}
+.orderTable table tbody tr:nth-child(odd) p{
+	text-align:left;
+    padding: 10px;
+}
+.orderTable table tbody tr:nth-child(even){
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+
+}
+.orderTable table tbody tr:nth-child(even) td{
+	border-right:1px solid #eee;
+}
+.orderTable table tbody tr:nth-child(even) td:last-child{
+	border-right:none;
+}
+.orderTable td:nth-child(2){
+	padding:0;
+}
+.orderTable td article{
+	border-bottom:1px solid #eee;
+	padding: 5px;
+        height:56px;
+        overflow:hidden;
+}
+.orderTable td article:last-child{
+	border-bottom:none;
+}
+.orderTable .kbShopAdmin_opt{
+	min-width:72.5px;
+}
+.orderDetail{
+	height:calc(100% - 70px);
+	overflow-x:hidden;
+}
+.orderDetail h2{
+	font-size:15px;
+	font-weight:500;
+	margin-bottom:10px;
+	text-indent:20px;
+}
+.orderDetail article{
+	padding:5px 20px;
+	margin-bottom:10px;
+}
+.orderDetail article p{
+	line-height:2em;
+}
+.orderDetail .goodsDetails{
+	display:flex;
+}
+.goodsDetails>p,.goodsDetails>aside{
+	
+	overflow:hidden;
+	height:160px;
+}
+.goodsDetails>p{
+	flex-basis:20%;
+	margin-right:20px;
+}
+.goodsDetails>p img{
+	width:100%;
+	height:100%;
+}
+.gSeparated{
+	border-bottom:1px solid #eee;
+	background-color: #eee;
+    border-radius: 5px;
+}
+.orderDetail textarea{
+	width:80%;
+	height:100px;
+	padding:5px;
+	border-radius:5px;
+}
+
+
+.shipGoods_alert .kbShopAdmin_alertBox article{
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+	line-height:2em;
+}
+.shipGoods_alert .kbShopAdmin_alertBox article p{
+	margin-bottom:10px;
+}
+.shipGoods_alert .kbShopAdmin_alertBox article p>input{
+
+}
+/*.shipGoods_alert .choose label{
+	padding:5px;
+}*/
+
+.kbShopAdmin_alert .formList{
+	width:70%;
+
+}
+.formList li{
+	margin-bottom:10px;
+}
+.formList .otherLi{
+	display:none;
+}
+.formList textarea{
+	width:95%;
+	height:100px;
+	padding:5px;
+}
+.formList .kbShopAdmin_slt{
+	width:80%;
+}
+
+
+.bsGondsImg,.bsScore{
+	display:inline-block;
+	vertical-align:top;
+	height:50px;
+}
+.bsGondsImg{
+	width:50px;
+	overflow:hidden;
+}
+.bsGondsImg img{
+	width:100%;
+	height:100%;
+
+}
+.bsScore{
+}
+.bsScore>label{
+	color: #00bec5;
+    display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    line-height: 30px;
+    font-weight:bold;
+    font-size:15px;
+
+}
+/*.bsScore */
+.icon-score{
+	background-image: url('cmmImg/scoreSplit.png');
+}
+.bsScore .choose label{
+	width:30px;
+	height:30px;
+	background-size:300%;
+	background-position:left center;
+}
+.bsScore .choose input:checked + label{
+	background-position-x:-35px;
+}
+.reviewImg{
+	
+}
+.reviewImg img{
+	width:30%;
+}
+.kbShopAdmin_alertCentent{
+	height: calc(100% - 120px);
+    overflow-x: hidden;
+        width: 80%;
+    margin: auto;
+}
+
+.bsSearchCare {
+	width:92%;
+	margin-left:auto;
+	margin-right:auto;
+	display:flex;
+	flex-wrap:wrap;
+	display:flex;
+}
+.bsSearchCare h2{
+	text-align: left;
+	flex-basis:100%;
+}
+.bsSearchCare li{
+	/*width:15%;*/
+	margin-right:5%;
+	padding:5px 10px;
+	background-color:#eaeaea;
+    margin-bottom: 10px;
+    height: 2em;
+    line-height: 2em;
+    position:relative;
+}
+.bsSearchCare li>a{
+	display:block;
+	color:#999;
+}
+.bsSearchCare li .close{
+	display:inline-block;
+	width:1em;
+	height:1em;
+	position:absolute;
+	top:0;
+	right:0;
+	line-height: 9px;
+	font-style: normal;
+	background-color:#999;
+	color:#fff;
+    text-align: center;
+    cursor:pointer;
+}
+.kbShopAdmin_tdAction{
+	position:relative;
+
+}
+.optionsCard{
+	position:absolute;
+	
+}
+.filter-operating{
+
+}
+.filter-operating form{
+	display:inline-block;
+	vertical-align:top;
+}
+/*	.filterData input{
+	width:130px;
+}*/
+.filterData{
+	display:inline-block;
+	width:340px;
+}
+#kbShopAdmin_leftNav ul li>ul>li a.selected,
+#kbShopAdmin_leftNav .selectedPar>li>a.selected{
+	background-color:rgba(178, 252, 255, 0.5);
+}
+.centerTitle h2 a,.centerTitle h2 span{
+	display:inline-block;
+	height:32px;
+	vertical-align: middle;
+    line-height: 32px;
+}
+.kbShopAdmin_sltExpress{
+	position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    width: 100%;
+    box-shadow: 2px 2px 10px 1px #020202;
+    padding: 10px;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    right: 0;
+    overflow-x: hidden;
+    bottom: 0;
+    display: none;
+}
+.kbShopAdmin_sltExpress .close{
+   display: block;
+   width: 30px;
+   height: 30px;
+   background: url('cmmImg/bounced_icon_close_default.svg') no-repeat right top;
+   position: absolute;
+   right: 0;
+   top: 0;
+   border-radius: 32px;
+
+ }
+   
+ .main-contentBox{
+ 	
+    border: 1px solid #bec4cc;
+    border-radius: 5px;
+ }
+ .visitorOrder  .main-contentBox{
+ 	height:calc(100% - 100px);
+ }
+  .OrderForm  .main-contentBox{
+ 	height:calc(100% - 130px);
+ }
+ /* .OrderForm  .main-contentBox{
+ 	height:calc(100% - 130px);
+ }*/

@@ -1,0 +1,187 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<php>
+	//echo '<pre>';
+	//var_dump($info);exit;
+</php>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.min.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+	<script type="text/javascript">
+		$(function(){ 
+			$('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+				if ( typeof(FileReader) === 'undefined' ){ 
+					alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+					this.setAttribute( 'disabled','disabled' ); 
+				} else { 
+					readFile(this,this.files[0]);
+				} 
+			})
+		});
+	
+	</script>
+	<style>
+		#marketInfo-edit{
+			/*width:50%;*/
+		}
+		.kbVipAdmin_form{
+			margin-bottom:40px;
+			    height: 86%;
+		}
+	</style>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_rightCenter" class=" spAnProductAdd couponAdClass_center">
+	<div class="centerTitle">
+		<h1>资料完善</h1>
+	</div>
+	<div class="spAnProductAdd kbVipAdmin_box">
+		<form class="userAdmin_center-addUser kbVipAdmin_form" action="{{:U('marketInfo')}}" method="post" enctype="multipart/form-data">
+		<div class="formData">
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>商盟名称：</b>
+				<input type="text" name="market_name" maxlength="20" required="required" value="{{$info['market_name']}}"
+				 data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。输入字符不超过20个</strong>
+			</p>
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>商盟负责人：</b>
+				<input type="text" name="principal"  maxlength="8" required="required" value="{{$info['principal']}}"
+				data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。输入字符不超过8个</strong>
+			</p>
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>联系电话：</b>
+				<input type="tel" name="phone" value="{{$info['phone']}}"  maxlength="11" required="required"
+				data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。请输入商场的联系电话</strong>
+			</p>
+			<p class="kbVipAdmin_enter">
+			 	<b><i>*</i>公众号AppID：</b>
+			 	<input type="text" name="app_id" value="{{$info['app_id']}}" required="required"
+			 	data-datatype="input"
+			 	 />
+				<strong class="kbVipAdmin_tip">必填项。请输入公众号AppID(做微信交互所用)</strong>
+			</p>
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>公众号密钥AppSecret：</b>
+				<input type="text" name="app_secret" value="{{$info['app_secret']}}" required="required"
+				data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。请输入公众号密钥AppSecret(做微信交互所用)</strong>
+			</p>
+
+			<p class="kbVipAdmin_enter">
+			 	<b><i>*</i>微信商户平台ID：</b>
+			 	<input type="text" name="mch_id" value="{{$info['mch_id']}}" required="required"
+			 	data-datatype="input"
+			 	 />
+				<strong class="kbVipAdmin_tip">必填项。请输入微信商户平台ID(做微信支付所用)</strong>
+			</p>
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>微信商户密钥：</b>
+				<input type="password" name="mch_sectet" value="{{$info['mch_sectet']}}" required="required"
+				data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。请输入微信商户密钥(做微信支付所用)</strong>
+			</p>
+
+			</p>
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>联系邮箱：</b>
+				<input type="email" name="email" value="{{$info['email']}}"   required="required"
+				data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。请输入商场的联系邮箱</strong>
+			</p>
+			<p class="kbVipAdmin_enter">
+				<b><i>*</i>商盟地址：</b>
+				<input type="text" name="address_info" value="{{$info['address_info']}}"   required="required"
+				data-datatype="input"
+				 />
+				<strong class="kbVipAdmin_tip">必填项。请输入商场的详细地址</strong>
+			</p>
+
+			<div  class="kbVipAdmin_enter kbVipAdmin_file"> <b><i>*</i>微信支付CERT证书：</b>
+				<!-- <div class="shopImg businessFileImgList">
+					<b class="cleraIMG" onclick="clearImg(this);"></b>
+				</div> -->
+				<label class="fileImg" for="apiclient_cert">点击上传CERT证书</label>
+				<input id="apiclient_cert" type="file" name="apiclient_cert"    />
+				<strong class="kbVipAdmin_tip"><span>必需上传,微信支付双向证书<br>(apiclient_cert.pem文件)</span></strong>
+			</div>
+			<div  class="kbVipAdmin_enter kbVipAdmin_file"> <b><i>*</i>微信支付KEY证书：</b>
+				<!-- <div class="shopImg businessFileImgList">
+					<b class="cleraIMG" onclick="clearImg(this);"></b>
+				</div> -->
+				<label class="fileImg" for="apiclient_key">点击上传KEY证书</label>
+				<input id="apiclient_key" type="file" name="apiclient_key"    />
+				<strong class="kbVipAdmin_tip"><span>必需上传,微信支付双向证书<br>(apiclient_key.pem文件)</span></strong>
+			 </div>
+
+			<div  class="kbVipAdmin_enter kbVipAdmin_fileImg"> <b><i>*</i>商盟Logo：</b>
+				<div class="shopImg businessFileImgList">
+					<b class="cleraIMG" onclick="clearImg(this);"></b>
+					<if condition="info.project_logo">
+				
+					<notempty name="info.project_logo">
+						<img src="__PUBLIC__{{$info['project_logo']}}" width="600">
+					</notempty>
+				
+				</if>
+				</div>
+				<label class="fileImg" for="businessFileImg">点击上传图片</label>
+				<input id="businessFileImg" type="file" name="project_logo"    />
+				<strong class="kbVipAdmin_tip">必填项。图片格式为png、jpg。不大于200k</strong>
+			 </div>
+			
+			<div id="marketInfo-edit" class="bc kbVipAdmin_enter">
+				<b><i>*</i>商盟简介：</b>
+					<div id="myEditor"  class="myEditor">
+					<script id="container" name="abstruct" type="text/plain">
+						{{$info['abstruct']}}
+				    </script>
+				    <!-- 配置文件 -->
+				    <script type="text/javascript" src="ueditor.config.js"></script>
+				    <!-- 编辑器源码文件 -->
+				    <script type="text/javascript" src="ueditor.all.js"></script>
+				    <!-- 实例化编辑器 -->
+				    <script type="text/javascript">
+				        var ue = UE.getEditor('container',{
+				        		'initialFrameWidth':400,
+				        		// 'initialContent':'在这里你可以布置好你商品详情的资料'
+				        });
+				    </script>
+					</div>
+					
+			</div>	
+			<!-- <textarea name="abstruct"   required="required" ></textarea>
+			<strong class="kbVipAdmin_tip">必填项。请输入商场的简单介绍</strong> -->
+			
+
+				<div class="kbVipAdmin_operating tc mt20">
+					<input  class="w200 h40 f16 kbVipAdmin_opt bc" type="submit" value="保存" />
+				</div>
+			</div>	
+		</form>
+		</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			(function(){
+				var checkData;
+				checkData=new CheckData('.formData');
+				 $('.formData .kbVipAdmin_operating [type=submit]').on('click',function(){
+					return checkData.verify();
+				})
+				 vueMethods.maxLength();
+			})()
+		})
+	</script>
+</block>

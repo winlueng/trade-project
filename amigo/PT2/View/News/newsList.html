@@ -1,0 +1,168 @@
+<extend name="Common/firstCom" />
+<block name="css_files">
+<!-- <link href="__PUBLIC__/salon/css/beautySalons.css" rel="stylesheet"></link> -->
+    <style>
+        .bsClassHref{
+            /*overflow-x:scroll;*/
+        }
+        .kb_search {
+            background-size: 18px;
+            background-position: 10px center;
+        }
+        #Main .bsGoodsBrief:nth-child(2){
+            margin-top:40px;
+        }
+        .dl_news-videoContent .kb_cell::before{
+            display:none;
+        }
+        .dl_news-videoContent{
+          border-bottom:1px solid #eee;
+          display: block;
+        }
+        .dl_news-videoContent img{
+          height:72px;
+        }
+        .dl_news-default img{
+          height:72px;
+        }
+        .dl_moreImg .kb_cell .kb_cell-bd:last-child{
+          margin-right: 0;
+        }
+    </style>
+    <php>
+      //echo '<pre>';
+       //var_dump($list);exit;
+    </php>
+</block>
+
+<block name="content" >
+    <section id="Main" class="kb_main tg_magazine">
+        <header id="facusWap" class="swiper-container  mb10  main_bg">
+            <nav class="kb_tabNav swiper-wrapper f16">
+                <volist name="classify" id="v">
+                    <a style="width:107px" class="swiper-slide {{$v['id'] == $_GET['news_classify_id']?'selected':''}} <?=(empty($_GET['news_classify_id']) && $key == 0)?'selected':''?>" href="{{:U('newsList', ['news_classify_id' => $v['id'], 'companyName' => $_GET['companyName']])}}" data-urlID="{{$v['id']}}">{{$v.news_type_name}}</a>
+                </volist>
+            </nav>
+            
+        </header>
+        <volist name="list " id="v" empty="这分类还没发布动态哦">
+        <switch name="v.is_video">
+          <case value="0">
+            <if condition="$v['visit_total'] lt 100">
+               <if condition="count($v['news_logo']) gt 1" >
+                <a href="{{:U('News/newsDetail')}}?id={{$v['id']}}"  class=" main_bg pt10 pb10 dl_moreImg" >
+                  <aside class="kb_list-cell-bd main_bg">
+                     <h1 class="p10 kb_list-cell-title">{{$v['news_name']}}</h1>
+                     <p class="pl10 tg_ft-default">阅读量：{{$v['visit_total']}}</p>
+                  </aside>
+                    <div class="kb_cell">
+                      <volist name="v.news_logo" id="vo" >
+                         <p class="kb_cell-bd imgW mr10">
+                           <img src="__PUBLIC__{{$vo}}">
+                         </p>
+                       </volist>
+                   </div>
+                 </a>
+               <else />
+                 <a href="{{:U('News/newsDetail')}}?id={{$v['id']}}"  class="kb_list-cell  dl_news-default">  
+                  <aside class="kb_list-cell-bd">
+                    <h1 class="kb_list-cell-title mb10">
+                     {{$v['news_name']}}
+                    </h1>
+                   <!--  <p class="kb_list-cell-brief">
+                     {{$v['title']}}
+                    </p> -->
+                    <p class="tg_ft-default">阅读量:{{$v['visit_total']}}</p>
+                  </aside>
+                  <div class="kb_list-cell-ft" >
+
+                    <img src="__PUBLIC__{{$v['news_logo'][0]}}" alt="" />
+                  </div>
+                 </a>
+               </if>
+              <else />
+               <div class="main_bg pt10 pb10 dl_news-videoContent">
+                 <a href="{{:U('News/newsDetail')}}?id={{$v['id']}}" class="kb_cell dl_news-default">
+                 <h1 class="p10 mb10"> {{$v['title']}}</h1>
+                 <p class="p10 tg_ft-default">阅读量：{{$v['visit_total']}}</p>
+
+                     <p class="kb_cell-bd imgW mr10">
+                       <img src="__PUBLIC__{{$v['news_logo'][0]}}">
+                       </p>
+                 </a>
+               </div>
+              </if>
+          </case>
+          <case value="1">
+              <div class="main_bg pt10 pb10 dl_news-videoContent">
+                <a href="{{:U('News/newsDetail')}}?id={{$v['id']}}" >
+                  <article class="kb_cell">
+                    <p class="kb_cell-bd imgW mr10">
+                     <video controls="controls"  style="background-color:#000;width:100%;height:100%" playsinline="isiPhoneShowPlaysinline" webkit-playsinline="isiPhoneShowPlaysinline"  preload="none" x-webkit-airplay=""  runat="server" poster="" >
+                            <source type="video/mp4" src="__PUBLIC__{{$v['video']}}" webkit-playsinline=true>
+                     </video>
+                    </p> 
+                  </article>  
+                
+                <h1 class="p10 mb10 kb_list-cell-title"> {{$v['title']}}</h1>
+                <p class="p10 tg_ft-default">阅读量：{{$v['visit_total']}}</p>
+                </a>
+               
+              </div>
+          </case>
+        </switch>
+        </volist>
+          
+    </section>
+</block>
+<block name="js_files">
+    <script>
+        $(function(){
+            (function(){
+              var swiper = new Swiper('#facusWap',{
+                  slidesPerView: 3.5,
+                  paginationClickable: true,
+                  freeMode: true
+              });
+            })();
+                  
+
+            (function(){
+              var url=window.location.href,
+                  news_classify_id="news_classify_id",
+                  index=url.indexOf('news_classify_id'),
+                  newURL=url.substring(index+news_classify_id.length+1,url.length),
+                  urlID=newURL.substring(0,newURL.indexOf('.')),
+                  wWidth=window.innerWidth,
+                  evenWidth=wWidth/3.5,
+                  bsClassHref=$('.kb_tabNav a');
+                
+                  Object.keys(bsClassHref).map(function(elem,indexs){
+                      if(bsClassHref.eq(elem).length>0){
+                        var dataUrlID=bsClassHref.eq(elem).attr('data-urlID').trim();
+                        console.log(dataUrlID);
+                        console.log(urlID);
+                        if(dataUrlID==urlID){
+                            console.log(bsClassHref.eq(elem));
+                            bsClassHref.eq(elem).addClass('selected');
+                            bsClassHref.eq(elem).parent().css(
+                                 'transform', 'translate3d(-'+bsClassHref.eq(elem).width()*(indexs-1)+'px, 0px, 0px)'
+                            ).css('transition-duration', '0ms')
+                        }
+                        if(index=="-1"){
+                            bsClassHref.eq(0).addClass('selected');
+                            return false;
+                        }
+                      }else{
+                        return false;
+                      }
+                  });
+                  
+              })();
+            
+            
+           
+        })
+            
+    </script>
+</block>

@@ -1,0 +1,271 @@
+<extend name="Common/websiteCom" />
+<block name="header" >
+   <header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-back" href="javascript:;" onclick="javascript:history.back(-1)">
+			</a>
+		</nav>
+		<h1>购物车</h1>
+		<nav>
+			<p class="choose ">
+				<input type="checkbox" />
+				<lable class="writerBtn">编辑</lable>
+			</p>
+		</nav>
+	</header>
+</block>
+<block name="content" >
+	<section id="bsMain" class="bsGoods bsShopCar">
+	<form action="" id="orderForm" method="post">
+		<volist name="info" id="vo">
+		<!-- <input type="hidden" name="company_id" value="{{$key}}"> -->
+		<ul class=" bsReservationList  bc mb10 mt10">
+			<volist name="vo" id="v">
+				<li>
+					<p class="choose chooseGoods roundChoose">
+						<input type="checkbox" value="" checked="checked"/>
+						<label class=""></label>
+						<input type="hidden" data-cart_id="cart_id[{{$v.id}}]" value="{{$v.id}}">
+						<input type="hidden" data-price="price[{{$v.id}}]" value="{{$v.true_price}}">
+					</p>
+					<p class="reservationListImg">
+						<a href="{{$v.link}}"> 
+						<img src="__PUBLIC__{{$v.attr.attr_pic}}" alt="" />
+						</a>
+					</p>
+					<article class="reservationListInfo">
+						<h3 class="mb10">{{$v.goodsInfo.goods_name}}</h3>
+						<p class="mb10 c666">规格：{{$v.attr.attr_val}}</p>
+						<article>
+							<b class="c999">￥<em class="totalPrice">{{$v['true_price'] * $v['total']}}</em></b>
+							
+							<p class="changeNumber" data-shopID="{{$v.id}}">
+								<input class="min" type="button" value="-"/>
+								<input class="goodsNum" min="1" readonly  type="number" value="{{$v['total']}}"/>
+								<input class="add" type="button" value="+"/>
+							</p>
+						</article>
+					</article>
+				</li>
+			</volist>
+		</ul>
+		</volist>
+	</form>
+	</section>
+</block>
+<block name="footer">
+	<footer id="bsFooter" class=" bsFooter shopCarNav">
+		<p>
+			<span class="choose  roundChoose chooseAll">
+				<input type="checkbox" value="" checked="checked"/>
+				<label></label>
+			</span>
+				<b>全选</b>
+		</p>
+		<p>
+			
+			<b>合计：</b>
+			<b class="cRed">￥0</b>
+		</p>
+		<p>
+			<a href="javascript:;" id="sendOrder">结算(<span class="totalNum"></span>)</a>
+			<a class="delShop" href="javascript:;">删除</a>
+		</p>
+		
+	</footer>
+	<script>
+		$(function(){
+
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+			$('.changeNumber .goodsNum,.changeNumber .add,.changeNumber .min')
+			.on('input propertychange click',function(){
+				var $this=$(this),
+					params={},
+					id=$this.parents('[data-shopid]').attr('data-shopid').trim();
+				if($this.hasClass('goodsNum')){
+					if($this.val()<1){
+						$this.val(1);
+					}else if($this.val()>999){
+						$this.val(999);
+					}
+					/* params={
+						flag:'setTotal',
+						id:id,
+						companyName:"{{$_GET['companyName']}}"
+					} */
+				}else{
+					var goodsNum=$this.siblings('.goodsNum'),	
+						num=parseInt(goodsNum.val());
+						params={
+							flag:'setTotal',
+							id:id,
+							companyName:"{{$_GET['companyName']}}"
+						}
+					if($this.hasClass('add')){
+						goodsNum.val(num+=1);
+						params.status="plus";
+					}else if($this.hasClass('min')){
+						if(goodsNum.val()!=1) goodsNum.val(num-=1)
+						params.status="minus";
+					}
+				}
+				
+				if(Object.keys(params).length>0){
+					$.get("{{:U('ShoppingCart/ajaxControl')}}",params,
+						function(res){
+
+						})
+				}
+				/* url : ShoppingCart/ ajaxControl
+				请求参数:{
+						flag: setTotal
+						status: plus/minus (加1或减1)
+				id: 购物车id
+				}
+				 */
+				 	
+			
+			})
+
+			$('.chooseAll input').on('click',function(){
+				var $this=$(this),
+					status=$this.prop('checked');
+					$('.bsReservationList .chooseGoods input').prop("checked",status);
+
+					totalShopCar();
+			})
+			$('.bsReservationList .chooseGoods input').on('click',function(){
+				var checked=$('.bsReservationList .chooseGoods input:checked'),
+					status=$('.bsReservationList .chooseGoods input:not([type=hidden])').length==checked.length
+					$('.chooseAll input').prop("checked",status);
+				totalShopCar();
+			})
+			$('.writerBtn').prev().on('click',function(){
+				var $this=$(this),
+					status=$this.prop("checked"),
+					widthText=(status)? "完成":"编辑",
+					idArr=new Array();
+					$this.next().text(widthText);
+					if(status){
+						$('.bsShopCar .bsReservationList').addClass('editShopLisg');
+						$('.shopCarNav').addClass('editShopLisg');
+						$('.bsReservationList .chooseGoods input').prop("checked",false);
+						$('.chooseAll input').prop('checked',false)
+						$('.changeNumber .goodsNum').attr('readonly',false);
+					}else{
+						$('.bsShopCar .bsReservationList').removeClass('editShopLisg');
+						$('.shopCarNav').removeClass('editShopLisg');
+						totalShopCar()
+					}
+					/*
+						flag: del
+						id: 购物车id
+					  */
+					$('.bsReservationList .chooseGoods input').on('click',function(){
+						var _this=$(this),
+							isChekced=_this.is(':checked'),
+							_thisID=_this.siblings('[data-cart_id]').val();
+							
+						if(isChekced){
+							if(idArr.indexOf(_thisID)<0){
+								idArr.push(_thisID);
+							}
+						}else{
+							
+							if(idArr.indexOf(_thisID)>=0){
+								idArr.splice(idArr.indexOf(_thisID));
+							}
+
+						}
+						console.log(idArr)
+					})
+					$('.chooseAll input').on('click',function(){
+						var $this=$(this),
+							status=$this.prop('checked');
+							if(status){
+								$('.bsReservationList .chooseGoods input').each(function(indexs,elem){
+									var _thisID= $(elem).siblings('[data-cart_id]').val();
+									idArr.push(_thisID);		
+								})
+							}else{
+								idArr=[];
+							}
+							
+
+					})
+					$('.delShop').on('click',function(){
+
+						if(idArr.length>0){
+							$.get("{{:U('ShoppingCart/ajaxControl')}}",{
+								flag:'del',
+								id:idArr,
+								companyName:"{{$_GET['companyName']}}"
+							},function(res){
+								if(res){
+									sTip('操作成功');
+									$('.bsReservationList .chooseGoods input:checked').parents('li').remove();
+								}else{
+									eTip('操作失败');
+								}
+							})
+						}
+					})
+
+			});
+			function totalShopCar(){
+
+				var checked=$('.bsReservationList .chooseGoods input:checked'),
+					pirce =0,
+					totalNum=0;
+				checked.each(function(indexs,elem){
+					 pirce+=parseInt($(elem).parents('li').find('.totalPrice').text().trim());
+					 totalNum+=parseInt($(elem).parents('li').find('.goodsNum').val().trim())
+				})
+
+				$('.shopCarNav p:nth-child(2) .cRed').text('￥'+pirce);
+				$('.shopCarNav .totalNum').text(totalNum);
+				console.info(pirce);
+			}
+			totalShopCar()
+		})
+	</script>
+</block>
+<block name="js_file">
+	<script>
+		$(function(){
+			//提交购物车
+			$('#sendOrder').on('click', function () {
+				var data=new Object();
+
+				$('#orderForm .chooseGoods input:checked').each(function(indexs,elem){
+					var cart_id=$(elem).siblings('[data-cart_id]').attr('data-cart_id').trim(),
+						price=$(elem).siblings('[data-price]').attr('data-price').trim();
+						data[cart_id]=$(elem).siblings('[data-cart_id]').val().trim();
+						data[price]=$(elem).siblings('[data-price]').val().trim();
+
+				});
+				if($('#orderForm .bsReservationList li').length){
+			        $.ajax({  
+			            url: "{{:U('OrderForm/ajaxControl', ['companyName' => $_GET['companyName'], 'flag' => 'insert'])}}" ,  
+			            type: 'POST',  
+			            data: data,
+			            async: false,  
+			            success: function (res) {  
+			            	if(res){
+			            		// console.log(res);
+			            		window.location.href=res
+			            	}else{
+			            		eTip("提交失败")
+			            	}
+			            	console.log(res);
+			            } 
+				     });
+				}else{
+					eTip("购物车还没有商品哦！")
+				}
+			})
+		})
+	</script>
+</block>

@@ -1,0 +1,155 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+  <style>
+      .dl_addrWrite{
+        line-height:40px;
+        text-align:center;
+      }
+      .dl_addrWrite:active{
+        opacity:.5;
+      }
+      .dl_addrOpera{
+        display:none;
+      }
+      .kb_cell-href .kb_cell-ft::after{
+        display:none;
+      }
+      .dl_addre-wirteStatus .dl_addrOpera,
+      .dl_addre-wirteStatus .kb_cell-href .kb_cell-ft::after{
+        display:block;
+      }
+      .dl_addre-wirteStatus .kb_cell-ft .kb_choose{
+        display:none;
+      }
+  </style>
+</block>
+<block name="leftNav">
+  <a href="{{:U('OrderForm/unpaid')}}?addr_id={{$v['id']}}&project_order={{$_GET['project_order']}}&c_com={{:I('get.c_com')}}&companyName={{:I('get.companyName')}}&tem={{:I('get.tem')}}&com={{:I('get.com')}}&gid={{:I('get.gid')}}" class="icon-back w"></a>
+</block>
+<block name="title">
+  地址管理
+</block>
+<block name="rightNav">
+  <label class="kb_choose w h dl_addrWrite tc">
+    <input type="checkbox" value=""  />
+    <b>编辑</b>
+  </label>
+</block>
+<block name="content">
+    <section id="Main" class="kb_main bc tg_addrList ">
+    <volist name="list" id="v">
+      <article class="dl_addre-cell main_bg mb20" >
+        <a 
+          href="javascript:;" addr-id="{{$v['id']}}"
+          data-updataAddr="{{:U('VisitorAddress/addressInfo')}}?addr_id={{$v['id']}}" 
+          class="kb_list-cell kb_cell-href  kb_list-cell_big mb10 mark-changHref addr_submit"
+        >
+          <div class="kb_list-cell-hd">
+              <img src="__PUBLIC__/trading/images/tr-position.png" alt="" class="w20 h20" />
+          </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class="mb10">
+              <if condition="$v['status']" >
+               <b class="tg_btn-status-main">默认</b>
+              </if>
+               <b class="mr10">{{$v.consignee}}</b>
+               <b>{{$v.phone}}</b>
+            </h2>
+            <p class="kb_list-cell-brief">{{$v.address_str}}</p>
+          </aside>
+         <!--  <footer class="kb_cell-ft">
+            <label class="kb_choose ml10 mt10">
+              <input type="radio" value="1" name="select" {{$v['status']?'checked':''}} />
+              <span class="kb_choose-check kb_choose-check_radio">
+                <b class="kb_choose-check-default kb_choose-check_main"></b>
+              </span>
+            </label>
+          </footer> -->
+        </a>
+        <p class="dl_addrOpera pb10"> 
+            <label class="kb_choose ml10">
+              <input type="radio" name="status" value="{{$v.id}}" {{$v['status']?'checked':''}} />
+              <span class="kb_choose-check kb_choose-check_radio">
+                <b class="kb_choose-check-default kb_choose-check_main"></b>
+              </span>
+            </label>
+            <b class="dl_addrOpera-txt">默认地址</b>
+          </p>
+      </article>
+    </volist>
+    </section>
+</block>
+<block name="footer">
+  <footer id="Footer" class="kb_footer ">
+    <a href="{{:U('VisitorAddress/addressAdd')}}" class="kb_btn kb_btn-main fb dl_addre-add">+&nbsp;新增地址</a>
+  </footer>
+</block>
+<block name="js_files">
+<script>
+  $('.dl_addrWrite input').on('click',function(){
+      var $this=$(this),nowHref=new Array(),updataHref=new Array();
+      $('.kb_main').toggleClass('dl_addre-wirteStatus');
+
+       Object.keys($('.mark-changHref')).map(function(elem,indexs){
+         nowHref.push($('.mark-changHref').eq(elem).attr('href'));
+         updataHref.push($('.mark-changHref').eq(elem).attr('data-updataAddr'));
+       })
+      if($('.kb_main').hasClass('dl_addre-wirteStatus')){
+        updataHref.map(function(elem,indexs){
+          $('.mark-changHref').eq(indexs).attr('href',elem);
+        })
+        nowHref.map(function(elem,indexs){
+          $('.mark-changHref').eq(indexs).attr('data-updataAddr',elem);
+        });
+          $('.mark-changHref').removeClass('addr_submit');
+          $('.dl_addrWrite input').next().text('完成')
+      }else{
+        nowHref.map(function(elem,indexs){
+          $('.mark-changHref').eq(indexs).attr('data-updataAddr',elem);
+        })
+        updataHref.map(function(elem,indexs){
+          $('.mark-changHref').eq(indexs).attr('href',elem);
+        })
+        $('.mark-changHref').addClass('addr_submit');
+         $('.dl_addrWrite input').next().text('编辑')
+      }
+  })
+  $('.kb_list-cell').on('click',function(){
+        // return  $('.dl_addrWrite input').prop('checked');
+  })
+
+  $('input[name="status"]').on('click', function(){
+    $.get('{{:U("ajaxControl")}}',{flag:'saveDefault', id:$(this).val()},function(res){
+      if (res) {
+        Alert('设置成功',function(res){
+            window.location.reload();
+        });
+        // 
+      }else{
+        Alert('设置失败',function(res){
+          if(res){
+            window.location.reload();
+          }
+        });
+      }
+    })
+  });
+
+  $('.addr_submit').on('click', function(){
+    $.get("{{:U('ajaxControl')}}", {
+      flag:'set_order_pay_address',
+      addr_id:$(this).attr('addr-id')
+    },function(res){
+      if(res){
+        window.history.go(-1);
+      }else{
+        Alert('数据设置失败',function(res){
+          if(res){
+            window.location.reload();
+          }
+        })
+      }
+    })
+  });
+</script>
+</block>

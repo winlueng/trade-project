@@ -1,0 +1,96 @@
+
+.spAnIndex{
+
+}
+.spAnIndex>div{
+	width:100%;
+}
+.spAnIndex-allCount{
+
+}
+.spAnIndex-allCount div,.spAnIndex-coupon div{
+	width:250px;
+	height:100px;
+	border-radius:5px;
+	overflow:hidden;
+	display:inline-block;
+	position:relative;
+	margin-right:30px;
+	margin-bottom: 10px;
+}
+.spAnIndex-allCount div p,.spAnIndex-coupon div p{
+	display:inline-block;
+	height:100%;
+	line-height:100px;
+	text-align:center;
+	font-weight:bold;
+	vertical-align:top;
+	float:left;
+}
+.spAnIndex-allCount div p:nth-child(1){
+	width:40%;
+	background-color:#6ccac9;
+	color:#fefeff;
+}
+.spAnIndex-allCount div p:nth-child(2){
+	width:60%;
+	background-color:#fff;
+}
+.spAnIndex-allCount div p b{
+	display:block;
+	height:40%;
+	line-height: 40px;
+}
+.spAnIndex-allCount div p b:first-child{
+	font-size:150%;
+	line-height: 70px;
+}
+
+.spAnIndex-service p{
+	font-size:133.333%;
+	color:#424242;
+}
+.spAnIndex-coupon div p:nth-child(1){
+	width:38%;
+	background-color:#ff6c60;
+	position:relative;
+}
+.spAnIndex-coupon div p:nth-child(2){
+	width:62%;
+	background-color:#fff;
+}
+.spAnIndex-coupon div p b{
+	display:block;
+	height:50%;
+	line-height: 50px;
+	font-weight:none;
+}
+.spAnIndex-coupon div p b strong{
+	font-size:150%;
+	font-weight:bold;
+	margin-left:15px;
+}
+.spAnIndex-coupon div p b:last-child{
+	border-top:2px solid #ffe3e0;
+}
+.spAnIndex-coupon-bg{
+	display:block;
+	width:53px;
+	height:35px;
+	background: url("../cmmImg/coupanBg.png") no-repeat center;
+	margin:auto;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	overflow:hidden;
+	line-height:35px;
+	text-align:center;
+	font-size:130.333%;
+	font-weight:bold;
+	color:#ff6c60;
+}
+.spAnIndex-operating .kbShopAdmin_table{
+	width:90%;
+}

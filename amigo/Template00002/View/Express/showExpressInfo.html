@@ -1,0 +1,47 @@
+<extend name="Common/websiteCom" />
+<block name="header" >
+	<header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-back" href="javascript:;" onclick="javascript:history.back(-1)">
+			</a>
+		</nav>
+		<h1>物流详情</h1>
+		<nav>
+			
+		</nav>
+	</header>
+</block>
+<block name="content" >
+	<section id="bsMain" class="noFooter systemMessage">
+		<!-- 表单内容模板 -->
+		<article class="bsStystemCare formData bc">
+			<p><em>订单号：</em>{{$info['order_number']}}</p>
+			<p><em>交易时间：</em>{{:date('Y-m-d H:i:s',$info['update_time'])}}</p>
+			<p><em>物流公司：</em>{{$info['expressName']}}</p>
+			<p><em>物流单号：</em>{{$info['express_number']}}</p>
+			<p><em>物流状态：</em>{{$info['express']['expressLast']['AcceptStation']}}</p>
+		</article>
+		<p class="bsSeparate"></p>
+		<!-- 表单填写模板 -->
+		<article class="bsReservationList forminput bc pt10">
+			<h3>物流信息</h3>
+			<ul>
+			<volist name="info.express.Traces" id="v" >
+				<li>
+					<b>{{$v.AcceptTime}}</b><br>
+					<p>{{$v.AcceptStation}}</p>
+				</li>
+			</volist>
+			</ul>
+		</article>
+	</section>
+</block>
+<block name="footer" >
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script>
+		$(function(){
+			
+		})
+	</script>
+</block>

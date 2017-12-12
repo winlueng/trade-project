@@ -1,0 +1,83 @@
+<extend name="Common/websiteCom" />
+<block name="css_file">
+    <link href="__PUBLIC__/oneselfCore/oneselfCoreCSS/oneselfCore.css?t=1.0" rel="stylesheet" />
+    <style>
+    body{
+      color:#282727;
+    }
+    .login{
+      margin-top:55px;
+    }
+    .login p{
+      width:256px;
+      margin-left:auto;
+      margin-right:auto;
+      margin-top:10px;
+    }
+    .login p:nth-child(1),.login p:nth-child(2){
+      border:1px solid #434343;
+      border-radius:5px;
+      height:44px;
+      text-indent:44px;
+      overflow:hidden;
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: 14px center;
+    }
+    .login p:nth-child(1) input,.login p:nth-child(2) input{
+      height:100%;
+      width:100%;
+      border:none;
+      background:transparent;
+      font-size:16px;
+     
+    }
+    .login p:nth-child(1){
+      background-image:url('__PUBLIC__/oneselfCore/oneselfCoreCSS/img/symbolize_icon_account_default.svg');
+    }
+     .login p:nth-child(2){
+      background-image:url('__PUBLIC__/oneselfCore/oneselfCoreCSS/img/symbolize_icon_password_default.svg') ;
+    }
+    .login p:last-child{
+      width:300px;
+      margin-top:68px;
+    }
+    .login p:last-child input{
+      width:100%;
+      border:1px solid #0764b6;
+      background-color:#0764b6;
+      color:#fff;
+      border-radius:5px;
+      font-size:15px;
+      height: 35px;
+      letter-spacing:5px;
+    }
+    #cardCenter{
+      padding-top:65px;
+    }
+    .errtip{
+      display:none;
+    }
+  </style>
+</block>
+<block name="secondtitle">
+   登录
+</block>
+<block name="content">
+   <form class="login" action="{{:U('defaultLogin')}}" method="post" enctype="multipart/form-data">
+      <p><input type="tel" value="" placeholder="请输入手机号码" name="phone" /> </p>
+      <p><input type="password" value="" placeholder="请输入密码" name="password" /> </p>
+      <p class="colorff0000 errtip">
+        <img style="width:11px;margin-right:5px" src="__PUBLIC__/oneselfCore/oneselfCoreImages/symbolize_icon_attention_default.svg">账号或密码不能为空!
+      </p>
+      <p>还没有账号？<a class="colora55405 fb" href="{{:U('Login/visitorSignIn')}}">立即注册</a><a class="color3c3ce8 fb fr" href="javascript:;">忘记密码?</a></p>
+      <p class="bc"><input  type="submit" value="登录" /></p>
+    </form>
+
+</block>
+<block name="javascript" > 
+  <script>
+      
+  </script>
+</block>
+</extend>

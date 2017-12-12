@@ -1,0 +1,74 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+  <style>
+     
+  </style>
+</block>
+<block name="title">
+评价成功
+</block>
+<block name="leftNav">
+  <a href="{{:U('OrderForm/orderList')}}?show=2" class="icon-back w"></a>
+</block>
+<block name="rightNav">
+ 
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc kb_notFooter dl_payResult ">
+    <article class="main_bg pb30 pt20">
+      <h1 class="tc dl_payResult-info">
+        <img src="__PUBLIC__/trading/images/tr-success.png" alt="" />
+        <em>感谢您的评价</em>
+      </h1>
+      <p class="tg_ft-default tc f14 mb10">感谢您对我们的认可，期待您的下次购买~</p>
+      
+    </article>
+  <notempty name="sel_you_like">
+  <article class="dl_newGoods  main_bg mb10 pt10">
+    <h1 class="dl_cellTitle dl_cellTitleBG">
+      <b class="dl_cellTitle-txt">猜你喜欢</b>
+    </h1>
+    <ul class="tg_list-cell tg_list-cell_two p10">
+    <foreach name="sel_you_like" item="v">
+      <li class="tg_list-bd mb20">
+          <a href="{{$v['link']}}">
+          <p class="imgW w">
+            <img src="__PUBLIC__{{$v['goods_logo']}}" alt="" />
+          </p>
+          </a>
+          <h3 class="mb15 mt20">{{$v['goods_name']}}</h3>
+          <p class="flexLayout-center dl_between ">
+            <em class="tg_ft-price f14">￥{{$v['is_promotion']==1?$v['promotion_price']:$v['price']}}</em>
+            <em class="tg_ft-default f12s">销量:{{$v['sales']?$v['sales']:0}}</em>
+          </p>
+      </li>
+     </foreach>
+    </ul>
+  </article>
+  </notempty>
+    <!-- <article class="main_bg mt20">
+      <h1  class="dl_cellTitle dl_cellTitleBG">
+          <b class="dl_cellTitle-txt">猜你喜欢</b>
+      </h1>
+      <ul class="tg_list-cell tg_list-cell_two p10">
+      
+        <li class="tg_list-bd mb20">
+            <p class="imgW w">
+              <img src="images/1.jpg" alt="" />
+            </p>
+            <h3 class="mb10">商品名字商品名字商品名字商品名字</h3>
+            <p class="flexLayout-center dl_between ">
+              <em class="tg_ft-price">￥130.00</em>
+              <em class="tg_ft-default">销量:200</em>
+            </p>
+        </li>
+        
+      </ul>
+    </article> -->
+  </section>
+</block>
+<block name="js_files">
+  <script>
+    
+  </script>
+</block>

@@ -1,0 +1,108 @@
+/*统计 公共css*/
+h3{
+	font-size:140%;
+}
+#kbVipAdmin_center .kbVipAdmin_center_txt h3{
+	margin-bottom:21px;
+}
+
+
+#kbVipAdmin_center .kbVipAdmin_center_txt ul{
+	margin-bottom:60px;
+}
+#kbVipAdmin_center .kbVipAdmin_center_txt ul li{
+	width:280px;
+	background:#e8e8e8;
+	text-align:center;
+	border:1px solid #ccc;
+	display:inline-block;
+	margin-right:79px;
+	border-radius:2px;
+	overflow:hidden;
+
+}
+
+/*微官网*/
+#kbVipAdmin_center .kbVipAdmin_center_txt .microWebCount li{
+	height:100px;
+	line-height:100px;
+	
+}
+.kbVipAdmin_center_txt ul.microWebCount li p{
+	width:48%;
+	border-left:2px solid #fff;
+	display:inline-block;
+}
+.kbVipAdmin_center_txt ul.microWebCount li p:first-child{
+	border-left:none;
+}
+
+/*卡券速递*/
+#kbVipAdmin_center .kbVipAdmin_center_txt .preferentialCount li{
+	height:198px;
+	line-height:198px;
+	margin-bottom:10px;
+}
+.kbVipAdmin_center_txt ul.preferentialCount li>p{
+	width:58px;
+	text-align:center;
+	display:inline-block;
+	vertical-align: top;
+	    text-indent: 7px;
+}
+#kbVipAdmin_center .kbVipAdmin_center_txt .preferentialCount li div{
+	display:inline-block;
+	width:212px;
+	height: 100%;
+	border-left:2px solid #fff;
+}
+.kbVipAdmin_center_txt .preferentialCount li div>p{
+	height:97px;
+	width:100%;
+	line-height:97px;
+}
+.kbVipAdmin_center_txt .preferentialCount li div>p:first-child{
+	border-bottom:2px solid #fff;
+}
+.kbVipAdmin_center_txt .preferentialCount li div>p b{
+	font-size:20px;
+}
+/*商户*/
+#kbVipAdmin_center .kbVipAdmin_center_txt .businessCount li{
+	height:137px;
+	background:#fff;
+	margin-bottom:15px;
+}
+.kbVipAdmin_center_txt .businessCount li p{
+	height:50%;
+	line-height:68px;
+	font-size: 200%;
+	
+}
+/*将要过期商户*/
+#kbVipAdmin_center .kbVipAdmin_center_txt .businessCount{
+	width:80%;
+}
+
+.roleList{
+	width:100%;
+	border:1px solid #808080;
+	min-width:300px;
+}
+.roleList thead th{
+	background:#e8e8e8;
+	font-weight:bold;
+}
+.roleList thead th,.roleList tbody td,.roleList tfoot td{
+	padding:5px;
+	border:1px solid #ccc;
+	text-align:center;
+}
+
+/*保留*/
+.fr{float:none;}
+.page a{padding:6px 12px;border:1px solid #ddd;float:left;margin-left:-1px;color:#006dae;text-align:center;}
+.page a:hover{background:#ddd;}
+.page a.current{background:#006dae;color:#fff;border:1px solid #006dae;cursor: default;}
+.page .first{margin-right:10px;}
+.pageinfo{margin-left:10px;padding:6px 12px;border:1px solid #ddd;float:left;color:#006dae;text-align:center;}

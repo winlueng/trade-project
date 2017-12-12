@@ -1,0 +1,45 @@
+<extend name="Web/default" />
+<block name="files">
+    <style type="text/css">
+        @keyframes info{
+            0%   {opacity: 1;}
+            100% {opacity: 0;}
+        }
+    </style>
+</block>
+<block name="content">
+    <div class="swiper-container carousel">
+        <div class="swiper-wrapper">
+            <foreach name="poster" item="v">
+                <div class="swiper-slide"><a href="{{$v['poster_url']}}" onclick="clickStatistics(this)" posterid="{{$v.id}}"><img src="__PUBLIC__{{$v['poster_pic']}}"></a></div>
+            </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div id="Suggest">
+        <p class="info">感谢您提供宝贵的建议<br />我们将会在以后不断地改进、为您提供更好的服务！</p>
+         <form method="post" action="{{:U('sendMail')}}">
+            <div class="row">
+                <span>Name:</span>
+                <input type="text" name="name" placeholder="请输入你的姓名" required>
+            </div>
+            <div class="row">
+                <span>Tel:</span>
+                <input type="tel" name="tel" placeholder="请输入你的手机号码" required>
+            </div>
+            <div class="row">
+                <span>E-mail:</span>
+                <input type="email" name="email" placeholder="请输入你的邮箱" required>
+            </div>
+            <div class="row">
+                <span>Suggestion:</span>
+                <textarea name="suggest" placeholder="请输入你的建议内容"></textarea>
+            </div>
+            <div class="row">
+                <a href="javasrcipt:;" class="btn" type="submit">
+                    <button type="submit"><img src="__PUBLIC__/CE/images/icon/send.svg">提交</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</block>

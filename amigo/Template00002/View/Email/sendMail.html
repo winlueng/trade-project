@@ -1,0 +1,38 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+	<style>
+	.bsAddReceiptAddr form{
+		background-color:#fff;
+	}
+	</style>
+</block>
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+	</a>
+	
+</block>
+<block name="bsTitle">
+	建议与反馈
+</block>
+<block name="content">
+	<section id="bsMain" class="bsPushReview noFooter bsAddReceiptAddr">
+		<form method="post">
+			<article class="bsForm contentPush bc pt10">
+				<textarea placeholder="请留下您的宝贵建议" name="content"></textarea>
+			</article>
+		
+			<article class=" bc tc">
+				<input class="defineBtn btnColor00bec5" type="submit" value="提交" />
+			</article>
+		</form>
+	</section>
+	<script src="js/swiper/swiper.jquery.min.js"></script>
+	<script src="js/beautySalong.js"></script>
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+		})
+	</script>
+</block>

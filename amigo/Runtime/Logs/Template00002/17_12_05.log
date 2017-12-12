@@ -1,0 +1,1665 @@
+[ 2017-12-05T00:23:42+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `market_button_click_statistics` (`company_id`,`date`,`button_type`) VALUES ('20','1512403200','2') [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:02:42+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:03:57+08:00 ] 113.109.210.218 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:05:58+08:00 ] 113.109.210.218 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000311s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:05:58+08:00 ] 113.109.210.218 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0006s ]
+
+[ 2017-12-05T01:05:58+08:00 ] 113.109.210.218 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000750s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000817s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:07:58+08:00 ] 113.109.210.218 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:09:08+08:00 ] 223.104.63.119 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0010s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:10:26+08:00 ] 183.36.112.205 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000342s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T01:32:38+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T09:12:01+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T09:12:04+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T09:20:59+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T09:35:42+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_company_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_company_statistics` WHERE `relevance_id` = 20 AND `date` = 1512403200 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_company_statistics` SET `visit_total`=visit_total+1 WHERE `relevance_id` = 20 AND `date` = 1512403200 [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T09:38:19+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0010s ]
+
+[ 2017-12-05T10:07:04+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T10:39:38+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000242s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T10:40:28+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0028s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T10:50:47+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000208s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T11:06:03+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T11:07:34+08:00 ] 183.36.112.205 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0068s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T11:21:09+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000366s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T11:21:45+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T11:24:41+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T12:17:50+08:00 ] 183.36.112.205 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000379s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000424s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0014s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0004s ]
+
+[ 2017-12-05T12:45:43+08:00 ] 14.116.137.166 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 826 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T12:56:56+08:00 ] 121.51.14.26 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T12:56:58+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0034s ]
+SQL: INSERT INTO `market_button_click_statistics` (`company_id`,`date`,`button_type`) VALUES ('20','1512403200','1') [ RunTime:0.0008s ]
+
+[ 2017-12-05T12:57:00+08:00 ] 121.51.14.26 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000328s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T13:04:51+08:00 ] 101.226.64.174 /Template00002/Index/ajaxControl.html?companyName%3Dyuancun%26flag%3DindexButtonClickStatistics%26button%3D2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000029s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000077s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003817s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003857s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: Run Behavior\TokenBuildBehavior [ RunTime:0.000161s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000299s ]
+
+[ 2017-12-05T15:02:46+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0007s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T15:50:39+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T16:26:10+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000333s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0006s ]
+
+[ 2017-12-05T17:34:51+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0006s ]
+
+[ 2017-12-05T17:47:36+08:00 ] 113.109.162.237 /Template00002/Index/ajaxControl.html?companyName=huanbao&flag=indexButtonClickStatistics&button=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0017s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'huanbao' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_company_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_company_statistics` WHERE `relevance_id` = 22 AND `date` = 1512403200 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_company_statistics` SET `visit_total`=visit_total+1 WHERE `relevance_id` = 22 AND `date` = 1512403200 [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 22 AND `date` = 1512403200 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `market_button_click_statistics` (`company_id`,`date`,`button_type`) VALUES ('22','1512403200','3') [ RunTime:0.0004s ]
+
+[ 2017-12-05T17:47:59+08:00 ] 183.36.112.205 /Template00002/Index/ajaxControl.html?companyName=huanbao&flag=indexButtonClickStatistics&button=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'huanbao' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 744 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 22 AND `date` = 1512403200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `market_button_click_statistics` (`company_id`,`date`,`button_type`) VALUES ('22','1512403200','1') [ RunTime:0.0004s ]
+
+[ 2017-12-05T18:24:58+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:32:54+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000451s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:32:56+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:33:17+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0008s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:34:19+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:34:56+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:34:58+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 1 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:35:13+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T18:46:06+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0007s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0006s ]
+
+[ 2017-12-05T18:48:28+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `market_button_click_statistics` (`company_id`,`date`,`button_type`) VALUES ('20','1512403200','3') [ RunTime:0.0004s ]
+
+[ 2017-12-05T19:08:11+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0006s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T19:09:55+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 830 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T21:06:41+08:00 ] 183.3.226.234 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 843 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T21:42:22+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000339s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_company_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_company_statistics` WHERE `relevance_id` = 20 AND `date` = 1512403200 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_company_statistics` SET `visit_total`=visit_total+1 WHERE `relevance_id` = 20 AND `date` = 1512403200 [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T21:50:16+08:00 ] 121.51.14.20 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 845 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: INSERT INTO `market_button_click_statistics` (`company_id`,`date`,`button_type`) VALUES ('20','1512403200','5') [ RunTime:0.0004s ]
+
+[ 2017-12-05T21:51:55+08:00 ] 113.96.219.250 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 845 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0007s ]
+
+[ 2017-12-05T22:03:22+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:03:36+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0026s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0006s ]
+
+[ 2017-12-05T22:04:58+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:05:37+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000226s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0014s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:06:56+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:07:59+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:09:37+08:00 ] 121.51.14.23 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0011s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:09:43+08:00 ] 121.51.14.23 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:11:33+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000414s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0006s ]
+
+[ 2017-12-05T22:11:49+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0017s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0006s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:15:39+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:15:41+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000328s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000444s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000501s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0039s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:18:50+08:00 ] 183.3.255.32 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 766 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:20:25+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0006s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:21:39+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0005s ]
+
+[ 2017-12-05T22:22:38+08:00 ] 183.3.227.102 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 844 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 LIMIT 1   [ RunTime:0.0005s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 2 [ RunTime:0.0006s ]
+
+[ 2017-12-05T22:41:28+08:00 ] 119.129.121.159 /Template00002/Index/ajaxControl.html?companyName=yuancun&flag=indexButtonClickStatistics&button=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+SQL: SHOW COLUMNS FROM `market_project` [ RunTime:0.0007s ]
+SQL: SELECT `id`,`template_id`,`category_id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' AND `status` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_template_change` [ RunTime:0.0005s ]
+SQL: SELECT `template_path` FROM `market_template_change` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `market_write_info` [ RunTime:0.0005s ]
+SQL: SELECT `market_name`,`principal`,`phone`,`project_logo`,`email`,`address_id`,`address_info`,`abstruct`,`app_id`,`app_secret`,`mch_id`,`mch_sectet` FROM `market_write_info` WHERE `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT `id` FROM `market_project` WHERE `project_link` = 'www.chinaimigo.com' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_company` [ RunTime:0.0007s ]
+SQL: SELECT `id` FROM `market_company` WHERE `web_postfix` = 'yuancun' AND `status` = 0 AND `relevance_id` = 9 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: visitor /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 56 行.
+NOTIC: [8192] Non-static method Template00002\Model\CommonModel::saveStatis() should not be called statically, assuming $this from incompatible context /var/www/html/amigo/amigo/Template00002/Controller/CommonController.class.php 第 64 行.
+SQL: SHOW COLUMNS FROM `market_system_news` [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `market_system_news` WHERE `obj_id` = 820 AND `obj_type` = 1 AND `status` <> '-1' AND `is_read` = 0 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `market_button_click_statistics` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `market_button_click_statistics` WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 LIMIT 1   [ RunTime:0.0004s ]
+SQL: UPDATE `market_button_click_statistics` SET `click_total`=click_total+1 WHERE `company_id` = 20 AND `date` = 1512403200 AND `button_type` = 5 [ RunTime:0.0005s ]
+

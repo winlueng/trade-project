@@ -1,0 +1,251 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<style>
+	#lookMore{
+		transition:height 100ms;
+		background-color: #fff;
+		height: 25px;
+		line-height: 25px;
+		font-weight:bold;
+	}
+	.orderList li{
+		width: calc(100% - 8%);
+		padding: 10px 4%;
+		margin-bottom: 20px;
+	}
+	.orderAll{
+	    background-color: #f7f7f7;
+	}
+	.reservationListInfo  a{
+		display:block;
+	}
+</style>
+</block>
+<block name="bsTitle" >
+售后处理
+</block>
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter',['companyName' => $_GET['companyName']])}}">
+	</a>
+</block>
+<block name="content" >
+	<section id="bsMain" class="noFooter bsMyself orderAll">
+		<header class="bsClassNav mb10 swiper-container">
+			<nav class="bsClassHref swiper-wrapper">
+				<a class="swiper-slide {{$_GET['show']=='5'?'selected':''}}" href="{{:U('OrderForm/refundList', ['companyName' => $_GET['companyName'],'show' =>5])}}">申请退款中</a>
+				<a class="swiper-slide {{$_GET['show']=='6'?'selected':''}}" href="{{:U('OrderForm/refundList', ['companyName' => $_GET['companyName'],'show' =>6])}}">已处理</a>
+			</nav>
+		
+		</header>
+		<ul class="orderList bsReservationList bc mb10">
+			<volist name="list" id="v" empty="你还没有相关的订单" >
+				<li>
+					<volist name="v.goods_data" id="vo" >
+					<article class="orderBox">
+						<p class="reservationListImg">
+							<a href="{{$vo.link}}"> 
+							<img src="__PUBLIC__{{$vo.attrInfo.attr_pic}}" alt="" />
+							</a>
+						</p>
+						<article class="reservationListInfo ">
+							<a href="{{:U('orderDetail', ['companyName' => $_GET['companyName'], 'id' => $v['id'],'refund' => 1])}}">
+
+							<h3 class="mb10">{{$vo.goods_name}}
+							<em class="c999 f12 fr">
+								<switch name="v.status" >
+									<case value="5">	待处理</case>
+									<case value="6">	已处理</case>
+									<case value="7">	已拒绝</case>
+								</case>
+								</switch>
+							</em>
+							</h3>
+							<p class="mb10 c666">规格：{{$vo.attrInfo.attr_val}}</p>
+							<p>
+								<b>￥{{$vo.price}}</b>
+								<a class=" fr " href="{{:U('orderDetail', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}"> X {{$vo.total}}</a>
+							</p>
+							</a>
+						</article>
+					</article>
+					
+					</volist>
+					<footer>
+						<p>
+							<b class="mr10">共{{$v.piece}}件</b>
+							<b>总额:&nbsp;&nbsp;<em class="c00bec5">{{$v.total}}</em></b>
+						</p>
+					</footer>
+				</li>
+			
+		</volist>
+		<if condition="($list) AND (count($list) gt 5)">
+			<li is="myTemlate"  v-bind:Phrase="indexs" v-for="indexs in info" >
+		    </li>
+			<p id="lookMore" class="lookMore tc pt10 pb10 f14"><a href="javascript:;">查看更多</a></p>
+		</if>
+		</ul>
+	</section>
+</block>
+<block name="js_file">
+	<script id="orderListTem" type="text/x-handlebars-template">
+		<li>
+			<article class="orderBox" v-for="goodsIndexs in Phrase.goods_data">
+				<p class="reservationListImg">
+					<a v-bind:href="goodsIndexs.link"> 
+					<img v-bind:src="'__PUBLIC__'+goodsIndexs.attrInfo.attr_pic" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo ">
+					<a v-bind:href="jumpUrl('refundListDetail',Phrase.id)">
+
+					<h3 class="mb10">{{goodsIndexs.goods_name}}
+					<em class="c999 f12 fr">
+						<template v-if="Phrase.status==5" >
+							待处理
+						</template>
+						<template v-else-if="Phrase.status==6" >
+							已处理
+						</template>
+						<template v-else-if="Phrase.status==7" >
+							已拒绝
+						</template>
+					</em>
+					</h3>
+					<p class="mb10 c666">规格：{{goodsIndexs.attrInfo.attr_val}}</p>
+					<p>
+						<b>￥{{goodsIndexs.price}}</b>
+						<a class=" fr " v-bind:href="jumpUrl('orderDetail',Phrase.id)"> X {{goodsIndexs.total}}</a>
+					</p>
+					</a>
+				</article>
+			</article>
+			<footer>	
+				<p>
+					<b class="mr10">共{{Phrase.piece}}件</b>
+					<b>总额:&nbsp;&nbsp;<em class="c00bec5">{{Phrase.total}}</em></b>
+				</p>
+			</footer>
+		</li>
+	</script>
+	
+	<script>
+		function onBridgeReady(info){
+
+			var data = JSON.parse(info);
+
+		   	WeixinJSBridge.invoke(
+		       'getBrandWCPayRequest', {
+		       		"appId":data.appId,
+		       		"timeStamp":data.timeStamp,
+		       		"nonceStr":data.nonceStr,
+		       		"package":data.package,
+		       		"signType":data.signType,
+		       		"paySign":data.paySign
+		       	},
+		       	function(res){     
+		            if(res.err_msg == "get_brand_wcpay_request:ok" ) {// 支付成功走这
+	           			// alert(JSON.stringify(res));
+                    	WeixinJSBridge.log(res.err_msg);
+                    	// alert(res.err_code+res.err_desc+res.err_msg);
+                    }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+		       	}
+		   ); 
+		}
+
+		function showPay(pay) {
+			if (typeof WeixinJSBridge == "undefined"){
+			   if( document.addEventListener ){
+			       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			   }else if (document.attachEvent){
+			       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+			       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			   }
+			}else{
+				// console.log(pay)
+			  	onBridgeReady(pay);
+			}
+		}
+
+		$(function(){
+			(function(){
+				var Child={
+					template:'#orderListTem',
+					props: ['Phrase'],
+					methods:{
+						jumpUrl:function(uType,ID){
+							switch(uType){
+								case 'refundListDetail':
+									return "{{:U('refundListDetail', ['companyName' => $_GET['companyName']])}}?id="+ID+"&refund=1";
+								break;
+								case 'orderDetail':
+									return "{{:U('orderDetail', ['companyName' => $_GET['companyName']])}}?id="+ID;
+								break;
+							
+							}
+						}
+					}
+					
+				}
+				var app=new Vue({
+					el:"#bsMain",
+					components:{
+						'myTemlate':Child
+					},
+					data:{
+						info:[],
+						clickTotal:2
+					},
+					computed:{
+						
+					},
+					methods:{
+
+					}
+
+				})
+				$("#lookMore").on('click',function(){
+					var $this=$(this);
+					$.get("{{:U('ajaxControl')}}",{
+						show:"{{$_GET['show']}}",
+						companyName:"{{$_GET['companyName']}}",
+						p:app.clickTotal,
+						flag:'orderList'
+					},function(res){
+						console.log(res);
+						if(res){
+							app.info=app.info.concat(res);
+							app.clickTotal+=1;
+							console.log(app.info);
+						}else{
+							$this.fadeOut();
+							eTip("没有更多了")
+						}
+					})
+				})
+			})();
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			});
+			
+			$('.pay').on('click',function(){
+				var $this = $(this);
+				$.get("{{:U('ajaxControl')}}",{flag:'createAdvance',id:$this.attr('orderID'),companyName:'{{$_GET["companyName"]}}'},function (result) {
+					if(!result){
+						alert('因库存不足或订单关闭原因, 交易已关闭');
+					}else if(result == 2){
+						alert('请设置好收货地址');
+					}else{
+						showPay(result);
+					}
+				})
+			});
+		})
+
+
+
+
+
+		
+	</script>
+</block>

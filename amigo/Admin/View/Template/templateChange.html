@@ -1,0 +1,65 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/company/css/companyInfo/companyInfo.css"></link>
+<link rel="stylesheet" href="__PUBLIC__/company/css/kbshopAdmin.css?version=3"></link>
+<style>
+    	/*模板*/
+		.spAnTemplate .kbShopAdmin_enter .spAnTemplateListImg{
+			width:100px;
+			overflow:hidden;
+			border-radius:5px;
+			margin:auto;
+		}
+		.spAnTemplate .kbShopAdmin_enter b{
+			width:100px;
+			margin:auto;
+			display:block;
+			text-align:center;
+		}
+		.spAnTemplate .kbShopAdmin_enter input{
+			width:100px;
+			margin:auto;
+			display:block;
+		}
+		.spAnTemplateListImg img{
+			width:100%;
+		}
+		.spAnTemplate li.kbShopAdmin_enter{
+			display:inline-block;
+			width:40%;
+		}
+		.spAnTemplateList .kbShopAdmin_operating{
+			margin-top:10px;
+		}
+		.spAnTemplateList .kbShopAdmin_operating .spAnUserCorePaw-submit{
+			display:block;
+			margin:auto;
+		}
+    </style>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnTemplate">
+		
+		<div class="spAnTemplateList">
+			
+			<form  action="{{:U('templateChange')}}" method="post" onsubmit="return confirm('每月只能更换一次模版,确认更换吗?亲')">
+				<h3 class="mt20 mt10 tc">微官网模版选择</h3>
+				<ul class="mt20">
+				<foreach name="list" item="v" >
+					<li class="kbShopAdmin_enter" >
+						<b>{{$v.template_name}}:</b>
+						
+						<div class="spAnTemplateListImg">
+							<img src="__PUBLIC__{{$v.template_logo}}" alt="{{$v.template_name}}" />
+						</div>
+						<input type="radio" name="template_id" value="{{$v.id}}" {{$templateId == $v['id']?'checked':''}}/>
+					</li>
+				</foreach>
+				</ul>
+				<div class="kbShopAdmin_operating ">
+					<input class="spAnUserCorePaw-submit kbShopAdmin_button_6ccac9" type="submit" value="确定" />
+				</div>
+			</form>
+		</div>
+	</div>	
+</block>

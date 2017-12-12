@@ -1,0 +1,313 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+	<link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css">
+	<script>
+		 $(function(){ 
+            $('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+                if ( typeof(FileReader) === 'undefined' ){ 
+                    alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+                    this.setAttribute( 'disabled','disabled' ); 
+                } else { 
+                    readFile(this,this.files[0]);
+                } 
+            })
+        });
+	</script>
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_center" class="businessPosterAdd_center">
+		<div class="kbVipAdmin_center_txt">
+			<div class="kbVipAdmin_center_tables">
+				<div  class="kbVipAdmin_tableHead">
+					<form class="kbVipAdmin_inlineBlock" action="{{:U('marketPosterAdd',['module' => $_GET['module']])}}" method="get">
+					<div class="kbVipAdmin_styledSelect">
+						<span style="font-size: 20px;color:#1285FF">请选择进行搜索:&nbsp;</span><select class="kbVipAdmin_slt pl20" name="correlation_id">
+							<option value="">全部</option>
+							<foreach name="typelist" item="v">
+							<option value="{{$v.id}}" {{$_GET['correlation_id'] == $v['id']?'selected':''}}>{{$v.type_name}}</option>
+							</foreach>
+						</select>
+					</div>
+					<button  type="submit" class="kbVipAdmin_searchSmit">查询</button>
+					</form>
+					<p class="authAddBtn">
+						<input class="fr mr10 adminFont kbVipAdmin_btn w100 h50 addCouponAdList"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+					</p>
+				</div>
+				<table class="roleList couponBusiness_roleList">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>所属位置</th>
+							<th width="200">广告图片</th>
+							<th>跳转路径</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th  width="200">状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list" >
+					<tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td></tr>
+					<else/>
+					<foreach name="list" item="v">
+                    <tr>
+                        <td class="couponAreaListId">{{$v.id}}</td>
+                        <td>{{$v.type_name}}</td>
+						<td class="kbVipAdmin_tdImg"><div ><img src="__PUBLIC__{{$v['poster_pic']}}" alt=""></div></td>
+						<td>{{$v.poster_url}}</td>
+                        <td>{{:date('Y-m-d', $v['start_time'])}}</td>
+                        <td>{{:date('Y-m-d', $v['end_time'])}}</td>
+							<td class="microWebMenuAdmin">
+								<p class="MenuAdminBox mb10 bc">
+                                   <input  {{$v['status'] == '0'?'checked':''}} name="status{{$v.id}}" type="radio" checked="checked" value="show" />
+									<label ><i></i><b>启用</b></label>
+                                </p>
+                                <p class="MenuAdminBox mb10 bc">
+                                	<input  {{$v['status'] == '1'?'checked':''}} name="status{{$v.id}}" type="radio" value="change" />
+									<label ><i></i><b>禁用</b></label>
+                                </p>
+								
+								
+							</td>
+							<td>
+								<input class="adminFont kbVipAdmin_btnMenu couponAdListWirte" type="button" value="&#xe601;&nbsp;编辑" />
+								<input class="adminFont kbVipAdmin_btnMenu" type="button" value="&#xe606;&nbsp;删除" onclick="posterDel(this)" />
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+				</table>
+			</div>
+			<center><span style="color:#F70ADD;font-size: 30px">{{$news}}</span></center>
+			<!-- 分页位置 -->
+			<div class="kbAdmin_page">
+				{{$page}}
+			</div>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAdList_alert">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>添加广告</h2>
+		<form class="couponBusiness_FormParent" action="" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p class="couponAddr">
+					<span><i>*</i>所属位置：</span>
+					<select class="kbVipAdmin_slt pl20" name="correlation_id" required="required">
+						<option value="">请选择位置</option>
+						<foreach name="typelist" item="v">
+						<option value="{{$v.id}}">{{$v.type_name}}</option>
+						</foreach>
+					</select>
+					<strong class="kbAdmin_tip">请选择广告出现的位置</strong>
+				</p>
+				<p>
+					<span><i>*</i>跳转路径：</span>
+					<input type="text" name="poster_url" required="required" />
+					<strong class="kbAdmin_tip">请填写广告的跳转位置</strong>
+				</p>
+				<p>
+					<span><i>*</i>广告标题：</span>
+					<input type="text" name="poster_title" required="required" />
+					<strong class="kbAdmin_tip">请填写广告的标题</strong>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span><i>*</i>图片：</span>
+					<label class="fileImg" for="businessFileImg">点击上传图片</label>
+					<input id="businessFileImg" type="file" name="poster_pic" required="required" />
+					<strong class="kbAdmin_tip">请上传广告的轮播图，图片格式为png、jpg；不大于200k</strong>
+				</div>
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input  class="datainp wicon"  type="text" name="start_time" placeholder="开始日期"   readonly required="required"  onclick="jeDateTime(this,'start');"/>
+					<strong class="kbAdmin_tip">请双击选择广告的出现时间(注意！广告只会在当前时间大于开始时间24小时才会出现)</strong>
+				</p>
+				<p>
+					<span><i>*</i>结束时间：</span>
+					<input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required"  onclick="jeDateTime(this,'end');"/>
+					<strong class="kbAdmin_tip">请双击选择广告的结束时间(注意！广告只会在当前时间或大于等于结束时间才会结束隐藏)</strong>
+				</p>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="添加" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<div class="kbVipAdmin_alert couponAdList_alertWriter">
+		<div class="kbVipAdmin_alert_box ">
+		<button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+		<h2>编辑广告</h2>
+		<form class="couponBusiness_FormParent" action="{{:U('posterUpdate')}}" method="post" enctype="multipart/form-data">
+			<div class="kbVipAdmin_form">
+				<p class="couponAddr">
+					<span><i>*</i>所属位置：</span>
+					<select class="kbVipAdmin_slt pl20" name="correlation_id" required="required">
+						<option value="">请选择位置</option>
+						<foreach name="typelist" item="v">
+						<option value="{{$v.id}}">{{$v.type_name}}</option>
+						</foreach>
+					</select>
+					<strong class="kbAdmin_tip">请选择广告出现的位置</strong>
+				</p>
+				<p>
+					<span><i>*</i>跳转路径：</span>
+					<input type="text" name="poster_url" required="required" />
+					<strong class="kbAdmin_tip">请填写广告的跳转位置</strong>
+				</p>
+				<p>
+					<span><i>*</i>广告标题：</span>
+					<input type="text" name="poster_title" required="required" />
+					<strong class="kbAdmin_tip">请填写广告的标题</strong>
+				</p>
+				<div class="kbVipAdmin_fileImg">
+					<span><i>*</i>图片：</span>
+					<label class="fileImg" for="businessFileImg2">点击上传图片</label>
+
+					<input id="businessFileImg2" type="file" name="poster_pic"  />
+					 <div class="businessFileImgList">
+	                    <span class="cleraIMG" onclick="clearImg(this)"></span>
+	                    <img src="" alt="店铺logo">
+	                </div>
+					<strong class="kbAdmin_tip">请上传广告的轮播图，图片格式为png、jpg。不大于200k</strong>
+				</div>
+				<p>
+					<span><i>*</i>开始时间：</span>
+					<input  class="datainp wicon"  type="text" name="start_time" placeholder="开始日期"   readonly required="required"  onclick="jeDateTime(this,'start');"/>
+					<strong class="kbAdmin_tip">请双击选择广告的出现时间(注意！广告只会在当前时间大于开始时间24小时才会出现)</strong>
+				</p>
+				<p>
+					<span><i>*</i>结束时间：</span>
+					<input  class="datainp wicon"  type="text" name="end_time" placeholder="结束日期"   readonly required="required"  onclick="jeDateTime(this,'end');"/>
+					<strong class="kbAdmin_tip">请双击选择广告的结束时间(注意！广告只会在当前时间或大于等于结束时间才会结束隐藏)</strong>
+				</p>
+			</div>
+			<p class="kbVipAdmin_MenuAdminBtn">
+				<input class="authAddFormSmt" type='submit' value="保存" />
+			</p>
+		</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.addCouponAdList ').on('click',function(){
+				$('.couponAdList_alert').fadeIn();
+			});
+			$('.couponAdListWirte ').on('click',function(){
+				$('.couponAdList_alertWriter').fadeIn();
+				var $this =$(this);
+	   			var ID=$this.parent().siblings().eq(0).text();
+	   			var newDate=new Date();
+	   			 $.get("{{:U('ajaxControl')}}",{'flag':"selPosterInfo",'id':ID},function (res){
+	   			 	console.log(res);
+	   			 	for(r in res[0]){
+	   			 		switch(r){
+	   			 				case "correlation_id":
+	         						$('.couponAdList_alertWriter form select[name="correlation_id"]').find(' option[value="'+res[0].correlation_id+'"]').prop("selected",true);
+	         						
+	         						break;
+		         				case "end_time":
+		         					var end_time=date('Y-m-d H:m:s',res[0].end_time);
+		         					$('.couponAdList_alertWriter form').find('input[name="end_time"]').val(end_time);
+		         					break;
+		         				case "start_time":
+		         					var start_time=date('Y-m-d H:m:s',res[0].start_time);
+		         					$('.couponAdList_alertWriter form').find('input[name="start_time"]').val(start_time);
+		         					break;
+		         				case "poster_pic":
+		         					$('.couponAdList_alertWriter .businessFileImgList').find('img').prop("src","__PUBLIC__"+res[0].poster_pic);
+		         					break;
+	         					default:
+	         						$('.couponAdList_alertWriter form').find('input[name="'+r+'"]').val(res[0][r]);
+	         			}
+	   			 	}
+              		$('.couponAdList_alertWriter form').attr('action','{{:U("posterUpdate")}}?id='+ID);
+   				 });
+			});
+			//启用和禁用广告
+	        $('.couponBusiness_roleList .microWebMenuAdmin input').on('click',function(){
+	        	var $this= $(this);
+	        	var couponAreaListStatus=$this.val();
+	        	var couponAreaListId=$this.parents('tr').children('.couponAreaListId').text();
+	        		//console.log(couponAreaListId);
+	        	$.get('{{:U("ajaxControl")}}',{flag:couponAreaListStatus,id:couponAreaListId},function (res){
+		 			operatingTip(res);
+				});
+	        })
+		});
+
+		/* $('.couponAddr select').on('change',function (){
+            var a ;
+            a = parseInt($(this).attr('sta'));
+            var fa = $(this).next();
+            var flag = 'address';
+            if (a === 3) 
+            {   
+                flag = 'region';
+            }
+            if(a === 4){
+                flag = 'business';
+                fa = $(this).parent().next().find('select');
+            }
+            var name = fa.find('option:eq(0)').text();
+            $.get("{{:U('Card/ajaxControl')}}",{'flag':flag,'pid':$(this).val()},function (res){
+                var str = '<option value="">'+name+'</option>';
+                for(var k in res)
+                {
+                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+                }
+                fa.html(str);
+            });
+        }) */
+
+		function posterDel(obj) 
+		{
+			 animationAlert({
+				alertContent:'确定要删除吗?',
+				 alertHide:'alertShow',
+			},function(res){
+				if (bool) {
+				$.get('{{:U("ajaxControl")}}',{flag:'del',id:$(obj).parent().siblings('.couponAreaListId').text()},function(res){
+					if (res == 2) 
+					{
+						animationAlert({alertContent:'请联系超级管理员'});
+					}else{
+						operatingTip(res);
+						$(obj).parent().parent().remove();
+					}
+				});
+			}
+			});
+
+			
+		}
+
+		$('.kbVipAdmin_styledSelect select').on('change',function (){
+            var a ;
+            a = parseInt($(this).attr('sta'));
+            // console.log($(this).val());
+            var fa = $(this).next();
+            var flag = 'address';
+            if (a === 3) 
+            {   
+                flag = 'region';
+            }
+            if(a === 4){
+                flag = 'business';
+                // fa = $(this).parentsUntil('.couponAddr').next();
+            }
+            var name = fa.find('option:eq(0)').text();
+            $.get("{{:U('Card/ajaxControl')}}",{'flag':flag,'pid':$(this).val()},function (res){
+                var str = '<option value="">'+name+'</option>';
+                for(var k in res)
+                {
+                    str += '<option value="'+res[k].district_id+'">'+ res[k].name +'</option>';
+                }
+                fa.html(str);
+            });
+        })
+	</script>
+</block>

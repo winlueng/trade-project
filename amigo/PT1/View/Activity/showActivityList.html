@@ -1,0 +1,49 @@
+<extend name="Common/projectCom" />
+<block name="topname" >
+	<a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">最新活动</a>
+</block>
+<block name="center" >
+	<div id="kbMt_center" class="kbMt_center">
+		<h1 class="kbMt_bigTitle kbMt_bc-ffeeca kbMt_font17">
+			<p class="kbMt_fontCr-fff kbMt_bc-000 ">近期活动</p>
+		</h1>
+		<foreach name="nowList" item="v" >
+
+		<div class="bc mb10 kbMt_goodsBrief">
+			<a href="{{:U('Activity/activityDetail',['id' => $v['id']])}}"><img src="__PUBLIC__{{$v.activity_cover}}" alt="大图" />
+				<div class="goodsBrief-info kbMt_fontCr-fdf7ee">
+					<h3 class="kbMt_font16 bc kbMt_ellipsis">{{$v.activity_name}}</h3>
+					<p class="kbMt_ellipsis bc">活动时间:{{:date('Y-m-d', $v['start_time'])}}至{{:date('Y-m-d', $v['end_time'])}}</p>
+				</div>
+			</a>
+		</div>
+		</foreach>
+		
+		<h1 class="kbMt_bigTitle kbMt_bc-ffeeca kbMt_font16">
+			<p class="kbMt_fontCr-fff kbMt_bc-000 ">历史活动</p>
+		</h1>
+		<ul class="kbMt_list kbMt_actionList mb10">
+
+		<foreach name="oldList" item="v">
+			<li >
+			<a href="{{:U('Activity/activityDetail',['id' => $v['id']])}}">
+				<div class="kbMt_list-box  action_list-box ">
+					<div class="kbMt_list-info">
+						<h2 class="kbMt_font17 kbMt_fontCr-000 bc	kbMt_ellipsis">{{$v.activity_name}}</h2>
+						<p class="bc kbMt_ellipsis">时间：{{:date('Y-m-d', $v['start_time'])}}-{{:date('Y-m-d', $v['end_time'])}}</p>
+						<p class="kbMt_list-brief kbMt_fontCr-9f4f00">
+						活动内容：{{$v.title}}</p>
+					</div>
+					<p class="kbMt_list-image action-image">
+						<img src="__PUBLIC__{{$v.activity_cover}}" alt="列表图" />
+					</p>
+				</div>
+			</a>
+			</li>
+		</foreach>
+		</ul>
+
+		
+		
+	</div>
+</block>

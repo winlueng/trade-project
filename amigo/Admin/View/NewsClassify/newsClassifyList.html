@@ -1,0 +1,245 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<php>
+//echo '<pre>';
+//var_dump($list);exit;
+</php>
+<link rel="stylesheet" href="__PUBLIC__/Business/BusinessCSS/companyInfo/companyInfo.css"></link>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+</block>
+<block name="content" >
+
+	<div id="kbShopAdmin_rightCenter" class="spAnAdClass OrderForm">
+		<div class="centerTitle">
+			<h1>动态分类</h1>
+		</div>
+		<div class="kbShopAdmin_operating spAnAdClass-operating" >
+			<input class="kbShopAdmin_opt w80 h30 kbShopAdmin_add " type="button" value="添加" />
+		</div>
+		<div class="main-contentBox kbShopAdmin_mt24" >
+			<div class="kbShopAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>类型</th>
+							<th>描述</th>
+							<th>动态logo</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+						<tr ><td colspan="8"><span style="color:#F209CA;font-size:20px">暂无动态分类数据</span></td></tr>
+					<else />
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.news_type_name}}</td>
+							<td>{{$v.title}}</td>
+							<td><img src="__PUBLIC__{{$v.news_classify_logo}}" width="100"></td>
+							<td>
+								<p class="kbShopAdmin_pushBtn">
+									<input type="checkbox" value="{{$v['status']}}" {{$v['status'] == '0'?'checked':''}} title="{{$v['status'] == '0'?'启用':'禁用'}}"/>
+									<label><b></b></label>
+								</p>
+								<!-- <p class="kbShopAdmin_checkbox">
+									<input  type="radio" name="status{{$v.id}}" value="0" {{$v['status'] == '0'?'checked':''}}  />
+									<label class="font_6ccac9">
+										<b class="kbShopAdmin_buttonMr"></b>
+										启用
+									</label>
+								</p>
+								<p class="kbShopAdmin_checkbox">
+									<input type="radio"  name="status{{$v.id}}" value="1" {{$v['status'] == '1'?'checked':''}}/>
+									<label class="font_ff6c60">
+										<b class="kbShopAdmin_buttonMr">
+										</b>
+										禁用
+									</label>
+								</p> -->
+							</td>
+							<td class="kbShopAdmin_tdAction">
+								<input class="font_57c8f2 kbShopAdminEdit" type="button" value="" title="编辑" />
+								<input class="font_ff6c60 kbShopAdminDel" type="button" value="" title="删除" />
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbShopAdmin_page">
+				<div class="pageSize">
+					{{$page}}
+				</div>
+				<div class="pageJump">
+				<form action="{{:U('orderList')}}">	
+					<input class="w60  fl" type="text" name="p" value="{{:I('get.p')}}" />
+					<input type="submit" class="fl" value="跳转">
+				</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="kbShopAdmin_alert spAnAdClass_alert">
+		<div class="kbShopAdmin_alertBox">
+			<button type="button" class="kbShopAdmin_alert-close "></button>
+			<form action="" method="post" enctype="multipart/form-data">
+				<h3 class="mb10">添加动态分类</h3>
+				<p class="kbShopAdmin_enter"><b><i>*</i>分类名称:</b>
+					<input type="text" value="" name="news_type_name" maxlength="6" placeholder="请输入动态类别" required="required" 
+					data-datatype="input" 
+					/>
+					<strong class="kbShopAdmin_tip">必填项。分类名称输入字符不能超过六个</strong>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>动态分类封面:</b>
+					<input id="shopImg2" name="news_classify_logo" type="file" value=""/>
+					<label class="" for="shopImg2" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为分类封面</span></label>
+					<strong class="kbShopAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过200k，仅可上传一张图片</strong>
+				</div>
+				<p class="kbShopAdmin_enter"><b>分类描述:</b>
+					<textarea name="title" maxlength="10" placeholder="请输入分类描述" data-datatype="input"  ></textarea>
+					<strong class="kbShopAdmin_tip">选填项。分类描述输入字符不能超过十个</strong>
+				</p>
+				<div class="kbShopAdmin_operating ">
+					<div class="kbShopAdmin_restsubmit"> 
+						<input  class="kbShopAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+						<input  class="kbShopAdmin_opt w100 h40" type="submit" value="保存" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="kbShopAdmin_alert spAnAdClass_alertEdit">
+		<div class="kbShopAdmin_alertBox">
+			<button type="button" class="kbShopAdmin_alert-close "></button>
+			<form action="" method="post" enctype="multipart/form-data">
+				<h3 class="mb10">编辑动态分类</h3>
+				<p class="kbShopAdmin_enter"><b><i>*</i>分类名称:</b>
+					<input type="text" value="" name="news_type_name" maxlength="6" placeholder="请输入动态类别"
+					required="required" 
+					data-datatype="input" 
+					/>
+					<strong class="kbShopAdmin_tip">必填项。分类名称输入字符不能超过六个</strong>
+				</p>
+				<div class="kbShopAdmin_enter kbShopAdmin_fileImg"><b><i>*</i>动态分类封面:</b>
+					<div class="shopImg businessFileImgList"><span class="cleraIMG" onclick="clearImg(this)"></span>
+					</div>
+					<input id="shopImg1" name="news_classify_logo" type="file" value=""/>
+
+					<label class="" for="shopImg1" ><span style="font-size:27px">+</span><br /><span>选择一张图片作为分类封面</span></label>
+					<strong class="kbShopAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过200k，仅可上传一张图片</strong>
+			</div>
+				<p class="kbShopAdmin_enter"><b><i>*</i>分类描述:</b>
+					<textarea name="title" maxlength="10" placeholder="请输入分类描述" required="required" data-datatype="input"></textarea>
+					<strong class="kbShopAdmin_tip">必填项。分类描述输入字符不能超过十个</strong>
+				</p>
+				<div class="kbShopAdmin_operating ">
+				<div class="kbShopAdmin_restsubmit"> 
+					<input  class="kbShopAdmin_button_eee w100 h40 tc" type="reset" value="取消" />
+					<input  class="kbShopAdmin_opt w100 h40" type="submit" value="保存" />
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+     $(function(){
+   		$('.spAnAdClass .spAnAdClass-operating .kbShopAdmin_add').on('click',function(){
+   			$('.spAnAdClass_alert').fadeIn();
+   			var checkData=new CheckData('.spAnAdClass_alert');
+   			$('.spAnAdClass_alert .kbVipAdmin_restsubmit [type=submit]').on('click',function(){
+   				return checkData.verify();
+   			})
+   			vueMethods.maxLength();
+   		});
+   		
+   		
+   		$('.spAnAdClass .kbShopAdmin_tdAction .kbShopAdminEdit').on('click',function(){
+   			var $this= $(this);
+   			$('.spAnAdClass_alertEdit').fadeIn();
+   			var ajaxUrl='{{:U("ajaxControl")}}';
+   			var ID = $($this).parents('tr').children().eq(0).text().trim();
+   			jsAjaxControl($this,{
+   				ajaxURL:ajaxUrl,
+   				params:{
+   					flag:"selNewsClassifyInfo",
+   				}
+   			},function(res){
+   				for(r in res){
+   					switch(r){
+   						case 'news_classify_logo':
+   							$('.spAnAdClass_alertEdit').find('.kbShopAdmin_fileImg .businessFileImgList').append('<img src="__PUBLIC__'+res.news_classify_logo+'" alt="动态分类图" />')
+   						break;
+   						default:
+   							if($(".spAnAdClass_alertEdit [name="+r+"]").length){
+   								$(".spAnAdClass_alertEdit [name="+r+"]").val(res[r])
+   							}
+   						break;
+   					}
+   				}
+   				$(".spAnAdClass_alertEdit").find('form').prop('action','{{:U("newsClassifyUpdate")}}?id='+res.id);
+   				vueMethods.maxLength();
+   				var checkData=new CheckData('.spAnAdClass_alertEdit');
+   				$('.spAnAdClass_alertEdit .kbVipAdmin_restsubmit [type=submit]').on('click',function(){
+   					return checkData.verify();
+   				})
+   			})
+   		});
+   		$('.kbShopAdmin_alert .kbShopAdmin_operating input[type=reset]').on('click',function(){
+   			$('.kbShopAdmin_alert').fadeOut();
+   		});
+   		// newsClassifyStatus
+   		 $('.kbShopAdmin_pushBtn input').on('click',function(){
+   		 	 var $this=$(this);
+   		 	 var ajaxUrl='{{:U("ajaxControl")}}';
+   		 	 var Status=$this.is(':checked')?0:1;
+   		 	 var ID = $this.parents('tr').children().eq(0).text().trim();
+   		 	 // console.log(Status);
+   		 	 $.get(ajaxUrl,{
+   		 	 	flag:'newsClassifyStatus',
+	   		 	status:Status,
+	   		 	id:ID
+   		 	 },function(res){
+   		 	 	if(res!=1){
+   		 	 		$this.attr('checked',false)
+   		 	 		eTip('操作失败')
+   		 	 	}else{
+   		 	 		sTip('操作成功')
+   		 	 	}
+   		 	 	console.log(res);
+   		 	 })
+   		 
+   		 })
+   		$('.kbShopAdminDel').on('click',function(){
+   			var $this= $(this);
+   			var ajaxUrl='{{:U("ajaxControl")}}';
+   			Confirm("确定进行该操作吗？",function(res){
+   				if(res){
+   					
+		   			jsAjaxControl($this,{
+		   				ajaxURL:ajaxUrl,
+		   				params:{
+		   					flag:"newsClassifyDel",
+		   				}
+		   			},function(res){
+		   				console.log(res);
+		   				if(res=="1"){
+		   					sTip("操作成功");
+		   					 $this.parents('tr').remove();
+		   				}else{
+		   					oTip(res);
+		   				}
+
+		   			})
+   				}
+   			})
+   		})
+     })
+	</script>
+</block>

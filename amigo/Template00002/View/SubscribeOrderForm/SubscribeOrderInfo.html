@@ -1,0 +1,264 @@
+<extend name="Common/secondCom" />
+
+<block name="leftNav">
+	<a class="icon-back" href="{{:U('VisitorInfo/myCenter', ['companyName' => $_GET['companyName']])}}" >
+	</a>
+	
+</block>
+<block name="bsTitle">
+	预约订单详情
+</block>
+<block name="content">
+<section id="bsMain" class="bsOrder bsBuyShop goOrderService">
+	<p class="bsSeparate" style="padding:5px">预约人信息</p>
+		<article class="receiptShopAddr">
+			<p><b>预约人: {{$info['people']}}</b></p>
+			<p><b>预约人电话: {{$info['phone']}}</b></p>
+			<p><b>预约人性别: {{$info['sex'] == 1?'男':'女'}}</b></p>
+		</article>
+		<p class="bsSeparate" style="padding:5px">被预约的设计师</p>
+		<ul class="bsList bsReservationList  bc mb10 mt10">
+			<li>
+				<p class="reservationListImg">
+					<a href="{{:U('Staff/staffInfo', ['companyName' => $_GET['companyName'], 'id' => $info['staff_id']])}}"> 
+					<img src="__PUBLIC__{{$info['staffInfo']['staff_logo']}}" alt="" />
+					</a>
+				</p>
+				<article class="reservationListInfo">
+					<h3 class="mb10">{{$info['staffInfo']['store_nickname']}}</h3>
+					<p class="mb10 c666">职称: {{$info['staffInfo']['professional_title']}}</p>
+					<p class="mb10 c666">特长: {{$info['staffInfo']['speciality']}}</p>
+					
+				</article>
+				<!-- <p class="orderServiceAddr">
+					地址地址地址地址地址地址地址地址地址地址
+				</p> -->
+			</li>
+		</ul>
+		<p class="bsSeparate"></p>
+		<switch name="info.status">
+		<case value="2">
+			<article>
+				<em >订单总价</em>
+				<em class="fr">￥{{$info.total}}</em>
+			</article>
+		</case>
+		</switch>
+		<article>
+			<em >订单编号: </em>
+			<em class="">{{$info.subscribe_number}}</em>
+		</article>
+		<p class="bsSeparate"></p>
+		<ul class="bsForm mb10">
+			<li class="bsFormTxt">
+				<label>预约时间:</label>
+				<input id="yearmd" disabled type="text" value="{{:date('Y年m月d日 H:i:s', $info['come_time'])}}" name="come_time" placeholder="请选择时间" readonly/>
+			</li>
+		</ul>
+		<article class="sendMssage">
+			<switch name="info.status" >
+			<case value="2" >
+				<label>服务项目:</label>
+				<textarea name="remark" disabled="disabled">{{$info['admin_remark']}}</textarea>
+			</case>
+			<case value="5" >
+				<label>取消原因:</label>
+				<textarea name="remark" disabled="disabled">{{$info['remark']}}</textarea>
+			</case>
+			<case value="6" >
+				<label>拒绝原因:</label>
+				<textarea name="remark" disabled="disabled">{{$info['admin_remark']}}</textarea>
+			</case>
+			<default />
+				<label>订单备注:</label>
+				<textarea name="remark" disabled="disabled">{{$info['remark']}}</textarea>
+			</switch>
+		</article>
+	</section>
+	<div class="Popout ShopCarPopout">
+		<p class="popoutMask"></p>
+		<section class="addShopCar popitMain">
+			<button class="icon-close" type="button"></button>
+			<form action="" method="post">
+				<header> 
+					<article>
+						<center><h3 class="mb10 c666">取消订单</h3></center>
+					</article>
+				</header>
+				<article class="mb10">
+				<textarea style="width: 100%;" cols="54" rows="5" name="drawback_remark" placeholder="请输入取消理由"></textarea>
+				</article>
+				<footer>
+					<input class="defineBtn btnColor00bec5 f16" type="submit" value="确定" />
+				</footer>
+			</form>
+		</section>
+		<script>
+			$(function(){
+				$('.Popout .icon-close,.Popout .popoutMask').on('click',function(){
+					
+					$('.Popout').slideUp();
+				})
+				$('.changeNumber .min').on('click',function(){
+					var $this=$(this),
+						goodsNum=$this.siblings('.goodsNum'),
+						num=parseInt(goodsNum.val());
+						if(goodsNum.val()!=1){
+							goodsNum.val(num-=1)
+						}
+				})
+				$('.changeNumber .add').on('click',function(){
+					var $this=$(this),
+						goodsNum=$this.siblings('.goodsNum'),	
+						num=parseInt(goodsNum.val());
+						goodsNum.val(num+=1)
+						
+				})
+				$('.changeNumber .goodsNum').on('input propertychange',function(){
+					var $this=$(this);
+					console.log($this.val());
+					
+					if($this.val()<1){
+						$this.val(1);
+					}else if($this.val()>999){
+						$this.val(999);
+					}
+				})
+			})
+		</script>
+	</div>
+</block>
+<block name="footer">
+	<footer id="bsFooter" class="payShop bsFooter">
+		<switch name="info.status" >
+			<case value="0" >
+				<p><b class="c999">已提交预约,等待确认</b></p>
+				<p><a class="submitOrder refund" orderID="{{$_GET['id']}}" href="javascript:;" >取消预约</a></p>
+			</case>
+			<case value="1" >
+				<p><b class="c999">已确认预约</b></p>
+				<p><a class="submitOrder refund" orderID="{{$_GET['id']}}" href="javascript:;" >取消预约</a></p>
+			</case>
+			<case value="2" >
+				<p><b class="c999">已经为您服务啦</b></p>
+				<p><a class="submitOrder" id="pay" orderID="{{$_GET['id']}}" href="javascript:;" >确认支付</a></p>
+			</case>
+			<case value="3" >
+				<p><b class="c999">谢谢您的支持,可以评价一下吗?</b></p>
+				<p><a class="submitOrder" orderID="{{$_GET['id']}}" href="{{:U('StaffComment/commentIns', ['companyName' => $_GET['companyName'], 'id' => I('get.id')])}}" >去评价</a></p>
+			</case>
+			<case value="4" >
+				<p><b class="c999">谢谢您的支持</b></p>
+				<p><a class="submitOrder" href="javascript:;" >已完成</a></p>
+			</case>
+			<case value="5" >
+				<p><b class="c999">您狠心地取消了订单</b></p>
+				<p><a class="submitOrder" href="javascript:;" >订单已取消</a></p>
+			</case>
+			<case value="6" >
+				<p><b class="c999">您的预约被拒绝了</b></p>
+				<p><a class="submitOrder" href="javascript:;" >订单被拒绝</a></p>
+			</case>
+			</switch>
+	</footer>
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script src="__PUBLIC__/js/module/dlalert/dlalertNew.js"></script>
+	<script src="__PUBLIC__/js/module/mobiscroll/mobiscroll.2.13.2.js"></script>
+
+	<script>
+		$(function(){
+			$('.refund').on('click',function(){
+				$('.Popout form').attr('action', "{{:U('SubscribeOrderForm/orderCancel', ['companyName' => $_GET['companyName']])}}?id="+ $(this).attr('orderID'));
+				$('.Popout').slideDown();
+			})
+
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+
+			$('#pay').on('click',function(){
+				var $this = $(this);
+				$.get("{{:U('ajaxControl')}}",{flag:'createAdvance',id:'{{:I("get.id")}}',companyName:'{{$_GET["companyName"]}}'},function (result) {
+						if(!result){
+							alert('生成订单失败');
+						}else{
+							showPay(result);
+						}
+				})
+			});
+			
+		})
+
+		function onBridgeReady(info){
+
+			var data = JSON.parse(info);
+
+		   	WeixinJSBridge.invoke(
+		       'getBrandWCPayRequest', {
+		       		"appId":data.appId,
+		       		"timeStamp":data.timeStamp,
+		       		"nonceStr":data.nonceStr,
+		       		"package":data.package,
+		       		"signType":data.signType,
+		       		"paySign":data.paySign
+		       	},
+		       	function(res){     
+		            if(res.err_msg == "get_brand_wcpay_request:ok" ) {// 支付成功走这
+                    	WeixinJSBridge.log(res.err_msg);
+                    	$.get("{{:U('ajaxControl')}}",{flag:'selOrderStatus',id:'{{:I("get.id")}}',companyName:'{{$_GET["companyName"]}}'},function (result) {
+								if(result){
+                    				location.reload();
+								}else{
+									alert('订单支付失败!');
+								}
+						})
+                    }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+		       	}
+		   ); 
+		}
+
+		function showPay(pay){
+			if (typeof WeixinJSBridge == "undefined"){
+			   if( document.addEventListener ){
+			       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			   }else if (document.attachEvent){
+			       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+			       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			   }
+			}else{
+				// console.log(pay)
+			  	onBridgeReady(pay);
+			}
+		}
+
+		 $(function () {
+              var curr = new Date().getFullYear();
+              var opt = {  
+  				'default': {
+  					theme: 'default',
+  					mode: 'scroller',
+  					display: 'modal',
+  					animate: 'fade'
+                  },
+  				'dateYMD': {
+                    preset: 'datetime',
+  					dateFormat: 'yyyy-mm-dd HH:ii:ss',
+  					defaultValue: new Date(new Date()),
+  					maxDate: new Date(),
+  					
+                  },
+                  'select': {
+                      preset: 'select'
+                  },
+                  'select-opt': {
+                      preset: 'select',
+                      group: true,
+                      width: 50
+                  }
+              }
+  			$('#yearmd').scroller($.extend(opt['dateYMD'],opt['default']));
+            $('.constellation').scroller($.extend(opt['select'],opt['default']));			
+          });
+	</script>
+</block>

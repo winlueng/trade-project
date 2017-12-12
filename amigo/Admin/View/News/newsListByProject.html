@@ -1,0 +1,224 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<php>
+	
+</php>
+
+</block>
+<block name="content" >
+	<div id="kbVipAdmin_rightCenter" class="spAnDynamic OrderForm">
+		<div class="centerTitle">
+			<h1>动态列表</h1>
+		</div>
+		<div class="kbVipAdmin_operating spAnDynamic-operating filter-operating" >
+			<form action="" method="get" style="display:inline-block">
+					<select class="kbVipAdmin_slt w200 h30" name="news_classify_id" title="可选择分类查找相关商品">
+						<option value="">全部类型</option>
+						<foreach name="classify" item="v">
+							<option value="{{$v.id}}" {{$v['id'] == $_GET['news_classify_id']?'selected':''}}>{{$v.news_type_name}}</option>
+						</foreach>
+					</select>
+				<input type="submit" class="kbVipAdmin_opt w80 h30" value="确认查找">
+			</form>
+			<form>
+				<div class="filter-searchDate mr10">
+						<input type="search" name="order_number" value="" placeholder="请输入想要查找的内容">
+						<input class="kbVipAdmin_opt w80 h30 fr" type="submit" value="确定">
+				</div>
+				
+			</form>
+			<a class="kbVipAdmin_opt w80 h20 kbVipAdmin_add fr copyButton-default" href="{{:U('News/newsAddByProject',['id' => $v['id'], 'module' => $_GET['module']])}}">添加</a>
+		</div>
+		<div class="main-contentBox kbVipAdmin_mt24" >
+			<div class="kbVipAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>动态分类</th>
+							<th width="15%">动态标题</th>
+							<th width="20%">动态简述</th>
+							<th>添加时间</th>
+							<th>浏览人数</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<empty name="list">
+						<tr ><td colspan="8"><span style="color:#F209CA;font-size:20px">暂无动态数据</span></td></tr>
+					<else />
+					<foreach name="list" item="v" >
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>{{$v.classify_name}}</td>
+							<td width="15%">{{$v.news_name}}</td>
+							<td width="20%">{{$v.title}}</td>
+							<td>{{:date('Y-m-d', $v['addtime'])}}</td>
+							<td>{{$v['visit_total']?$v['visit_total']:0}}</td>
+							<td>
+								
+								<p class="kbVipAdmin_checkbox kbVipAdmin_checkboxTop">
+									<input  type="checkbox" name="is_top" {{$v['is_top'] == '1'?'checked':''}} />
+									<label class="font_6ccac9">
+										<b class="kbVipAdmin_buttonMr"></b>
+										置顶
+									</label>
+								</p>
+								<p class="kbVipAdmin_checkbox kbVipAdmin_checkboxdisabled">
+									<input type="checkbox"  name="status" {{$v['status'] == '1'?'checked':''}} />
+									<label class="font_ff6c60">
+										<b class="kbVipAdmin_buttonMr">
+										</b>
+										禁用
+									</label>
+								</p>
+								
+							</td>
+							<td class="kbVipAdmin_tdAction">
+								<a class="font_57c8f2 kbVipAdminSea w30 h20 copyButton-default" href="{{:U('preview', ['id' => $v['id']])}}" target="view_window" tittle="预览"></a>
+								<a class="font_57c8f2 kbVipAdminEdit w20 h20 copyButton-default"  tittle="编辑" href="{{:U('News/newsUpdateByProject',['id' => $v['id'], 'module' => $_GET['module']])}}"></a>
+								<input class="font_ff6c60 kbVipAdminDel" type="button" value="" tittle="删除" data-id="{{$v.id}}" />
+							</td>
+						</tr>
+					</foreach>
+					</empty>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbVipAdmin_page mb10">
+					<div class="pageSize">
+						{{$page}}
+						<script type="text/javascript">
+							$('.pageSize a:first-child').addClass('prevPage');
+							$('.pageSize a:last-child').addClass('nextPage');
+						</script>
+					</div>
+					<div class="pageJump">	
+					<form >
+						<input class="w60  fl" type="text" name="p" placeholder="{{:I('get.p')}}" />
+						<input type="submit" class="fl" name="" value="跳转">
+					</form>	
+					</div>
+				</div>
+		</div>
+		
+	 
+
+	<script type="text/javascript">
+
+	
+     $(function(){
+   		$('.spAnDynamic-operating .kbVipAdmin_add').on('click',function(){
+   			$("#kbVipAdmin-edit").siblings().fadeOut();
+   			$("#kbVipAdmin-edit").fadeIn();
+
+   			
+
+
+   		})
+   		$('.spAnDynamic-edit .kbVipAdmin_operating input[type=reset]').on('click',function(){
+   			$("#kbVipAdmin-edit").siblings().fadeIn();
+   			$("#kbVipAdmin-edit").fadeOut(); 
+   		})
+   		
+   		$('.spAnDynamic_alert .kbVipAdmin_operating input').on('click',function(){
+   			$(".spAnDynamic_alert").fadeOut();
+   		})
+   		function checkChosen(){
+   			var icheckChosen= $(".kbVipAdmin_checkboxChosen input");
+   			for(var r=0;r<icheckChosen.length;r++){
+   				if($(icheckChosen[r]).is(":checked")){
+   					if(!$(icheckChosen[r]).hasClass('audioDisable')){
+   						$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox').addClass('kbVipAdmin_checkboxChosenNot');
+			   			$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox').children('input').prop('disabled','disabled')
+   					}
+		   		}else{
+		   			$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox').removeClass('kbVipAdmin_checkboxChosenNot');
+		   			$(icheckChosen[r]).parent().siblings('.kbVipAdmin_checkbox input').prop('disabled',false)
+		   		}
+   			}
+   			
+   		}
+   		checkChosen();
+   		/* 商户后台置顶*/
+   		$('.kbVipAdmin_checkboxTop input').on('change',function(){
+   			var $this=$(this);
+   			var  Status=($this.is(":checked")===true)? 1:0;
+   			var ajaxUrl='{{:U("News/ajaxControl")}}';
+   			if(!$this.prop('disabled')){
+   			jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+			        params:{//这是ajax需要提交的集合
+			        	flag:"changeNewsTop",
+			        	is_top:Status,
+			        }
+				},function(res){
+
+					oTip(res);
+					if(res=="操作成功"){
+						$this.parent().siblings('.kbVipAdmin_checkboxChosen').fadeToggle();
+					}
+					
+			})
+	   		}
+	   	})
+   		$('.kbVipAdmin_checkboxdisabled input').on('change',function(){
+   			var $this=$(this);
+   			var  Status=($this.is(":checked")===true)? 1:0;
+   			var ajaxUrl='{{:U("News/ajaxControl")}}';
+   			if(!$this.prop('disabled')){
+   			jsAjaxControl($this,{
+					ajaxURL:ajaxUrl,
+			        ajaxBranch:'Common',
+			        params:{//这是ajax需要提交的集合
+			        	flag:"changeNewsStatus",
+			        	status:Status,
+			        }
+				},function(res){
+					if(res){
+						sTip('操作成功');
+					}else{
+						eTip('操作失败')
+					}
+					console.log(res);
+			})
+			}
+   		})
+
+   		/* 商户后台推选*/
+		
+	    	/* 删除 */
+   		$(".kbVipAdminDel").on('click',function(){
+   			var $this=$(this);
+   			var ajaxUrl='{{:U("News/ajaxControl")}}';
+            Confirm("确定删除吗？",function(res){
+                if(res){
+                    $.ajax({
+                        type:"GET",
+                        url:ajaxUrl,
+                        data:{
+                            flag:"newsDel",
+                            id:$this.attr('data-id')
+                        },
+                        dataType:"json",
+                        success:function(data){
+                            console.log(data);
+                            if(data==1){
+                                sTip("操作成功");
+                                $this.parents('tr').remove();
+                            }
+                        },
+                        error:function(error){
+                            console.log(error)
+                        }
+                    })    
+                }
+                
+            })
+            
+   			
+   		})
+	 })/* function end */
+	</script>
+</block>

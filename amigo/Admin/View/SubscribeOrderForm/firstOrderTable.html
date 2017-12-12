@@ -1,0 +1,136 @@
+<extend name="Web/companyCom" />
+<block name="css_files">	
+<link rel="stylesheet" href="__PUBLIC__/JS/module/datenew/css/jquery-ui-1.9.2.custom.css?v=1" type="text/css">
+<style>
+ .kbtable-statistics{
+ 	display:flex;
+ 	justify-content:center;
+ 	min-height:100px;
+ 	padding-top: 20px;
+ }
+ .kbtable-statistics-slide{
+ 	flex-grow: 1
+ }
+ .filterData{
+ 	display:inline-block;
+ 	width:340px;
+ }
+ .main-contentBox{
+ 	height:94%;
+ 	background-color:#fff;
+ 	overflow:hidden;
+ 	/*padding:10px 0;*/
+ }
+ .filter-operating{
+ 	background-color:#fff;
+ }
+  body{
+ 	background-color:#fff;
+ }
+ .kbShopAdmin_table{
+ 	height: calc(100% - 61px);
+ }
+</style>
+	<php>
+		//echo('<pre>');
+		//var_dump($info);exit;
+	</php>
+</block>
+<block name="header_nav" ></block>
+<block name="content" >
+	
+			<div class="kbShopAdmin_operating filter-operating" >
+				<form>
+					<div class="filterData">
+					<input type="text" class="ui-datepicker-time" readonly="readonly"  value="" />
+					<input class="start" type="hidden" name="start" value="" />
+					<input  class="end"  type="hidden" name="end" value="" />
+					<button class="kbShopAdmin_opt w80 h30" type="submit">确定</button>
+					</div>
+				</form>
+
+				<!-- <button class="kbShopAdmin_opt  h30 fr" type="button" onclick="javascript:window.location.href+'&getExcel=1'">下载Excel</button> -->
+
+				<a href="{{:U('firstOrderTable',['start' => $_GET['start'], 'end' => $_GET['end'], 'getExcel' => 1])}}" class="kbShopAdmin_opt  h30 fr">下载Excel</a>
+				<!-- <button class="kbShopAdmin_opt  h30 fr" type="button" onclick="alert(window.location.href)">下载Excel</button> -->
+			</div>
+		<div class="main-contentBox">	
+			<div class="kbShopAdmin_table mb20">
+				
+				<table>
+					<thead>
+						<tr>
+							<th width="100">日期</th>
+							<th>订单数</th>
+							<th>取消订单数</th>
+							<th>成交量</th>
+							<th>成交额</th> 
+							
+						</tr>
+					</thead>
+					<tbody>
+					 <volist name="data" id="v" > 
+						<tr>
+							<td width="100"><p>{{$key}}</p></td>
+							<td><p>{{$v['orderTotal']?$v['orderTotal']:0}}</p></td>
+							<td><p>{{$v['cancelOrderCount']?$v['cancelOrderCount']:0}}</p></td>
+							<td><p>{{$v.orderCount}}</p></td>
+							<td><p>{{$v['priceTotal']?$v['priceTotal']:0}}</p></td>
+						</tr>
+					</volist>
+					</tbody>
+				</table>
+				<!-- 表格页数开始 -->
+				<!-- 表格页数结束 -->
+			</div>
+			<if condition="$count" >
+				<div class="kbShopAdmin_page mb10">
+					<div class="pageSize">
+						<a href="?<?=(($_GET['p'] && $_GET['p']>0)?'p='.($_GET['p']-1):'p=1').'&start='.$_GET['start'].'&end='.$_GET['end']?>" class="prevPage"></a>
+
+						<?=$_GET['p']?$_GET['p']:1?>/{{$count}}
+						<a href="?<?=($_GET['p']<$count?'p='.($_GET['p']?$_GET['p']+1:2):'p='.$count).'&start='.$_GET['start'].'&end='.$_GET['end'] ?>" class="nextPage"></a>
+						<script type="text/javascript">
+							$('.pageSize a:first-child').addClass('prevPage');
+							$('.pageSize a:last-child').addClass('nextPage');
+						</script>
+					</div>
+					<div class="pageJump">	
+					<form action="{{:U('firstOrderTable',['start' => $_GET['start'], 'end' => $_GET['end']])}}">
+						<input class="w60  fl" type="text" name="p" placeholder="<?=($_GET['p']?$_GET['p']:1)?>" />
+						<input type="submit" class="fl" name="" value="跳转">
+					</form>	
+					</div>
+				</div>
+			</if>
+			<!-- 表格结束 -->
+			
+		</div>
+	
+	<div class="ui-datepicker-css">	
+	    <div class="ui-datepicker-quick">
+	        <p>快捷日期<a class="ui-close-date">X</a></p>
+	        <div>
+	            <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+	            <input class="ui-date-quick-button" type="button" value="昨天" alt="-1" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="7天内" alt="-6" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="14天内" alt="-13" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="30天内" alt="-29" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="60天内" alt="-59" name=""/>
+	        </div>
+	    </div>
+	    <div class="ui-datepicker-choose">
+		        <p>自选日期</p>
+		        <div class="ui-datepicker-date">
+		            <input name="startDate" id="startDate" class="startDate" readonly value="2014/12/20" type="text">
+		           -
+		            <input name="endDate" id="endDate" class="endDate" readonly  value="2014/12/20" type="text" disabled onChange="datePickers()">
+		        
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/jquery-ui-1.9.2.custom.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/share.js?v=1.11"></script>
+
+</block>

@@ -1,0 +1,59 @@
+<extend name="Common/websiteCom" />
+
+<block name="header">
+	<header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-back" href="javascript:;" onclick="javascript:history.back(-1)">
+			</a>
+		</nav>
+		<h1>详细资料</h1>
+		<nav>
+			
+		</nav>
+	</header>
+</block>
+<block name="content">
+	<section id="bsMain" class="bsDrservicedetaile">
+		<p class="bsSeparate pl10">形象状况&nbsp;&nbsp;{{:date('Y-m-d', $info['create_time'])}}</p>
+		<ul class="infoList">
+		<volist name="info.information" id="v"> 
+			<li>
+				<b>{{$key}}</b><em>{{$v}}</em>
+			</li>
+		</volist>
+		</ul>
+		<p class="bsSeparate pl10 mb10">形象照片(公司发的)</p>
+		<ul class="bsList imgList pl10 pr10">
+		<volist name="info.company_upload" id="v"> 
+			<li>
+				<img src="__PUBLIC__{{$v}}" alt="">
+			</li>
+		</volist>
+		</ul>
+		<p class="bsSeparate pl10 mb10">形象照片(他发的)</p>
+		<ul class="bsList imgList pl10 pr10">
+			<volist name="info.visitor_upload" id="v" empty="他还没发出来"> 
+			<li>
+				<img src="__PUBLIC__{{$v}}" alt="">
+			</li>
+		</volist>
+		</ul>
+	</section>
+</block>
+<block name="footer" >
+	<footer id="bsFooter" class="defaultFooter bsFooter ">
+		
+		<p class="tr">
+			<a class="defineBtn btnColor00bec5 bc " href="{{:U('imageList', ['companyName' => $_GET['companyName'], 'id' => $_GET['id']])}}" >查看形象资料 </a>
+		</p>
+	</footer>
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+		})
+	</script>
+</block>

@@ -1,0 +1,167 @@
+<extend name="Common/websiteCom" />
+<block name="css_file" >
+	<style>
+		.bgGoodsDetails img {  
+		 	max-width: 360px; /*图片自适应宽度*/  
+		}
+	</style>
+</block>
+<block name="header">
+	<header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-back" href="javascript:;" onclick="javascript:history.back(-1)">
+			</a>
+		</nav>
+		<h1>设计师介绍</h1>
+		<nav>
+			<p class="choose ">
+				<input type="checkbox" {{$info['is_collect']?'checked':''}} />
+				<lable class="icon-collect"></lable>
+			</p>
+		</nav>
+	</header>
+</block>
+<block name="content">
+	<section id="bsMain" class="bsOrder orderDetail">
+		<header id="focusWap" class="swiper-container focusWap">
+		        <ul class="swiper-wrapper">
+		        <volist name="info.staff_image" id="v" empty="嘿,这人还没上传关于他的图片,可能有点害羞">
+		           <li class="swiper-slide bc mb10 bsBanner">
+		          	<a href="javascript:;">
+		          		<img src="__PUBLIC__{{$v}}" alt="大图" />
+		          	</a>
+		           </li>
+		        </volist>
+		        </ul>
+		        <div class="swiper-pagination banner-pagination mb10"></div>
+			    <script>
+				    $(function(){
+						var swiper = new Swiper('#focusWap', {
+				            autoplay:5000,//可选选项，自动滑动
+				            pagination: '.swiper-pagination',
+				        });
+				    })
+				</script>
+		</header>
+		<p class="bsSeparate"></p>
+		<article class="bsGoodsPrice p10 ">
+			<h3 class="mb10">{{$info.store_nickname}}</h3>
+			<p class="mb10"><b class="c00bec5 mr10">{{$info.professional_title}}</b></p>
+		</article>
+		<p class="bsSeparate"></p>
+		<article class="bgGoodsDetails pb10 ">
+			<h1 class="pl10 pr10 bsGoodsTitle c999 mb10">设计师标签</h1>
+			<ul class="bsList tagsList pl10 pr10">
+			<volist name="info.style" id="v" empty="他还不知道自己的风格">
+				<li>
+					<b>{{$v}}</b>
+				</li>
+			</volist>
+			</ul>
+		</article>
+		<p class="bsSeparate"></p>
+		<article class="bgGoodsDetails pb10 ">
+			<h1 class="pl10 pr10 bsGoodsTitle c999 mb10">个人说明</h1>
+				{{$info.introduce}}				
+			</ul>
+		</article>
+		<p class="bsSeparate"></p>
+		<!-- <h1 class="pl10 pr10 bsGoodsTitle c999">评价详情</h1>
+		<ul class="bsGoodsReviewList p10">
+			<li>
+				<header class="peopleInfo mb10">
+					<p>
+						<img src="image/1.jpg" alt="logo" />
+					</p>
+					<p><b>用户名字</b></p>
+				</header>
+				<p class="mb10">
+					用户评价用户评价用户评价用户评价用户评价用户评价用户评价用户评价用户评价用户评价用户评价用户评价
+				</p>
+				<p class="reviewImg mb10">
+					<img src="image/1.jpg" alt="" />
+					<img src="image/1.jpg" alt="" />
+					<img src="image/1.jpg" alt="" />
+				</p>
+				<footer class="reviewOther">
+					<p>2017-5-12</p>
+					<p class="tc">颜色分类：自然色</p>
+					<p class="tr">尺寸：320#</p>
+				</footer>
+			</li>
+		</ul>
+		<p class="tc bsReviewMore  pb10">
+			<a class="copyBtn" href="javascript:;">查看更多评论</a>		
+		</p> -->
+		<p class="bsSeparate"></p>
+		<article class="bsRecommendList pt10">
+			<h2 class="tc pb10">为你推荐</h2>
+			<ul class="bsList bsTogether bc">
+			<volist name="info.thesame" id="v">
+				<li class="bsRecommendGoods swiper-slide">
+				<a href="{{:U('staffInfo', ['companyName' => $_GET['companyName'], 'id' => $v['id']])}}">
+					<p>
+						<img src="__PUBLIC__{{$v.staff_logo}}" style="height: 100px" alt="" />
+					</p>
+					<h3 class="mb10">{{$v.store_nickname}}</h3>
+					<p>
+						<b>{{$v.professional_title}}</b>
+						<em class="c00bec5 fr">已完成 {{$v.orderTotal}} 单</em>
+					</p>
+				</a>
+				</li>
+			</volist>
+			</ul>
+		</article>
+		<p class="bsSeparate"></p>
+	</section>
+</block>
+<block name="footer">
+	<footer id="bsFooter" class="bsSubNav bsFooter">
+		<p>
+			<a href="javascript:;"></a>
+			<b>客服</b>
+		</p>
+		<p>
+			<a href="{{:U('Index/index', ['companyName' => $_GET['companyName']])}}"></a>
+			<b>首页</b>
+		</p>
+		<p>
+			
+		</p>
+		<p class="addShopCarBtn">
+			<a href="{{:U('SubscribeOrderForm/orderInsert', ['companyName' => $_GET['companyName'], 'staffID' => $_GET['id']])}}">立即预约</a>
+		</p>
+	</footer>
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script src="__PUBLIC__/js/module/dlalert/dlalertNew.js"></script>
+	
+</block>
+<block name="js_file">
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+			$('.icon-collect').prev().on('click',function(){
+				var $this=$(this),
+					status=($this.prop('checked'))? 1:2;
+				$.get('{{:U("Staff/ajaxControl")}}',{
+					flag:'collectStaff',
+					staff_id:"{{$_GET['id']}}",
+					companyName:"{{$_GET['companyName']}}",
+					status:status
+				},function(res){
+					if(res){
+						sTip('操作成功');
+					}else{
+						eTip('操作失败');
+						$this.attr("checked",false);
+					}
+					console.log(res);
+				})				
+			})
+		})
+	</script>
+</block>

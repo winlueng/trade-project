@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><block name="title">卡券速递</block></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/CE/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/CE/js/layout.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+    <block name="files">
+    
+    </block>
+</head>
+<body>
+	<nav class="nav">
+        <span class="menu-btn"></span>
+        <!-- 搜索功能暂时不可以使用 -->
+        <form role="form" name="search" onsubmit="return S()" style="display: none;">
+            <div class="input-group">
+                <button type="button"></button>
+                <input type="text" name="" placeholder="请输入商家店名">
+            </div>
+        </form>
+        <div class="menu">
+            <div class="top">
+                <a href="{{:U(index/index)}}"><img class="logo" src="__PUBLIC__/CE/images/logo.svg"></a>
+                <img class="close" src="__PUBLIC__/CE/images/icon/close.svg">
+            </div>
+            <ul>
+                <li><a href="{{:U('index/index')}}">首页</a></li>
+                <li><a href="{{:U('Discount/discount')}}">每周优惠</a></li>
+                <li>
+                    <a href="javascript:;">合作商户</a>
+                    <ul class="submenu">
+                        <foreach name="arr" key="key" item="value">
+                            <li>
+                                <a href="javascript:;">{{$key}}</a>
+                                <ul class="threemenu">
+                                <foreach name="value" item="values">
+                                    <li><a href="{{:U('Cooperation/cooperationMerchant',['region_id'=>$values['id']])}}">{{$values['region_name']}}</a></li>
+                                </foreach>
+                                </ul>
+                            </li>
+                        </foreach>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">战略联盟</a>
+                    <ul class="submenu">
+                        <li><a href="{{:U('League/leagueCard')}}">盟券发放</a></li>
+                        <li><a href="{{:U('League/leagueMerchant')}}">联盟商户</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{:U('Cooperation/cooperationJion')}}">合作加盟</a></li>
+                <li><a href="{{:U('Suggest/suggest')}}">投稿建议</a></li>
+            </ul>
+        </div>
+	</nav>
+    <main>
+        <block name="content">
+            
+        </block>
+    </main>
+    <footer>
+        <i>已发出：<i style=""><font color="#FF2466" size="4"></font></i>张优惠券</i>
+        <span>技术支持由旷邦科技提供</span>
+        <span></span>
+        <span>粤ICP备16039183号-1</span>
+    </footer>
+    <script type="text/javascript">
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 5000,//滑动时间
+            pagination : '.swiper-pagination',
+            setWrapperSize :true,
+        })
+    </script>
+
+    <script type="text/javascript">
+        function clickStatistics(obj)
+        {
+            $.get("{{:U('Merchant/ajaxControl')}}",{flag:'otherDataStatistics',type:'poster',id:$(obj).attr('posterid')},function(res){
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+</html>

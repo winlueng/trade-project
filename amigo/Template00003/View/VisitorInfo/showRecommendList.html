@@ -1,0 +1,212 @@
+<extend name="Common/secondCom" />
+<block name="css_file">
+<link rel="stylesheet" href="__PUBLIC__/salon/css/oneselfCore.css?v=1.10" />
+<php>
+ //echo '<pre>';
+ //var_dump($recommendGoodsList);exit;
+</php>
+      
+
+  <style>
+    body{
+      background-color:#f7f7f7;
+    }
+	 .infoMark{
+    /*margin-left:0;*/
+   }
+   .oneselfList{
+    width:100%;
+    max-width:100%;
+    
+   }
+   .onselfGoods li,.onselfPreferential li{
+    margin-bottom:8px;
+   }
+   .onselfPreferential{
+    display:none;
+    position: absolute;
+    /*top: 43px;*/
+   }
+   .PreferentialBox .shopLogo{
+      overflow:hidden;
+      /*border-radius:50%;*/
+      margin-left: 10px;
+      margin-top: 10px;
+      width: 90px;
+      height: 90px;
+   }
+   .PreferentialBox .shopLogo img{
+      width:100%;
+      height:100%;
+   }
+   .PreferentialBox>p{
+      font-size: 24px;
+      text-align:center;
+
+   }
+   .oneselfBoxGoods{
+    position:relative;
+    width:100%;
+   }
+   .oneselfGoodsTxt{
+      position:absolute;
+      left:0;
+      bottom:3px;
+      width:100%;
+      height:50px;
+      background:rgba(0,0,0,.6);
+   }
+   .oneselfGoodsTxt p{
+     color:#fff;
+     height:25px;
+     line-height:25px;
+     text-align:center;
+   }
+  </style>
+</block>
+<block name="leftNav">
+  <a  href="javascript:;" onclick="javascript :history.back(-1);"><img src="__PUBLIC__/oneselfCore/oneselfCoreImages/09back_icon_link_default.svg" atl="返回" /></a>
+</block>
+<block name="collect">
+
+</block>
+<block name="secondtitle">
+  <a class="kbmt_gaBack" href="javascript:;" onClick="javascript :history.back(-1);">为你推荐</a>
+   
+</block>
+ <block name="content">
+ <div id="kbMt_center">
+  <nav class="oneselfTabClass">
+      <a href="javascript:;"><strong class="selected">产品</strong></a>
+      <a href="javascript:;"><strong>优惠</strong></a>
+  </nav>
+ <!-- 产品star -->
+  <ul class="oneselfList onselfGoods ">
+    <empty name="recommendGoodsList">
+      <li class="imgW100"> 
+        <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/17shop_img_none_default.png" alt="暂无数据" />
+        <p class="tc">暂无数据</p>
+      </li>
+    <else/>
+        <foreach name="recommendGoodsList" item="v">
+            <a href="{{$v['goods_link']}}">
+            <li>
+                  <div class="oneselfBox shopLogo">
+                       <img src="__PUBLIC__{{$v.logo_path}}" alt="logo" />
+                  </div>
+                  <div class="oneselfBox mb10">
+                    <h1><strong class="ellipsis">{{$v['company_name']}}
+                    </strong><span class="ml5 f12">点击量：{{$v['click_total']}}</span></h1>
+
+                    <p class="color666">{{:date('Y-m-d',$v['addtime'])}}</p>
+                  </div>
+                  <div class="oneselfBoxGoods">
+                    <img class="w" src="__PUBLIC__{{$v.goods_logo}}" alt"介绍图片" />
+                    <div class="oneselfGoodsTxt">
+                        <p>{{$v['goods_name']}}</p>
+                        <p>￥{{$v['price']}}</p>
+                    </div>
+                  </div>
+                </li>
+                </a>
+       </foreach>
+    </empty>
+     
+    
+    <!-- <li>
+      <div class="oneselfBox shopLogo">
+           <img src="oneselfCore/oneselfCoreImages/test.jpg" alt="logo" />
+      </div>
+      <div class="oneselfBox mb10">
+        <h1><strong class="ellipsis">店铺名字店铺名字店铺名字</strong><span class="infoMark">正佳广场</span></h1>
+        <p class="color666">1998-12-16 12:08</p>
+      </div>
+      <img class="w" src="oneselfCore/oneselfCoreImages/test.jpg" alt"介绍图片" />
+    </li> -->
+  </ul>
+  <!-- 产品end -->
+   <!-- 优惠券 start -->
+   <ul id="onselfPreferential" class="oneselfList onselfPreferential">
+
+    <li class="imgW100"> 
+      <img src="__PUBLIC__/oneselfCore/oneselfCoreImages/17shop_img_none_default.png" alt="暂无数据" />
+      <p class="tc">暂无数据</p>
+    </li>
+    <!-- <li>
+      <div class="oneselfBox shopLogo">
+           <img src="oneselfCore/oneselfCoreImages/test.jpg" alt="logo" />
+      </div>
+      <div class="oneselfBox mb10">
+        <h1><strong class="ellipsis">店铺名字店铺名字店铺名字</strong><span class="infoMark">正佳广场</span></h1>
+        <p class="color666">1998-12-16 12:08</p>
+      </div>
+      <p class="mt10 mb10 tc">糖糖店铺的最新优惠就在你的附近，点击领取吧</p>
+      <div class="PreferentialBox">
+          <p>七折券</p>
+          <div >
+            <p class="shopLogo"><img src="oneselfCore/oneselfCoreImages/test.jpg" alt="logo" /></p>
+          </div>
+
+      </div>
+      
+    </li> -->
+    
+  </ul>
+  <script id="onselfPreferential-data" type="text/x-handlebars-template">
+        {{#each a}}
+        <li class="bc">
+         <div class="oneselfBox shopLogo">
+              <img src="__PUBLIC__{{logo_path}}" alt="logo" />
+         </div>
+         <div class="oneselfBox mb10">
+           <h1><strong class="ellipsis">{{company_name}}</strong><span class="ml10 f12">领取量:{{click_total}}</span></h1>
+           <p class="color666">{{transformat start_time}}</p>
+         </div>
+         <p class="mt10 mb10 tc">{{company_name}}店铺的最新优惠就在你的附近，点击领取吧</p>
+         <div class="PreferentialBox" >
+             <p class="ellipsis">{{card_name}}</p>
+             <div >
+               <p class="shopLogo"><img src="__PUBLIC__{{card_code}}" alt="logo" onclick="selfCoreAlertCard(this)" /></p>
+             </div>
+
+         </div>
+       </li>
+       {{/each}}
+    </script>
+   <!-- 精选活动  end -->
+</div>
+</block>
+<block name="js_file">
+   <script>
+   $(function(){
+      var init=new Portal();
+      $('.oneselfTabClass a').on('click',function(){
+          var $this = $(this);
+          var oneselfTabClass =$('.oneselfTabClass a');
+          var indexs = oneselfTabClass.index($this);
+
+          var oneselfList = $('.oneselfList').not('.oneselfList .oneselfList');
+          $this.children().addClass('selected')
+          $this.siblings().children().removeClass('selected');
+          $(oneselfList[indexs]).fadeIn().addClass('nowShow');
+          $(oneselfList[indexs]).siblings('.oneselfList').fadeOut();
+      })
+    
+       $('.oneselfTabClass a:nth-child(2)').on('click',function(){
+          var $this = $(this);
+          $.get("{{:U('VisitorInfo/ajaxControl')}}",{flag:'showRecommendCardList'},function(res){
+              var data ={a:res}
+              console.log(data);
+                 var myTemplate=Handlebars.compile($('#onselfPreferential-data').html());
+                  Handlebars.registerHelper("transformat", function(value) {  
+                    return init.date('Y-m-d H:i:s',value);
+                  });
+                $('#onselfPreferential').html(myTemplate(data));
+
+
+          })
+      })
+   })
+   
+  </script>
+</block>

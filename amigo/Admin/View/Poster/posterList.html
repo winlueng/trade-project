@@ -1,0 +1,116 @@
+<extend name="Web/default" />
+<block name="files">
+
+</block>
+<block name="content">
+    <div id="right" class="carouselmanage">
+        <!-- 搜索条 -->
+        <form class="form-horizontal">
+            <div class="form-group searchbar">
+                <div class='btn-group'>
+                    <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>广告位置<span class='caret'></span></button>
+                    <ul class='dropdown-menu'>
+                        <foreach name="typelist" item="v">
+                            <li><a href='javascript:;' typeid="{{$v['id']}}" onclick="showList(this)">{{$v.typename}}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>所属位置</th>
+                    <th>图片</th>
+                    <th>跳转路径</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <foreach name="list" item="v">
+                    <tr>
+                        <td>{{$v.id}}</td>
+                        <td>{{$v.type_name}}</td>
+                        <td><img src="__PUBLIC__{{$v['poster_pic']}}" alt=""></td>
+                        <td>{{$v.poster_url}}</td>
+                        <td>
+                            <div class='btn-group'>
+                            <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>操作<span class='caret'></span></button>
+                            <ul class='dropdown-menu'>
+                                <li><a href='javasrcipt:(0);' status="1" onclick="changePoster(this)">隐藏</a></li>
+                                <li><a href='javasrcipt:(0);' status="2" onclick="changePoster(this)">删除</a></li>
+                                <li><a href='javasrcipt:(0);' status="3" onclick="changePoster(this)">显示</a></li>
+                            </ul>
+                        </div>
+                        </td>
+                        <td><a class="btn btn-primary upb" href="{{:U('posterUpdate',['id'=>$v['id']])}}">修改</a></td>
+                        <td>{{$v.start_time}}</td>
+                        <td>{{$v.end_time}}</td>
+                    </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <div class="row">
+            <ul class="pagination">
+                {{$page}}
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function showList(obj) 
+        {
+            $.get('__CONTROLLER__/ajaxControl',
+                {flag:'sel',id:$(obj).attr('typeid')},
+                function (res){
+                var str ='';
+                for(var k in res)
+                {
+                    str +='<tr>';
+                    str +='<td>'+res[k].id+'</td><td>'+res[k].typename+'</td><td><img src="__PUBLIC__'+res[k].poster_pic+'" ></td><td>'+res[k].poster_url+'</td><td><div class="btn-group"><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">操作<span class="caret"></span></button><ul class="dropdown-menu"><li><a href="javasrcipt:(0);" status="1" onclick="changePoster(this)">隐藏</a></li><li><a href="javasrcipt:(0);" status="2" onclick="changePoster(this)">删除</a></li><li><a href="javasrcipt:(0);" status="3" onclick="changePoster(this)">显示</a></li></ul></div></td> <td><a class="btn btn-primary upb" href="{{:U("posterUpdate")}}?id='+parseInt(res[k].id)+'">修改</a></td><td>'+res[k].start_time+'</td><td>'+res[k].end_time+'</td>';
+                    str+='</tr>';
+                }
+                console.log(str);
+                 $('.table tbody').html(str);
+            });
+        }
+
+        function changePoster(obj){
+            var id = $(obj).parentsUntil('tr').parent().children('td:eq(0)').text();
+            switch ($(obj).attr('status')){
+                case '1':
+                    var flag = 'change';
+                    break;
+                case '2':
+                    var flag = 'del';
+                    $change = confirm('真的删除吗?');
+                    if (!$change) 
+                    {
+                        return $change;
+                    }
+                    $(obj).parentsUntil('tr').parent().remove();
+                    break;
+                case '3':
+                    var flag = 'show';
+                    break;
+            }
+            $.get('__CONTROLLER__/ajaxControl',
+                {flag:flag,id:id},
+                function (res){
+                if (res != 2) 
+                {
+                    alert(res);
+                }else{
+                    alert('出问题了');
+                }
+            });
+            
+        }
+
+        $('.pagination a').unwrap().wrap("<li></li>");
+        $('.pagination span').wrap("<li></li>");
+    </script>
+</block>

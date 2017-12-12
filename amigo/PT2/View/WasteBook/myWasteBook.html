@@ -1,0 +1,40 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+.kb_list-cell-ft{
+    line-height:30px;
+}
+
+</style>
+<php>
+   // echo('<pre>');
+   // var_dump($list);exit;
+</php>
+</block>
+<block name="title">
+明细
+</block>
+
+<block name="content">
+<section id="Main" class="kb_main bc  ">
+<empty name="list">
+<p class="tc mt20">暂无明细哦~</p>
+<else />
+<foreach name="list" item="v">
+ <article class="kb_list-cell ">  
+    
+    <aside class="kb_list-cell-bd">
+        <h2 class="kb_list-cell-title mb10">{{$v['system_remark']}}</h2>
+        <p class="kb_list-cell-brief"> {{:wechatPayTime($v['pay_time'])}}</p>
+    </aside>
+    <div class="kb_list-cell-ft">
+       {{$v['recharge_or_buy'] == '1'?'+':'-'}}{{$v['recharge_total']}}
+    </div>
+ </article>
+</foreach>
+</empty>
+</section>
+</block>
+<block name="js_files">
+
+</block>

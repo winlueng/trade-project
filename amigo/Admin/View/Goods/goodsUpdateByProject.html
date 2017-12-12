@@ -1,0 +1,564 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/JS/module/datenew/css/jquery-ui-1.9.2.custom.css?v=1" type="text/css">
+<style>
+.kbVipAdmin_enter input[readonly]{
+	 opacity: 0.6;
+
+}
+.filterData{
+		display:inline-block;
+		width:40%;
+	}
+	#kbVipAdmin_rightCenter .filterData .ui-datepicker-time{
+		width:100%;
+		 text-indent: 40px;
+	}
+	#kbVipAdmin_rightCenter input:disabled{
+		opacity: .5
+	}
+</style>
+<php>
+	//echo '<pre>';
+	//var_dump(info.goods_title);exit;
+</php>
+</block>
+
+<block name="content">	
+	<div id="kbVipAdmin_rightCenter" class="spAnProductAdd">
+		<div class="centerTitle">
+			<h1>商品修改</h1>
+		</div>
+		<div class="spAnProductAdd kbVipAdmin_box">
+			<form  action="{{:U('goodsUpdateByProject' , ['id' => $_GET['id'],'module' => $_GET['module']])}}" method="post" class="checkForm" enctype="multipart/form-data">
+				<!-- <h3 class="mt20 mt10 tc">商品添加</h3> -->
+				<div class="formData">
+					<ul class="mt20" id="myTemplate">
+						<li class="kbVipAdmin_enter" >
+							<b><i>*</i>商品名称:</b>
+							<input type="text" value="{{$info['goods_name']}}" placeholder="请输入商品名字" maxlength="30" name="goods_name" required="required"
+							data-datatype="input"
+							/>
+						</li>
+						<li class="kbVipAdmin_enter"><b><i>*</i>商品价格:</b>
+						<input  type="text" name="price" value="{{$info['price']}}" placeholder="请输入商品价格"
+							required="required" 
+							data-datatype="input" 
+							data-regexp="posititveNum"
+						 />
+							
+						</li>
+						<li class="kbVipAdmin_enter"><b><i>*</i>促销:</b>
+							<p class="kbVipAdmin_radio">
+								<input type="radio" value="1" name="is_discount" {{$info['is_discount']=1?'checked':''}} 
+								required="required"
+								/> <label><b></b></label>
+							</p>
+							 <span class="radioText">是</span> 
+							<p class="kbVipAdmin_radio">
+								<input type="radio" value="0" name="is_discount" {{$info['is_discount']=1?'':'checked'}} 
+								required="required"
+								/>
+								<label><b></b></label>
+							</p> 
+							<span class="radioText">否</span>
+						</li>
+						<li class="kbVipAdmin_enter ">
+							<b>促销日期:</b>
+							<div class="filterData w">
+								<input type="text" class="ui-datepicker-time" readonly="readonly"  value="{{:date('Y年m月d日',$info['sales_start_time'])}}-{{:date('Y年m月d日',$info['sales_end_time'])}}" />
+								<input class="start" type="hidden" name="sales_start_time" value="{{$info['sales_start_time']}}" />
+								<input  class="end"  type="hidden" name="sales_end_time" value="{{$info['sales_end_time']}}" />
+							</div>
+						</li>
+						<li class="kbVipAdmin_enter"><b>促销折扣:</b><input  type="text" name="discount" value="{{$info.discount}}" placeholder="请输入促销折扣"
+							data-datatype="input"
+							data-regexp="posititveNum"
+						/>
+						</li>
+						<!-- <li class="kbVipAdmin_enter">
+							<b><i>*</i>商品简述:</b>
+							<textarea name="describe" required="required"></textarea>
+						</li> -->
+						<li class="kbVipAdmin_enter kbVipAdmin_fileImg"><b><i>*</i>商品封面:</b>
+							<div class="shopImg businessFileImgList">
+								<span class="cleraIMG" onclick="clearImg(this);"></span>
+								<img src="__PUBLIC__{{$info.goods_logo}}" alt="">
+							</div>
+							<input id="shopImg" name="goods_logo" type="file" value="dafult"  />
+							<label class="" for="shopImg">
+								<span style="font-size:27px">+</span><br />
+								<span>选择一张图片作为商品封面</span>
+							</label>
+						</li>
+						<li class="kbVipAdmin_enter kbVipAdmin_fileImg"><b><i>*</i>商品图片:</b>
+							<div class="fileImgMore">
+							<volist name="info.goods_picture" id="v">
+								<div class="shopImg businessFileImgList">
+									<span class="cleraIMG" onclick="clearImg(this)"></span>
+									<img src="__PUBLIC__{{$v}}" alt="">
+								</div>
+							</volist>
+							<input id="shopImg1"  type="file" name="pic_path[]" multiple="multiple" value="dafult" />
+							<label class="" for="shopImg1" >
+								<span style="font-size:27px">+</span><br />
+								<span>可选择五张图片作为商品图片</span>
+							</label>
+							</div>
+						</li>
+						<li class="kbVipAdmin_enter "><b><i>*</i>商品分类:</b>
+							<select name="classify_id" class="kbVipAdmin_slt kbVipAdmin_sltblack" required="required"
+							data-datatype="select"
+							>
+							<option value="-1">请选择商品分类</option>
+							<foreach name="classify" item="v">
+								<option value="{{$v.id}}" {{$info['classify_id'] == $v['id']?'selected':''}} />{{$v['classify_name']}}
+							</foreach>
+						</select>
+						</li>
+						<li class="kbVipAdmin_enter "><b>商品品牌:</b>
+							<select name="brand_id" class="kbVipAdmin_slt kbVipAdmin_sltblack" data-datatype="select">
+							<option value="-1">请选择商品品牌</option>
+								<foreach name="brandList" item="v">
+									<option value="{{$v.id}}" {{$info['brand_id'] == $v['id']?'selected':''}} />{{$v['brand_name']}}
+								</foreach>
+							</select>
+						</li>
+						<li class="kbVipAdmin_enter">
+							<b><i>*</i>商品重量:</b>
+							<input type="text" name="weight" value="{{$info['weight']}}" placeholder="单位g" 
+							required="required" 
+							data-datatype="input" 
+							data-regexp="posititveNum"
+							/>
+						</li>
+						<li class="kbVipAdmin_enter">
+							<b><i>*</i>商品邮费:</b>
+							<input type="text" name="express_price" min="0" value="{{$info['express_price']}}" placeholder="默认0元" 
+							required="required" 
+							data-datatype="input" 
+							data-regexp="posititveNum"
+							/>
+						</li>
+					<!-- 	<li class="kbVipAdmin_enter">
+							<b><i>*</i>商品关键字:</b>
+							<input type="text" name="attr_name" value="" placeholder="多个关键字以','隔开" />
+						</li> -->
+						<li class="kbVipAdmin_enter property">
+							<b><i>*</i>属性名称:</b>
+							<input type="text" name="attr_name" value="{{$attr.0.attr_name}}" placeholder="属性名称"
+							maxlength="8" 
+							required="required"
+							data-datatype="input"
+							 />
+							<p class="adminProperty">
+								<button  id="addProperty" type="button" class="addProperty kbVipAdmin_opt w80 h30"  v-on:click="addPropertyTemp">添加</button>
+								<!-- <button type="button" class="delProperty kbVipAdmin_opt w50 h30">删除</button> -->
+							</p>
+						</li>
+						<volist name="attr" id="v">
+						<li class="kbVipAdmin_enter property" data-attrId="{{$v.id}}">
+							<p class="adminProperty">
+								<button type="button" class="updateProperty kbVipAdmin_opt w80 h30 mb10" v-on:click="updateProperty">修改属性</button>
+								<button type="button" class="delProperty kbVipAdmin_opt w80 h30">删除属性</button>
+							</p>
+							<p>
+								<b><i>*</i>属性值:</b>
+								<input type="text" name="attr_val" value="{{$v.attr_val}}"  placeholder="属性值" disabled
+								maxlength="8" 
+								required="required" 
+								data-datatype="input" 
+								 />
+							</p>
+							<p>
+								<b><i>*</i>价格:</b>
+								<input type="text" name="attr_price" value="{{$v.attr_price}}" placeholder="价格" disabled 
+								required="required" 
+								data-datatype="input" 
+								data-regexp="posititveNum"
+								/>
+							</p>
+							<p>
+								<b><i>*</i>库存量:</b>
+								<input type="number" name="inventory_total" value="{{$v.inventory_total}}" placeholder="库存量" disabled 
+								required="required" 
+								data-datatype="input" 
+								data-regexp="posititveNum"
+								/>
+							</p>
+							<p class="">
+								<b><i>*</i>相应图片:</b>
+									<span class="shopImg businessFileImgList">
+										<img src="__PUBLIC__{{$v.attr_pic}}" alt="">
+									</span>
+								<input id="attrImg{{$v.id}}" type="file" disabled  class="attrPic" onchange="attpic(this)"/>
+								<label class="" for="attrImg{{$v.id}}" >
+									<span style="font-size:27px">+</span><br />
+									<span>选择一张图片作为属性封面</span>
+								</label>
+								<!-- <div class="shopImg businessFileImgList">
+									<span class="cleraIMG" onclick="clearImg(this)"></span>
+									<img src="__PUBLIC__" alt="">
+								</div> -->
+								<input type="hidden" name="attr_pic" value="{{$v.attr_pic}}" class="attr_pic_text">
+							</p>
+						</li>
+						</volist>
+						
+
+						 <li is="my-components" v-bind:id="lengths"  v-for="(lengths, index) in lengths" ></li>
+						
+					</ul>
+						<div class="kbVipAdmin_enter">
+							<b>商品描述详情:</b>
+							<div id="myEditor" class="myEditor">
+								<script id="container" name="goods_title" type="text/plain">
+								{{$info.goods_title}}
+							    </script>
+							  
+							    
+							</div>
+						</div>
+					<!-- <textarea>
+					  {{$info.goods_title}}
+					</textarea> -->
+					<div class="kbVipAdmin_operating tc">
+						<input  class="w200 h40 f16 kbVipAdmin_opt bc" type="submit" value="保存" />
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</block>
+<block name="js_files">
+	<script id="addPropertyTemplate" type="text/x-template">
+		<li class="kbVipAdmin_enter property">
+			<p class="adminProperty">
+				<button type="button" class="delProperty kbVipAdmin_opt w50 h30" v-on:click="delProperty">删除</button>
+			</p>
+			<p>
+				<b><i>*</i>属性值:</b>
+				<input type="text" name="attr_val[]" value=""   placeholder="属性值" 
+				required="required"
+				maxlength="8" 
+ 				data-datatype="input"
+				/>
+			</p>
+			<p>
+				<b><i>*</i>价格:</b>
+				<input type="text" name="attr_price[]" value=""  placeholder="价格" 
+					required="required"
+	 				data-datatype="input"
+	 				data-regexp="posititveNum"
+				/>
+			</p>
+			<p>
+				<b><i>*</i>库存量:</b>
+				<input type="number" name="inventory_total[]" value=""  placeholder="库存量" 
+				required="required"
+ 				data-datatype="input"
+				/>
+			</p>
+			<p class="">
+				<b><i>*</i>相应图片:</b>
+				<input v-bind:id="id" type="file" name="attrPic"  class="attrPic" onchange="attpic(this)"/>
+				<label class="" v-bind:for="id" >
+					<span style="font-size:27px">+</span><br />
+					<span>选择一张图片作为属性封面,图片不得大于500kb</span>
+				</label>
+				<input type="hidden" name="attr_pic[]" value="1"  class="attr_pic_text" />
+			</p>
+		</li>
+	</script>
+	<div class="ui-datepicker-css">	
+	    <div class="ui-datepicker-quick">
+	        <p>快捷日期<a class="ui-close-date">X</a></p>
+	        <div>
+	            <input class="ui-date-quick-button" type="button" value="今天" alt="0"  name=""/>
+	            <input class="ui-date-quick-button" type="button" value="明天" alt="+1" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="7天内" alt="+6" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="14天内" alt="+13" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="30天内" alt="+29" name=""/>
+	            <input class="ui-date-quick-button" type="button" value="60天内" alt="+59" name=""/>
+	        </div>
+	    </div>
+	    <div class="ui-datepicker-choose">
+		        <p>自选日期</p>
+		        <div class="ui-datepicker-date">
+		            <input name="startDate" id="startDate" class="startDate" readonly value="2014/12/20" type="text">
+		           -
+		            <input name="endDate" id="endDate" class="endDate" readonly  value="2014/12/20" type="text" disabled onChange="datePickers()">
+		        
+		        </div>
+		    </div>
+		</div>
+	</div>
+<block name="js_files">
+	
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/ueditor.all.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/JS/module/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/jquery-ui-1.9.2.custom.js"></script>
+	
+							 
+<script type="text/javascript">
+$(function(){
+	(function(){
+		var ue = UE.getEditor('container',{
+				'initialFrameHeight':360,
+				// 'initialContent':'在这里你可以布置好你商品详情的资料'
+		});
+	})()
+});
+function attpic(_this){
+		var $this = $(_this);
+		var id = $this.attr('id');
+		var formData = new FormData();  
+		formData.append('attrPic', document.getElementById(id).files[0]);  
+        $.ajax({  
+            url: '{{:U("GoodsAttribute/ajaxControl", ["flag" => "asyncUpload"])}}' ,  
+            type: 'POST',  
+            data: formData,  
+            enctype: 'multipart/form-data',
+            async: false,  
+            cache: false,  
+            contentType: false,  
+            processData: false,  
+            success: function (res) {  
+            	$this.siblings('.attr_pic_text').val(res);
+            	if(res!="上传文件大小不符！"){
+            		$this.siblings('.shopImg.businessFileImgList').remove();
+	            	var html='<div class="shopImg businessFileImgList">'+
+	            			 
+	            			  '</span><img src="__PUBLIC__'+res+'" alt=""></div>'
+	            	$this.before(html);
+
+            	}else{
+            		eTip(res);
+            	}
+
+          		console.debug(res);
+            },  
+            error: function (returndata) {  
+                alert(returndata);  
+            }  
+	     }); 
+	
+}
+$(function(){
+	$('.delProperty').on('click',function(){
+		var $this=$(this),
+			attr_id=$this.parents('[data-attrid]').attr('data-attrid');
+		Confirm("进行该操作后，数据将不能再次恢复。确认继续该操作吗？",function(res){
+			if(res){
+				$.get('{{:U("GoodsAttribute/ajaxControl")}}',{
+					flag:'del',
+					attr_id:attr_id
+				},function(res){
+					if(res){
+						sTip('操作成功');
+					}else{
+						eTip('操作失败');
+					}
+				})
+			}
+		})
+
+	})
+
+	
+	
+
+	
+    function delProperty(_this){
+		Confirm("数据将不会保存。确认继续进行该操作吗？",function(res){
+			if(res){
+				var $this=$(_this);
+				$this.parents('.property').remove();
+			}
+
+		})
+	}
+	//修改属性
+	/*function updateProperty(_this){
+		var $this=$(_this),
+			everVal=$this.parent().siblings().children('[name]');
+			if($this.hasClass('updateIng')){
+				Confirm("您确定进行该属性修改吗？",function(res){
+					if(res){
+						var	UpdateData=new Object(),
+							formData = new FormData();
+						everVal.each(function(indexs,elem){
+							var name=$(elem).attr('name'),
+								Val=$(elem).val();
+							formData.append(name,Val);
+						})
+
+						formData.append("attr_id",$this.parents('[data-attrid]').attr('data-attrid'));
+				        $.ajax({  
+				            url: '{{:U("GoodsAttribute/ajaxControl", ["flag" => "update"])}}',  
+				            type: 'POST',  
+				            data: formData,  
+				            enctype: 'multipart/form-data',
+				            async: false,  
+				            cache: false,  
+				            contentType: false,  
+				            processData: false,  
+				            success: function (res) {  
+				            	console.log(res);
+				            	if(res){
+					            	sTip("修改成功");
+				            	}else{
+				            		 eTip("修改失败")
+				            	}
+				            },  
+				            error: function (returndata) {  
+				                oTip("修改失败")
+				            }  
+					     }); 
+					}
+				
+				});
+			}
+			$this.toggleClass('updateIng');
+			var status= $this.hasClass('updateIng');
+				statusText = status ? '确定操作':'修改属性';
+				$this.text(statusText);
+				$this.parent('p').siblings().children('input[type="file"]').attr('disabled',!status);
+				everVal.attr('disabled',!status);
+				$this.parents('form').find('[type="submit"]').attr('disabled',status);
+
+	}*/
+
+	
+		
+	
+
+	(function(){
+		
+		Vue.component('my-components', {
+		  template: '#addPropertyTemplate',
+		  props: ['id'],
+		  methods:{
+		  	delProperty:function(event){
+		  		var $this=$(event.target)?$(event.target):$(event.srcElement)
+		  		Confirm("数据将不会保存。确认继续进行该操作吗？",function(res){
+					if(res){
+						$this.parents('.property').remove();
+					}
+
+				})
+		  	},
+		  }
+		});
+		var app=new Vue({
+			el:'#myTemplate',
+			data:{
+					lengths:[]
+				},
+			methods:{
+				addPropertyTemp:vueMethods.addPropertyTemp,
+				myTitile:vueMethods.myTitile,
+				maxLength:vueMethods.maxLength,
+				updateProperty:function(event){
+					var $this=$(event.target)?$(event.target):$(event.srcElement),
+						everVal=$this.parent().siblings().children('[name]');
+						if($this.hasClass('updateIng')){
+							Confirm("您确定进行该属性修改吗？",function(res){
+								if(res){
+									var	UpdateData=new Object(),
+										formData = new FormData();
+									everVal.each(function(indexs,elem){
+										var name=$(elem).attr('name'),
+											Val=$(elem).val();
+										formData.append(name,Val);
+									})
+									formData.append("attr_id",$this.parents('[data-attrid]').attr('data-attrid'));
+							        $.ajax({  
+							            url: '{{:U("GoodsAttribute/ajaxControl", ["flag" => "update"])}}',  
+							            type: 'POST',  
+							            data: formData,  
+							            enctype: 'multipart/form-data',
+							            async: false,  
+							            cache: false,  
+							            contentType: false,  
+							            processData: false,  
+							            success: function (res) {  
+							            	console.log(res);
+							            	if(res){
+								            	sTip("修改成功");
+							            	}else{
+							            		 eTip("修改失败")
+							            	}
+							            },  
+							            error: function (returndata) {  
+							                oTip("修改失败")
+							            }  
+								     }); 
+								}
+							
+							});
+						}
+						$this.toggleClass('updateIng');
+						var status= $this.hasClass('updateIng');
+							statusText = status ? '确定操作':'修改属性';
+							$this.text(statusText);
+							$this.parent('p').siblings().children('input[type="file"]').attr('disabled',!status);
+							everVal.attr('disabled',!status);
+							$this.parents('form').find('[type="submit"]').attr('disabled',status);
+							status?$this.parents('form').find('[type="submit"]').attr('title',"属性还没确定"):$this.parents('form').find('[type="submit"]').removeAttr('title')
+				},
+				checkdata:function(e){
+					  var checkData;
+					  checkData=new CheckData(e);
+					  checkData.isVerify.posititveNum=function(_this){
+						var $this,patt,patt2,newVal;
+						$this=$(_this);
+						patt=new RegExp('^[0-9]+','g');
+						if(!patt.test($this.val())){
+							$this.val('') 
+							return false
+						};
+						patt2=new RegExp('^[0-9]*\.?[0-9]{1,2}','g');
+						newVal=patt2.exec($this.val());
+						$this.val(newVal);
+						return true;
+					  }
+					  $('[data-regexp=posititveNum]').on('blur',function(){
+					  	checkData.isVerify.posititveNum(this);
+					  })
+					  $(e).find('[type=submit]').on('click',function(){
+					  	 return checkData.verify();
+					  })
+				},
+
+			},
+			
+			mounted:function(){
+				this.checkdata('.formData');
+				$('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+				    $(this).siblings('.shopImg.businessFileImgList').remove();
+				    if ( typeof(FileReader) === 'undefined' ){ 
+				      alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+				      this.setAttribute( 'disabled','disabled' ); 
+				    } else { 
+				        console.log(this.files)
+				      readFile(this,this.files);
+				    } 
+				 })
+			},
+			updated:function(){
+				app.myTitile();
+				app.maxLength();
+				app.checkdata('.formData');
+			
+			}
+				
+		})
+		// console.log(app.$mounted.checkData);
+	})();
+});
+</script>
+<script type="text/javascript" src="__PUBLIC__/JS/module/datenew/js/shareing.js?v=1.12"></script>
+</block>

@@ -1,0 +1,185 @@
+/*公司信息*/
+.spAnCompanyInfo{
+
+}
+.spAnCompanyInfo-introduction,#spAnCompanyInfo-edit{
+	width:90%;
+	margin:0 auto;
+	margin-bottom:100px;
+}
+.spAnCompanyInfo-introduction h3{
+}
+.spAnCompanyInfo-introduction p{
+	font-size:133.333%;
+	line-height:31px;
+	text-indent:2em;
+}
+#spAnCompanyInfo-edit{
+	overflow:hidden;
+	display:none;
+	/*position:absolute;*/
+	left:0;
+	right:0;
+	top:0;
+}
+#spAnCompanyInfo-edit [type="submit"]{
+	margin: 0 auto;
+	display: block;
+	margin-top: 20px;
+}
+/*公司动态*/
+
+.spAnDynamic-edit .kbShopAdmin_operating{
+	/*width:250px;*/
+	margin:auto;
+}
+.spAnDynamic .spAnDynamic-edit .kbShopAdmin_operating input{
+	/*margin-right:30px;*/
+}
+.spAnDynamic_alert .spAnDynamic_alert_from{
+	height: 78%;
+	overflow-x:hidden; 
+}
+.spAnDynamic .kbShopAdmin_tip{
+	    margin-left: 22%;
+}
+/*产品管理*/
+.spAnProductList .spAnProductList-filter input[type="submit"]{
+	/*height:;*/
+}
+.spAnProductList .spAnProductList-operating .kbShopAdmin_table{
+	/*width:99%;*/
+	/*height: 100%;*/
+}
+.spAnProductList .spAnProductList-operating,
+.spAnAdList .spAnAdList-operating{
+	width:99%;
+	height: calc(100% - 100px);
+}
+.spAnProductList_alert form ul{
+	overflow-x:hidden;
+}
+.spAnProductList .kbShopAdmin_table .kbShopAdmin_slt{
+	/*background-color: #ffefe8;*/
+    color: #969696;
+    border: 1px solid #e0dfdf;
+    width: 150px;
+}
+.spAnDynamic .kbShopAdmin_enter  b{
+	width:20%;
+}
+/*产品分类*/
+.spAnProductClass{
+	
+}
+.spAnProductClass_alert .kbShopAdmin_operating{
+	/*width:200px;*/
+
+}
+/*产品添加*/
+.spAnProductAdd{
+	height: calc(100% - 51px);
+}
+.spAnProductAdd .kbShopAdmin_operating {
+	margin-top:80px;
+}
+.spAnProductAdd .kbShopAdmin_operating .spAnProductAdd-submit{
+	display:block;
+} 
+/*用户中心 店铺资料*/
+.spAnUserCore{
+
+}
+.spAnUserCore-operating{
+	/*background: #fff;
+	height:70px;*/
+}
+.spAnUserCore-operating input{
+	 width: 120px;
+}
+.spAnUserCoreDefault{
+	/*height: calc(100% - 51px);*/
+    background-color: #fff;
+    border-radius: 5px;
+    position: relative;
+}
+.spAnUserCoreDefault>ul {
+	padding: 0 60px;
+    padding-bottom: 100px;
+    height: 94%;
+}
+.spAnUserCoreDefault ul li{
+	/*list-style:decimal; */
+	margin:18px 0 ;
+	display: inline-block;
+	width:100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	    vertical-align: top;
+}
+.spAnUserCoreDefault ul li p,
+.spAnUserCoreDefault ul li b{
+	display:inline-block;
+	vertical-align:top;
+}
+.spAnUserCoreDefault ul li b{
+	font-size:133.333%;
+	margin-right: 7px
+}
+.spAnUserCoreDefault ul li p{
+	font-size:116.6666%;
+
+}
+.spAnUserCoreDefault-info{
+	/*display: none*/
+}
+.spAnUserCoreDefault-info .kbShopAdmin_operating{
+	margin-top: 20px
+}
+
+.spAnUserCoreDefault-formEdit{
+	display: none;
+	height: 100%;
+}
+
+.spAnUserCoreDefault .spAnUserCoreDefault-formEdit ul li{
+	width:75%;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.spAnUserCoreDefault .spAnUserCoreDefault-formEdit ul{
+	 overflow-x: hidden;
+    height: 85%;
+}
+#geoCoder{
+	 margin-top: 10px;
+    margin-left: 22%;
+    width: 70%;
+    height: 300px;
+}
+
+/*修改密码*/
+.spAnUserCorePaw{
+	    padding-bottom: 20px;
+	background:#fff;
+}
+.spAnUserCorePaw ul{
+}
+.spAnUserCorePaw .kbShopAdmin_operating .spAnUserCorePaw-submit{
+	margin: auto;
+	display: block;
+}
+/*广告列表*/
+.spAnAdList_alert .kbShopAdmin_operating{
+	/*width: 200px;
+	margin:30px auto 0;*/
+}
+
+
+/*招聘*/
+.spAnFindJop_alertEdit form,.spAnFindJop_alert form{
+	overflow-y: scroll;
+
+}

@@ -1,0 +1,386 @@
+<extend name="Web/projectDefault" />
+<block name="css_files">
+    <link rel="stylesheet" href="__PUBLIC__/Portal/PortalCSS/coupon/coupon.css"></link>
+    <style>
+    .kbVipAdmin_form{
+        width: 104%;
+    }
+    </style>
+    <script type="text/javascript">
+       $(function(){ 
+            $('.kbVipAdmin_fileImg input[type="file"]').on('change',function(){
+                if ( typeof(FileReader) === 'undefined' ){ 
+                    alert("抱歉，你的浏览器不支持 FileReader，推荐使用谷歌浏览器操作！"); 
+                    this.setAttribute( 'disabled','disabled' ); 
+                } else { 
+                    readFile(this,this.files[0]);
+                } 
+            })
+        });
+    
+    </script>
+</block>
+<block name="content" >
+    <div id="kbVipAdmin_center" class="couponTrade_center">
+        
+        <div class="kbVipAdmin_center_txt">
+            <div class="kbVipAdmin_center_tables">
+                <div  class="kbVipAdmin_tableHead authAddBtn ">
+                    <div class="kbVipAdmin_styledSelect">
+                    <select class="kbVipAdmin_slt pl20">
+                        <option value="">请选择区域</option>
+                        <foreach name="region" item="v">
+                            <option value="{{$v.id}}">{{$v.region_name}}</option>
+                        </foreach>
+
+                    </select>
+                    <button>查询</button>
+                    </div>
+                    <input class=" adminFont kbVipAdmin_btn w100 h50 addGoodClass fr"  type="button" value="&#xe762;&nbsp;&nbsp;添加" />
+                </div>
+                <table class="roleList couponBusiness_roleList">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>店铺名称</th>
+                            <th>描述</th>
+                            <th>区域</th>
+                            <th>店铺logo</th>
+                            <th>热度统计</th>
+                            <th>开始时间</th>
+                            <th>截止时间</th>
+                            <th>优惠状态</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                    <empty name="list" >
+                    <tr><td colspan="11"><center><span style="font-size: 20px;color: #FF54AE">暂无数据</span></center></td></tr>
+                    <else />
+                    <foreach name="list" item="v" >
+                        <tr>
+                            <td>{{$v['id']}}</td>
+                            <td>{{$v['company_name']}}</td>
+                            <td>{{$v['sale_type']}}</td>
+                            <td>{{$v['region']}}</td>
+                            <td class="kbVipAdmin_tdImg"><div><img src="__PUBLIC__{{$v['company_logo']}}" width="200"></div></td>
+                            <td>{{$v['click_total']}}</td>
+                            <td>{{:date('Y-m-d', $v['start_time'])}}</td>
+                            <td>{{:date('Y-m-d', $v['end_time'])}}</td>
+                            <td class="microWebAnnalYes">{{$v['status'] == '0'?'优惠进行中':'优惠已过期'}}</td>
+                            <td class="microWebMenuAdmin">
+                                <p class="MenuAdminBox mb10 bc">
+                                    <input  name="microWebMenuAdmin{{$v['id']}}" type="radio" checked="checked" value="show" {{$v['status']==0?'checked':''}} />
+                                    
+                                    <label ><i></i><b>启用</b></label>
+                                </p>
+                                <p class="MenuAdminBox bc">
+                                    <input   name="microWebMenuAdmin{{$v['id']}}" type="radio" value="change" {{$v['status']==1?'checked':''}}  />
+                                    
+                                    <label ><i></i><b>禁用</b></label>
+                                </p>
+                            </td>
+                            <td>
+                                <div class="kbVipAdmin_btnMenuBox bc">
+                                    <input class="adminFont kbVipAdmin_btnMenu operatTOP" type="button" value="&#xe601;&nbsp;置顶" />
+                                    
+                                   
+                                    <input class="adminFont kbVipAdmin_btnMenu  marketCardEdit" type="button" value="&#xe601;&nbsp;编辑" />
+                                     <input class="adminFont kbVipAdmin_btnMenu operatDEL" type="button" value="&#xe606;&nbsp;删除" />
+                                    <a class="adminFont kbVipAdmin_btnMenu lookWeb"  herf="javascript:;" target="_Blank" >&#xe714;&nbsp;预览 </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </empty>
+                    </tbody>
+                    
+                </table>
+            </div>
+            <div class="kbAdmin_page">
+                {{$page}}        
+            </div>
+        </div>
+    </div>
+    <div class="kbVipAdmin_alert couponBusiness_alert">
+        <div class="kbVipAdmin_alert_box ">
+        <button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+        <h2>添加优惠</h2>
+        <form class="couponBusiness_FormParent kbVipAdmin_form" action="" method="post" enctype="multipart/form-data">
+                <div class="kbVipAdmin_form">
+                <div class="kbVipAdmin_fileImg">
+                    <span><i>*</i>店铺logo：</span>
+
+                    <label class="fileImg" for="businessFileImg">点击上传图片</label>
+                    <input id="businessFileImg" type="file" name="company_logo" />
+                     <strong class="kbAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过200k，仅可上传一张图片</strong>
+                </div>
+                <p class="couponAddr  areaSelect">
+                    <span><i>*</i>区域选择：</span>
+                    <select  class="" >
+                        <option value="-1">地区选择</option>
+                        <foreach name="region" item="v" >
+                            <option value="{{$v.id}}">{{$v.region_name}}</option>
+                        </foreach>
+                    </select>
+                     <strong class="kbAdmin_tip">必选项。请先选择地区</strong>
+                </p>
+                <div class="couponAddr userTradeSlt">
+                    <span><i>*</i>行业：</span>
+                    <select class="" required="required" name="business_id">
+                        <option value="-1">请选择行业</option>
+                    </select>
+                    <!-- <p class='userAreaSltChild'></p> -->
+                    <strong class="kbAdmin_tip">必选项。需先选择商户区域才能商户行业</strong>
+                </div>
+                <div class="couponAddr userCompanySlt">
+                    <span><i>*</i>店铺名字：</span>
+                    <select class="" required="required" name="company_id">
+                        <option value="-1">请选择店铺名字</option>
+                    </select>
+                    <!-- <p class='userAreaSltChild'></p> -->
+                    <strong class="kbAdmin_tip">必选项。需先选择行业才能商户店铺</strong>
+                </div>
+                <p><span><i>*</i>卡券ID：</span><input type="text" name="card_ip" />
+                <strong class="kbAdmin_tip">必填项。请填写公众号生成的优惠券的ID</strong>
+                 </p>
+
+                <p>
+                    <span><i>*</i>优惠券描述：</span>
+                    <textarea name="card_desc"></textarea>
+                     <strong class="kbAdmin_tip">必填项。优惠券的介绍</strong>
+                </p>
+                <p>
+                    <span><i>*</i>开始时间：</span>
+                    <input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期" readonly="" required="required" >
+                    
+                     <strong class="kbAdmin_tip">必填项。请双击选择优惠券的开始时间(注意！优惠券只会在当前时间大于开始时间24小时才会出现)</strong>
+                 </p>
+                <p><span><i>*</i>结束时间：</span>
+                    <input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="end_time" placeholder="开始日期" readonly="" required="required" >
+                     <strong class="kbAdmin_tip">必填项。请双击选择优惠券的结束时间(注意！优惠券只会在当前时间大于结束时间才会失效)</strong>
+                </p>
+                </div>
+                <p class="kbVipAdmin_MenuAdminBtn" >
+                    <input style="display:block" type='submit' value="增加" />
+                </p>
+        </form>
+        </div>
+    </div>
+    <div class="kbVipAdmin_alert couponBusiness_alertWriter">
+        <div class="kbVipAdmin_alert_box ">
+        <button class="kbVipAdmin_alert-close adminFont">&#xe61b;</button>
+        <h2>编辑优惠</h2>
+        <form class="couponBusiness_FormParent kbVipAdmin_form" action="" method="post" enctype="multipart/form-data">
+          <!--   <p class="couponAddr">
+                <span>区域选择：</span>
+                
+                <select>
+                    <option>楼层选择</option>
+                </select>
+                <select class="">
+                    <option>区域选择</option>
+                </select>
+                <select>
+                    <option>店铺选择</option>
+                </select>
+            </p> -->
+            <div class="kbVipAdmin_form">
+                <div class="kbVipAdmin_fileImg">
+                    <span>店铺logo：</span>
+                    <label class="fileImg" for="businessFileImg1">点击上传图片</label>
+                    <input id="businessFileImg1" type="file" name="company_logo"/>
+                    <div class="businessFileImgList">
+                        <span class="cleraIMG" onclick="clearImg(this)"></span>
+                        <img src="" alt="店铺logo">
+                    </div>
+                     <strong class="kbAdmin_tip">必填项。上传格式为jpg或png的图片，大小不超过200k，仅可上传一张图片</strong>
+                </div>
+                <p><span>卡券ID：</span><input type="text" name="card_ip" /> 
+                    <strong class="kbAdmin_tip">必填项。请填写公众号生成的优惠券的ID</strong>
+                 </p>
+                </p>
+                <p>
+                    <span>优惠券描述：</span>
+                    <textarea name="card_desc"></textarea>
+                    <strong class="kbAdmin_tip">必填项。优惠券的介绍</strong>
+                </p>
+                <p>
+                    <span>开始时间：</span>
+                    <input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="start_time" placeholder="开始日期" readonly="" required="required" >
+                      <strong class="kbAdmin_tip">必填项。请双击选择优惠券的开始时间(注意！优惠券只会在当前时间大于开始时间24小时才会出现)</strong>
+                 </p>
+                <p><span>结束时间：</span>
+                    <input class="datainp wicon" id="kbShopAdmin_inpstart" type="text" name="end_time" placeholder="结束日期" readonly="" required="required" >
+                    <strong class="kbAdmin_tip">必填项。请双击选择优惠券的结束时间(注意！优惠券只会在当前时间大于结束时间才会失效)</strong>
+                </p>
+            </div>
+             <p class="kbVipAdmin_MenuAdminBtn" >
+                    <input style="display:block" type='submit' value="保存" />
+                </p>
+        </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            // 日期插件
+              var start_time = {
+                format: 'YYYY-MM-DD hh:mm:ss',
+                minDate: '2016-01-01 00:00:00', //设定最小日期为当前日期
+                festival:true,
+                //isinitVal:true,
+               // maxDate: $.nowDate(0), //最大日期
+                choosefun: function(elem,datas){
+                    end_time.minDate= datas; //开始日选好后，重置结束日的最小日期
+                    checkData(elem);
+                },
+           
+            };
+            var end_time = {
+              format: 'YYYY-MM-DD hh:mm:ss',
+              minDate: $.nowDate(0), //设定最小日期为当前日期
+              festival:true,
+              //isinitVal:true,
+              //maxDate: '2099-06-16 23:59:59', //最大日期
+              choosefun: function(elem,datas){
+                 start_time.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+                 checkData(elem);
+              }
+            };
+            $('input.datainp[name="start_time"]').jeDate(start_time);
+            $('input.datainp[name="end_time"]').jeDate(end_time);
+            // $('input.datainp[name="start_time"]').jeDate(start_time.choosefun());
+        })/*  jeDate end */
+        $(function(){
+
+            $('.addGoodClass ').on('click',function(){
+                $('.couponBusiness_alert').fadeIn();
+            })
+            $('.marketCardEdit ').on('click',function(){
+                $('.couponBusiness_alertWriter').fadeIn();
+                var alertWriter=$('.couponBusiness_alertWriter');
+                var $this = $(this);
+                var ajaxUrl='{{:U("Card/ajaxControl")}}'
+                 jsAjaxControl($this,{
+                    ajaxURL:ajaxUrl,
+                    ajaxBranch:'Common',
+                    params:{
+                        flag:'selCardInfo',
+                    }
+                },function(res){
+
+                    for(r in res){
+                        switch(r){
+                            case "company_logo":
+                                alertWriter.find('input[name='+r+']').siblings('.businessFileImgList').find('img').prop('src',"__PUBLIC__"+res.company_logo)
+                            break;
+                            case'start_time':
+                                    console.log(res.start_time);
+                                 alertWriter.find('input[name=start_time]').val(date('Y-m-d H:i:s',res.start_time));  
+                            break;
+                             case'end_time':
+                                 alertWriter.find('input[name=end_time]').val(date('Y-m-d H:i:s',res.end_time));  
+                            break;
+                            default:
+                                if(alertWriter.find('[name='+r+']').length){
+                                    alertWriter.find('[name='+r+']').val(res[r])
+                                }
+                            
+                                // alertWriter.find('[name='r']').val(res[r]);
+                            break;
+                        }
+                    }
+                    $('.couponBusiness_alertWriter').find('form').attr('action','{{:U("marketCardUpdate")}}?id='+res.id)
+                })
+            })
+            // 选择区域时
+            $('.kbVipAdmin_alert .areaSelect select').on('change',function(){
+                var $this = $(this);
+                var options=$this.find('select')
+                // console.log(options);
+                // var optionsVal=options.val();
+                var ajaxUrl='{{:U("Goods/ajaxControl")}}';
+               $('select[name=business_id]').children().not('option[value=-1]').remove();//区域选择有变动时，清除行业选择内容
+                userAreaSltChild($this,ajaxUrl);
+               
+            })
+            // 选择行业添加店铺
+            $('.kbVipAdmin_alert .userTradeSlt').on('change',function(){
+                var $this = $(this);
+                var options=$this.find('select').children('option:selected');
+                var optionsVal=options.val();
+                var region_id=$this.parents('form').find('.areaSelect select[name=region]  option:selected').val();
+                var ajaxUrl='{{:U("Company/ajaxControl")}}';
+                console.log()
+                if(optionsVal!=="-1"){
+                    $.get(ajaxUrl,{
+                            flag:'selCompanyList',
+                            business_id:optionsVal,
+                            region_id:region_id,
+                    },function(res){
+                        console.log(typeof res);
+                        console.log(typeof res=='object');
+                        var stortOption='';
+                        if(typeof res=='object'){
+                           for(r in res){
+                            stortOption+='<option value="'+res[r].id+'">'+res[r].company_name+'</option>'
+                           }
+                        }else{
+                             stortOption='<option value="-1">请先添加店铺</option>';
+                        }
+                        
+                        $('.userCompanySlt select[name=company_id]').html(stortOption);
+                       
+                    })
+                }
+
+            })
+            $('.microWebMenuAdmin input').on('click',function(){
+                var $this = $(this);
+                var ajaxUrl='{{:U("Card/ajaxControl")}}'
+                var status=$this.val();
+                jsAjaxControl($this,{
+                    ajaxURL:ajaxUrl,
+                    ajaxBranch:'Common',
+                    params:{
+                        flag:status,
+                    }
+                },function(res){
+                    operatingTip(res);
+                })
+            })
+             $('.operatTOP').on('click',function(){
+                var $this = $(this);
+                var ajaxUrl='{{:U("Card/ajaxControl")}}'
+                var status=$this.val();
+                jsAjaxControl($this,{
+                    ajaxURL:ajaxUrl,
+                    params:{
+                        flag:'setControlTimeToTop',
+                    }
+                },function(res){
+                    operatingTip(res);
+                })
+            })
+            $('.operatDEL').on('click',function(){
+                var $this = $(this);
+                var ajaxUrl='{{:U("Card/ajaxControl")}}'
+                jsAjaxControl($this,{
+                    ajaxURL:ajaxUrl,
+                    ajaxBranch:'Confirm',
+                    params:{
+                        flag:'del',
+                    }
+                },function(res){
+                    operatingTip(res);
+                    if(res=="删除成功"){
+                        $this.parents('tr').remove();
+                    }
+                })
+            })
+            
+        })
+    </script>
+</block>

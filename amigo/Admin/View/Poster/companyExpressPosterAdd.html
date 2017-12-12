@@ -1,0 +1,197 @@
+<extend name="Web/companyCom" />
+<block name="css_files">
+<link rel="stylesheet" href="__PUBLIC__/company/css/companyInfo/companyInfo.css"></link>
+<link rel="stylesheet" href="__PUBLIC__/company/css/kbshopAdmin.css?version=1"></link>
+</block>
+<block name="content" >
+	<div id="kbShopAdmin_rightCenter" class="spAnAdList">
+		<div class="kbShopAdmin_operating spAnAdList-operating" >
+			<select class="kbShopAdmin_slt">
+				<option>广告类别</option>
+				<option>鸡尾酒</option>
+				<option>咖啡</option>
+				<option>啤酒</option>
+			</select>
+			<input class="kbShopAdmin_button_ff6c60 kbShopAdmin_add fr" type="button" value="添加" />
+		</div>
+		<div class="spAnAdList-operating kbShopAdmin_mt24" >
+			<div class="kbShopAdmin_table">
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>图片</th>
+							<th>标题</th>
+							<th>跳转路径</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<foreach name="list" item="v">
+						<tr>
+							<td>{{$v.id}}</td>
+							<td>
+								<img src="__PUBLIC__{{$v['poster_pic']}}" width="100">
+							</td>
+							<td>{{$v.poster_title}}</td>
+							<td>{{$v.poster_url}}</td>
+							<td>{{$v.start_time}}</td>
+							<td>{{$v.end_time}}</td>
+							<td>
+								<p class="kbShopAdmin_checkbox">
+									<input  type="radio" {{$v['status'] == '0'?'checked':''}} name="status{{$v.id}}" />
+									<label class="font_6ccac9">
+										<b class="kbShopAdmin_buttonMr"></b>
+										启用
+									</label>
+								</p>
+								<p class="kbShopAdmin_checkbox">
+									<input type="radio" {{$v['status'] == '1'?'checked':''}} name="status{{$v.id}}" />
+									<label class="font_ff6c60">
+										<b class="kbShopAdmin_buttonMr">
+										</b>
+										禁用
+									</label>
+								</p>
+							</td>
+							<td class="kbShopAdmin_tdAction">
+								<input class="font_57c8f2 kbShopAdminEdit" type="button" value="编辑" />
+								<input class="font_ff6c60 kbShopAdmineDel" type="button" value="删除" />
+							</td>
+						</tr>
+					</foreach>
+					</tbody>
+				</table>
+			</div>
+			<div class="kbShopAdmin_page">
+				{{$page}}
+			</div>
+		</div>
+		
+	</div>
+	<div class="kbShopAdmin_alert spAnAdList_alert">
+			<div class="kbShopAdmin_alertBox">
+				<!-- <button class="kbShopAdmin_alert-close "><img src=" " alert="X" /></button> -->
+				<form action="{{:U('companyExpressPosterAdd')}}" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="relevance_id" value="1">
+					<h3>添加广告</h3>
+					<p class="kbShopAdmin_enter kbShopAdmin_fileImg"><b>广告图片:</b>
+						<span class="shopImg businessFileImgList">
+							<img src=""  alt="shopImg"/>
+						</span>
+						<input id="shopImg"  type="file" value="" name="poster_pic" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg">上传图片</label>
+					</p>
+					<p class="kbShopAdmin_enter"><b>广告标题:</b>
+					<input type="text" name="poster_title" value="">
+					</p>
+					<p class="kbShopAdmin_enter"><b>跳转路径:</b>
+					<input type="text" name="poster_url" value="">
+					</p>
+					<p class="kbShopAdmin_enter"><b>开始时间:</b>
+					<input type="date" name="start_time" value="">
+					</p>
+					<p class="kbShopAdmin_enter"><b>结束时间:</b>
+					<input type="date" name="end_time" value="">
+					</p>
+					<div class="kbShopAdmin_operating">
+						<input  class="kbShopAdmin_button_ff6c60" type="rest" value="放弃" />
+						<input  class="kbShopAdmin_button_6ccac9" type="submit" value="保存" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="kbShopAdmin_alert spAnAdList_alertEdit">
+			<div class="kbShopAdmin_alertBox">
+				<!-- <button class="kbShopAdmin_alert-close "><img src=" " alert="X" /></button> -->
+				<form action="" method="" enctype="multipart/form-data">
+					<h3>编辑广告</h3>
+					<p class="kbShopAdmin_enter kbShopAdmin_fileImg"><b>广告图片:</b>
+						<span class="shopImg businessFileImgList">
+							<img src=""  alt="shopImg1"/>
+						</span>
+						<input id="shopImg1"  type="file" name="poster_pic" value="" />
+						<label class="kbShopAdmin_button_ff6c60" for="shopImg1">上传图片</label>
+					</p>
+					<p class="kbShopAdmin_enter"><b>广告标题:</b>
+					<input type="text" name="poster_title" value="">
+					</p>
+					<p class="kbShopAdmin_enter"><b>跳转路径:</b>
+					<input type="text" name="poster_url" value="">
+					</p>
+					<p class="kbShopAdmin_enter"><b>开始时间:</b>
+					<input type="date" name="start_time" value="">
+					</p>
+					<p class="kbShopAdmin_enter"><b>结束时间:</b>
+					<input type="date" name="end_time" value="">
+					</p>
+					<div class="kbShopAdmin_operating kbShopAdmin_restsubmit">
+						<input  class="kbShopAdmin_button_ff6c60" type="rest" value="放弃" />
+						<input  class="kbShopAdmin_button_6ccac9" type="submit" value="保存" />
+					</div>
+				</form>
+			</div>
+		</div>
+	<script type="text/javascript">
+     $(function(){
+   		$('.spAnAdList .spAnAdList-operating .kbShopAdmin_add').on('click',function(){
+   			$('.spAnAdList_alert').fadeIn();
+   		});
+   		$('.kbShopAdmin_alert .kbShopAdmin_operating input').on('click',function(){
+   			$('.kbShopAdmin_alert').fadeOut();
+   		});
+   		$('.spAnAdList .kbShopAdmin_tdAction .kbShopAdminEdit').on('click',function(){
+   			$('.spAnAdList_alertEdit').fadeIn();
+   			var $this = $(this);
+   			var ID=$this.parent().siblings().eq(0).text();
+   			var newDate=new Date();
+   			 $.get("{{:U('ajaxControl')}}",{'flag':"selPosterInfo",'id':ID},function (res){
+   			 	for(r in res[0]){
+   			 		switch(r){
+   			 				case "relevance_id":
+         						$('.spAnAdList_alertEdit form select[name="relevance_id"]').find(' option[value="'+res[0].relevance_id+'"]').prop("selected",true);
+         						
+         						break;
+	         				case "end_time":
+	         					var end_time=date('Y-m-d',res[0].end_time);
+	         					console.log(end_time)
+	         					$('.spAnAdList_alertEdit form').find('input[name="end_time"]').val(end_time);
+	         					break;
+	         				case "start_time":
+	         					var start_time=date('Y-m-d',res[0].start_time);
+	         					$('.spAnAdList_alertEdit form').find('input[name="start_time"]').val(start_time);
+	         					break;
+	         				case "poster_pic":
+	         					$('.spAnAdList_alertEdit .businessFileImgList').find('img').prop("src","__PUBLIC__"+res[0].poster_pic);
+	         					break;
+         					default:
+         						$('.spAnAdList_alertEdit form').find('input[name="'+r+'"]').val(res[0][r]);
+         			}
+   			 	}
+   			 });
+   			 $('.spAnAdList_alertEdit .kbShopAdmin_alertBox form').attr('action','{{:U("posterUpdate")}}?id='+ID);
+   		});
+   		$('.kbShopAdmin_checkbox input').on('click',function(){
+   			var $this = $(this);
+   			var ID = $this.parent().parent().siblings().eq(0).text();
+   			var statusTxt=$this.siblings('label').text().replace(/(^\s+)|(\s+$)/g, "");
+   			var statusFlag = (statusTxt=="禁用")? "change":"show";
+   			var status = (statusTxt=="启用")? "0":"1";
+   			$.get("{{:U('ajaxControl')}}",{'flag':statusFlag,'id':ID,'status':status},function (res){
+   			 	alert(res);
+   			});
+   		});
+   		$('.kbShopAdmin_tdAction .kbShopAdmineDel').on('click',function(){
+   			var $this = $(this);
+   			var ID = $this.parent().siblings().eq(0).text(); 
+   			$.get("{{:U('ajaxControl')}}",{'flag':"del",'id':ID,},function (res){
+   				$this.parent().parent().remove();
+   			 	alert(res);
+   			});
+   		});	
+     })
+	</script>
+</block>

@@ -1,0 +1,134 @@
+<php>
+$moduleList = showModuleList();
+$navList = showNavList();
+$ip = get_client_ip();
+//echo('<pre>');
+//var_dump($navList);exit;
+</php>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<title>管理后台</title>
+	<include file="Web/project/phead" />
+	<block name="css_files" >
+		
+	</block>
+</head>
+<body>
+	<div id="kbVipAdmin_header" class="bg_main color_last kbVipAdmin_header">
+		<h2>
+			<span class="kbVipAdmin_logo mr10  imgH100">
+				
+			</span>
+			{{$userInfo['market_name']}}后台管理系统
+		</h2>
+		<nav class="kbVipAdmin_header_nav ft">
+		<foreach name="moduleList" item="v">
+			<a class="{{$_GET['module']==$v['id']?'selected':''}}" href="{{:U('', ['module' => $v['id']])}}">{{$v.module_name}}</a>
+		</foreach>
+		</nav>
+		<div class="header_Fun tr   h25 lh200 fr">
+			<div class="kbVipAdmin_systemInfo">
+				<a href="javascript:;"><img src="__PUBLIC__/Business/BusinessImages/nav_icon_mail_default.svg" alt="系统消息" />
+				<if condition="array_sum($orderConut) gt 0" > 
+					<strong class="redInfoCount">{{:array_sum($orderConut)}}</strong>
+				</if>
+				</a>
+				<dl>
+					<dt>系统消息</dt>
+					<if condition="$orderConut[0] gt 0">
+						<dd>
+							<a href="{{:U('OrderForm/projectOrderList',['status' => 2,'module' => 5])}}">	
+								您有{{$orderConut[0]}}张新订单待处理,请前往处理
+							</a>
+						</dd>
+					</if>
+					<if condition="$orderConut[1] gt 0">
+						<dd>
+							<a href="{{:U('SubscribeOrderForm/orderList',['status' => 1,'module' => 5])}}">	
+								您有{{$orderConut[1]}}张新预约订单待处理,请前往处理
+							</a>
+						</dd>
+					</if>
+					<if condition="$orderConut[2] gt 0">
+						<dd>
+							<a href="{{:U('WechatRefund/orderListByProject',['status' => 1,'module' => 5])}}">	
+								您有{{$orderConut[2]}}张自营退款待处理,请前往处理
+							</a>
+						</dd>
+					</if>
+					<if condition="$orderConut[3] gt 0">
+						<dd>
+							<a href="{{:U('WechatRefund/companyOrderListByProject',['status' => 1,'module' => 5])}}">	
+								您有{{$orderConut[3]}}张商盟退款待处理,请前往处理
+							</a>
+						</dd>
+					</if>
+				</dl>
+			</div>
+
+
+			<div class="kbVipAdmin_shopInfo ml30">
+				<a href="javascript:;" ><img src="/Public/Business/BusinessImages/nav_icon_person_default.svg" alt="商户资料" /><span>{{$_SESSION['marketInfo']['user_name']}}</span></a>
+					<dl>
+						<dt>{{$_SESSION['marketInfo']['user_name']}}{{$_SESSION['adminInfo']['user_name']}}</dt>
+						<!-- <dd><a href="javascript:;">商户资料</a></dd> -->
+						<dd><a href="{{:U('Login/logout')}}">退出</a></dd>
+					</dl>
+				
+			</div>
+		</div>
+
+		
+	</div>
+	<nav id="kbVipAdmin_leftNav" class="bg_main color_last">
+		<ul >
+			<foreach name="navList" item="v">
+			<li>
+				<if condition="$v['rules']" >
+				<a href="javascript:;" class="special">{{$v.parent_name.alias}}</a>
+				<!-- 子菜单 -->
+					<ul>
+					<foreach name="v.rules" item="vo" >
+						<li>
+							<a active="{{:U($vo['name'])}}" href="{{:U($vo['name'],[module=>$_GET['module']])}}">{{$vo.alias}}</a>
+						</li>
+					</foreach>
+					</ul>
+				<else />
+					<a active="{{:U($v['parent_name']['name'])}}" href="{{:U($v['parent_name']['name'],[module=>$_GET['module']])}}">{{$v.parent_name.alias}}</a>
+				</if>
+			</li>	
+			</foreach>	
+		</ul>
+	</nav>
+	<block name="content">
+
+	</block>
+	<include file="Web/project/pfooter" />
+	
+	<script type="text/javascript">
+		$(function(){
+			$('.kbVipAdmin_shopInfo>a,.kbVipAdmin_systemInfo>a').on('click',function(){
+				var $this=$(this);
+				$this.next().slideToggle();
+			})
+
+		});
+		var nav_a = $('.left_nav a');
+		for(var i = 0;i < nav_a.length;i ++)
+		{
+
+			if($('.left_nav a:eq('+i+')').attr('active') == '__ACTION__'+'.html')
+			{
+				nav_a[i].parentNode.className = 'selected';
+				nav_a[i].parentNode.parentNode.className = 'selectedPar';
+			}
+		}
+	</script>
+	<block name="js_files">
+	</block>
+</body>
+</html>

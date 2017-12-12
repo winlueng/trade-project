@@ -1,0 +1,27 @@
+<extend name="Common/secondCom" />
+<block name="css_file" >
+	<style>
+		.kbMt_goodsListImg img {  
+		 max-width: 360px; /*图片自适应宽度*/  
+		}
+	</style>
+</block>
+<block name="bsTitle" >
+    招聘详情
+</block>
+<block name="content" >
+	<div id="kbMt_center" class="">
+		<div class="kbMt_goodsListImg bc mt15 pb10">
+			
+			<h1 class="kbMt_font17 fb tc mb10">{{$jobInfo['job_name']}}</h1>
+			<p class="mt10 mb10 tc">时间：{{$jobInfo['addtime']}}</p>
+			<p class="fb kbMt_font16 mb10">岗位简介：</p>
+			<!-- 文档编辑器插入的代码star -->
+			{{$jobInfo['job_info']}}
+			<!-- 文档编辑器插入的代码end -->
+		</div>
+	</div>
+</block>
+<block name="footer">
+	
+</block>

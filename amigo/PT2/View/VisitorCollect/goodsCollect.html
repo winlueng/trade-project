@@ -1,0 +1,151 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+<style>
+    .mark-writer{
+      line-height:40px;
+    }
+   
+    .tg_colllected + .kb_footer,
+    .tg_colllected .kb_list-cell .kb_choose{
+      display:none;
+    }
+    .dl_status-writer .kb_list-cell .kb_choose,
+    .dl_status-writer + .kb_footer{
+      display:block;
+    }
+</style>
+<php>
+  //echo("<pre>");
+  //var_dump($list);exit;
+</php>
+</block>
+<block name="title">
+ 收藏列表
+</block>
+<block name="rightNav">
+ <label class="kb_choose">
+  <input type="checkbox" value="完成" class=" w mark-writer" />
+  <span class="kb_btn">
+    编辑
+  </span>
+ </label>
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc   tg_colllected ">
+    <ul class="kb_list mb10">
+    <foreach name="list"  item="v">
+      <li class="kb_list-cells">
+         <a href="{{$v['link']}}" class="kb_list-cell">  
+            <div class="kb_list-cell-ft flexLayout-center mr10">
+              <label class="kb_choose">
+                <input type="checkbox" value="{{$v['id']}}" name="slta1"  />
+                <span class="kb_choose-check kb_choose-check_radio">
+                  <b class="kb_choose-check-default kb_choose-check_main"></b>
+                </span>
+              </label>
+            </div>
+            <div class="kb_list-cell-hd">
+                <img src="__PUBLIC__{{$v['goods_logo']}}" alt="" />
+            </div>
+            <aside class="kb_list-cell-bd">
+                <h2 class="kb_list-cell-title mb10">{{$v['goods_name']}}  </h2>
+                <div class="kb_list-cell-brief">
+                    
+                    <p class=" dl_bugShoping">
+                       <em class="tg_ft-price">￥{{$v['price']}}元</em>
+                    </p>
+                    <p class=" mb10">
+                        销量：{{$v['salesTotal']}}
+                    </p>
+                </div>
+            </aside>
+         </a>
+      </li>
+    </foreach>
+    </ul>
+  </section>
+</block>
+<block name="footer">
+  <footer id="Footer" class="kb_footer">
+    <div class="tg_cell  h">
+        <div class="tg_cell-hd flexLayout-center h">
+          <label class="kb_choose ml10 mark-parentAll">
+            <input type="checkbox" name="seta1" value="" class="mark-checkAll-collect"  />
+            <span class="kb_choose-check kb_choose-check_radio">
+              <b class="kb_choose-check-default kb_choose-check_main"></b>
+            </span>
+          </label>
+          <b class="dl_addrOpera-txt "> 全选</b>
+        </div>
+        <p class="tg_cell-bd h flexLayout-center">
+         
+        </p>
+        <p class="tg_cell-ft h ">
+         
+          <button type="button"  class="kb_btn tg_btn-main  w100 tg_cell-bd h mark-isCollect" >删除</button>
+        </p>
+    </div>
+  </footer>
+</block>
+<block name="js_files">
+<script>
+  $(function(){
+   $('.mark-writer').on('click',function(){
+     var $this,status,nowTxt;
+     $this=$(this);
+     status=$this.prop('checked');
+     status?$('.kb_main').addClass('dl_status-writer'):$('.kb_main').removeClass('dl_status-writer');
+     nowTxt=status?'完成':'编辑';
+     $this.next().text(nowTxt);
+
+     $('.dl_status-writer .kb_list-cell .kb_choose input').on('click',function(){
+       var ischildCheck,allCheck,childCheck;
+       
+       childCheck=$('.dl_status-writer .kb_list-cell .kb_choose input');
+       ischildCheck=$('.dl_status-writer .kb_list-cell .kb_choose input:checked');
+       allCheck=$('.kb_footer .mark-checkAll-collect');
+       status=childCheck.length===ischildCheck.length? true:false;
+       console.log(status);
+       allCheck.prop('checked',status);
+     })//是否全选
+   });
+   $('.mark-isCollect').on('click',function(){
+     var checked,goodsId;
+     checked=$('.dl_status-writer .kb_list-cell .kb_choose input:checked');
+     Object.keys(checked).map(function(elem,index){
+     	if(checked.eq(elem).length){
+     		goodsId=checked.eq(elem).val();
+     		$.ajax({
+     			type:"GET",
+     			url:"{{:U('Goods/ajaxControl')}}",
+     			data:{
+     				flag: 'collectGoods',
+     				goods_id: goodsId,
+     				status:2,
+     			},
+     			dataType:"json",
+     			success:function(data){
+     				// checked.parents('.kb_list-cells').remove();
+     				console.log(data);
+     			},
+     			error:function(error){
+
+     			}
+     		})
+     	}
+     })
+
+     checked.parents('.kb_list-cells').remove();
+     oTip('操作成功');
+   });//是否移除收藏
+   $('.mark-checkAll-collect').on('click',function(){
+     var $this,status,childCheck;
+     $this=$(this);
+     status=$this.prop('checked');
+     childCheck=$('.dl_status-writer .kb_list-cell .kb_choose input');
+     childCheck.prop('checked',status);
+   })//全选操作
+
+  })
+</script>
+</block>

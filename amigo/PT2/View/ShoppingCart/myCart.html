@@ -1,0 +1,391 @@
+<extend name="Common/seconCom" />
+<block name="css_files">
+  <style>
+      .dl_addrWrite{
+        line-height:40px;
+        text-align:center;
+      }
+      .dl_addrWrite:active{
+        opacity:.5;
+      }
+     
+     
+      .dl_addre-wirteStatus .dl_addrOpera
+      {
+        display:block;
+      }
+      .mark-mycartRemove{
+        display:none;
+      }
+      .dl_addre-wirteStatus + #Footer .mark-mycartRemove{
+        display:block;
+      }
+      .dl_addre-wirteStatus + #Footer .mark-mycartSub{
+        display:none;
+      }
+      .dl_addre-wirteStatus + #Footer .tg_cell-bd.flexLayout-center{
+        opacity:0;
+      }
+      .mark-lower,.mark-add{
+         display:none;
+      }
+      .dl_chang-total::before{
+        display:none;
+      }
+      .dl_addre-wirteStatus .mark-lower,
+      .dl_addre-wirteStatus .mark-add{
+        display:block;
+      }
+      .dl_goodlist img{
+        height:75px;
+      }
+  </style>
+  <php>
+    //echo '<pre>';
+    //var_dump($info[project]);exit;
+
+  </php>
+</block>
+
+
+<block name="title">
+购物车
+</block>
+<block name="rightNav">
+  <label class="kb_choose w h dl_addrWrite tc">
+    <input type="button" value=""  />
+    <b class="f14">编辑</b>
+  </label>
+</block>
+<block name="content">
+  <section id="Main" class="kb_main bc tg_myself ">
+  <form id="myCartForm" action="{{:U('OrderForm/unpaid')}}?way=2&com=c&c_com={{:I('get.c_com')}}&gid={{:I('get.gid')}}" method="post">
+  <volist name="info.project" id="v">
+    <ul class="kb_list">
+      <a class="kb_list-title kb_list-cell kb_list-cell_small kb_cell-href" href="http://{{$_SERVER['HTTP_HOST']}}">
+        <div class="kb_list-cell-ft flexLayout-center mr10">
+          <label class="kb_choose mark-loactionAll">
+            <input type="checkbox" value="" name="slta1"  />
+            <span class="kb_choose-check kb_choose-check_radio w20">
+              <b class="kb_choose-check-default kb_choose-check_main"></b>
+            </span>
+          </label>
+        </div>
+        <div class="kb_list-cell-hd ml10">
+          <if condition="$v['company_id']" > 
+            <img src="__PUBLIC__/trading/images/tr-shop.png" alt="" />
+          <else />
+            <img src="__PUBLIC__/trading/images/tr-Self-employed.png"  alt="" />
+          </if>
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class="kb_list-cell-title">{{$pInfo['market_name']}}</h2>
+        </aside>
+        <p class="kb_cell-ft">
+        </p>
+      </a>
+      <li class="kb_list-cells">
+      <volist name="v" id="vo" >
+        <article  class="kb_list-cell dl_goodlist" >  
+            <div class="kb_list-cell-ft flexLayout-center mr10">
+              <label class="kb_choose">
+                <input type="checkbox" value="{{$vo.id}}" name="cart_id[{{$vo.id}}]" data-price="{{$vo.true_price}}" data-total="{{$vo['total']}}" data-cartid="{{$vo.id}}" />
+                <span class="kb_choose-check kb_choose-check_radio w20">
+                  <b class="kb_choose-check-default kb_choose-check_main"></b>
+                </span>
+              </label>
+            </div>
+				    <input type="hidden" value="{{$vo['attr']['attr_price']}}" name="price[{{$vo.id}}]" />
+            <div class="kb_list-cell-hd">
+              <a href="{{$vo['link']}}" class="flexLayout-center h80">
+                <img src="__PUBLIC__{{$vo['attr']['attr_pic']}}" alt="" class="" />
+              </a>
+            </div>
+            <aside class="kb_list-cell-bd">
+                <h2 class="kb_list-cell-title mb10 f14">{{$vo['goodsInfo']['goods_name']}}</h2>
+                <div class="kb_list-cell-brief">
+                    <p class="f13">
+                        {{$vo['attr']['attr_name']}}: &nbsp; {{$vo['attr']['attr_val']}}
+                    </p>
+                    <div class=" dl_bugShoping">
+                       <em class="tg_ft-price">￥{{$vo['true_price']}}元</em>
+                       <p class="kb_cell dl_chang-total" data-cartid="{{$vo.id}}" >
+                         <button type="button" class="kb_btn  mark-add tg_btn-default w30  ">+</button>
+                         <span class="w30 tc ">x<em class="mark-goodTotal">{{$vo['total']}}</em></span>
+                         <button type="button" class="kb_btn mark-lower  tg_btn-default w30  ">-</button>
+                       </p>
+                    </div>
+                </div>
+            </aside>
+         </article>
+        </volist>
+      </li>
+    </ul>
+  </volist>
+  <volist name="info.company" id="v">
+    <ul class="kb_list dl_goodlist">
+      <a class="kb_list-title kb_list-cell kb_list-cell_small kb_cell-href" href="{{$v['link']}}">
+        <div class="kb_list-cell-ft flexLayout-center mr10">
+          <label class="kb_choose mark-loactionAll">
+            <input type="checkbox" value="" name="slta1" />
+            <span class="kb_choose-check kb_choose-check_radio">
+              <b class="kb_choose-check-default kb_choose-check_main"></b>
+            </span>
+          </label>
+        </div>
+        <div class="kb_list-cell-hd ml10">
+         <if condition="$v['company_id']" > 
+            <img src="__PUBLIC__/trading/images/tr-shop.png" alt="" />
+          <else />
+            <img src="__PUBLIC__/trading/images/tr-Self-employed.png" alt="" />
+          </if>
+        </div>
+          <aside class="kb_list-cell-bd">
+            <h2 class="kb_list-cell-title">{{$v['name']}}</h2>
+        </aside>
+        <p class="kb_cell-ft">
+        </p>
+      </a>
+      <li class="kb_list-cells">
+      <foreach name="v" item="vo"  key="ki" >
+      <if condition="is_int($ki)" >
+        <article  class="kb_list-cell dl_goodslist" >  
+            <div class="kb_list-cell-ft flexLayout-center mr10">
+              <label class="kb_choose">
+                <input type="checkbox" value="{{$vo.id}}" name="cart_id[{{$vo.id}}]" data-price="{{$vo.true_price}}" data-total="{{$vo['total']}}" data-cartid="{{$vo.id}}"  />
+                <span class="kb_choose-check kb_choose-check_radio">
+                  <b class="kb_choose-check-default kb_choose-check_main"></b>
+                </span>
+              </label>
+            </div>
+				    <input type="hidden" value="{{$vo['attr']['attr_price']}}" name="price[{{$vo.id}}]" />
+            <div class="kb_list-cell-hd">
+              <a  href="{{$vo['link']}}" class="flexLayout-center">
+                <img src="__PUBLIC__{{$vo['attr']['attr_pic']}}" alt="" />
+              </a>
+            </div>
+            <aside class="kb_list-cell-bd">
+                <h2 class="kb_list-cell-title mb10">{{$vo['goodsInfo']['goods_name']}}</h2>
+                <div class="kb_list-cell-brief">
+                    <p class=" mb10">
+                        {{$vo['attr']['attr_name']}}: &nbsp; {{$vo['attr']['attr_val']}}
+                    </p>
+                    <p class=" dl_bugShoping">
+                       <em class="tg_ft-price">￥{{$vo['true_price']}}元</em>
+                       <span>x<em class="mark-goodTotal">{{$vo['total']}}</em></span>
+                    </p>
+                </div>
+            </aside>
+         </article>
+        </if>
+        </foreach>
+      </li>
+    </ul>
+  </volist>
+  </form>
+  </section>
+</block>
+<block name="footer">
+  <footer id="Footer" class="kb_footer ">
+    <div class="tg_cell  h">
+        <div class="tg_cell-hd flexLayout-center h">
+          <label class="kb_choose ml10 mark-parentAll">
+            <input type="checkbox" name="seta1" value=""  />
+            <span class="kb_choose-check kb_choose-check_radio">
+              <b class="kb_choose-check-default kb_choose-check_main"></b>
+            </span>
+          </label>
+          <b class="dl_addrOpera-txt f18"> 全选</b>
+        </div>
+        <p class="tg_cell-bd h flexLayout-center">
+          合计：￥<em class="tg_ft-price">0</em>
+        </p>
+        <p class="tg_cell-ft h ">
+          <button type="button"  class="kb_btn tg_btn-main  w100 tg_cell-bd h mark-mycartRemove f18" >删除</button>
+          <button type="button"  class="kb_btn tg_btn-main  w100 tg_cell-bd h mark-mycartSub f18" >结算</button>
+        </p>
+    </div>
+  </footer>
+</block>
+<block name="js_files">
+<script>
+  $(function(){
+
+  
+    $('.dl_addrWrite input').on('click',function(){
+      var status;
+        $('#Main').toggleClass('dl_addre-wirteStatus');
+        status=$('#Main').hasClass('dl_addre-wirteStatus');
+        if(status){
+          $(this).next().text("完成");
+        }else{
+          $(this).next().text("编辑");
+        }
+        $('.kb_main  .kb_choose input').prop('checked',false);
+        $('.kb_footer   .kb_choose input').prop('checked',false);
+        $('.kb_footer  .tg_ft-price').text(0);
+        $('.kb_footer  .mark-mycartSub').text("结算");
+
+    })
+    $('.mark-lower,.mark-add').on('click',function(){
+        var $this=$(this),status,total,totalnub,cartid,prams=new Object();
+        status=$this.hasClass('mark-add');
+        total=$this.siblings().find('.mark-goodTotal');
+        cartid=$this.parents('.dl_chang-total').attr('data-cartid').trim();
+        prams={
+          flag:'setTotal',
+          id:cartid
+        }
+        if(status){
+          totalnub=parseInt(total.text());
+          total.text(++totalnub);
+          prams.status="plus";
+        }else{
+          totalnub=parseInt(total.text());
+          if(totalnub==1){
+              total.text(1);
+          }else{
+            total.text(--totalnub);
+          }
+          prams.status="minus";
+        }
+        $.ajax({
+          type:"GET",
+          url:"{{:U('ShoppingCart/ajaxControl')}}",
+          data:prams,
+          dataType:'json',
+          success:function(data){
+            console.log(data);
+            // if(data){
+            //   oTip('操作成功');
+            // }
+          },
+          error:function(error){
+            console.log(error);
+          }
+        })
+    })
+
+    $('.mark-mycartSub').on('click',function(){
+        if($('#myCartForm .kb_list .kb_list-cells .kb_choose input:checked').length==0){
+          oTip('请先进行商品选择');
+          return false;
+        }
+        $('#myCartForm').submit();
+    });
+
+    $('.mark-loactionAll input').on('click change ',function(){
+      var $this=$(this),
+          status=$this.prop('checked'),
+          childInput=$this.parents('.kb_list-title').siblings('.kb_list-cells').find('.kb_list-cells .kb_choose input');  
+          childInput.prop('checked',status);
+         
+         
+    });
+    $('.mark-parentAll input').on('click change ',function(){
+      var $this=$(this),locationChecked,locationinput,totalPrice,totalNum,
+          status=$this.prop('checked'),
+          childInput=$('.kb_choose input');
+          
+          childInput.prop('checked',status);
+
+         locationChecked=$('#myCartForm').find('.kb_list-cells .kb_choose input:checked');
+         locationinput=$('#myCartForm').find('.kb_list-cells .kb_choose input');
+        
+         totalPrice=0;
+         totalNum=0;
+
+         Object.keys(locationChecked).map(function(elem,indexs){
+            if(locationChecked.eq(elem).length){
+              var price=Number(locationChecked.eq(elem).attr('data-price'));
+              var number=Number(locationChecked.eq(elem).parents('.kb_list-cell').find('.mark-goodTotal').text().trim());
+              totalPrice+=price*number;
+              totalNum+=number;
+            }
+         })
+         $('.kb_footer .tg_cell .tg_cell-bd .tg_ft-price').text(totalPrice);
+         $('.kb_footer .tg_cell .tg_cell-ft .mark-mycartSub').text('结算('+totalNum+')');
+    });
+    //是否全选
+    $('.kb_main .kb_list .kb_choose input').on('click change',function(){
+     var $this,locationChecked,locationinput,inputlength,checklength,totalPrice,totalNum;
+         $this=$(this);
+        //是否店铺全选
+         locationChecked=$('#myCartForm').find('.kb_list-cells .kb_choose input:checked');
+         locationinput=$('#myCartForm').find('.kb_list-cells .kb_choose input');
+        
+         totalPrice=0;
+         totalNum=0;
+
+         Object.keys(locationChecked).map(function(elem,indexs){
+            if(locationChecked.eq(elem).length){
+              var price=Number(locationChecked.eq(elem).attr('data-price'));
+              var number=Number(locationChecked.eq(elem).parents('.kb_list-cell').find('.mark-goodTotal').text().trim());
+              totalPrice+=price*number;
+              totalNum+=number;
+            }
+         })
+         $('.kb_footer .tg_cell .tg_cell-bd .tg_ft-price').text(totalPrice);
+         $('.kb_footer .tg_cell .tg_cell-ft .mark-mycartSub').text('结算('+totalNum+')');
+
+         if(locationChecked.length===locationinput.length){
+            $this.parents('.kb_list-cells').siblings('.kb_list-title').find('.mark-loactionAll input').prop('checked',true);
+          }else{
+             $this.parents('.kb_list-cells').siblings('.kb_list-title').find('.mark-loactionAll input').prop('checked',false);
+          }
+         
+          //是否购物车全选
+          inputlength=$('.kb_main .kb_list .kb_choose input').length;
+          checklength=$('.kb_main .kb_list .kb_choose input:checked').length;
+        
+
+          if(inputlength===checklength){
+            $('.mark-parentAll input').prop('checked',true);
+          }else{
+            $('.mark-parentAll input').prop('checked',false);
+          }
+
+    });
+    $('.mark-mycartRemove').on('click',function(){
+        var ischekced=$('.kb_main .kb_list .kb_list-cells .kb_choose input:checked'),
+        isRemove=new Array(),params=new Object,
+        Url="{{:U('ShoppingCart/ajaxControl')}}";
+        Object.keys(ischekced).map(function(elem,indexs){
+          if(ischekced.eq(elem).length>0){
+            isRemove.push(ischekced.eq(elem).attr('data-cartid').trim());
+            return false;
+          }
+        })
+        if(isRemove.length<=0){
+          oTip('请先进行商品选择');
+          return false;
+        }
+        params={
+          flag:'del',
+          id:isRemove
+        }
+        $.ajax({
+          type:"GET",
+          url:Url,
+          data:params,
+          dataType:'json',
+          success:function(data){
+            console.log(data);
+            if(data){
+              oTip("操作成功");
+              ischekced.parents('.kb_list-cell').remove();
+            }else{
+              oTip("操作失败");
+            }
+          },
+          error:function(error){
+            console.log(error);
+          }
+        })
+        console.log(isRemove);
+    })
+  })
+</script>
+
+
+</block>

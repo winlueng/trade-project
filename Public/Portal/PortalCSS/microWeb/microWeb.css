@@ -1,0 +1,52 @@
+.microWeb-search{
+	width:690px;
+	height:40px;
+}
+.kbVipAdmin_slt{
+	width:25%;
+	height:30px;
+	border:1px solid #ccc;
+	background-color:transparent;
+	border-radius:4px;
+}
+.roleList{
+	position:absolute;
+}
+.kbVipAdmin_alert_box{
+	height:80%;
+}
+.microWebAlertSmt{
+    display: block;
+}
+.microWebAnnalYes{
+	margin-right:10px;
+	color:green;
+}
+.microWebAnnalNo{
+	color:red;
+}
+
+.microWebAnnalAmendList{
+	width:70%;
+	margin:0 auto;
+	height: 85%;
+    overflow-x: hidden;
+}
+.microWebAnnalAmendList:after{
+	content:'';
+	display:block;
+	height:100px;
+	margin-bottom:100px;
+}
+.microWebAnnalAmendText{
+	margin-bottom:10px;
+}
+.kbVipAdmin_alert  .microWebAnnal{
+	right: 0;
+    margin: 0 auto;
+    width: 46%;
+}
+.kbVipAdmin_alert  .microWebAnnal input{
+	display:inline-block;
+	
+}

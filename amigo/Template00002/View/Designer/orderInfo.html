@@ -1,0 +1,150 @@
+<extend name="Common/secondCom" />
+<block name="leftNav">
+	<if condition="$_GET['back']">
+		<a class="icon-back" href="{{:U('orderList',['companyName' => $_GET['companyName']])}}">
+		</a>
+	<else />
+		<a class="icon-back" href="{{$_SERVER['HTTP_REFERER']}}">
+		</a>
+	</if>
+</block>
+<block name="bsTitle">
+	服务详情
+</block>
+<block name="content">
+	<section id="bsMain" class="bsDrservicedetaile bsBuyShop">
+		<div class="bsPageCard icon-Order">
+			<a href="javascript:;">
+			<switch name="info.status" >
+			<case value="1">
+				<p>
+					<b>未完成</b>
+				</p>
+				<p class="c999">距离服务还有{{$info['distance_time']}}，记得腾出时间哦</p>
+			</case>
+			<case value="2">
+				<p>
+					<b>已完成</b>
+				</p>
+				<p class="c999">提醒一下客户支付哦</p>
+			</case>
+			<case value="3">
+				<p>
+					<b>已付款</b>
+				</p>
+				<p class="c999">提醒一下客户评价哦</p>
+			</case>
+			<case value="4">
+				<p>
+					<b>完成订单</b>
+				</p>
+				<p class="c999">服务完成了,再接再厉!</p>
+			</case>
+			</switch>
+			</a>
+		</div>
+		<p class="bsSeparate"></p>
+		
+		<!-- <article class="receiptShopAddr">
+			<a href="receiptShopAddrList.html">
+			<p>
+				<b>预约人</b>
+			</p>
+			<p>张大鱼<b>女</b></p>
+			</a>
+		</article> -->
+		<!-- <p class="bsSeparate"></p> -->
+		<ul class=" bsReservationList  bc mb10 mt10">
+			<li>
+				
+				<p class="reservationListImg">
+					<!-- <a href="goodsDetail.html">  -->
+					<img src="{{$info['visitorLogo']}}" alt="" />
+					<!-- </a> -->
+				</p>
+				<article class="reservationListInfo">
+					<h3 class="mb10">{{$info['people']}}</h3>
+					<article>
+						<p class="c666 mb10">{{$info['sex'] == 1?'男':'女'}}</p>
+						<p class="c666 mb10">预约时间:{{:date('Y-m-d H:i', $info['come_time'])}}</p>
+						<p class="c666 mb10">备注：{{$info['remark']}}</p>
+					</article>
+				</article>
+			</li>
+			
+		</ul>
+		<p class="bsSeparate"></p>
+		<article>
+			<em >订单编号:</em>
+			<em>{{$info.subscribe_number}}</em>
+		</article>
+		<article>
+			<em >下单时间:</em>
+			<em >{{:date('Y-m-d H:i', $info['create_time'])}}</em>
+		</article>
+		<if condition="$info['status'] eq 4" >
+			<p>
+				<b>订单评论</b>
+			</p>
+			<if condition="$info['comment']"> 
+				<p class="bsSeparate"></p>
+				<article class="bc tl mb20">
+					<aside class="bsScore ml10">
+						<label>评价分数</label>
+						<p class="choose">
+							<input type="checkbox" name="goods_score" value="1" {{$info['comment']['score'] == "1"?'checked="checked"':""}} disabled />
+							<label class="icon-score" ></label>
+						</p>
+						<p class="choose">
+							<input type="checkbox" name="goods_score" value="2" {{$info['comment']['score'] == "2"?'checked="checked"':""}} disabled />
+							<label class="icon-score" ></label>
+						</p>
+						<p class="choose">
+							<input type="checkbox" name="goods_score" value="3" {{$info['comment']['score'] == "3"?'checked="checked"':""}} disabled />
+							<label class="icon-score" ></label>
+						</p>
+						<p class="choose">
+							<input type="checkbox" name="goods_score" value="4" {{$info['comment']['score'] == "4"?'checked="checked"':""}} disabled />
+							<label class="icon-score" ></label>
+						</p>
+						<p class="choose">
+							<input type="checkbox" name="goods_score" value="5" {{$info['comment']['score'] == "5"?'checked="checked"':""}} disabled />
+							<label class="icon-score" ></label>
+						</p>
+					</aside>
+				</article>
+				<article>
+					<em >评论内容:</em>
+					<em>{{$info.comment.content}}</em>
+				</article><br>
+				<article>
+					<em >评论时间:</em>
+					<em >{{:date('Y-m-d H:i', $info['comment']['create_time'])}}</em>
+				</article>
+			<else />
+				<article>
+					<em >暂无评论</em>
+				</article>
+
+			</if>
+		</if>
+	</section>
+</block>
+<block name="footer" >
+	<footer id="bsFooter" class="defaultFooter bsFooter ">
+		
+		<p class="tr">
+			<a class="defineBtn btnColor00bec5 bc " href="{{:U('showVisitorImage', ['companyName' => $_GET['companyName'], 'id' => $_GET['id']])}}" >查看客户资料 </a>
+		</p>
+	</footer>
+	<script src="__PUBLIC__/js/swiper/swiper.jquery.min.js"></script>
+	<script src="__PUBLIC__/js/beautySalong.js"></script>
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			});
+			$('.choose input[checked="checked"]').parent().prevAll().children('input').attr('checked',true);
+		})
+	</script>
+</block>

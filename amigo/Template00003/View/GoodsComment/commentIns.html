@@ -1,0 +1,139 @@
+<extend name="Common/websiteCom" />
+<block name="header" >
+	<header id="bsHeader" class="bsHeader">
+		<nav>
+			<a class="icon-back" href="{{$_SERVER['HTTP_REFERER']}}" >
+			</a>
+		</nav>
+		<h1>评价</h1>
+		<nav>
+		</nav>
+	</header>
+</block>
+<block name="content" >
+	<section id="bsMain" class="bsPushReview noFooter">
+		<form action="" method="post" enctype="multipart/form-data"> 
+		<input type="hidden" name="company_id" value="{{$info.company_id}}">
+		<input type="hidden" name="order_id" value="{{$info.id}}">
+		<volist name="info.goods_data" id="v">
+			<article class="bc pt10">
+				<p class="bsGondsImg">
+					<img src="__PUBLIC__{{$v.attrInfo.attr_pic}}" alt="" />
+				</p>
+				<input type="hidden" name="goods_id[]" value="{{$v.goods_id}}">
+				<aside class="bsScore ml10">
+					<label>评分</label>
+					<p class="choose">
+						<input type="checkbox" name="score[{{$v.goods_id}}]" value="1" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="score[{{$v.goods_id}}]" value="2" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="score[{{$v.goods_id}}]" value="3" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="score[{{$v.goods_id}}]" value="4" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="score[{{$v.goods_id}}]" value="5" />
+						<label class="icon-score" ></label>
+					</p>
+					
+				</aside>
+			</article>
+			<article class="contentPush bc pt10 mb10">
+				<textarea placeholder="请留下您的宝贵评价" name="content[{{$v.goods_id}}]"></textarea>
+			</article>
+			<article class="bc mb20">
+
+				<div class="fileImg mb10 ">
+					<div class="fileImgMore">
+						<!-- <strong>请添加图片作为证据</strong> -->
+						<input id="imgCover{{$v.goods_id}}" name="image{{$v.goods_id}}[]" type="file" value="" multiple="multiple"/>
+						<label class="" for="imgCover{{$v.goods_id}}"><span style="font-size:27px">+</span><br><span class="colorAid">添加图片</span></label>
+					</div>
+				</div>
+			</article>
+			<p class="bsSeparate"></p>
+			</volist>
+	
+			<!-- 订单评价 -->
+			<article class="bc tl mb20">
+				<aside class="bsScore ml10">
+					<label>描述相符</label>
+					<p class="choose">
+						<input type="checkbox" name="goods_score" value="1" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="goods_score" value="2" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="goods_score" value="3" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="goods_score" value="4" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="goods_score" value="5" />
+						<label class="icon-score" ></label>
+					</p>
+				</aside>
+				<aside class="bsScore ml10">
+					<label>物流速度</label>
+					<p class="choose">
+						<input type="checkbox" name="express_score" value="1" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="express_score" value="2" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="express_score" value="3" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="express_score" value="4" />
+						<label class="icon-score" ></label>
+					</p>
+					<p class="choose">
+						<input type="checkbox" name="express_score" value="5" />
+						<label class="icon-score" ></label>
+					</p>
+					
+				</aside>
+				<input class="defineBtn btnColor00bec5" type="submit" value="确定" />
+			</article>
+		</form>
+	</section>
+</block>
+<block name="footer" >
+	
+	<script>
+		$(function(){
+			$('.addShopCarBtn').on('click',function(){
+				$('.Popout').slideDown();
+			})
+			$('.fileImg input[type="file"]').on('change',function(){
+				console.log("aaa");
+				readFile(this,this.files);
+			})
+			$('.bsScore .choose input').on('change',function(){
+				var $this=$(this);
+					bsScore=$('.bsScore .choose input');
+					indexs=bsScore.index($this);
+					$this.parent().prevAll('.choose').children('input').attr("checked",true)
+					$this.parent().nextAll('.choose').children('input').attr("checked",false)
+			})
+		})
+	</script>
+</block>
